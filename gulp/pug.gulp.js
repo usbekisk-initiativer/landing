@@ -24,14 +24,25 @@ const findFile = (dir, filename) => {
   }
 };
 
+// Helper function to resolve include paths
+const resolveIncludePath = (filename, sourceFile) => {
+  const sourceDir = path.dirname(sourceFile);
+  const resolvedPath = findFile(sourceDir, filename);
+  if (resolvedPath) {
+    return resolvedPath;
+  }
+  
+  // Try relative to pug base directory
+  const basePath = path.join(paths.pug.base, filename);
+  const resolvedBasePath = findFile(path.dirname(basePath), path.basename(basePath));
+  return resolvedBasePath || filename;
+};
+
 const options = {
   pretty: !isProd,
   basedir: paths.pug.base,
-  filename: (filename) => {
-    const dir = path.dirname(filename);
-    const basename = path.basename(filename);
-    const resolvedPath = findFile(dir, basename);
-    return resolvedPath || filename;
+  filename: (filename, sourceFile) => {
+    return resolveIncludePath(filename, sourceFile);
   }
 };
 
