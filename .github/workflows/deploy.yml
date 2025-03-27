@@ -28,6 +28,21 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Fix case sensitivity issues
+        run: |
+          # Create a temporary directory
+          mkdir -p temp_pug
+          # Copy all pug files to temp directory with lowercase names
+          find src/pug -type f -name "*.pug" -exec sh -c '
+            for file in "$@"; do
+              newname=$(echo "$file" | tr "[:upper:]" "[:lower:]")
+              cp "$file" "temp_pug/${newname#src/pug/}"
+            done
+          ' sh {} +
+          # Replace the original pug directory with the fixed one
+          rm -rf src/pug
+          mv temp_pug src/pug
+
       - name: Build
         run: npm run build
 
