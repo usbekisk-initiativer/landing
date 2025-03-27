@@ -13,21 +13,25 @@ const { v4: uuid } = require('uuid');
 const { name, version, paths, baseDir, isProd } = require('./utils.js');
 const cursor = ansi(process.stdout);
 
+// Helper function to find file with case-insensitive matching
+const findFile = (dir, filename) => {
+  try {
+    const files = fs.readdirSync(dir);
+    const match = files.find(file => file.toLowerCase() === filename.toLowerCase());
+    return match ? path.join(dir, match) : null;
+  } catch (error) {
+    return null;
+  }
+};
+
 const options = {
   pretty: !isProd,
   basedir: paths.pug.base,
-  resolveFilename: (filename, sourceFile, options) => {
+  filename: (filename) => {
     const dir = path.dirname(filename);
     const basename = path.basename(filename);
-    
-    const files = fs.readdirSync(dir);
-    const match = files.find(file => file.toLowerCase() === basename.toLowerCase());
-    
-    if (match) {
-      return path.join(dir, match);
-    }
-    
-    return filename;
+    const resolvedPath = findFile(dir, basename);
+    return resolvedPath || filename;
   }
 };
 
