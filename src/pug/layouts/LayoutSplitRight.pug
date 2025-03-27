@@ -1,0 +1,20 @@
+extends LayoutTheme
+
+
+append variables
+  - var splitImageLeft = false;
+
+append mainContent
+  +Section('container-fluid').py-0
+    .row
+      .col-lg-6.px-0
+        .sticky-top.vh-lg-100.py-9
+          +Background({
+            image: `${CWD}assets/img/${bg}.jpg`,
+            attrs: {'data-zanim-trigger': 'scroll', 'data-zanim-lg': {animation: 'zoom-out-slide-right', delay: 0.4}}
+          })
+
+      .col-lg-6.py-6
+        .row.h-100.align-items-center.justify-content-center
+          block splitRightContent
+          

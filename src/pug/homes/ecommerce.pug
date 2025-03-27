@@ -1,0 +1,21 @@
+extends ../layouts/LayoutTheme
+include ../mixins/homes/Ecommerce
+
+append variables
+  - var attrsHtml = Object.assign({ lang: `${ dir === 'rtl' ? 'ar' : 'en-US'}`, dir: dir || 'ltr', class: 'has-sidemenu has-fancynav-top' });
+
+prepend styles
+  link(href=`${CWD}vendors/swiper/swiper-bundle.min.css`, rel='stylesheet')
+
+prepend scripts
+  script(src=`${CWD}vendors/swiper/swiper-bundle.min.js`)
+  script(src=`${CWD}vendors/bigpicture/BigPicture.js`) 
+
+
+block beforeMainContent
+  +FancyNav({navClass: 'fancynavbar-top'})
+append mainContent 
+  +EcommerceHeader
+  +EcommerceProducts
+  +EcommerceSubscribe
+  +EcommerceFooter

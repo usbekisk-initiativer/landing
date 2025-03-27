@@ -1,0 +1,16 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/bootstrap/Badges
+
+append variables
+  - var pageTitle = 'Badge';
+  - var activePage = 'badges';
+
+block component 
+  +BootstrapComponentLink({
+    link: `https://getbootstrap.com/docs/${bootstrapVersion}/components/badge/`,
+    name: pageTitle,
+  })
+  
+  +ContextualVariationsExample
+  +PillBadgesExample
+  +RotatedBadgesDemo

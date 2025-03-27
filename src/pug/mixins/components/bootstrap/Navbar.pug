@@ -1,0 +1,36 @@
+mixin BootstrapNavItem(logo, btnclass, navId, dropdownId)
+  a.navbar-brand(href='#!')
+    if logo
+      img(src=`${CWD}assets/img/logo-sparrow-invert.svg` alt='' width=30)
+    else
+      | Navbar
+  button.navbar-toggler(type="button" data-bs-toggle="collapse" data-bs-target=`#${navId}` aria-controls=navId aria-expanded="false" aria-label="Toggle navigation")
+    span.navbar-toggler-icon
+  .collapse.navbar-collapse(id=navId)
+    ul.navbar-nav.me-auto
+      li.nav-item
+        a.nav-link.active(href='#!')
+          | Home 
+          span.sr-only (current)
+      li.nav-item
+        a.nav-link(href='#!') Link
+      li.nav-item.dropdown
+        a.nav-link.dropdown-toggle(href='#!' role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id=dropdownId)
+          | Dropdown
+        .dropdown-menu(aria-labelledby=dropdownId)
+          a.dropdown-item(href='#!') Action
+          a.dropdown-item(href='#!') Another action
+          .dropdown-divider
+          a.dropdown-item(href='#!') Something else here
+      li.nav-item
+        a.nav-link.disabled(href='#!') Disabled
+    form.d-flex.my-2.my-lg-0
+      input.form-control.form-control-sm.me-sm-2(type="search" placeholder="Search" aria-label="Search")
+      button.btn.btn-sm.my-2.my-sm-0(type="submit" class=btnclass) Search
+mixin BootstrapNav
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light.mt-4
+    +BootstrapNavItem(false, 'btn-outline-secondary', 'nav1', 'dropdown1')
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.my-4
+    +BootstrapNavItem(true, 'btn-outline-secondary', 'nav2', 'dropdown2')
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+    +BootstrapNavItem(true, 'btn-outline-light', 'nav3', 'dropdown3')

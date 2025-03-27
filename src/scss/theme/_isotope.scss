@@ -1,0 +1,28 @@
+/*-----------------------------------------------
+|   Isotope
+-----------------------------------------------*/
+
+.isotope-nav{
+  font-weight: $font-weight-bold;
+  border: 1px solid $white;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: var(--#{$prefix}body-color);
+  border-radius: $border-radius;
+  letter-spacing: 0.02em;
+  margin-right: .25rem;
+  padding: map_get($spacers, 1) map_get($spacers, 2);
+  
+  &.active{
+    color: $black !important;
+    border: 1px solid var(--#{$prefix}black);
+  }
+  &:hover{
+    color: var(--#{$prefix}body-color);
+  }
+}
+
+
+.isotope-item{
+  visibility: hidden;
+}

@@ -1,0 +1,78 @@
+extends Layout
+include ../mixins/common/Footer
+include ../mixins/components/ComponentNav
+include ../mixins/common/FancyNav
+include ../mixins/common/Ecommerce
+include ../mixins/common/Mixins
+include ../mixins/common/404
+include ../mixins/Variables
+
+
+append variables
+  - var attrsBody = { class:'overflow-hidden-x' };
+  - var attrsMain = { id: 'top', class: 'main min-vh-100' };
+  - var attrsHtml = Object.assign({ lang: `${ dir === 'rtl' ? 'ar' : 'en-US'}`, dir: dir || 'ltr', class: 'has-sidemenu' });
+
+
+append headScripts
+
+block prepend styles
+  link(href=`${CWD}vendors/loaders.css/loaders.min.css` rel='stylesheet' type="text/css")
+  link(rel='preconnect' href='https://fonts.gstatic.com')
+  link(href='https://fonts.googleapis.com/css?family=PT+Mono%7cPT+Serif:400,400i%7cLato:100,300,400,700,800,900' rel='stylesheet')
+  
+
+prepend scripts
+  script(src=`${CWD}vendors/fontawesome/all.min.js`)
+  script(src=`${CWD}vendors/lodash/lodash.min.js`)
+
+  script(src=`${CWD}vendors/imagesloaded/imagesloaded.pkgd.js`)
+  script(src=`${CWD}vendors/gsap/gsap.js`)
+  script(src=`${CWD}vendors/gsap/customEase.js`)
+  script(src=`${CWD}vendors/gsap/drawSVGPlugin.js`)
+
+  if ENV === 'LIVE'
+  // Global site tag (gtag.js) - Google Analytics
+  script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-122907869-1')
+  script.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-122907869-1');
+    
+
+block beforeMainContent
+  +FancyNav({})(data-onscroll-fade-in=true)
+ 
+
+block mainContent
+  = '\n\n'
+  // ============================================
+  // Preloader ==================================
+  #preloader.preloader
+    .loader
+      .line-scale-pulse-out-rapid
+        div 
+        div
+        div
+        div
+        div 
+  // ============================================
+  // End of Preloader ===========================
+
+block afterMainContent
+  = '\n\n'
+  //===============================================
+  //    Footer
+  //===============================================
+  +Footer
+  
+  = '\n\n'
+
+  //===============================================
+  //    Modal for language selection
+  //===============================================
+
+  // Modal
+  .overflow-hidden
+    +LanguageModal

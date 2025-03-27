@@ -1,0 +1,23 @@
+/*-----------------------------------------------
+|   Dropdown
+-----------------------------------------------*/
+
+.dropdown-menu{ font-size: $dropdown-font-size; }
+.dropdown-item{
+  transition: $transition-base;
+  font-weight: $font-weight-bold;
+}
+
+.dropdown-menu{
+  padding: .5rem 0;
+}
+.dropdown-item {
+  padding: 0.4rem 1.2rem;
+}
+
+.navbar-dark .navbar-nav .show > .nav-link,
+.navbar-dark .navbar-nav .active > .nav-link,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: var(--#{$prefix}white);
+}

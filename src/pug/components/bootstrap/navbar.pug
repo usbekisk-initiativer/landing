@@ -1,0 +1,16 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/bootstrap/Navbar
+
+
+append variables
+  - var pageTitle = 'Navbar';
+  - var activePage = 'navbar';
+  
+block component 
+  h4 Bootstrap Navigation bar
+  +BootstrapComponentLink({
+    link: `https://getbootstrap.com/docs/${bootstrapVersion}/components/navbar/`,
+    name: pageTitle,
+  })
+  
+  +BootstrapNav

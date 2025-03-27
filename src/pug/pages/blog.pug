@@ -1,0 +1,15 @@
+extends ../layouts/LayoutTheme
+include ../mixins/pages/Blog
+
+prepend styles
+  link(href=`${CWD}vendors/swiper/swiper-bundle.min.css`, rel='stylesheet')
+
+prepend scripts
+  script(src=`${CWD}vendors/swiper/swiper-bundle.min.js`)
+  script(src=`${CWD}vendors/bigpicture/BigPicture.js`)  
+
+append mainContent
+  +BlogHeader 
+
+  +BlogItems 
+

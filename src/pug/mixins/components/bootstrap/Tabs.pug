@@ -1,0 +1,45 @@
+mixin TabsBasicExampleDemo
+  h5.mb-3&attributes(attributes) Basic Tabs
+  ul#myTab.nav.nav-tabs.font-secondary(role='tablist')
+    li.nav-item
+      a#home-tab.nav-link.active(data-bs-toggle='tab', href='#tab-home', role='tab', aria-controls='tab-home', aria-selected='true') Home
+    li.nav-item
+      a#profile-tab.nav-link(data-bs-toggle='tab', href='#tab-profile', role='tab', aria-controls='tab-profile', aria-selected='false') Profile
+    li.nav-item
+      a#contact-tab.nav-link(data-bs-toggle='tab', href='#tab-contact', role='tab', aria-controls='tab-contact', aria-selected='false') Contact
+  #myTabContent.tab-content.border-x.border-bottom.p-3
+    #tab-home.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='home-tab') Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+    #tab-profile.tab-pane.fade(role='tabpanel', aria-labelledby='profile-tab') Nulla est ullamco ut irure incididunt nulla Lorem Lorem minim irure officia enim reprehenderit. Magna duis labore cillum sint adipisicing exercitation ipsum. Nostrud ut anim non exercitation velit laboris fugiat cupidatat. Commodo esse dolore fugiat sint velit ullamco magna consequat voluptate minim amet aliquip ipsum aute laboris nisi. Labore labore veniam irure irure ipsum pariatur mollit magna in cupidatat dolore magna irure esse tempor ad mollit. Dolore commodo nulla minim amet ipsum officia consectetur amet ullamco voluptate nisi commodo ea sit eu.
+
+    #tab-contact.tab-pane.fade(role='tabpanel', aria-labelledby='contact-tab') Sint sit mollit irure quis est nostrud cillum consequat Lorem esse do quis dolor esse fugiat sunt do. Eu ex commodo veniam Lorem aliquip laborum occaecat qui Lorem esse mollit dolore anim cupidatat. Deserunt officia id Lorem nostrud aute id commodo elit eiusmod enim irure amet eiusmod qui reprehenderit nostrud tempor. Fugiat ipsum excepteur in aliqua non et quis aliquip ad irure in labore cillum elit enim. Consequat aliquip incididunt ipsum et minim laborum laborum laborum et cillum labore. Deserunt adipisicing cillum id nulla minim nostrud labore eiusmod.
+
+mixin TabsPillDemo
+  h5.mb-3&attributes(attributes) Tabs with pills
+  ul#pill-myTab.nav.nav-pills.bg-body-tertiary.p-2.font-secondary(role='tablist')
+    li.nav-item
+      a#pill-home-tab.nav-link.active(data-bs-toggle='tab', href='#pill-tab-home', role='tab', aria-controls='pill-tab-home', aria-selected='true') Home
+    li.nav-item
+      a#pill-profile-tab.nav-link(data-bs-toggle='tab', href='#pill-tab-profile', role='tab', aria-controls='pill-tab-profile', aria-selected='false') Profile
+    li.nav-item
+      a#pill-contact-tab.nav-link(data-bs-toggle='tab', href='#pill-tab-contact', role='tab', aria-controls='pill-tab-contact', aria-selected='false') Contact
+  #pill-myTabContent.tab-content.mt-3
+    #pill-tab-home.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='home-tab') Consequat occaecat ullamco amet non eiusmod nostrud dolore irure incididunt est duis anim sunt officia. Fugiat velit proident aliquip nisi incididunt nostrud exercitation proident est nisi. Irure magna elit commodo anim ex veniam culpa eiusmod id nostrud sit cupidatat in veniam ad. Eiusmod consequat eu adipisicing minim anim aliquip cupidatat culpa excepteur quis. Occaecat sit eu exercitation irure Lorem incididunt nostrud.
+    #pill-tab-profile.tab-pane.fade(role='tabpanel', aria-labelledby='profile-tab') Ad pariatur nostrud pariatur exercitation ipsum ipsum culpa mollit commodo mollit ex. Aute sunt incididunt amet commodo est sint nisi deserunt pariatur do. Aliquip ex eiusmod voluptate exercitation cillum id incididunt elit sunt. Qui minim sit magna Lorem id et dolore velit Lorem amet exercitation duis deserunt. Anim id labore elit adipisicing ut in id occaecat pariatur ut ullamco ea tempor duis. 
+    #pill-tab-contact.tab-pane.fade(role='tabpanel', aria-labelledby='contact-tab') Est quis nulla laborum officia ad nisi ex nostrud culpa Lorem excepteur aliquip dolor aliqua irure ex. Nulla ut duis ipsum nisi elit fugiat commodo sunt reprehenderit laborum veniam eu veniam. Eiusmod minim exercitation fugiat irure ex labore incididunt do fugiat commodo aliquip sit id deserunt reprehenderit aliquip nostrud. Amet ex cupidatat excepteur aute veniam incididunt mollit cupidatat esse irure officia elit do ipsum ullamco.
+
+
+mixin TabsVerticalPillDemo
+  h5.mb-3&attributes(attributes) Tabs with vertical pills
+  .row
+    .col-3
+      #v-pills-tab.nav.flex-column.nav-pills.font-secondary(role='tablist', aria-orientation='vertical')
+        a#v-pills-home-tab.nav-link.active(data-bs-toggle='pill', href='#v-pills-home', role='tab', aria-controls='v-pills-home', aria-selected='true') Home
+        a#v-pills-profile-tab.nav-link(data-bs-toggle='pill', href='#v-pills-profile', role='tab', aria-controls='v-pills-profile', aria-selected='false') Profile
+        a#v-pills-messages-tab.nav-link(data-bs-toggle='pill', href='#v-pills-messages', role='tab', aria-controls='v-pills-messages', aria-selected='false') Messages
+        a#v-pills-settings-tab.nav-link(data-bs-toggle='pill', href='#v-pills-settings', role='tab', aria-controls='v-pills-settings', aria-selected='false') Settings
+    .col-9
+      #v-pills-tabContent.tab-content
+        #v-pills-home.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='v-pills-home-tab') Cillum ad ut irure tempor velit nostrud occaecat ullamco aliqua anim Lorem sint. Veniam sint duis incididunt do esse magna mollit excepteur laborum qui. Id id reprehenderit sit est eu aliqua occaecat quis et velit excepteur laborum mollit dolore eiusmod. Ipsum dolor in occaecat commodo et voluptate minim reprehenderit mollit pariatur. Deserunt non laborum enim et cillum eu deserunt excepteur ea incididunt minim occaecat. Cillum ad ut irure tempor velit nostrud occaecat ullamco aliqua anim Lorem sint. Veniam sint duis incididunt do esse magna mollit excepteur
+        #v-pills-profile.tab-pane.fade(role='tabpanel', aria-labelledby='v-pills-profile-tab') Culpa dolor voluptate do laboris laboris irure reprehenderit id incididunt duis pariatur mollit aute magna pariatur consectetur. Eu veniam duis non ut dolor deserunt commodo et minim in quis laboris ipsum velit id veniam. Quis ut consectetur adipisicing officia excepteur non sit. Ut et elit aliquip labore Lorem enim eu. Ullamco mollit occaecat dolore ipsum id officia mollit qui esse anim eiusmod do sint minim consectetur qui.Culpa dolor voluptate do laboris laboris irure reprehenderit id incididunt duis pariatur mollit aute magna pariatur consectetur. Eu veniam 
+        #v-pills-messages.tab-pane.fade(role='tabpanel', aria-labelledby='v-pills-messages-tab') Fugiat id quis dolor culpa eiusmod anim velit excepteur proident dolor aute qui magna. Ad proident laboris ullamco esse anim Lorem Lorem veniam quis Lorem irure occaecat velit nostrud magna nulla. Velit et et proident Lorem do ea tempor officia dolor. Reprehenderit Lorem aliquip labore est magna commodo est ea veniam consectetur. Fugiat id quis dolor culpa eiusmod anim velit excepteur proident dolor aute qui magna. Ad proident laboris ullamco esse anim Lorem Lorem veniam quis Lorem irure occaecat velit nostrud magna nulla. Velit et et proident Lorem do ea tempor 
+        #v-pills-settings.tab-pane.fade(role='tabpanel', aria-labelledby='v-pills-settings-tab') Eu dolore ea ullamco dolore Lorem id cupidatat excepteur reprehenderit consectetur elit id dolor proident in cupidatat officia. Voluptate excepteur commodo labore nisi cillum duis aliqua do. Aliqua amet qui mollit consectetur nulla mollit velit aliqua veniam nisi id do Lorem deserunt amet. Culpa ullamco sit adipisicing labore officia magna elit nisi in aute tempor commodo eiusmod. Eu dolore ea ullamco dolore Lorem id cupidatat excepteur reprehenderit consectetur elit id dolor proident in cupidatat officia. Voluptate excepteur commodo labore nisi cillum duis aliqua.

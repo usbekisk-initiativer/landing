@@ -1,0 +1,9 @@
+extends ../layouts/LayoutSplitLeft
+include ../mixins/pages/Services.pug
+
+append variables
+  - var bg = 'headers/header-48';
+
+block splitLeftContent  
+  +Services
+  

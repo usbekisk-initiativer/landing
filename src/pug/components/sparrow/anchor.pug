@@ -1,0 +1,19 @@
+extends ../../layouts/LayoutComponent
+
+append variables
+  - var pageTitle = 'Anchor';
+  - var activePage = 'anchor';
+block component 
+  
+  //- p A JavaScript utility for adding deep anchor links to existing page content. AnchorJS is lightweight, accessible, and has no dependencies
+  +SparrowComponentLink({
+    name: 'Anchor js',
+    link: 'https://github.com/bryanbraun/anchorjs'
+  })
+  +ComponentCard
+    h3.mt-5(data-anchor='data-anchor') Basic Anchor Tag
+  +ComponentCardLib({
+    title: 'Javascript',
+    titleClass: 'mt-5'
+  })
+    script( src= 'vendors/anchorjs/anchor.min.js')

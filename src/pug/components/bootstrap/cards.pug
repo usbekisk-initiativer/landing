@@ -1,0 +1,13 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/bootstrap/Cards
+
+append variables
+  - var pageTitle = 'Cards';
+  - var activePage = 'cards';
+
+block component 
+  +BootstrapComponentLink({
+    link: `https://getbootstrap.com/docs/${bootstrapVersion}/components/card/`,
+    name: pageTitle,
+  })
+  +CardExample

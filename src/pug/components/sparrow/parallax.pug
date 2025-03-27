@@ -1,0 +1,28 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/sparrow/Backgrounds
+
+prepend scripts
+  script(src=`${CWD}vendors/rellax/rellax.min.js`) 
+
+append variables
+  - var pageTitle = 'Parallax';
+  - var activePage = 'parallax';
+
+block component 
+  +SparrowComponentLink({
+    name: 'Rellax',
+    link: 'https://dixonandmoe.com/rellax/'
+  })
+
+  +ComponentCardLib({
+    description: `Add the attribute <code>data-parallax</code> and <code>data-rellax-speed</code> to make a parallax object. <code>data-rellax-speed</code> can be positive or negative <code>number</code>.`
+  })
+    h1(data-parallax data-rellax-speed="-20") Parallax
+
+  +ComponentCardLib({
+    title: 'JavaScript',
+    titleClass: 'mt-5'
+  })
+    script(src='vendors/rellax/rellax.min.js')
+
+  +ParallaxImageBackground

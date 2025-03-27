@@ -1,0 +1,56 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/sparrow/Typography
+
+append variables
+  - var pageTitle = 'Typography';
+  - var activePage = 'typography';
+
+block component 
+
+  +TypographyFontFamily
+
+  +ComponentCard({
+    title: 'Headings',
+    description: `<strong>${name} </strong> has all the html headings, <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>, styled for you. Also you can use <code>.h1</code> through <code>.h6</code> classes when you want to match the font styling of a heading but still want your text to be displayed inline. `,
+    descriptionClass: 'mb-5',
+    prismClass: 'mt-5'
+
+  }).mt-6
+    +TypographyHeadingDemo
+
+  +TypographyParagraph
+
+  +TypographyFontStylesDemo
+
+  +ComponentCard({
+    title: 'Colors',
+    description: `Use the following colors to change the text color`,
+    descriptionClass: 'mb-5',
+    prismClass: 'mt-5'
+    
+  }).mt-6
+    +TypographyColorsDemo 
+
+  +ComponentCard({
+    title: 'Sizes',
+    description: `If you want different sizes of fonts, you may use the following classes.`,
+    descriptionClass: 'mb-5',
+    prismClass: 'mt-5'
+  }).mt-6
+    +TypographySizeDemo
+
+  +TypographyAlignmentDemo
+
+  +ComponentCard({
+    title: 'Transformation',
+  }).mt-6
+    +TextTransformationDemo
+  
+  +TypographyInlineTextDemo
+  +TypographyBlockQuotesDemo
+  +TypographyListDemo
+
+    
+
+
+    

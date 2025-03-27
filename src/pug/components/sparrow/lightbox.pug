@@ -1,0 +1,50 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/sparrow/Lightbox
+
+append variables
+  - var pageTitle = 'BigPicture';
+  - var activePage = 'lightbox';
+
+prepend scripts
+  script(src=`${CWD}vendors/bigpicture/BigPicture.js`) 
+
+block component 
+
+  +SparrowComponentLink({
+    name: 'BigPicture',
+    link: 'https://github.com/henrygd/bigpicture',
+  })
+
+  +ComponentCard({
+    title: 'Bigpicture Image',
+    description: `BigPictures are integrated into Sparrow. It allows you to display a thumbnail and when clicked, the original image will pop up.<br>The lightbox image works by wrapping anything ie. <code>&lt;img&gt;</code> tag inside an <code>&lt;a&gt;</code> element with the data attribute <code>data-bigpicture</code>. For example <code>data-bigpicture={imgSrc:'source.jpg'}</code>`
+  })
+    +LightboxImageDemo 
+
+  h5.mt-5 Javascript
+  +ComponentCardLib
+    script(src=`vendors/bigpicture/BigPicture.js`) 
+
+  hr.my-6
+
+  +ComponentCard({
+    title: 'Bigpicture gallery',
+    description: 'You can easily create a gallery of lightbox images by <code>data-bigpicture</code> and <code>data-bp</code> attribute. For a specific gallery set an Id to the parent element and pass the id through <code>data-bigpicture</code> attribute. Use <code>data-bp</code> attribute to pass the image source.'
+  })
+    +LightboxGalleryDemo
+
+  h5.mt-5 Javascript
+  +ComponentCardLib
+    script(src=`vendors/bigpicture/BigPicture.js`) 
+
+  
+  +ComponentCard({
+    title: 'Video',
+    titleClass: 'mt-5',
+    description: 'YouTube and Vimeo videos can be used with bigpicture by just providing the video ID through <code>data-bigpicture</code>.',
+    prismTitle: 'Html',
+    prismTitleClass: 'mt-5'
+  })
+    +FancyboxVideoDemo
+
+

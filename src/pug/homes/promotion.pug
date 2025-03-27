@@ -1,0 +1,14 @@
+extends ../layouts/LayoutTheme
+include ../mixins/homes/Promotion.pug
+
+prepend scripts
+  script(src=`${CWD}vendors/bigpicture/BigPicture.js`)  
+
+append mainContent
+  +PromotionHeader
+
+  +PromotionPartners
+
+  +PromotionVideo
+
+  +PromotionFooter

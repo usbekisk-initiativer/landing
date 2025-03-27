@@ -1,0 +1,96 @@
+mixin SwiperCarousel
+  +ComponentCard({
+    prismClass: 'mt-4'
+    }).mb-3
+      .row
+        .col-lg-12.mb-4.mb-lg-0
+          .swiper.theme-slider(data-swiper!={
+            autoplay: true,
+            spaceBetween: 30,
+            loop: true,
+            loopedSlides: 5,
+            slidesPerView: 1,
+            breakpoints: {
+              670: {
+                slidesPerView: 2,
+              },
+              1200: {
+                slidesPerView: 3
+              },
+            }
+            
+          })
+            .swiper-wrapper
+              .swiper-slide
+                img(src=`${CWD}assets/img/gallery/01.jpg` alt="").w-100
+              .swiper-slide  
+                img(src=`${CWD}assets/img/gallery/02.jpg` alt="").w-100
+              .swiper-slide  
+                img(src=`${CWD}assets/img/gallery/03.jpg` alt="").w-100
+              .swiper-slide  
+                img(src=`${CWD}assets/img/gallery/04.jpg` alt="").w-100 
+              .swiper-slide  
+                img(src=`${CWD}assets/img/gallery/05.jpg` alt="").w-100 
+              .swiper-slide  
+                img(src=`${CWD}assets/img/gallery/06.jpg` alt="").w-100   
+            .swiper-nav
+              .swiper-button-next.swiper-button-white
+              .swiper-button-prev.swiper-button-white 
+mixin SwiperWithoutThumbnail 
+  .row
+    .col-lg-12.mb-4.mb-lg-0
+      .swiper.theme-slider(data-swiper!={
+        autoplay: true,
+        spaceBetween: 5,
+        loop: true,
+        loopedSlides: 5,
+      })
+        .swiper-wrapper
+          .swiper-slide
+            img(src=`${CWD}assets/img/interior-1.jpg` alt="").img-fluid
+          .swiper-slide  
+            img(src=`${CWD}assets/img/interior-4.jpg` alt="").img-fluid
+          .swiper-slide  
+            img(src=`${CWD}assets/img/interior-6.jpg` alt="").img-fluid  
+        .swiper-nav
+          .swiper-button-next.swiper-button-white
+          .swiper-button-prev.swiper-button-white 
+
+mixin SwiperWithThumbnail
+  .row
+    .col-lg-12.mb-4.mb-lg-0
+      .swiper.theme-slider(data-swiper!={
+        spaceBetween: 5,
+        loop: true,
+        loopedSlides: 5,
+        thumb: {
+          spaceBetween: 5,
+          slidesPerView: 5,
+          loop: true,
+          freeMode: true,
+          grabCursor: true,
+          loopedSlides: 5, 
+          centeredSlides: true,
+          centeredSlidesBounds: true,
+          slideToClickedSlide: true,
+          watchSlidesVisibility: true,
+          watchSlidesProgress: true,
+        },
+      })
+        .swiper-wrapper
+          .swiper-slide
+            img(src=`${CWD}assets/img/interior-1.jpg` alt="").img-fluid
+          .swiper-slide  
+            img(src=`${CWD}assets/img/interior-4.jpg` alt="").img-fluid
+          .swiper-slide  
+            img(src=`${CWD}assets/img/interior-6.jpg` alt="").img-fluid
+          .swiper-slide
+            img(src=`${CWD}assets/img/interior-1.jpg` alt="").img-fluid
+          .swiper-slide  
+            img(src=`${CWD}assets/img/interior-4.jpg` alt="").img-fluid
+          .swiper-slide  
+            img(src=`${CWD}assets/img/interior-6.jpg` alt="").img-fluid
+
+        .swiper-nav
+          .swiper-button-next
+          .swiper-button-prev

@@ -1,0 +1,36 @@
+//---------------------------------------
+  |  Footer
+//---------------------------------------
+mixin Footer
+  footer.footer.bg-black.text-body-secondary.py-4.font-secondary.text-center.overflow-hidden
+    .container
+      .row.align-items-center
+        +FooterContent
+
+
+mixin FooterContent
+  .col-lg-4.order-lg-2.position-relative
+    a.indicator.indicator-up(href='#top')
+      span.indicator-arrow.indicator-arrow-one(data-zanim-xs!={
+        from: {opacity: 0, y: 15},
+        to: {opacity: 1, y: -5, scale: 1},
+        ease: "Back.easeOut",
+        duration: 0.4,
+        delay: 0.9
+      })
+      span.indicator-arrow.indicator-arrow-two(data-zanim-xs!={
+        from: {opacity: 0, y: 15},
+        to: {opacity: 1, y: -5, scale: 1},
+        ease: "Back.easeOut",
+        duration: 0.4,
+        delay: 1.05
+      })
+
+  .col-lg-4.text-lg-start.mt-4.mt-lg-0
+    p.fs-10.text-uppercase.ls.fw-bold.mb-0 Copyright &copy; #{ new Date().getFullYear() } Sparrow&trade;
+      |  inc.
+  .col-lg-4.text-lg-end.order-lg-2.mt-2.mt-lg-0
+    p.fs-10.text-uppercase.ls.fw-bold.mb-0 Made with
+      span.text-danger.fas.fa-heart.mx-1
+      | by 
+      a(href="https://themewagon.com/" target="_blank").text-body-secondary Themewagon

@@ -1,0 +1,181 @@
+mixin EcommerceHeader
+  +Section("container-fluid").py-lg-7.py-xl-8.mt-5.bg-light#ecommerceHeader
+    .row
+      .offset-xl-3.col.px-4(style="max-width: 42.81rem")
+        h1.display-4.fs-6.fs-sm-5.fs-md-4 proudly
+          span.font-base.fst-italic.fw-normal.px-2.px-md-3 crafted
+          | in 
+          br.d-none.d-sm-block
+          | m&uuml;nich since 1987
+        p.mt-4.mb-0 All our products are handmade by local artisans who use ancestral techniques. Thanks to the unique know-how of each craftsman involved in the production chain, each product bears its own story, having benefited from unique and personalized care, from its preparation to its arrival in m&uuml;nich. The Ecuadorian Boutique is also a reference for Ecuadorian leather goods, jewelry and ready-to-wear brands.
+
+
+mixin EcommerceProducts
+  +Section("container-fluid px-4").py-0#ecommerceProducts
+    .row.mb-5
+      .col-sm-6.col-md-4.col-lg-3.mt-4
+        +EcommerceHover({
+          img1: '1',
+          img2: '2',
+          name: 'Tops &amp; Tees',
+          pricePrev: false,
+          priceNow: '354.00',
+          badgeTitle: false,
+          timeline: 0.0
+        })
+      .col-sm-6.col-md-4.col-lg-3.mt-4
+        
+        +EcommerceHover( {
+          img1: '3',
+          img2: '4',
+          name: 'Wear to Work',
+          pricePrev: '454.00',
+          priceNow: '234.00',
+          badgeTitle: "<span class='fas fa-star'></span> Best selling",
+          badgeClass: 'bg-warning',
+          timeline: 0.1,
+        })
+        
+      .col-sm-6.col-md-4.col-lg-3.mt-4
+        +EcommerceHover({
+          img1: '5',
+          img2: '6',
+          name: 'Sunny Vacation',
+          pricePrev: '765.00',
+          priceNow: '566.00',
+          badgeTitle: false,
+          timeline: 0.2  
+        })
+      .col-sm-6.col-md-4.col-lg-3.mt-4
+        +EcommerceHover({
+          img1: '7',
+          img2: '8',
+          name: 'Winter Jacket',
+          priceNow: '543.00',
+          badgeTitle: false,
+          timeline: 0.3  
+        })
+
+
+      .col-sm-6.col-md-4.col-lg-3.mt-4      
+        +EcommerceStatic({
+          img: '9',
+          name: `Women's Ophelia Midi Dress`,
+          priceNow: '875.00',
+          pricePrev: '999.00',
+          badgeClass: 'bg-danger',
+          timeline:  0.0,
+          badgeTitle: 'Out of stock',
+        })
+
+      .col-sm-6.col-md-4.col-lg-3.mt-4
+        +EcommerceStatic({
+          img: '11',
+          name: `Women's Ophelia Midi Dress`,
+          priceNow: '454.00',
+          pricePrev: '766.00',
+          timeline:  0.1,
+        })
+
+      .col-sm-6.col-md-4.col-lg-3.mt-4
+        +EcommerceStatic({
+          img: '13',
+          name: `Women's Sandwashed Crepe De Chine`,
+          priceNow: '212.00',
+          pricePrev: '234.00',
+          timeline:  0.2,
+        })
+      .col-sm-6.col-md-4.col-lg-3.mt-4
+
+        +EcommerceStatic({
+          img: '15',
+          name: `Women's Rib Knit Jersey Long-Sleeve`,
+          priceNow: '546.00',
+          timeline:  0.3,
+          badgeTitle: 'Now trending',
+          badgeClass: 'bg-success',
+        })
+
+      .col-sm-6.col-md-4.col-lg-3.mt-4
+        +EcommerceSlider({
+          images: ['2','1'],
+          name: `Women's Tiffa Shirt`,
+          pricePrev: '675.00' ,
+          priceNow: '454.00' ,
+          timeline:  0.0,
+        })
+      .col-sm-6.col-md-4.col-lg-3.mt-4
+        +EcommerceSlider({
+          images: ['4','3'],
+          name: `Women's Cropped Wide Leg Crpe Pant`,
+          priceNow: '454.00' ,
+          timeline:  0.1,
+          badgeTitle: `<span class='fas fa-star'></span> Best selling`,
+          badgeClass: 'bg-warning'
+        })
+
+      .col-sm-6.col-md-4.col-lg-3.mt-4
+        +EcommerceSlider({
+          images: ['6','4', '5'],
+          name: `Women's Rory Herringbone Stripe`,
+          pricePrev: '323.00' ,
+          priceNow: '123.00' ,
+          timeline:  0.2,
+        })
+
+      .col-sm-6.col-md-4.col-lg-3.mt-4
+        +EcommerceSlider({
+          images: ['8','7'],
+          name: `Women's Ella Cotton Boot Cut`,
+          pricePrev: '434.00' ,
+          priceNow: '334.00' ,
+          timeline:  0.3,
+        })
+
+
+mixin EcommerceSubscribe
+  +Section.text-center.bg-light.pt-6.pt-lg-8.pb-0.pb-sm-5.pb-lg-8#ecommerceSubscribe
+    .row
+      .col-lg-6
+        a(href='#!')
+          h5.fw-normal.mb-3.text-uppercase.text-center.ls-2 follow @ sparrow
+      .w-100
+      .col-lg-6.pe-xl-4
+        .row.g-2#ecommerce-gallery
+          mixin Lightbox(img, img2, delay)
+            a(href='#!' data-bp=`${CWD}assets/img/gallery/${img2}.jpg` data-bigpicture!={ gallery: '#ecommerce-gallery'} data-caption="your caption")
+              img(src=`${CWD}assets/img/gallery/${img}.jpg` alt="" data-zanim-xs!={
+                delay: delay,
+                animation: "zoom-in"
+              } data-zanim-trigger="scroll").rounded.img-fluid
+          .col-6
+            +Lightbox("shop-1", "shop-1-f", 0.1)
+          .col-6
+            +Lightbox("shop-3", "shop-3-f", 0.0)
+
+      .col-lg-6
+        .bg-body.rounded.border.border-dark.p-4.p-sm-6.p-lg-5.p-xl-6.mt-7.mt-lg-0
+          h4.mb-3.fw-bold Sign up and recieve
+            span.font-base.fst-italic  hot deals
+          
+          .input-group.mb-3
+            input.form-control.bg-light(type='text' placeholder="Enter Email Here" aria-label="Recipient's username" aria-describedby='button-addon-e')
+            button#button-addon-e.btn.btn-dark.btn-outline-dark.text-light.px-2.px-sm-3.px-lg-4(type='button') subscribe
+
+          h6.fw-normal.text-body we respect your privacy
+
+mixin EcommerceFooter
+  +Section.text-center#ecommerceFooter
+    .row.flex-center
+      .col-lg-6
+        a(href='#!')
+          span.fab.fa-facebook-f.text-black.fs-8.mx-2
+        a(href='#!')
+          span.fab.fa-twitter.text-black.fs-8.mx-2
+        a(href='#!')
+          span.fab.fa-pinterest-p.text-black.fs-8.mx-1.mx-sm-2
+        .d-block.mt-4.fs-10.fw-bold.font-secondary
+          a(href='#!').me-1.mx-sm-2.text-body Contact
+          a(href='#!').mx-1.mx-sm-2.text-body Shipping &amp; returns
+          a(href='#!').mx-1.mx-sm-2.text-body Terms of service
+          a(href='#!').mx-1.mx-sm-2.text-body Privacy policy

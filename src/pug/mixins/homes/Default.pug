@@ -1,0 +1,433 @@
+
+mixin DefaultHeader
+  +Section("container-fluid").py-0 
+    .row.h-100.border-bottom
+      .col-lg-6.px-0.order-lg-2(data-zanim-lg!={animation: "slide-left", delay: 0.4}  data-zanim-trigger='scroll')
+        .swiper.theme-slider.swiper-theme(data-swiper!={
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+          },
+           
+          loop: true,
+          effect: 'fade',
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            type: 'bullets',
+          },
+        }  data-zanim-lg!={animation: "zoom-out", delay: 0}  data-zanim-trigger='scroll')
+          .swiper-wrapper
+            .swiper-slide.min-vh-lg-100.py-9
+              +Background({image: `${CWD}assets/img/headers/header-3.jpg`})
+            .swiper-slide.min-vh-lg-100.py-9  
+              +Background({image: `${CWD}assets/img/headers/header-2.jpg`})
+            .swiper-slide.min-vh-lg-100.py-9  
+              +Background({image: `${CWD}assets/img/headers/header-12.jpg`})  
+          .swiper-pagination
+          .swiper-nav
+            .swiper-button-next.me-md-3
+            .swiper-button-prev.ms-md-3 
+
+      .col-lg-6.bg-body.py-7.py-md-8
+        .row.flex-center.h-100
+          .col-lg-10.text-black.text-center.text-lg-start(data-zanim-timeline!={} data-zanim-trigger='scroll')
+            .overflow-hidden
+              h4.text-uppercase.fw-normal.ls.text-white.bg-dark.p-1.rounded.d-inline-block(data-zanim-xs!={delay: 0.1}) renovating &nbsp;together
+            .overflow-hidden
+              h1.display-3.fs-4.fs-sm-3#sc(data-zanim-xs!={delay: 0.2})
+                span.text-decoration-underline sparrow
+                br
+                span.fw-light creative
+            .overflow-hidden
+              p.text-body-highlight.fs-9.mt-3.mt-md-5(data-zanim-xs!={delay: 0.3}) Creating marvelous user experience
+                br
+                | for your brand, seamlessly.
+            .overflow-hidden
+              .d-lg-flex.align-items-center.fw-bold.ls.mt-3.mt-md-5.text-uppercase(data-zanim-xs!={delay: 0.4})
+                h6.mb-lg-0 Follow Us:
+                .overflow-hidden
+                  a(href='#!' class='me-1')
+                    span.fab.fa-facebook.text-dark.me-2.ms-3.fs-9
+                  a(href='#!' class='me-1')
+                    span.fab.fa-twitter.text-dark.me-2.fs-9
+                  a(href='#!' class='me-1')
+                    span.fab.fa-google-plus-g.text-dark.fs-9
+
+mixin DefaultWhyUs
+  +Section.py-6.py-md-8#defaultWhyUs
+    .row.flex-center
+      .col-12.mb-2.mb-lg-5.text-center
+        h2.fs-6.fs-sm-5
+          span.text-decoration-underline(data-zanim-xs!={delay: 0.3} data-zanim-trigger='scroll') why sparrow?
+          
+    .row.flex-center
+      .col-sm-8.col-lg-4.text-lg-end.mt-5.mt-lg-0.pe-lg-3.pe-xl-4
+        .overflow-hidden
+          p.fst-italic.lead(data-zanim-xs!={delay: 0.2} data-zanim-trigger='scroll') A robust set of layouts, built-in elements, colors, typography, and css helpers &mdash; rigorously tested and optimized, gives you the perfect starting point for landing pages
+            br.d-none.d-xl-block
+            | and stylish business websites.
+      .col-sm-8.col-lg-4.mt-4.mt-lg-0.px-lg-4
+        img(src=`${CWD}assets/img/creative.jpg` alt='' data-zanim-xs!={
+          animation: "zoom-out",
+          delay: 0.1
+        } data-zanim-trigger='scroll').w-100.rounded
+      .col-sm-8.col-lg-4.mt-5.mt-lg-0.ps-lg-3.ps-xl-4
+        .overflow-hidden
+          h4.mb-3(data-zanim-xs!={delay: 0.2} data-zanim-trigger='scroll') bootstrap 5 + much more
+        .overflow-hidden
+          p(data-zanim-xs!={delay: 0.3} data-zanim-trigger='scroll') Full coverage of Bootstrap's core components plus a suite of additional time-saving elements makes sparrow highly customizable in a powerful but simple way.
+
+mixin DefaultVideo
+  +Section({
+    image: `${CWD}assets/img/headers/header-27.jpg`,
+    attrs: {'data-parallax':'', 'data-rellax-percentage': '0.5', 'data-rellax-speed':'-3'}
+  }, 'container-fluid').text-center.py-8.py-md-11.overflow-hidden#defaultVideo
+
+    a.text-white(href='#!' data-bigpicture!={ytSrc: 'kAphgHhlteM'} )
+      svg.mx-auto.d-block(width=100 height=100 xmlns='http://www.w3.org/2000/svg', viewbox='0 0 274.19 274.19' data-zanim-svg!={
+        duration: 2,
+        ease: "CubicBezier"
+      } data-zanim-svg-trigger= 'scroll')
+        defs
+          style.
+            .play-path {
+              fill: none;
+              stroke: #ffffff;
+              stroke-linecap: round;
+              stroke-linejoin: round;
+              stroke-width: 12px;
+            }
+        g
+          path.play-path(d='M208.31,29.4A129.12,129.12,0,1,1,137.1,8m-1.48,170.53L199.94,137,104.07,79.46v113')
+      span.h4.mt-3.text-white(data-zanim-xs!={
+        from: {"letter-spacing": "0.2em", opacity: 0},
+        to: {"letter-spacing": 0, opacity: 1},
+        delay: 0.8
+      } data-zanim-trigger='scroll') watch the reel
+
+mixin DefaultServices
+  +Section#defaultServices
+    mixin Service(img, title, description)
+      .d-flex( id=title.replace(/ /g,'') data-zanim-trigger='scroll' data-zanim-timeline!={})
+        .overflow-hidden
+          img(src=`${CWD}assets/img/icons/${img}` width='50' alt='' data-zanim-xs!={
+            delay: 0.2,
+            animation: "slide-right"
+          }).me-3.me-sm-4
+        .flex-1
+          .overflow-hidden
+            h4.mb-2(data-zanim-xs!={delay: 0.1, animation: "slide-right"})!=title
+          .overflow-hidden
+            p(data-zanim-xs!={delay: 0.2, animation: "slide-right"})!=description
+
+    .row.justify-content-center.gy-4.gx-lg-4
+      .col-12.mb-3.mb-md-5.text-center
+        h2.fs-6.fs-sm-5
+          span.text-decoration-underline powerful inside.
+
+      .col-lg-5
+        +Service('bootstrap.svg', "bootstrap 5", "Build responsive, mobile-first projects on the web with the world's most popular front-end component library.")
+      .col-lg-5
+        +Service('icon-target.svg', "responsive CSS helper classes", "Toggle styles on any element, across any breakpoint according to Bootstrap grid system, using Sparrow's CSS helper classes.")
+      .col-lg-5
+        +Service('favorites-button.svg', "32 sets of elements", "Elegantly redesigned popular plugins including touch sliders, typed text, parallax, video background and more.")
+      .col-lg-5
+        +Service('icon-line-chart.svg', "buttery smooth animation", "Crazy fast, responsive, efficient and freakishly robust GSAP; giving you the new standard for HTML5 and javascript animation.")
+      .col-lg-5
+        +Service('multi-purpose.svg', "modular &amp; multipurpose", "Create rich UI and style with sparrow's array of ready-made modular sections - carefully designed for wide range of purposes.")
+      .col-lg-5
+        +Service('icon-coding.svg', "familiar markup", "Based on the Bootstrap 4 code base, sparrow's code is instantly familiar, easy to understand and a straightforward to extend.")
+
+mixin DefaultProcess
+  +Section.border-top#defaultProcess
+    .row.justify-content-center.text-center.mb-6
+      .col-lg-6
+        h2.fs-6.fs-sm-5.text-decoration-underline.mb-3 our process
+        p.text-body-tertiary.fst-italic Our process is a flexible framework that adapts, evolves and responds to your needs. It is the streamlined result of two decades of website design and marketing for hundreds of clients.
+        hr.hr-short.mt-5
+    .row
+      .col-12.ps-lg-7
+        .row.align-items-end
+          .col-lg-6.order-lg-2.text-center
+            img(src=`${CWD}assets/img/illustration/process-01.svg` alt='' width=400).img-fluid
+
+
+          .col-lg-6.border-start-lg.border-bottom-lg.pb-lg-8.mt-4.mt-lg-0.mb-8.mb-lg-0
+            .process-item.ms-6.ms-sm-8.ms-lg-6
+              span.process-item-number 01
+              h3 plan
+              p We set priorities, organize content, and understand the buyer’s journey that your audience takes as they navigate your website. At the end of strategy, you will have a Blueprint for your website project, a comprehensive strategic plan for your website design, content, and functionality.
+
+        .row
+          .col-lg-6.border-end-lg.border-bottom-lg.text-center.py-lg-8
+            img(src=`${CWD}assets/img/illustration/process-02.svg` alt='' width=400).img-fluid
+
+          .col-lg-6.mt-4.mb-8.my-lg-8
+            .process-item.ms-6.ms-sm-8.ms-lg-6
+              span.process-item-number 02
+              h3 design
+              p Once the Blueprint is approved, we create wireframes and a design comp for your review. This process involves various reviews, approvals, and close communication between you and our creative team. We begin with the Homepage to set style, image and branding standards, then move toward interior layouts.
+              a(href='#!').btn.btn-outline-dark.btn-sm.mt-3 View Methods
+
+        .row
+
+          .col-lg-6.order-lg-2.text-center.align-self-center
+            img(src=`${CWD}assets/img/illustration/process-03.svg` alt='' width=400).img-fluid
+
+          .col-lg-6.border-start-lg.border-bottom-lg.py-lg-8.mt-4.mt-lg-0.mb-8.mb-lg-0
+            .process-item.ms-6.ms-sm-8.ms-lg-6
+              span.process-item-number 03
+              h3 develop
+              p With the blueprint &amp; design comps as our guide, the development team begins to create your website with the state of the earth tools. Our entire team works to add content, final design elements, review, &amp; test your website for quality.
+
+        .row.pb-1
+
+          .col-lg-6.border-end-lg.text-center.py-lg-8
+            img(src=`${CWD}assets/img/illustration/process-04.svg` alt='' width=400).img-fluid
+
+          .col-lg-6.align-self-center.mt-4.mt-lg-0.mt-lg-8
+            .process-item.process-item-last.ms-6.ms-sm-8.ms-lg-6
+              span.process-item-number 04
+              h3 deploy
+              p After testing and review, we present your new website. Upon your approval, your website will be launched, promoted and optimized for search engines such as Google &amp; Bing.
+              a(href=`${CWD}pages/portfolio.html`).btn.btn-outline-dark.btn-sm.mt-3 See portfolio
+
+mixin DefaultCta1
+  +Section.py-0#defaultCta1&attributes(attributes)= attrs
+    .position-absolute.overflow-hidden.all-0
+      +Background({
+        image: `${CWD}assets/img/headers/header-16.jpg`,
+        className: 'overlay rounded',
+        attrs: {"data-zanim-trigger": 'scroll', "data-zanim-lg": {animation: "zoom-out", delay: 0}}
+      })
+    .row.justify-content-center.text-center.py-7
+      .col-lg-9.position-relative
+        h3.fs-7.fs-sm-6.text-white have a website to build?
+        p.lead.fst-italic.text-light.text-opacity-75.px-lg-7 Sparrow is always ready to have your project done
+        a(href='#!').btn.btn-outline-light.mt-4.btn-sm.border-2 Purchase Sparrow
+
+mixin DefaultProgressbar
+  +Section.text-center#defaultProgressbar
+    .row.justify-content-center
+      .col-md-6
+        h2.fs-6.fs-sm-5.text-decoration-underline.mb-3 performance?
+
+        p.text-body-tertiary.fst-italic Be surprised seeing the final outcome of your creation with sparrow and want more, no matter the task.
+
+    .row.align-items-center.mt-6
+      .col-md-6.position-relative
+        .progress-circle.mb-4(data-progress-circle!={ 
+          progress: 88,
+          subText: "<span class='text-body pt-2'>More Power behind<br/>every pixel</span>"
+        })    
+
+        h4 Record Breaking in History
+        p.px-4 Creating with sparrow is an easier, faster way to get things done. And it makes development even more effortless.
+
+      .col-md-6.ps-md-7.text-start.mt-8.mt-md-0
+
+        .progress-line.me-4(data-progress-line!={progress: 93, subText: "Google Page Speed"})
+
+        .progress-line.me-4.mt-4(data-progress-line!={progress: 96, subText: "Pingdom Page Speed"})
+
+        .progress-line.me-4.mt-4(data-progress-line!={progress: 90, subText: "Sparrow Performance Matrix"})
+
+        p.mt-4 Combined with the power of bootstrap, sparrow can provide helpful elements to make web design easier and make your website load faster than ever.
+        a(href='#!').btn.btn-outline-dark.px-5.mt-5 see comparison
+
+mixin DefaultCta2
+  +Section.overflow-hidden.py-0#defaultCta2&attributes(attributes)= attrs
+    .position-absolute.overflow-hidden.all-0
+      +Background({
+        image: `${CWD}assets/img/headers/header-47.jpg`,
+        className: 'overlay overlay-2 rounded',
+        attrs: {"data-zanim-trigger": 'scroll', "data-zanim-lg": {animation: "zoom-out", delay: 0}}
+      })
+    .row.flex-center.text-center.py-8
+      .col-lg.position-relative
+        h1.mb-0.text-white 2 million
+        h6.text-white.text-opacity-75.fs-9 happy customers &amp; counting
+        a(href='#!').btn.btn-outline-light.btn-sm.mt-4.border-2 read user stories
+        
+      .col-lg-7.px-lg-8.mt-6.mt-lg-0.position-relative
+        .swiper.theme-slider.position-static(data-swiper!={
+          autoplay: true,
+          loop: true,
+          autoplay: {
+            delay: 3000,
+          }, 
+          effect: 'slide',
+        })
+          .swiper-wrapper
+            .swiper-slide
+              h4.font-base.fw-light.text-white.fst-italic.fs-8.fs-sm-7.mb-4 "Sparrow ensures that I sleep like a little baby every single night"
+              h6.fs-9.mb-0.text-white.fw-black Mane Dumas
+              h6.fs-9.mb-0.fw-normal.text-light.text-opacity-75 web designer
+            .swiper-slide  
+              h4.font-base.fw-light.text-white.fst-italic.fs-8.fs-sm-7.mb-4 "With no writing of any CSS code &mdash; customize almost everything"
+              h6.fs-9.mb-0.text-white.fw-black Jane Dumas
+              h6.fs-9.mb-0.fw-normal.text-light.text-opacity-75 developer
+          .swiper-nav
+            .swiper-button-next.me-md-5
+            .swiper-button-prev.ms-md-5
+
+mixin DefaultPricingPlan
+  +Section#defaultPricingPlan
+    .row.justify-content-center
+      .col-lg-6.mb-7.text-center
+        h2.fs-6.fs-sm-5.text-decoration-underline.mb-3 find the right plan
+        p.text-body-tertiary.fst-italic Sparrow gives you the best output at the lowest investment and fills all your needs. Choose from the pricing plans that suits you best.
+
+    .row.justify-content-center.justify-content-md-start.text-center.text-md-start
+      .col-10.col-md-6.col-lg-4.pe-md-4.pe-lg-6(data-zanim-timeline!={} data-zanim-trigger='scroll')
+        img(src=`${CWD}assets/img/icons/package1.svg` alt='' width="120" height="120").mb-3
+        .overflow-hidden
+          h2(data-zanim-xs!={delay: 0.1}) personal
+        .overflow-hidden
+          h4.font-base.fw-light.fst-italic.mb-0.text-body-secondary(data-zanim-xs!={delay: 0.2}) forever
+        .overflow-hidden
+          h4.mb-4(data-zanim-xs!={delay: 0.3}) free
+        .overflow-hidden
+          p(data-zanim-xs!={delay: 0.4}) Create beautiful, professional campaigns for free—no design or coding experience necessary. It's so easy, you can start sending today.
+        .overflow-hidden
+          div(data-zanim-xs!={delay: 0.5})
+            a(href='#!').btn.btn-link.ps-md-0.text-black.fw-black join now
+              span.d-inline-block &xrarr;
+
+      .col-10.col-md-6.col-lg-4.px-lg-4.mt-6.mt-md-0(data-zanim-timeline!={} data-zanim-trigger='scroll')
+        img(src=`${CWD}assets/img/icons/package2.svg` alt='' width="120" height="120").mb-3
+        .overflow-hidden
+          h2(data-zanim-xs!={delay: 0.1}) business
+        .overflow-hidden
+          h4.font-base.fw-light.fst-italic.mb-0.text-body-secondary(data-zanim-xs!={delay: 0.2}) starting at
+        .overflow-hidden
+          h4.mb-4.d-flex.align-items-center(data-zanim-xs!={delay: 0.3})
+            span $10 per month
+            span.border.border-danger.text-danger.fw-semibold.px-1.fs-10.rounded.ms-2 Save 50%
+        .overflow-hidden
+          ul.style-check.ps-0(data-zanim-xs!={delay: 0.4})
+            li.d-inline-block.d-md-block Level up with automation
+            li.d-inline-block.d-md-block Workflows, e-commerce-focused
+            li.d-inline-block.d-md-block Features, and more tools that
+            li.d-inline-block.d-md-block Refine your marketing strategy
+        .overflow-hidden
+          div(data-zanim-xs!={delay: 0.5})
+            a(href='#!').btn.btn-link.ps-md-0.text-black.fw-black learn more
+              span.d-inline-block &xrarr;
+
+      .col-10.col-md-6.col-lg-4.ps-lg-6.mt-6.mt-lg-0(data-zanim-timeline!={} data-zanim-trigger='scroll')
+        img(src=`${CWD}assets/img/icons/package3.svg` alt='' width="120" height="120").mb-3
+        .overflow-hidden
+          h2(data-zanim-xs!={delay: 0.1}) enterprise
+        .overflow-hidden
+          h4.font-base.fw-light.fst-italic.mb-0.text-body-secondary(data-zanim-xs!={delay: 0.2}) additional
+        .overflow-hidden
+          h4.mb-4(data-zanim-xs!={delay: 0.3}) $199 per year
+        .overflow-hidden
+          p(data-zanim-xs!={delay: 0.4}) Improve performance with enterprise-level features for high-volume senders like multivariate testing and much more features.
+        .overflow-hidden
+          div(data-zanim-xs!={delay: 0.5})
+            a(href='#!').btn.btn-link.ps-md-0.text-black.fw-black contact sales
+              span.d-inline-block &xrarr;
+
+
+mixin DefaultCta3
+  +Section.py-0#defaultCta3&attributes(attributes)= attrs
+    .row.flex-center.bg-dark.rounded.py-6.text-center
+      .col-lg-7.text-lg-start.ps-lg-5
+        h3.mb-0.text-white start your next big project with sparrow!
+      .col-lg-auto.pe-lg-5.mt-4.mt-lg-0
+        a(href='#!').btn.btn-light get started
+
+
+mixin DefaultMembers
+  +Section.text-center#defaultMembers
+    mixin Team(img, name, title, icons)
+      .hoverbox
+        img(src=`${CWD}assets/img/team/${img}.jpg` alt='' data-zanim-xs!={
+          animation: "zoom-in",
+          delay: 0.1
+        }).rounded.img-fluid
+        .hoverbox-content.p-3.d-flex.align-items-end.justify-content-end
+          each val, index in icons
+            a(href='#!').text-white
+              span.fs-8.ms-2(class="fab fa-" + val + "")
+      .overflow-hidden
+        a(href=`${CWD}pages/profile.html`)
+          h5.fs-9.fw-bold.mt-3.mb-1(data-zanim-xs!={from: {y: 45}, delay: 0.2})!=name
+      .overflow-hidden
+        h6.text-body.fw-normal.text-uppercase.ls(data-zanim-xs!={from: {y: 22}, delay: 0.3})=title
+    .row.flex-center
+      .col-lg-7.col-xl-6
+        h2.fs-6.fs-sm-5.text-decoration-underline.mb-3 meet the crews
+        p.text-body-tertiary.fst-italic A passionate group of experienced designers, developers and programmers motivated to continually reach goals and tackle new challenges
+
+      .w-100
+      .col-lg-6.pt-5.pt-xl-7(data-zanim-timeline!={delay: 0.0} data-zanim-trigger='scroll')
+        +Team("9", "Elizabeth Swan", "The Lady", ["twitter"])
+      .col-lg-6.pt-5.pt-xl-7(data-zanim-timeline!={delay: 0.1} data-zanim-trigger='scroll')
+        +Team("0", "Jack Sparrow", "The Man", ["twitter"])
+      .w-100
+      .col-sm-6.col-lg-3.pt-5.pt-xl-7(data-zanim-timeline!={delay: 0.2} data-zanim-trigger='scroll')
+        +Team("1", "Hector Barbossa", "The Beta", ["twitter", "facebook"])
+      .col-sm-6.col-lg-3.pt-5.pt-xl-7(data-zanim-timeline!={delay: 0.3} data-zanim-trigger='scroll')
+        +Team("2", "Tia Dalma", "The Gama", ["instagram"])
+      .col-sm-6.col-lg-3.pt-5.pt-xl-7(data-zanim-timeline!={delay: 0.4} data-zanim-trigger='scroll')
+        +Team("3", "Angelica Syrena", "The Ohm", ["linkedin"])
+      .col-sm-6.col-lg-3.pt-5.pt-xl-7(data-zanim-timeline!={delay: 0.5} data-zanim-trigger='scroll')
+        +Team("4", "Joshame Gibbs", "The Pi", ["instagram"])
+      .col-sm-6.col-lg-3.pt-5.pt-xl-7(data-zanim-timeline!={delay: 0.6} data-zanim-trigger='scroll')
+        +Team("5", "Carina Smyth", "The Delta", ["facebook"])
+      .col-sm-6.col-lg-3.pt-5.pt-xl-7(data-zanim-timeline!={delay: 0.7} data-zanim-trigger='scroll')
+        +Team("6", "Black Beard", "The Fi", ["twitter", "instagram"])
+      .col-sm-6.col-lg-3.pt-5.pt-xl-7(data-zanim-timeline!={delay: 0.8} data-zanim-trigger='scroll')
+        +Team("7", "Davy Jones", "The Zita", ["twitter", "linkedin"])
+      .col-sm-6.col-lg-3.pt-5.pt-xl-7(data-zanim-timeline!={delay: 0.9} data-zanim-trigger='scroll')
+        img(src=`${CWD}assets/img/team/8.jpg` alt='' data-zanim-xs!={animation: "zoom-in", delay: 0.1}).rounded.img-fluid
+        .overflow-hidden
+          h5.fs-9.fw-bold.mt-3.mb-1(data-zanim-xs!={delay: 0.2}) Pintel &amp; Ragetti
+        .overflow-hidden
+          h6.text-body.fw-normal.text-uppercase.ls(data-zanim-xs!={delay: 0.3}) Entertainers
+
+mixin DefaultGallery
+  +Section.text-center.pt-0.pb-4#defaultGallery
+
+    mixin Lightbox(img, img1)
+      a(href='#!' data-bp=`${CWD}assets/img/gallery/${img1}.jpg`  data-bigpicture!={ gallery: '#home-gallery'} data-caption="your caption")
+        img(src=`${CWD}assets/img/gallery/${img}.jpg` alt='' data-zanim-xs!={
+          animation: 'zoom-in',
+          delay: 0.1
+        } data-zanim-trigger='scroll').rounded.img-fluid
+      
+    .row.gy-4#home-gallery
+      .col-12.mb-3.mb-lg-5
+        h2.fs-6.fs-sm-5
+          span.text-decoration-underline life@sparrow
+      .col-6.col-lg-4
+        +Lightbox("13", "13-f")
+      .col-6.col-lg-4
+        +Lightbox("14", "14-f")
+      .col-6.col-lg-4
+        +Lightbox("15", "15-f")
+      .col-6.col-lg-4
+        +Lightbox("16", "16-f")
+      .col-6.col-lg-4
+        +Lightbox("17", "17-f")
+      .col-6.col-lg-4
+        +Lightbox("18", "18-f")
+      .col-6.col-lg-4
+        +Lightbox("19", "19-f")
+      .col-6.col-lg-4
+        +Lightbox("20", "20-f")
+      .col-6.col-lg-4
+        +Lightbox("21", "21-f")
+
+
+mixin DefaultCta4
+  +Section#defaultCta4
+    .row.justify-content-center.text-center
+      .col-lg-8
+        h2 start your career with us
+        p Join the highly talented group of artists, engineers, and imagineers.
+        a(href='#!').btn.btn-outline-dark.rounded-pill.mt-4 See Openings

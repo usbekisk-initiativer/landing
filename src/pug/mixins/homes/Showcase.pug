@@ -1,0 +1,82 @@
+mixin Showcase
+   
+  +Section('container-fluid').py-0.overflow-hidden.bg-body(data-zanim-timeline!={delay: 0.4} data-zanim-trigger="scroll")
+    .devices-wrapper
+      .macbook-1(data-zanim-xs!={delay: 0.5, animation: "slide-left", duration: 1.5})
+        img.device(data-parallax data-rellax-speed=3, src=`${CWD}assets/img/showcase/macbook-1.jpg`, alt='')
+      .ipad--l-1(data-zanim-xs!={delay: 0.5, animation: "slide-left", duration: 1.5})
+        img.device(data-parallax data-rellax-speed=3.8, src=`${CWD}assets/img/showcase/ipad--l-1.jpg`, alt='')
+      .iphone-1(data-zanim-xs!={delay: 0.4, animation: "slide-left", duration: 1.5})
+        img.device(data-parallax data-rellax-speed=4.8, src=`${CWD}assets/img/showcase/iphone-1.jpg`, alt='')
+      .ipad--l-2(data-zanim-xs!={delay: 0.3, animation: "slide-left", duration: 1.5})
+        img.device(data-parallax data-rellax-speed=3.4, src=`${CWD}assets/img/showcase/ipad--l-2.jpg`, alt='')
+      .iphone-2(data-zanim-xs!={delay: 0.2, animation: "slide-left", duration: 1.5})
+        img.device(data-parallax data-rellax-speed=4, src=`${CWD}assets/img/showcase/iphone-2.jpg`, alt='')
+      .macbook-2(data-zanim-xs!={delay: 0.4, animation: "slide-left", duration: 1.5})
+        img.device(data-parallax data-rellax-speed=5, src=`${CWD}assets/img/showcase/macbook-2.jpg`, alt='')
+      .ipad--l-3(data-zanim-xs!={delay: 0.5, animation: "slide-left", duration: 1.5})
+        img.device(data-parallax data-rellax-speed=3.7, src=`${CWD}assets/img/showcase/ipad--l-3.jpg`, alt='')
+      .ipad--p-1(data-zanim-xs!={delay: 0.5, animation: "slide-left", duration: 1.5})
+        img.device(data-parallax data-rellax-speed=4.8, src=`${CWD}assets/img/showcase/ipad--p-1.jpg`, alt='')
+      .iphone-3(data-zanim-xs!={delay: 0.3, animation: "slide-left", duration: 1.5})
+        img.device(data-parallax data-rellax-speed=3, src=`${CWD}assets/img/showcase/iphone-3.jpg`, alt='')
+      .iphone-4(data-zanim-xs!={delay: 0.2, animation: "slide-left", duration: 1.5})
+        img.device(data-parallax data-rellax-speed=3, src=`${CWD}assets/img/showcase/iphone-2.jpg`, alt='')
+      .iphone--l-1(data-zanim-xs!={delay: 0.5, animation: "slide-left", duration: 1.5})
+        img.device(data-parallax data-rellax-speed=2, src=`${CWD}assets/img/showcase/iphone--l-1.jpg`, alt='')
+      
+    .row.py-8.min-vh-100.align-items-center
+      .col-md-auto.px-md-4.ps-md-8
+        h1.display-4.fs-7.fs-sm-5.fs-md-4
+          span.overflow-hidden.d-inline-block
+            span.d-inline-block(data-zanim-xs!={delay: 1}) look like an 
+              span.font-base.fst-italic.fw-normal expert
+          br
+          span.overflow-hidden.d-inline-block.pb-2
+            span.d-inline-block(data-zanim-xs!={delay: 1.1}) right from the start
+        .overflow-hidden
+          p.mt-3.mt-sm-4.font-secondary.lead(data-zanim-xs!={delay: 1.2}) Head start your stylish website with a gorgeous template
+        .mt-3.mt-sm-5
+          a(href='#demoes' data-offset=60 data-zanim-xs!={delay: 1.3}).btn.btn-dark.btn-sm.me-2.my-2 Explore Demos
+          a(href='https://themes.getbootstrap.com/product/sparrow-simple-seamless-alive/' target="_blank" data-zanim-xs!={delay: 1.3}).btn.btn-outline-dark.btn-sm.my-2 Purchase Sparrow &xrarr;
+
+  +Section.font-secondary.text-center.py-6.py-xl-9.bg-dark
+    .row.justify-content-center
+      .col-xl-9.col-lg-10
+        .fs-7.text-body-tertiary Turn your project from 
+          h3.d-inline-block.fw-bold.text-white mediocre to remarkable
+          |  — a design that is simple, seamless and alive! With Sparrow, your outstanding website is just one step away. Create with it what you will.
+        hr.hr-short.mt-6.opacity-1
+
+  +Section('container-fluid').pb-4.pt-3.bg-dark#demoes
+    .row.mx-0(data-isotope!={
+      layoutMode: 'packery',   
+    })
+      each value, index in showcaseItems
+        each v, i in value
+          .col-lg-4.col-md-6.isotope-item.mb-4
+            a(href=`${index}/${v}.html` target="_blank")
+              h6.fs-9.mb-3.text-center.text-white.text-capitalize=v
+              img(src=`${CWD}assets/img/screenshots/${index}/${v}.jpg` alt='').img-fluid.rounded
+
+
+  +Section.pb-0
+    .row
+      .col-lg-6.px-5.py-3
+        hr.text-danger.opacity-1.ms-0(data-zanim-xs!={from:{width: 0}, to: {width: '100%'}} data-zanim-trigger='scroll')
+        h2.fw-normal GPU enhanced animation for life-like experiences
+      .col-lg-6.px-5.py-3
+        hr.text-danger.opacity-1.ms-0(data-zanim-xs!={delay: 0.2, from:{width: 0}, to: {width: '100%'}} data-zanim-trigger='scroll')
+        h2.fw-normal All the power of Bootstrap 4 core &amp; popular plugins
+      .col-lg-6.px-5.py-3
+        hr.text-danger.opacity-1.ms-0(data-zanim-xs!={delay: 0.4, from:{width: 0}, to: {width: '100%'}} data-zanim-trigger='scroll')
+        h2.fw-normal Works from IE 11 to Safari &amp; everything in between
+      .col-lg-6.px-5.py-3
+        hr.text-danger.opacity-1.ms-0(data-zanim-xs!={delay: 0.6, from:{width: 0}, to: {width: '100%'}} data-zanim-trigger='scroll')
+        h2.fw-normal More extendable, customizable &amp; hackable
+        
+    .row.justify-content-center.text-center
+      .col-lg-8.col-xl-8.py-8
+        hr.hr-short.mb-6.opacity-1
+        p.font-secondary.lead.text-dark Discover all the possibilities you can create with Sparrow
+        a.btn.btn-danger.mt-3(href='#') Purchase now

@@ -1,0 +1,46 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/sparrow/Accordion
+
+append variables
+  - var pageTitle = 'Inline Player';
+  - var activePage = 'inline-player';
+
+prepend styles
+  link(href=`${CWD}vendors/plyr/plyr.css`, rel='stylesheet')
+
+prepend scripts
+  script(src=`${CWD}vendors/plyr/plyr.polyfilled.min.js`) 
+
+block component 
+  +SparrowComponentLink({
+    name: 'Plyr',
+    link: 'https://github.com/sampotts/plyr#try-plyr-online',
+  })
+  .row.g-0
+    .col-lg-6.pe-lg-2
+
+      +ComponentCard({
+        title: 'Youtube Player',
+        anchor: true,
+      }).mb-3
+        div(data-plyr data-plyr-provider='youtube' data-plyr-embed-id='bTqVqk7FSmY') 
+         
+
+    .col-lg-6.ps-lg-2  
+    
+      +ComponentCard({
+        title: 'Vimeo Player',
+        anchor: true,
+      }).mb-3
+        div(data-plyr data-plyr-provider='vimeo' data-plyr-embed-id='76979871')
+        
+
+      
+  h5.mt-5 CSS
+  +ComponentCardLib
+    link(src="vendors/plyr/plyr.css" rel="stylesheet")
+
+  h5.mt-5 Javascript
+  +ComponentCardLib
+    script(src=`vendors/plyr/plyr.polyfilled.min.js`)
+    //- script(src=`assets/lib/plyr/plyr.min.js`)

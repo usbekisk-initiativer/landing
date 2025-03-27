@@ -1,0 +1,57 @@
+/*-----------------------------------------------
+|   Documentation link and Prism
+-----------------------------------------------*/
+:not(pre) > code[class*='language-'], pre[class*='language-'] {
+  background-color: $light;
+  border: $border-width solid var(--#{$prefix}border-color);
+  border-radius: $border-radius;
+  font-size: 87.5%;
+}
+
+code[class*='language-'], pre[class*='language-'] { font-family: $font-family-monospace; }
+
+.components-nav{
+  font-family: $font-family-secondary;
+  font-size: 0.85rem;
+}
+
+/*-----------------------------------------------
+|   Component examples
+-----------------------------------------------*/
+
+.component-example{
+  font-family: $font-family-secondary;
+  >{
+    .border {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 8rem;
+      height: 8rem;
+      margin: .75rem;
+      background-color: var(--#{$prefix}light);
+    }
+  }
+}
+
+/*-----------------------------------------------
+|   Utilities
+-----------------------------------------------*/
+.border-component{
+  [class^=border],
+  [class^="rounded-"]{
+    display: inline-block;
+    width: 8rem;
+    height: 8rem;
+    margin: .25rem;
+  }
+
+  [class^=border] {
+    background-color: var(--#{$prefix}light);
+  }
+
+  [class^="rounded-"] {
+    background-color: var(--#{$prefix}light);
+  }
+}
+

@@ -1,0 +1,28 @@
+extends ../layouts/LayoutTheme
+include ../mixins/homes/Default
+
+prepend styles
+  link(href=`${CWD}vendors/swiper/swiper-bundle.min.css`, rel='stylesheet')
+
+prepend scripts
+  script(src=`${CWD}vendors/swiper/swiper-bundle.min.js`)
+  script(src=`${CWD}vendors/bigpicture/BigPicture.js`)  
+  script(src=`${CWD}vendors/progressbar/progressbar.min.js`)
+  script(src=`${CWD}vendors/rellax/rellax.min.js`) 
+
+append mainContent
+
+  +DefaultHeader
+  +DefaultWhyUs
+  +DefaultVideo
+  +DefaultServices
+  +DefaultProcess
+  +DefaultCta1
+  +DefaultProgressbar
+
+  +DefaultCta2
+  +DefaultPricingPlan
+  +DefaultCta3
+  +DefaultMembers
+  +DefaultGallery
+  +DefaultCta4

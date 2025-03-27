@@ -1,0 +1,24 @@
+extends ../layouts/LayoutTheme
+include ../mixins/homes/Software
+
+prepend styles
+  link(href=`${CWD}vendors/plyr/plyr.css`, rel='stylesheet')
+
+prepend scripts
+  script(src=`${CWD}vendors/plyr/plyr.polyfilled.min.js`)
+  script(src=`${CWD}vendors/typed.js/typed.umd.js`)
+
+block beforeMainContent
+  +FancyNav
+
+append mainContent
+  
+  +SoftwareHeader
+
+  +SoftwareTestimonial
+
+  +SoftwareFeatures
+
+  +SoftwareCta
+
+  +SoftwareFooter

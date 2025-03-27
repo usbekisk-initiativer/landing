@@ -1,0 +1,15 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/bootstrap/Forms
+
+append variables
+  - var pageTitle = 'Form Elements';
+  - var activePage = 'forms';
+
+block component
+  +BootstrapComponentLink({
+    link: `https://getbootstrap.com/docs/${bootstrapVersion}/forms/layout`,
+    name: 'Forms',
+  })
+  +FormsStandardInput
+  +FormValidation
+  +FormSizes

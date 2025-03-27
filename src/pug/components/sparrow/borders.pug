@@ -1,0 +1,63 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/sparrow/Borders
+
+append variables
+  - var pageTitle = 'Borders';
+  - var activePage = 'borders';
+
+block component 
+  +BorderDoc
+
+  +ComponentCard({
+    subTitle:'Examples for adding borders',
+    anchor:true
+  }).mt-5.border-component
+    +BorderAdditive
+    = '\n'
+  hr.my-5
+
+  +ComponentCard({
+    subTitle:'Examples for removing borders',
+    description: 'For removing border, the classes are named using the format <code>border-{side}-0</code> for <code>xs</code> and <code>border-{breakpoint}-{side}-0</code> for <code>sm</code>, <code>md</code>, <code>lg</code> and <code>xl</code>.',
+    anchor:true
+  }).mt-5.border-component
+    +BorderSubtractive
+  hr.my-5
+
+  +ComponentCard({
+    title: 'Border Style',
+    description: "For the different border style, add <code>border-{dashed/dotted/hidden/none}</code> classes with <code>border</code> class",
+    anchor:true,
+    descriptionClass:'mt-2',
+  }).mt-5.border-component
+    +BorderStyle
+
+  hr.my-5
+
+  +ComponentCard({
+    title: 'Border Width',
+    description: "You can control border width using helper classes<code> border-{1|2|3|4|5}. In addition, you can also use <code>border-top-2</code>, <code>border-end-2</code>, <code>border-bottom-2</code>, <code>border-start-2</code>.</code>",
+    anchor: true,
+    descriptionClass:'mt-2',
+  }).border-component.mt-5
+    +BorderWidth
+  hr.my-5
+
+  +ComponentCard({
+    title: 'Border Color',
+    description: "Border color set as <code> currentColor and border width <code>1px </code>. Modifier can be used to change border color and width. The modifier classes for color are named using the format <code>border-{color}</code>.</code> <br>Where <em> color</em> is one of: <code>primary, secondary, success, info, warning, danger, light, dark, black, 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100, white,</code>",
+    anchor:true,
+    descriptionClass:'mt-2',
+  }).border-component
+    +BorderColorWidth
+
+  hr.my-5
+
+
+  +ComponentCard({
+    title: "Border rounded",
+    description: "Add helper classes to an element to easily round its corners. For the rounded border, the class are named using the format <code> rounded-*</code>",
+    anchor:true
+  }).mt-5.border-component
+    +BorderRadius
+    = '\n'

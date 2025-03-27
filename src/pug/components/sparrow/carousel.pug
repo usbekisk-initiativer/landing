@@ -1,0 +1,49 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/sparrow/Carousel
+
+append variables
+  - var pageTitle = 'Swiper';
+  - var activePage = 'carousel';
+prepend styles
+  link(href=`${CWD}vendors/swiper/swiper-bundle.min.css`, rel='stylesheet')
+
+prepend scripts
+  script(src=`${CWD}vendors/swiper/swiper-bundle.min.js`)
+
+block component 
+
+  +SparrowComponentLink({
+    name: 'Swiper Js',
+    link: 'https://swiperjs.com/'
+  })
+  +SwiperCarousel
+
+  +ComponentCard({
+    title: 'Swiper with thumbnail',
+    anchor: true,
+    description: "This can be simply done by using the attribute. For Swiper with thumbnail use <code>thumb </code>options in your pug/HTML. You can place thumbnail to a specific parent by providing <code>thumbOptions: '#parentID' </code>value in <code>thumb </code>options. Otherwise thumbnail will place after the <code>.swiper </code>element.",
+    prismClass: 'mt-4'
+  }).mt-5
+    +SwiperWithThumbnail
+
+  +ComponentCard({
+    title: 'Swiper without thumbnail',
+    anchor: true,
+    description: "For Swiper without thumbnail simply remove thumb options from your pug/HTML.",
+    prismClass: 'mt-4'
+  }).mt-5
+    +SwiperWithoutThumbnail
+    
+
+  +ComponentCardLib({
+    title: 'JavaScript',
+    titleClass: 'mt-5'
+  })
+    script(src='vendors/swiper/swiper-bundle.min.js')
+
+  +ComponentCardLib({
+    title: 'CSS',
+    titleClass: 'mt-5'
+  })
+    link(src='vendors/swiper/swiper-bundle.min.css' rel="stylesheet")
+

@@ -1,0 +1,129 @@
+mixin SoftwareHeader
+  +Section.text-center.mt-5.mt-lg-0#software-header
+    .row.justify-content-center.align-items-center
+      .col-lg-8
+        .player-wrapper(data-zanim-xs!={delay: 0.1, animation: 'zoom-in'} data-zanim-trigger='scroll')
+          .player(data-plyr data-plyr-provider='youtube' data-plyr-embed-id='bTqVqk7FSmY')
+        h1.overflow-hidden.mt-4 welcome to 
+          br.d-sm-none
+          span.typed-text.fst-italic.font-base.fw-light(data-typed-text!=["productivity.", "workflow.", "organization."])
+        p.font-secondary The platform for your ideas, your team, your projects, your business.
+        a(href='#!').btn.btn-outline-dark.rounded-pill.mt-4 Buy Now
+        
+
+mixin SoftwareTestimonial
+  +Section.bg-light.py-7.py-lg-9#softwareTestimonial
+    mixin SoftwareTestimonialContent(preson, companey, content)
+      blockquote.blockquote(data-zanim-xs!={delay: 0.1} data-zanim-trigger='scroll')
+        p.blockquote-content!=content
+        .h6.fs-9.fw-black=preson
+        .h6.text-body-tertiary=companey
+    .row.justify-content-center
+      .col-lg-9
+        .row.align-items-center.mb-7
+          .col-sm-auto
+            .mx-auto.ms-sm-0.mb-4.mb-sm-0
+              img(src=`${CWD}assets/img/team/12.jpg` alt="").avatar.avatar-egg
+          .col.ps-5
+            +SoftwareTestimonialContent('Black Beard', 'Feast Design Company', 'Sparrow helped me transform my hobby into a successful online business. Their products enabled me to focus on creating top-notch solutions for my clients.')
+
+        .row.align-items-center.mb-7
+          .col-sm-auto.order-lg-2
+            .mx-auto.ms-sm-0.mb-4.mb-sm-0
+              img(src=`${CWD}assets/img/team/10.jpg` alt="").avatar.avatar-egg
+          .col.ps-5
+            +SoftwareTestimonialContent('Rebecca Gill', 'Web Savvy Marketing', 'Sparrow blends together the best elements. It offers the power of bootstrap with useful extensions, and includes the most elegant typographic features&mdash;which makes developers like me incredibly happy.')
+
+        .row.align-items-center
+          .col-sm-auto
+            .mx-auto.ms-sm-0.mb-4.mb-sm-0
+              img(src=`${CWD}assets/img/team/11.jpg` alt="").avatar.avatar-egg
+          .col.ps-5
+            +SoftwareTestimonialContent('Lisa Hannigan', 'Problogger', 'The team behind sparrow sure know what they are doing! If you’re looking for managed hosting you’ll find a stable, secure and well optimized option in sparrow Sites.')
+            
+
+mixin SoftwareFeatures
+  +Section.text-center#SoftwareFeatures
+    .row.justify-content-between
+      mixin ZenFeature(img, title, des)
+        img(src=img alt="" data-zanim-xs!={delay: 0.1, animation: "zoom-in"}).rounded-4.img-fluid
+        .overflow-hidden
+          h4.mt-4(data-zanim-xs!={delay: 0.2})=title
+        .overflow-hidden
+          p(data-zanim-xs!={delay: 0.3})=des
+
+      .col-lg-6.px-lg-6(data-zanim-timeline!={delay: 0.1} data-zanim-trigger="scroll")
+        +ZenFeature(`${CWD}assets/img/illustration/01.jpg`, "The Power of Simplicity", "Start simple. When you use a tool, you should be able to understand it from the first moment. With sparrow you manage any web design project intuitively.")
+      .col-lg-6.px-lg-6.pt-6.pt-lg-0(data-zanim-timeline!={delay: 0.2} data-zanim-trigger="scroll")
+        +ZenFeature(`${CWD}assets/img/illustration/02.jpg`, "The Power of Choice", "The ability to switch perspective lets you see clearly, and to know where to take the next step. With sparrow, you can work on a portfolio, business website, or shop.")
+      .col-lg-6.px-lg-6.pt-6(data-zanim-timeline!={delay: 0.3} data-zanim-trigger="scroll")
+        +ZenFeature(`${CWD}assets/img/illustration/03.jpg`, "The Power of Growth", "We all grow and evolve, and our environment and tools should grow with us. A system switch can be a very expensive and risky undertaking. Sparrow can give you almost unlimited support in your structures and processes.")
+      .col-lg-6.px-lg-6.pt-6(data-zanim-timeline!={delay: 0.4} data-zanim-trigger="scroll")
+        +ZenFeature(`${CWD}assets/img/illustration/04.jpg`, "The Power of Synergy", "Everything is connected. Wherever you have related sections stored in separate pages, you lose control over the design. With sparrow you can easily join any section to create a simple, yet powerful website.")
+
+mixin SoftwareCta
+  +Section.text-center.border-top#SoftwareCta
+    .row.justify-content-center
+      .col-lg-8(data-zanim-trigger="scroll" data-zanim-timeline!={})
+        .overflow-hidden
+          h2(data-zanim-xs!={delay: 0.1}) The Power of Now: Start immediately.
+        .overflow-hidden
+          p(data-zanim-xs!={delay: 0.2}) No CSS is required for controlling layouts, colors, and typography.
+        div(data-zanim-xs!={delay: 0.3})
+          a(href='#!').btn.btn-dark.rounded-pill.mt-4 Join us today
+
+mixin SoftwareFooter
+  +Section.text-center.bg-light.font-secondary#SoftwareFooter
+    .row.justify-content-center
+      .col-sm-4.col-md-3
+        h5.fs-9.text-body-highlight Company
+        ul.list-unstyled
+          li.mb-1
+            a(href='#!').text-body About Us
+          li.mb-1
+            a(href='#!').text-body Newsroom
+          li.mb-1
+            a(href='#!').text-body Press Kit
+          li.mb-1
+            a(href='#!').text-body Blog
+          li.mb-1
+            a(href='#!').text-body Academy
+
+      .col-sm-4.col-md-3.mt-4.mt-sm-0
+        h5.fs-9.text-body-highlight Product
+        ul.list-unstyled
+          li.mb-1
+            a(href='#!').text-body Features
+          li.mb-1
+            a(href='#!').text-body Apps
+          li.mb-1
+            a(href='#!').text-body Integrations
+          li.mb-1
+            a(href='#!').text-body For Enterprises
+          li.mb-1
+            a(href='#!').text-body Pricing
+          li.mb-1
+            a(href='#!').text-body Alternatives
+      .col-sm-4.col-md-3.mt-4.mt-sm-0
+        h5.fs-9.text-body-highlight Customer service
+        ul.list-unstyled
+          li.mb-1
+            a(href='#!').text-body Documentation
+          li.mb-1
+            a(href='#!').text-body Tutorials
+          li.mb-1
+            a(href='#!').text-body Templates
+          li.mb-1
+            a(href='#!').text-body Newsletter
+          li.mb-1
+            a(href='#!').text-body Use Cases
+
+      .col-12.pt-4.fs-8
+        a(href='#!').text-youtube.px-2
+          span.fab.fa-youtube
+        a(href='#!').text-facebook.px-2
+          span.fab.fa-facebook
+        a(href='#!').text-twitter.px-2
+          span.fab.fa-twitter
+        a(href='#!').text-linkedin.px-2
+          span.fab.fa-linkedin

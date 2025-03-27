@@ -1,0 +1,9 @@
+extends ../layouts/LayoutSplitLeft
+include ../mixins/pages/About.pug
+
+append variables
+  - var bg = 'about';
+
+block splitLeftContent  
+  +About
+  

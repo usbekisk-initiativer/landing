@@ -1,0 +1,101 @@
+extends ../layouts/LayoutDocumentation
+include ../mixins/documentation/GettingStarted.pug
+append variables
+  - var pageTitle = 'Customization';
+  - var activePage = 'customization';
+  - var pageDes = 'Because you are unique';
+
+append mainContent
+  p We recommend you customize your theme styles using the user style files. You can customize the theme’s styles with the following approaches:
+
+  h3.mt-5(data-anchor) Gulp based workflow
+
+  h4.mt-4 
+    code user.scss
+  p You can add your own SCSS and override the theme style in the 
+    code src/scss/user.scss
+    |  file
+
+  h4.mt-4 
+    code _user-variables.scss
+  p To make broader changes to the design of the theme, such as changing the color scheme or font sizes, use 
+    code scss/_user-variables.scss
+    | . Any variable from 
+    code scss/bootstrap/_variables.scss 
+    |  or 
+    code scss/custom/_variables.scss
+    |  can be overridden with your own value.
+
+  h3.mt-5(data-anchor) If you are not using Gulp based workflow
+
+  h4.mt-4 
+    code user.css
+  p You can add your own SCSS and override the theme style in the 
+    code public/assets/css/user.css
+    |  file
+
+  h3.mt-5(data-anchor) Changing theme colors
+
+  h4.mt-4 Using SCSS variable:
+
+  p You can bring your necessary variable colors form 
+    code src/scss/theme/_colors.scss 
+    | and paste it into 
+    code src/scss/_user-variables.scss 
+    | then update variables as your necessity. We recommend to follow this approach.
+
+  p If you want to update any color, find the corresponding variable for thise color and place theme to 
+    code _user-variables.scss 
+    | file.
+
+  p
+    a(href="https://getbootstrap.com/docs/5.3/customize/sass/" target="_blank") See bootstrap documentation 
+    | for more details
+
+  pre
+    code.lang-css.
+      $primary: $blue !default; 
+      $secondary: $gray-600 !default;
+      $success: $green !default;
+      $info: $cyan !default;
+      $warning: $yellow !default;
+      $danger: $red !default;
+      $light: $gray-100 !default;
+      $dark: $gray-1100 !default;
+
+      $body-color: $gray-900 !default;
+      $body-bg: $gray-100 !default;
+
+      $body-secondary-color: $gray-700 !default;
+      $body-secondary-bg: $gray-200 !default;
+
+      $body-tertiary-color: $gray-800 !default;
+      $body-tertiary-bg: $gray-300 !default;
+
+      $body-highlight-color: $gray-1000 !default;
+      $body-emphasis-color: $black !default;
+  
+  h4.mt-4 Using CSS variable:
+
+  p To update theme color with this approach, you have to update CSS variable. If you change any color you have to assign it's corresponding RGB color too. Please note sometimes you may need to update corresponding component's CSS variable.
+
+  p 
+    a(href="https://getbootstrap.com/docs/5.3/customize/css-variables/" target="_blank") See bootstrap documentation 
+    | for more details
+
+  pre
+    code.lang-css.
+      :root,
+      [data-bs-theme="light"] {
+        --sparrow-primary:  #00d27a;
+        --sparrow-primary-rgb: 0, 210, 122;
+        --sparrow-body-color: #555555;
+        --sparrow-body-color-rgb: 85, 85, 85;
+        ...
+        ...
+        ...
+
+        .btn-primary {
+          --sparrow-btn-color: #fff;
+        }
+      }

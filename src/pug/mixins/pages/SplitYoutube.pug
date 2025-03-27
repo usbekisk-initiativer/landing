@@ -1,0 +1,30 @@
+mixin SplitYoutube
+  +Section('container-fluid').py-0#split-youtube
+    .row.min-vh-100
+      .col-lg-6.px-0.order-lg-2.min-vh-50.min-vh-lg-100
+        .position-relative.h-100(data-zanim-lg!={animation: 'slide-left', delay: 0.4}  data-zanim-trigger='scroll')
+          +Background({
+            image: `${CWD}assets/img/headers/header-split-youtube-background.jpg`,
+            youtube: {
+              videoId: 'MDU6xCrqv_A',
+              startSeconds: '278',
+              endSeconds: '465',
+              attrs: {'data-zanim-trigger': 'scroll', 'data-zanim-lg': {animation: 'zoom-out', delay: 0}}
+            }
+          })
+
+      .col-lg-6.py-6.py-lg-8
+        .row.h-100.flex-center
+          +SplitYoutubeContent
+
+mixin SplitYoutubeContent
+  .col-lg-9
+    p.fs-7.text-dark.font-secondary hi,
+      span.text-black.fw-black.text-decoration-underline.mx-2 we're sparrow
+      | a digital design firm specialising in end-to-end marketing campaigns for your business.
+    a.btn.ps-0.mt-3.mt-lg-5(href='#!' data-bigpicture!={vimeoSrc: '58558497#t=10'})
+      .d-flex.align-items-center
+        span.fa-layers.fa-fw.fs-5.text-danger
+          i.fas.fa-circle.ms-0
+          i.fa-inverse.fas.fa-play.ms-0(data-fa-transform='shrink-12 right-1.5')
+        span.fw-bold.text-body.ps-1 Watch our film

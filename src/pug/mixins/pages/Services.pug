@@ -1,0 +1,25 @@
+mixin Service(img, title, description)
+  .d-flex.mb-5(data-zanim-timeline!={} data-zanim-trigger='scroll')
+    .overflow-hidden
+      img(src=`${CWD}assets/img/icons/${img}` alt='' width=50 data-zanim-xs!={delay: 0.2, animation: 'slide-right'}).me-3.me-sm-4
+    .flex-1
+      .overflow-hidden
+        h4.mb-2(data-zanim-xs!={delay: 0.1, animation: 'slide-right'})!=title
+      .overflow-hidden
+        p.mb-0(data-zanim-xs!={delay: 0.2, animation: 'slide-right'})!=description
+
+
+mixin Services
+  .col-sm-11.col-md-8.col-lg-11.col-xl-9.px-xl-5
+    .mb-5.mb-lg-7.overflow-hidden
+      h1.text-decoration-underline.fs-5.fs-md-4(data-zanim-xs!={delay: 0.0} data-zanim-trigger='scroll') we do.
+
+    +Service('icon-target.svg', 'element based design', 'Components and options for laying out your project, including powerful grid system, and responsive utility classes.')
+
+    +Service('icon-line-chart.svg', 'buttery smooth animation', 'Crazy fast, responsive, efficient and freakishly robust GSAP; giving you the new standard for HTML5 and javascript animation.')
+
+    +Service('icon-coding.svg', 'familiar markup', `Based on the Bootstrap 4 code base, sparrow's code is instantly familiar, easy to understand and a straightforward to extend.`)
+
+    div(data-zanim-xs!={delay: 0.8} data-zanim-trigger='scroll')
+      a(href='#!').btn.btn-outline-dark.mt-4 See Our Works
+

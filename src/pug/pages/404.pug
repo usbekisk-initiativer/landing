@@ -1,0 +1,18 @@
+extends ../layouts/LayoutSplitLeft
+append variables
+  - var bg = '404';
+
+block splitLeftContent 
+  .col-lg-8
+    h1.display-4.fs-7.fs-lg-6.fs-xl-5
+      span.d-block.overflow-hidden.pb-1
+        span.d-inline-block(data-zanim-xs!={delay: 0.4} data-zanim-trigger='scroll') Trying to get
+      span.d-block.overflow-hidden.pb-1
+        span.d-inline-block(data-zanim-xs!={delay: 0.4} data-zanim-trigger='scroll') where you want
+      span.d-block.overflow-hidden.pb-1
+        span.d-inline-block(data-zanim-xs!={delay: 0.4} data-zanim-trigger='scroll') to go?
+    .overflow-hidden
+      p.fs-8.mt-4(data-zanim-xs!={delay: 0.5} data-zanim-trigger='scroll') This page isn't it.
+    .overflow-hidden
+      div(data-zanim-xs!={delay: 0.6} data-zanim-trigger='scroll')
+        a(href=`${CWD}index.html`).btn.btn-outline-dark.mt-6.mb-1 take me home

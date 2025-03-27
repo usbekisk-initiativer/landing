@@ -1,0 +1,16 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/common/CookieNotice
+
+append variables
+  - var pageTitle = 'Cookie Notice';
+  - var activePage = 'cookie-notice';
+
+block component 
+  p Sparrow has a built-in notification component that allows users to notify cookie uses on the website. 
+    a(href="#cookie-notice" data-bs-toggle="notice") Toggle Notification
+
+  +CookieNoticeStructure
+  +CookieNoticeOptions
+
+append afterMainContent
+  +CookieNotice

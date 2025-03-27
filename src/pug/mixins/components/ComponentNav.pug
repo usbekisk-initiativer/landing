@@ -1,0 +1,21 @@
+mixin ComponentsNav
+  ul#components-nav.components-nav.list-unstyled
+
+    each item, index in sitemap.components
+      li
+        if index === 'bootstrap'
+          h5=index
+        else
+          h5.mt-4=index
+      each value in item       
+        -var title = value.title
+        li
+          if activePage === title 
+            a.fw-bold(href=`${CWD}components/${index}/${title}.html`) 
+              +NavLinkTitle(title) 
+          else if value.isActive == true 
+            a.text-body-highlight.text-opacity-85(href=`${CWD}components/${index}/${title}.html`) 
+              +NavLinkTitle(title)
+          else
+            a.text-body-tertiary(href=`${CWD}components/${index}/${title}.html`) 
+              +NavLinkTitle(title)

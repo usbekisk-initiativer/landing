@@ -1,0 +1,17 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/bootstrap/Buttons
+
+
+append variables
+  - var pageTitle = 'Buttons';
+  - var activePage = 'buttons';
+
+block component 
+  h4 Buttons Colors
+  p Use default Bootstrap markup to display Buttons elements. See the Bootstrap documentation for a full list of options and modifiers.
+    a(href=`http://getbootstrap.com/docs/${bootstrapVersion}/components/buttons/`).font-secondary  View Buttons on Bootstrap 
+      span.d-inline-block.ms-1 &xrarr;
+  +SolidButtonsExample
+  +OutlineButtonsExample
+  +ButtonSizesDemo
+

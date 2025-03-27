@@ -1,0 +1,91 @@
+mixin BigcartelHeader
+  +Section({
+    image: `${CWD}assets/img/headers/bigcartel.jpg`,
+    youtube: {
+      videoId: "iZmwFlg8zqA",
+      startSeconds: 0,
+      endSeconds: 120,
+    },
+    className: "overlay overlay-1",
+    attrs: {"data-zanim-xs": {delay: 0.4, animation: "zoom-out"}, "data-zanim-trigger": "scroll"}
+  }).py-0.text-center#bigcartel-header
+    
+    .row.min-vh-100.flex-center.py-8
+      .col-lg-7(data-zanim-timeline!={delay: 0.6} data-zanim-trigger="scroll")
+        img(src=`${CWD}assets/img/bigcartel.png` alt="" data-zanim-xs!={delay: 0.0, from: {opacity: 0}, to: {opacity: 1}}).img-fluid
+        .overflow-hidden.mb-4
+          p.text-white.px-lg-6.font-secondary(data-zanim-xs!={delay: 0.0}) Join nearly a million makers, designers, marketers, and business owners using sparrow to build their outstanding websites.
+        a.cursor-pointer(href='#!' data-bigpicture!={ytSrc: 'CkBJkE7bb4Y'} )
+          svg.mx-auto.d-block(width=50 height=50 xmlns='http://www.w3.org/2000/svg', viewbox='0 0 274.19 274.19' data-zanim-svg!={
+            duration: 2,
+            ease: "CubicBezier"
+          } data-zanim-svg-trigger= 'scroll')
+            defs
+              style.
+                .play-path {
+                  fill: none;
+                  stroke: #ffffff;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  stroke-width: 12px;
+                }
+            g
+              path.play-path(d='M208.31,29.4A129.12,129.12,0,1,1,137.1,8m-1.48,170.53L199.94,137,104.07,79.46v113')
+
+    +DownArrow(2, false, 300)
+  #target-down
+
+mixin BigcartelAbout
+  +Section.text-center.pb-0#bigcartelAbout        
+    .row.justify-content-center
+      .col-lg-7
+        h1.mb-3.fs-6.fs-sm-5.text-decoration-underline built for makers
+        p For over a decade, creative people from around the world have used sparrow’s simple components and layouts to build unique and beautiful websites, manage and represent their works, delight their clients and users, and run their business their own way.
+
+    .row.mt-6
+      .col-lg-8.px-lg-2
+        img(src=`${CWD}assets/img/bigcartel-3.jpg` alt="" data-zanim-lg!={
+          delay: 0.1,
+          animation: "zoom-in"
+        } data-zanim-trigger="scroll").rounded.img-fluid
+      .col-lg.px-lg-2.mt-2.mt-lg-0
+        .row
+          .col-12.px-lg-2
+            img(src=`${CWD}assets/img/bigcartel-2.jpg` alt="" data-zanim-lg!={
+              delay: 0.2,
+              animation: "zoom-in"
+            } data-zanim-trigger="scroll").rounded.img-fluid
+          .col.px-lg-2.mt-2
+            img(src=`${CWD}assets/img/bigcartel-1.jpg` alt="" data-zanim-lg!={
+              delay: 0.3,
+              animation: "zoom-in"
+            } data-zanim-trigger="scroll").rounded.img-fluid
+
+mixin BigcartelPartners
+  +Section.text-center#bigcartelPartners
+    h3.mb-6 Trusted Since 1849
+    .row.align-items-center
+      .col-6.col-sm-4.col-md-3.col-lg-2
+        img(src=`${CWD}assets/img/logo/16.jpg` alt='').logo-grid
+      .col-6.col-sm-4.col-md-3.col-lg-2
+        img(src=`${CWD}assets/img/logo/02.png` alt='').logo-grid
+      .col-6.col-sm-4.col-md-3.col-lg-2.mt-4.mt-sm-0
+        img(src=`${CWD}assets/img/logo/13.png` alt='').logo-grid
+      .col-6.col-sm-4.col-md-3.col-lg-2.mt-4.mt-md-0
+        img(src=`${CWD}assets/img/logo/24.png` alt='').logo-grid
+      .col-6.col-sm-4.col-md-3.col-lg-2.mt-4.mt-lg-0
+        img(src=`${CWD}assets/img/logo/22.png` alt='').logo-grid
+      .col-6.col-sm-4.col-md-3.col-lg-2.mt-4.mt-lg-0
+        img(src=`${CWD}assets/img/logo/25.png` alt='').logo-grid
+      .col-6.col-sm-4.col-md-3.col-lg-2.mt-4
+        img(src=`${CWD}assets/img/logo/27.png` alt='').logo-grid
+      .col-6.col-sm-4.col-md-3.col-lg-2.mt-4
+        img(src=`${CWD}assets/img/logo/26.png` alt='').logo-grid
+      .col-6.col-sm-4.col-md-3.col-lg-2.mt-4
+        img(src=`${CWD}assets/img/logo/10.png` alt='').logo-grid
+      .col-6.col-sm-4.col-md-3.col-lg-2.mt-4
+        img(src=`${CWD}assets/img/logo/17.jpg` alt='').logo-grid
+      .col-6.col-sm-4.col-md-3.col-lg-2.mt-4
+        img(src=`${CWD}assets/img/logo/08.png` alt='').logo-grid
+      .col-6.col-sm-4.col-md-3.col-lg-2.mt-4
+        img(src=`${CWD}assets/img/logo/12.png` alt='').logo-grid

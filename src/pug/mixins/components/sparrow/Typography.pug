@@ -1,0 +1,289 @@
+mixin TypographyFontFamily 
+  h4 Font Family
+  p
+    | You have three sets of 
+    code font-family
+    |  available to use.
+  ul
+    li
+      h6.mb-0 Lato
+    li
+      p.mb-0 PT Serif
+    li
+      code PT Mono
+  pre
+    code.language-html.
+      #{'<h6>Lato</h6>\n<p>PT Serif</p>\n<code>PT Mono</code>'}
+
+mixin TypographyHeadingDemo
+  h1 Heading 1
+  h2 Heading 2
+  h3 Heading 3
+  h4 Heading 4
+  h5 Heading 5
+  h6 Heading 6
+
+mixin TypographyParagraph
+  h4.mt-6 Paragraphs
+  p This is a paragraph text. Following text are dummy copy text. Donec feugiat lorem dolor, eu fringilla urna tincidunt quis. In vitae dignissim lectus. Maecenas varius libero non metus rhoncus sagittis. Proin posuere iaculis auctor. Vivamus orci lorem, sollicitudin at convallis in, feugiat eget felis. Integer maximus, metus sit amet imperdiet semper, erat felis vulputate odio, nec malesuada metus.
+
+  pre.mt-4
+    code.language-html.
+      #{'<p>\n\tYour paragraph text goes here.\n</p>'}
+
+  h4.mt-6 Lead Paragraph and Drop cap
+  p.mt-4
+    | Make a paragraph stand out by adding 
+    code .lead
+    |  and for drop cap, use 
+    code .dropcap
+    |  class.
+  p.dropcap.lead.mt-4
+    | Aliquam a fermentum tortor, nec fringilla eros. Donec molestie lorem elit, eget eleifend neque dignissim nec. Suspendisse ullamcorper dapibus dolor eget auctor. Etiam tempor dui nec eros blandit tincidunt.
+
+  p.lead
+    | Curabitur ut sapien pretium nulla porttitor porta sit amet eu neque. Nunc nec erat odio. Praesent tristique pulvinar erat, quis cursus sem ultricies sed. Suspendisse ullamcorper dapibus dolor eget auctor. Ut quis egestas nibh. Aliquam a fermentum tortor, nec fringilla eros. Donec molestie lorem elit, eget eleifend neque dignissim nec. Etiam tempor dui nec eros blandit tincidunt.
+
+  pre.mt-4
+    code.language-html.
+      #{'<p class="dropcap lead">\n\tYour paragraph goes here.\n</p>\n<p class="lead">\n\tYour paragraph goes here.\n</p>'}
+
+mixin TypographyHeadingClassDescription
+  p&attributes(attributes)
+    code .h1
+    |  through 
+    code .h6
+    |  classes are also available, for when you want to match the font styling of a heading but cannot use the associated HTML element.
+
+mixin TypographyCustomizeHeadingDescription
+  p&attributes(attributes) Use the included utility classes to recreate the small secondary heading text from Bootstrap 3.
+
+mixin TypographyCustomizeHeadingDemo  
+  h3 Fancy display heading
+    small.text-body-tertiary  With faded secondary text
+
+mixin TypographyFontStylesDemo
+  h4.mt-6 Font styles
+  h5.mt-5 Font weights
+  pre
+    code.lang-css.
+      #{'.fw-thin {font-weight: 100 !important;}\n.fw-lighter {font-weight: 200 !important;}\n.fw-light {font-weight: 300 !important;}\n.fw-normal {font-weight: 400 !important;}\n.fw-medium {font-weight: 500 !important;}\n.fw-semibold {font-weight: 600 !important;}\n.fw-bold {font-weight: 700 !important;}\n.fw-bolder {font-weight: 800 !important;}\n.fw-black {font-weight: 900 !important;}'}
+mixin TypographyDisplayHeadingDescription
+  p&attributes(attributes) Traditional heading elements are designed to work best in the meat of your page content. When you need a heading to stand out, consider using a 
+    strong display heading
+    | —a larger, slightly more opinionated heading style.
+
+
+mixin TypographyColorsDescription
+  p&attributes(attributes) Use the following colors to change the text color
+
+mixin TypographyColorsDemo
+  h5.text-body .text-body
+  h5.text-body-secondary .text-body-secondary
+  h5.text-body-tertiary .text-body-tertiary
+  h5.text-body-highlight .text-body-highlight
+  h5.text-body-emphasis .text-body-emphasis
+  h5.text-black .text-black
+  h5.text-white
+    span.bg-dark .text-white
+  br
+  h5.text-primary .text-primary
+  h5.text-primary-emphasis .text-primary-emphasis
+  h5.text-info .text-info
+  h5.text-info-emphasis .text-info-emphasis
+  h5.text-success .text-success
+  h5.text-success-emphasis .text-success-emphasis
+  h5.text-warning .text-warning
+  h5.text-warning-emphasis .text-warning-emphasis
+  h5.text-danger .text-danger
+  h5.text-danger-emphasis .text-danger-emphasis
+  h5.text-dark .text-dark
+  h5.text-dark-emphasis .text-dark-emphasis
+  h5.text-light
+    span.bg-dark .text-light
+  h5.text-light-emphasis
+    span.bg-dark .text-light-emphasis
+
+  br
+  h5.text-gray-1000 .text-gray-1000
+  h5.text-gray-900 .text-gray-900
+  h5.text-gray-800 .text-gray-800
+  h5.text-gray-700 .text-gray-700
+  h5.text-gray-600 .text-gray-600
+  h5.text-gray-500 .text-gray-500
+  h5.text-gray-400 .text-gray-400
+  h5.text-gray-300
+    span.bg-black .text-gray-300
+  h5.text-gray-200
+    span.bg-dark .text-gray-200
+  h5.text-gray-100
+    span.bg-dark .text-gray-100
+
+mixin TypographySizeDescription
+  p&attributes(attributes) If you want different sizes of fonts, you may use the following classes.
+
+mixin TypographySizeDemo
+  h6.fs-1 .fs-1
+  h6.fs-2 .fs-2
+  h6.fs-3 .fs-3
+  h6.fs-4 .fs-4
+  h6.fs-5 .fs-5
+  h6.fs-6 .fs-6
+  h6.fs-7 .fs-7
+  h6.fs-8 .fs-8
+  h6.fs-9 .fs-9
+  h6.fs-10 .fs-10
+
+mixin TypographyAlignmentDemo 
+  h5.mt-5 Alignments
+  .row
+    .col-sm-6
+      .my-4
+      .text-start
+        h6 Left aligned
+        p
+          | Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.
+
+    .col-sm-6
+      .my-4
+      .text-end
+        h6 Right aligned
+        p
+          | Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.
+
+    .col-sm-6
+      .my-4
+      .text-center
+        h6 Center aligned
+        p
+          | Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.
+    .col-sm-6
+      .my-4
+      .text-justify
+        h6 Justified
+        p
+          | Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.
+
+  pre.mt-4
+    code.language-html.
+      #{'<p class="text-start">\n\tYour paragraph goes here.\n</p>\n<p class="text-end">\n\tYour paragraph goes here.\n</p>\n<p class="text-center">\n\tYour paragraph goes here.\n</p>\n<p class="text-justify">\n\tYour paragraph goes here.\n</p>'}
+
+mixin TextTransformationDemo
+  h6.text-lowercase Lowercased text.
+  h6.text-uppercase Uppercased text.
+  h6.text-capitalize CapiTaliZed text.
+
+mixin TypographyInlineTextHtml 
+  p
+    mark Highlight text
+  p
+    del Deleted text
+  p
+    u Underlined text
+  p
+    small Small text
+  p
+    strong Bold text
+  p
+    i Italic text
+
+mixin TypographyInlineTextDemo
+  //- Inline text elemnts
+  h5.mt-5 Inline styles
+  p
+    | Use these tags for inline styling. Feel free to use 
+    code #{'<b>'}
+    |  and 
+    code #{'<em>'}
+    |  tags insted of 
+    code #{'<strong>'}
+    |  and 
+    code #{'<i>'}
+    |  tags.
+
+  .row.mt-4
+    .col-sm-5.l-h-0
+      +TypographyInlineTextHtml
+    .col-sm-6.col-sm-offset-1
+      +ComponentCardLib
+        +TypographyInlineTextHtml
+
+mixin TypographyBlockQuotesDemo
+  //- Blockquotes
+  h4.mt-6 Blockquotes
+
+  blockquote.blockquote.mt-5
+    p.fs-7.text-body-highlight.fst-italic Racing is life, everything before or after is just waiting.”
+    footer.blockquote-footer Unknown
+
+  pre.mt-4
+    code.language-html.
+      #{'<blockquote class="blockquote my-5">\n\t<p class="fs-7 text-body-highlight fst-italic">Racing is life, everything before or after is just waiting.”</p>\n\t<footer class="blockquote-footer">Frank Zappa</footer>\n</blockquote>'}
+    
+mixin TypographyListDemo
+  //- List
+  h4.mt-6 Lists
+  +ComponentCard({
+    title:'Unordered',
+    titleClass: 'fs-9'
+  }).mt-4
+    p
+      | A list of items in which the order does not explicitly matter.
+    ul
+      li Lorem ipsum dolor sit amet
+      li Consectetur adipiscing elit
+      li Nulla volutpat aliquam velit
+        ul
+          li Phasellus iaculis neque
+          li Purus sodales ultricies
+      li Faucibus porta lacus fringilla vel
+
+  +ComponentCard({
+    title:'Ordered',
+    titleClass: 'fs-9'
+  }).mt-4
+    p
+      | A list of items in which the order does explicitly matter.
+
+    ol
+      li Lorem ipsum dolor sit amet
+      li Consectetur adipiscing elit
+      li Nulla volutpat aliquam velit
+        ol
+          li Phasellus iaculis neque
+          li Purus sodales ultricies
+      li Faucibus porta lacus fringilla vel
+
+  h5.mt-5 No Style
+  p
+    | Adding 
+    code no-style
+    |  class to  
+    code ul
+    |  element will produce the following list style:
+
+  ul.no-style
+    li Lorem ipsum dolor sit amet
+    li Consectetur adipiscing elit
+    li Nulla volutpat aliquam velit
+      ul.no-style
+        li Phasellus iaculis neque
+        li Purus sodales ultricies
+    li Faucibus porta lacus fringilla vel
+
+  h5.mt-5 Styled Checkmark
+  p
+    | Adding 
+    code style-check
+    |  class to  
+    code ul
+    |  element will produce the following list style:
+
+  ul.style-check
+    li Lorem ipsum dolor sit amet
+    li Consectetur adipiscing elit
+    li Nulla volutpat aliquam velit
+      ul.no-style
+        li Phasellus iaculis neque
+        li Purus sodales ultricies
+    li Faucibus porta lacus fringilla vel

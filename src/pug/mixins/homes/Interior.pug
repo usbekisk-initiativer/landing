@@ -1,0 +1,191 @@
+mixin interiorHeader
+  section.p-0.position-relative#interiorHeader
+    .position-absolute.all-0(data-zanim-lg!={
+      delay: 0.4,
+      animation: "zoom-out"
+    } data-zanim-trigger="scroll")
+      .swiper.theme-slider(data-swiper!={
+        loop: true,
+        effect: 'fade',
+      } data-zanim-lg!={animation: "zoom-out", delay: 0}  data-zanim-trigger='scroll')
+        .swiper-wrapper
+          .swiper-slide.min-vh-100.w-100
+            +Background({image: `${CWD}assets/img/interior-1.jpg`})
+          .swiper-slide.min-vh-100.w-100  
+            +Background({image: `${CWD}assets/img/interior-4.jpg`})
+          .swiper-slide.min-vh-100.w-100  
+            +Background({image: `${CWD}assets/img/interior-6.jpg`})
+        .swiper-nav
+          .swiper-button-next.me-md-3
+          .swiper-button-prev.ms-md-3 
+    
+
+    .container
+      .row.vh-100.flex-center.justify-content-lg-start.py-10
+        .col-11.col-sm-10.col-md-8.col-lg-6.col-xl-5.z-index-1
+          .p-4.p-sm-5.bg-glass.border.border-2.border-dark.parallax.overflow-hidden.rounded(data-zanim-trigger="scroll" data-zanim-timeline!={delay: 0.6} data-rellax-speed=3)
+            .overflow-hidden
+              h4.fs-8.fs-sm-7
+                span.d-block.overflow-hidden
+                  span.d-inline-block(data-zanim-xs!={delay: 0.1}) your interior design
+                span.d-block.overflow-hidden
+                  span.d-inline-block(data-zanim-xs!={delay: 0.1}) expert, dedicated for
+                span.d-block.overflow-hidden
+                  span.d-inline-block(data-zanim-xs!={delay: 0.1}) creating beautiful home
+            .overflow-hidden
+              p.mt-4.mb-1.fw-bold.text-dark(data-zanim-xs!={delay: 0.3}) Address:
+                br.d-block.d-md-none
+                span.fw-normal 449, unknown street, Paris, France
+            .overflow-hidden
+              p.fw-bold.text-dark(data-zanim-xs!={delay: 0.4}) Contact:
+                a(href="tel:+12345678").text-body.fs-9.text-serif.fw-normal +12345678, 
+                a(href="tel:+87654321").text-body.fs-9.text-serif.fw-normal +87654321 
+            .overflow-hidden
+              div(data-zanim-xs!={delay: 0.6})
+                a(href="#interior-projects").btn.btn-dark.btn-sm.mt-4 see works
+
+mixin InteriorProjects
+  +Section.text-center#interior-projects
+    .row.mb-5
+      .col
+        h2.mb-5.text-decoration-underline our projects
+        +InteriorSortable
+
+
+
+mixin InteriorSortable
+  ul.nav.font-secondary.mb-2.justify-content-center(data-filter-nav)&attributes(attributes)
+    li.nav-item
+      a.nav-link.isotope-nav.active(href ='#!' data-filter='*') all
+    li.nav-item
+      a.nav-link.isotope-nav(href ='#!' data-filter='.photography') photography
+    li.nav-item 
+      a.nav-link.isotope-nav(href ='#!' data-filter='.studio') studio
+    li.nav-item 
+      a.nav-link.isotope-nav(href ='#!' data-filter='.interior') interior
+    li.nav-item 
+      a.nav-link.isotope-nav(href ='#!' data-filter='.illustration') illustration
+     
+  .row.g-3.mt-2#portfolio-gallery(data-zanim-timeline!={} data-zanim-trigger='scroll' data-isotope!={
+    layoutMode: 'packery',   
+  })
+        
+    .col-6.col-md-4.isotope-item.interior
+      a(href='#!' data-bp=`${CWD}assets/img/interior-7-f.jpg` data-bigpicture!={ gallery: '#portfolio-gallery'} data-caption='my caption')
+        img(src=`${CWD}assets/img/interior-7.jpg` alt='' data-zanim-xs!={
+          animation: 'zoom-in',
+          delay: 0.1
+        }).rounded.w-100.fit-cover
+
+    .col-6.col-md-4.isotope-item.studio
+      a(href='#!' data-bp=`${CWD}assets/img/interior-11-f.jpg` data-bigpicture!={ gallery: '#portfolio-gallery'} data-caption='my caption')
+        img(src=`${CWD}assets/img/interior-11.jpg` alt='' data-zanim-xs!={
+          animation: 'zoom-in',
+          delay: 0.2
+        }).rounded.w-100.fit-cover
+
+    .col-6.col-md-4.isotope-item.photography
+      a(href='#!' data-bp=`${CWD}assets/img/interior-8-f.jpg` data-bigpicture!={ gallery: '#portfolio-gallery'} data-caption='my caption')
+        img(src=`${CWD}assets/img/interior-8.jpg` alt='' data-zanim-xs!={
+          animation: 'zoom-in',
+          delay: 0.3
+        }).rounded.w-100.fit-cover
+
+    .col-6.col-md-4.isotope-item.studio
+      a(href='#!' data-bp=`${CWD}assets/img/interior-9-f.jpg` data-bigpicture!={ gallery: '#portfolio-gallery'} data-caption='my caption')
+        img(src=`${CWD}assets/img/interior-9.jpg` alt='' data-zanim-xs!={
+          animation: 'zoom-in',
+          delay: 0.4
+        }).rounded.w-100.fit-cover
+
+    .col-6.col-md-4.isotope-item.photography
+      a(href='#!' data-bp=`${CWD}assets/img/interior-12-f.jpg` data-bigpicture!={ gallery: '#portfolio-gallery'} data-caption='my caption')
+        img(src=`${CWD}assets/img/interior-12.jpg` alt='' data-zanim-xs!={
+          animation: 'zoom-in',
+          delay: 0.5
+        }).rounded.w-100.fit-cover
+  
+    .col-6.col-md-4.isotope-item.illustration
+      .position-relative
+        //- +background({image: `${CWD}assets/img/gallery/01.jpg` , className: 'rounded'})
+        img(src=`${CWD}assets/img/interior-13.jpg` alt='' data-zanim-xs!={
+          animation: 'zoom-in',
+          delay: 0.6
+        }).rounded.w-100.fit-cover
+        a(href='#!' data-bigpicture!={ytSrc: 'QD7pOiZBgy0' } data-options!={ start: 1, end: 75 }).d-flex.align-items-end.justify-content-end.h-100.pb-3.pe-3.position-absolute.bottom-0.end-0
+          svg(width=45 height=45 xmlns='http://www.w3.org/2000/svg', viewbox='0 0 274.19 274.19' data-zanim-svg!={
+            duration: 2,
+            ease: 'CubicBezier',
+            trigger: 'scroll'
+          })
+            defs
+              style.
+                .play-path {
+                  fill: none;
+                  stroke: #ffffff;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  stroke-width: 12px;
+                }
+            g
+              path.play-path(d='M208.31,29.4A129.12,129.12,0,1,1,137.1,8m-1.48,170.53L199.94,137,104.07,79.46v113')
+
+    .col-8.isotope-item.illustration
+      .swiper.theme-slider.swiper-theme(data-swiper!={
+        loop: true,
+        autoplay: {
+          delay: 3000,
+        }, 
+        effect: 'fade',
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          type: 'bullets',
+        }
+      })
+        .swiper-wrapper
+          .swiper-slide
+            img(src=`${CWD}assets/img/interior-14.jpg` alt='').w-100.fit-cover.rounded
+          .swiper-slide  
+            img(src=`${CWD}assets/img/interior-15.jpg` alt='').w-100.fit-cover.rounded   
+        .swiper-pagination
+        .swiper-nav
+          .swiper-button-next
+          .swiper-button-prev 
+
+    .col-6.col-md-4.isotope-item.photography
+      a(href=`${CWD}pages/casestudy.html` data-caption='my caption')
+        img(src=`${CWD}assets/img/interior-10.jpg` alt='' data-zanim-xs!={
+          animation: 'zoom-in',
+          delay: 0.5
+        }).rounded.w-100.fit-cover
+  
+
+              
+
+mixin InteriorSubscribe
+  +Section.text-center.bg-light#interiorSubscribe
+    .row.flex-center
+      .col-md-8
+        h4.mb-4 Get the latest news of our projects
+
+    .row.flex-center
+      .col-md-8.col-lg-6
+        form(method="post").d-flex          
+          .input-group.mb-3
+            input.form-control(type='text' placeholder="Enter Email Here" aria-label="Recipient's username" aria-describedby='button-addon-interior')
+            button#button-addon-interior.btn.btn-dark.btn-outline-dark.text-light.px-2.px-sm-3.px-lg-4(type='button') subscribe
+
+      .col-12.mt-5
+
+        a(href='#!').d-inline-block
+          span.fa-stack.fa-stack-size.mx-2.text-body-tertiary.border.rounded-circle.bg-body.fs-8
+            i.fab.fa-facebook-f.fa-stack-1x
+        
+        a(href='#!').d-inline-block
+          span.fa-stack.fa-stack-size.mx-2.text-body-tertiary.border.rounded-circle.bg-body.fs-8
+            i.fab.fa-google-plus-g.fa-stack-1x
+            
+        a(href='#!').d-inline-block
+          span.fa-stack.fa-stack-size.mx-2.text-body-tertiary.border.rounded-circle.bg-body.fs-8
+            i.fab.fa-twitter.fa-stack-1x

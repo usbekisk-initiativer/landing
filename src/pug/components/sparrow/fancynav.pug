@@ -1,0 +1,12 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/sparrow/Fancynav
+include ../../mixins/common/card
+include ../../mixins/common/FancyNav
+
+append variables
+  - var pageTitle = 'Fancy nav';
+  - var activePage = 'fancynav';
+
+block component 
+  +FancynavComponent
+  

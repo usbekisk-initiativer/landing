@@ -1,0 +1,18 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/bootstrap/Tabs
+
+
+append variables
+  - var pageTitle = 'Tabs';
+  - var activePage = 'tabs';
+
+block component 
+
+  +BootstrapComponentLink({
+    link: `https://getbootstrap.com/docs/${bootstrapVersion}/components/navs/#javascript-behavior`,
+    name: pageTitle,
+  })
+      
+  +TabsBasicExampleDemo
+  +TabsPillDemo.mt-6
+  +TabsVerticalPillDemo.mt-6

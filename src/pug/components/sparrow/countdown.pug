@@ -1,0 +1,23 @@
+extends ../../layouts/LayoutComponent
+
+prepend scripts
+  script(src=`${CWD}vendors/rellax/rellax.min.js`) 
+
+append variables
+  - var pageTitle = 'Date Countdown';
+  - var activePage = 'countdown';
+
+block component 
+  - var year = new Date().getFullYear();
+  +ComponentCard({
+    prismTitle: 'HTML',
+    prismTitleClass: 'mt-5'
+  })
+    .display-4(data-countdown!={
+      date: '31',
+      month: 'dec',
+      year: year ,
+      
+    })
+
+

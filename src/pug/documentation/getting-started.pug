@@ -1,0 +1,11 @@
+extends ../layouts/LayoutDocumentation
+include ../mixins/documentation/GettingStarted.pug
+append variables
+  - var pageTitle = 'Getting Started';
+  - var activePage = 'getting-started';
+  - var pageDes = 'Head start your stylish website with a gorgeous template';
+
+append mainContent
+
+  +GettingStarted
+  

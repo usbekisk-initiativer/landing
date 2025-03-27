@@ -1,0 +1,497 @@
+extends ../layouts/LayoutDocumentation
+append variables
+  - var pageTitle = 'Changelog';
+  - var activePage = 'changelog';
+  - var pageDes = 'Evolution of your sparrow';
+
+append mainContent
+  .alert.alert-warning.p-4.mb-0(role='alert')
+    .d-flex
+      span.fas.fa-exclamation-circle.fs-6
+      .flex-1.ms-3
+        h4.alert-heading Before you update!
+        p.mb-0 Backup your files and read the changelog before updating Sparrow on your project. If you come across with any problems with Sparrow template during the update, feel free to contact us at 
+          a(href='mailto:support@themewagon.com') support@themewagon.com
+          | .
+
+
+  h3.mt-6 2.4.1 - Gymnoris superciliaris
+  p 12 Nov, 2024
+
+  h5.mt-3 Fix
+  ul.bullet-inside.ps-0
+    li 
+      code typed.umd.js in the html files
+  
+  h3.mt-6 2.4.0 - Montifringilla
+  p 06 Oct, 2024
+
+  h5.mt-3 Update
+  ul.bullet-inside.ps-0
+    li 
+      | Plugin: 
+      code @fortawesome/fontawesome-free.
+
+    li 
+      | Plugin: 
+      code swiper.
+    li Removed 
+      code https://polyfill.io/v3/polyfill.min.js?features=window.scroll
+    li All dependencies have been upgraded to the latest version
+
+  h3.mt-6 2.3.0 - Petronia
+  p 25 Mar, 2024
+
+  h5.mt-3 Update
+  ul.bullet-inside.ps-0
+    li bootstrap version to 
+      code 5.3.3
+    li All dependencies have been upgraded to the latest version
+    li 
+      code vendors.json 
+    li 
+      code .swiper-container 
+      | class to 
+      code .swiper
+
+  h3.mt-6 2.2.0 - House sparrow
+  p 29 Oct, 2023
+
+  .alert.alert-warning.p-4.mb-0(role='alert')
+    .d-flex
+      span.fas.fa-exclamation-triangle.fs-6
+      .flex-1.ms-3
+        h4.alert-heading Major Update!
+        p.mb-0 We have updated Bootstrap version to 5.3.2 and re-organized SCSS.
+
+  h5.mt-3 New
+  ul.bullet-inside.ps-0
+    li Doc: 
+      code public/components/sparrow/colors.html
+    li Utility classes: 
+      ul
+        li 
+          code .text-body-highlight
+        li 
+          code .font-secondary
+  
+  h5.mt-3 Update
+  ul.bullet-inside.ps-0
+    li bootstrap version to 
+      code 5.3.2
+    li Doc: 
+      code public/components/sparrow/typography.html
+    li Doc: 
+      code public/documentation/customization.html
+    li HTML: 
+      ul 
+        li Replaced 
+          code .text-500 
+          | with 
+          code .text-body-tertiary
+        li Replaced 
+          code .text-600 
+          | with 
+          code .text-body-secondary
+        li Replaced 
+          code .text-700 
+          | with 
+          code .text-body
+        li Replaced 
+          code .text-900 
+          | with 
+          code .text-body-highlight
+        li Replaced 
+          code .bg-white 
+          | with 
+          code .bg-body
+        li Replaced 
+          code .bg-100 
+          | with 
+          code .bg-body-tertiary
+        li Replaced 
+          code .bg-200 
+          | with 
+          code .bg-body-secondary
+        li Replaced 
+          code .font-sans-serif 
+          | with 
+          code .font-secondary
+        li Replaced 
+          code .fs-8 
+          | with 
+          code .fs-1
+        li Replaced 
+          code .fs-7 
+          | with 
+          code .fs-2
+        li Replaced 
+          code .fs-6 
+          | with 
+          code .fs-3
+        li Replaced 
+          code .fs-5 
+          | with 
+          code .fs-4
+        li Replaced 
+          code .fs-4 
+          | with 
+          code .fs-5
+        li Replaced 
+          code .fs-3 
+          | with 
+          code .fs-6
+        li Replaced 
+          code .fs-2 
+          | with 
+          code .fs-7
+        li Replaced 
+          code .fs-1 
+          | with 
+          code .fs-8
+        li Replaced 
+          code .fs-0 
+          | with 
+          code .fs-9
+        li Replaced 
+          code .fs--1 
+          | with 
+          code .fs-10
+        li Replaced
+    li Overall SCSS retouched.  
+    li Utility classes: 
+      ul 
+        li Font sizes updated. 
+          a(href='https://prium.github.io/twbs-sparrow/v2.2.0/components/sparrow/typography.html' target='_blank') see documentation
+        li 
+          code .fw-semi-bold 
+          | is now 
+          code .fw-semibold
+        li 
+          code .text-{100|200|300|400|600|700|800|900|1000|1100} 
+          | is now 
+          code .text-gray-{100|200|300|400|600|700|800|900|1000|1100}
+        li 
+          code .bg-{100|200|300|400|600|700|800|900|1000|1100} 
+          | is now 
+          code .bg-gray-{100|200|300|400|600|700|800|900|1000|1100}
+        li 
+          code z-index-*  
+          | is now 
+          code z-*
+        li Removed 
+          code .bg-{facebook|twitter|google-plus|linkedin|youtube|github} 
+    li CSS variables: 
+      ul 
+        li 
+          code --sparrow-{100|200|300|400|600|700|800|900|1000|1100} 
+          | is now 
+          code --sparrow-gray-{100|200|300|400|600|700|800|900|1000|1100}
+  
+  h5.mt-3 Fix
+  ul.bullet-inside.ps-0
+    li Minor bugs.
+  
+  
+  h3.mt-6 2.1.1 - Snowfinch
+  p 03 Jan, 2023
+
+  h5.mt-3 Update
+  ul.bullet-inside.ps-0
+    li bootstrap version to 
+      code 5.3.0-alpha1
+    li Fancynav: Added CSS variables for fancynav at 
+      code src/scss/theme/_fancynav.scss
+
+  h5.mt-3 Fix
+  ul.bullet-inside.ps-0
+    li Minor bugs.
+
+  h3.mt-6 2.1.0 - Sparrow weaver
+  p 25 July, 2022
+
+  h5.mt-3 Update
+  ul.bullet-inside.ps-0
+    li bootstrap version to 
+      code v5.2.0
+    li All scss files
+    li JS: 
+      code src/js/isotope.js
+
+    li SCSS: 
+      code CSS variable for grays
+
+    li SCSS: Removed 
+      code src/scss/theme/_alert.scss 
+
+    li SCSS: Removed 
+      code src/scss/theme/_popover.scss 
+
+  h5.mt-3 Fix
+  ul.bullet-inside.ps-0
+    li Border issues.
+    li Ohter minor bugs.
+
+  h3.mt-6 2.0.2 - Sociable weaver
+  p 05 December, 2021
+
+  h5.mt-3 Update
+  ul.bullet-inside.ps-0
+    li JS: 
+      code src/js/fancynav.js
+    li SCSS: 
+      code src/scss/theme/_fancynav.scss
+
+  h5.mt-3 Fix
+  ul.bullet-inside.ps-0
+    li Fancynav dropdown issue
+
+
+  h3.mt-6 2.0.1 - Cinnamon ibon
+  p 01 November, 2021
+
+  h5.mt-3 Update
+  ul.bullet-inside.ps-0
+
+    li bootstrap version updated from v5.1.1 to v5.1.3
+
+    li Page: 
+      code  public/index.html
+    li Page: 
+      code  pages/portfolio.html
+    li Page: 
+      code  public/components/sparrow/filter.html
+    li Page: 
+      code  public/components/sparrow/masonry.html
+    li JS: 
+      code src/js/isotope.js
+    li SCSS: 
+      code src/scss/theme/isotope.scss
+    li SCSS: 
+      code src/scss/theme/_variables.scss
+    li JSON: 
+      code package.json
+
+
+  h5.mt-3 Fix
+  ul.bullet-inside.ps-0
+    li Page: 
+      code  public/homes/interior.html
+    li Other minor bugs
+
+
+  h3.mt-6 2.0.0 - Rock Sparrow
+  p 05 October, 2021
+
+  h5.mt-3 New
+  ul.bullet-inside.ps-0
+    li Page: 
+      code public/homes/digital.html
+    li Page: 
+      code public/homes/event.html
+    li Page: 
+      code public/homes/interior.html
+    li Page: 
+      code public/homes/landing.html
+    li Page: 
+      code public/homes/promotion.html
+    li Page: 
+      code public/homes/software.html
+    li Page: 
+      code public/homes/studio.html
+    li Page: 
+      code public/pages/blog.html
+    li Page: 
+      code public/pages/blog-single.html
+    li Page: 
+      code public/components/sparrow/fancynav.html
+    li Page: 
+      code public/components/sparrow/cookie-notice.html
+
+    li JS: 
+      code src/js/notice.js
+    li JS: 
+      code src/js/bootstrap-navbar.js
+
+    li SCSS: 
+      code src/scss/theme/_showcase.scss
+
+  h5.mt-3 Update
+  ul.bullet-inside.ps-0
+    li JS: 
+      code src/js/bg-player.js
+    li JS:  
+      code src/js/countdown.js
+    li JS: 
+      code src/js/countup.js
+    li JS: 
+      code src/js/drawsvg.js
+    li JS: 
+      code src/js/fancynav.js
+    li JS: 
+      code src/js/isotope.js
+    li JS: 
+      code src/js/preloader.js
+    li JS: 
+      code src/js/progressbar.js
+    li JS: 
+      code src/js/swiper.js
+    li JS: 
+      code src/js/theme.js
+    li JS: 
+      code src/js/zanimation.js
+
+
+    li SCSS: 
+      code src/scss/theme/_accordion.scss
+    li SCSS: 
+      code src/scss/theme/_avatar.scss
+    li SCSS: 
+      code src/scss/theme/_buttons.scss
+    li SCSS: 
+      code src/scss/theme/_card.scss
+    li SCSS: 
+      code src/scss/theme/_documentation.scss
+    li SCSS: 
+      code src/scss/theme/_dropdown.scss
+    li SCSS: 
+      code src/scss/theme/_fancynav.scss
+    li SCSS: 
+      code src/scss/theme/_forms.scss
+    li SCSS: 
+      code src/scss/theme/_loaders.scss
+    li SCSS: 
+      code src/scss/theme/_logos.scss
+    li SCSS: 
+      code src/scss/theme/_mixed.scss
+    li SCSS: 
+      code src/scss/theme/_notice.scss
+    li SCSS: 
+      code src/scss/theme/_reboot.scss
+    li SCSS: 
+      code src/scss/theme/_theme.scss
+    li SCSS: 
+      code src/scss/theme/_variables.scss
+    li SCSS: 
+      code src/scss/theme/plugins/_bigpicture.scss
+    li SCSS: 
+      code src/scss/theme/plugins/_swiper.scss
+    li SCSS: 
+      code src/scss/theme/root/_light.scss
+
+    li Page:  
+      code Removed public/components/sparrow/fancyscroll.html
+
+    li JSON:  
+      code vendors.json
+    li JSON:  
+      code package.json
+
+  h3.mt-6 2.0.0-alpha2 - True Sparrow
+  p 13 september, 2021
+
+  h5.mt-3 New
+  ul.bullet-inside.ps-0
+    li Imagesloaded plugin added.
+    li Coming soon pages structure updated.
+    li Bigpicture plugin added.
+    li Page: 
+      code public/homes/bicycle.html
+    li Page: 
+      code public/homes/bigcartel.html
+    li Page: 
+      code public/homes/cafe.html
+    li Page: 
+      code public/homes/ecommerce.html
+
+    li Page: 
+      code public/pages/caseStudy.html
+    li Page: 
+      code public/pages/coming-soon.html
+    li Page: 
+      code public/pages/one-page.html
+    li Page: 
+      code public/pages/shop.html
+    li Page: 
+      code public/pages/product-single.html
+    li Page: 
+      code public/pages/split-youtube.html
+
+    li page: 
+      code src/js/countdown.js
+
+
+    li SCSS: 
+      code src/scss/theme/_logos.scss
+    li SCSS: 
+      code src/scss/theme/_loaders.scss
+    li SCSS: 
+      code src/scss/theme/_notice.scss
+    li SCSS: 
+      code src/scss/theme/_bg-player.scss
+    li SCSS: 
+      code src/scss/theme/plugins/_bigpicture.scss
+    li SCSS: 
+      code src/scss/theme/_isotope.scss
+
+    li JS: 
+      code src/js/countdown.js
+    li JS: 
+      code src/js/preloader.js
+    li JS: 
+      code src/js/bg-player.js
+
+
+
+  h5.mt-3 Update
+  ul.bullet-inside.ps-0
+    li All previous pages slightly updated.
+    li Page: 
+      code public/pages/portfolio.html
+
+    li SCSS: 
+      code src/scss/theme/helpers/_background.scss
+    li SCSS: 
+      code src/scss/theme/_badge.scss
+    li SCSS: 
+      code src/scss/theme/_fancynav.scss
+    li SCSS: 
+      code src/scss/theme/_functions.scss
+    li SCSS: 
+      code src/scss/theme/_mixed.scss
+    li SCSS: 
+      code src/scss/theme/_mixins.scss
+    li SCSS: 
+      code src/scss/theme/_popover.scss
+    li SCSS: 
+      code src/scss/theme/_theme.scss
+    li SCSS: 
+      code src/scss/theme/_variables.scss
+
+    li JS: 
+      code src/js/fancynav.js
+    li JS: 
+      code src/js/isotope.js
+    li JS: 
+      code src/js/progressbar.js
+
+    li JSON: 
+      code vendors.json
+    li JSON: 
+      code gulp/gulp.json
+    li JSON: 
+      code package.json
+
+    li Plugin: 
+      code glightbox 
+      | plugin deleted.
+    li Scss: 
+      code src/scss/theme/mixins/_breakpoints.scss
+    li Scss: 
+      code src/scss/theme/mixins/_utilities.scss
+
+
+  h3.mt-6 2.0.0-alpha1 - initial release
+  p 19 August, 2021
+  p Nothing to see here!
+

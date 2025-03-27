@@ -1,0 +1,148 @@
+//---------------------------------------
+  |  Fancynav
+//---------------------------------------
+mixin NavLink(item, path)
+  -var value = item.title
+  -var status = item.isActive
+  
+  
+  a(href=`${CWD}${path}${value.toLowerCase()}.html` class=`${status !=true ? 'text-body-hightlight' : '' }`).fancy-dropdown-item 
+    +NavLinkTitle(value)   
+
+mixin FancyNav(params={})
+
+  - var {item, menu, cls, notExclusive, navClass} = params;
+  = '\n\n'
+  //- ===============================================
+  //-    Fancynav
+  //- ===============================================
+  nav.fancynavbar.fancynavbar-expand-lg(data-zanim-lg!={
+    from: {opacity: 1, x: 70},
+    to: {opacity: 1, x: 0},
+    ease: 'CubicBezier',
+    duration: 0.8,
+    delay: 0.3
+  } data-zanim-xs!={
+    from: {opacity: 1, y: -37},
+    to: {opacity: 1, y: 0},
+    ease: 'CubicBezier',
+    duration: 0.8,
+    delay: 0.3
+  } data-zanim-trigger='scroll' data-exclusive=`${notExclusive || true}` class=`${navClass || ''}`)
+    .fancynavbar-togglerbar(class=cls)&attributes(attributes)
+      a(href=`${CWD}index.html`).fancynavbar-brand
+        img(src=`${CWD}assets/img/logo-sparrow-invert.svg` alt='' width=30 height=30 data-zanim-lg!={
+          from: {opacity: 0, x: 45},
+          to: {opacity: 1, x: 0},
+          ease: 'CubicBezier',
+          duration: 0.8,
+          delay: 0.4
+        } data-zanim-trigger='scroll').fancynavbar-brand-img
+        = '\n'
+        //You can use icon or text logo as well
+        //<span class='fab fa-superpowers fs-6'></span>
+        //<span class='logo-sparrow'>S</span>
+      
+
+
+      .fancynavbar-toggler
+        svg(viewBox='0 0 70 70' xmlns="http://www.w3.org/2000/svg" data-zanim-lg!={
+          from: {opacity: 0, x: 45},
+          to: {opacity: 1, x: 0},
+          ease: 'CubicBezier',
+          duration: 0.8,
+          delay: 0.5
+        } data-zanim-trigger='scroll').fancynavbar-toggler-icon
+          path#path-top(d='M20,25c0,0,22,0,30,0c16,0,18.89,40.71-.15,21.75C38.7,35.65,19.9,16.8,19.9,16.8' )
+          path#path-middle(d='M20,32h30')
+          path#path-bottom(d='M19.9,46.98c0,0,18.8-18.85,29.95-29.95C68.89-1.92,66,38.78,50,38.78c-8,0-30,0-30,0')
+
+      .fancynavbar-addon.fancynavbar-addon-height(data-zanim-lg!={
+        from: {opacity: 1, x: 45},
+        to: {opacity: 1, x: 0},
+        ease: 'CubicBezier',
+        duration: 0.8,
+        delay: 0.4
+      } data-zanim-trigger='scroll')
+        a(href='#!').fancynavbar-addon-item
+          span.fab.fa-twitter
+        a(href='#languageModal', data-bs-toggle='modal').fancynavbar-addon-item
+          span.font-secondary.ls.fw-black.fs-10.d-block EN
+        if item
+          a(href=item[2] class=item[0]).fancynavbar-addon-item
+            span(class=item[1])
+
+   
+    .fancynavbar-collapse
+      if !menu
+        ul.fancynavbar-nav
+          li.fancynav-item.fancy-dropdown
+            a(href='JavaScript:void(0)').fancynav-link.fancy-dropdown-toggle
+              span.fancynav-link-content homes
+            .fancy-dropdown-menu
+              .row.pb-4.pt-3
+                .col-auto.ps-2
+                  each item in sitemap.home
+                    +NavLink(item, 'homes/')      
+
+          li.fancynav-item.fancy-dropdown
+            a(href='JavaScript:void(0)').fancynav-link.fancy-dropdown-toggle
+              span.fancynav-link-content pages
+            .fancy-dropdown-menu
+              .row.pb-4.pt-3
+                - var dividerPages = sitemap.pages.length;
+                .col-sm-auto.pe-4.ps-2
+                  each item, index in sitemap.pages
+                    if index < dividerPages / 2
+                      +NavLink(item, 'pages/')              
+                .col-sm-auto.pe-4
+                  each item, index in sitemap.pages
+                    if index >= dividerPages / 2
+                      +NavLink(item, 'pages/')
+          li.fancynav-item.fancy-dropdown
+            a(href='JavaScript:void(0)').fancynav-link.fancy-dropdown-toggle
+              span.fancynav-link-content components
+            .fancy-dropdown-menu
+              .row.pb-2.pt-3
+                - var dividerComponents = sitemap.components.sparrow.length + 1;
+                .col-sm-auto.mb-3
+                  .row
+                    .col-sm-auto.pe-4.ps-2
+                      a(href='JavaScript:void(0)').fancy-dropdown-title.fw-black.ls.fs-10.mb-1 Sparrow
+                      each item, index in sitemap.components.sparrow
+                        if index < (dividerComponents / 2) - 1
+                          +NavLink(item,'components/sparrow/')
+                    .col-sm-auto.pe-4
+                      each item, index in sitemap.components.sparrow
+                        if index >= (dividerComponents / 2) - 1
+                          +NavLink(item, 'components/sparrow/')
+                .col-sm-auto.pe-3.mb-3.ps-2
+                  a(href='JavaScript:void(0)').fancy-dropdown-title.fw-black.ls.fs-10.mb-1 Bootstrap
+                  each item, index in sitemap.components.bootstrap
+                    +NavLink(item, 'components/bootstrap/')
+          li.fancynav-item.fancy-dropdown
+            a(href='JavaScript:void(0)').fancynav-link.fancy-dropdown-toggle
+              span.fancynav-link-content documentation
+            .fancy-dropdown-menu
+              .row.pb-4.pt-3
+                .col-auto.ps-2
+                  each item in sitemap.documentation
+                    +NavLink(item, 'documentation/')      
+
+          li.fancynav-item
+            a(href=`${CWD}pages/portfolio.html`).fancynav-link
+              span.fancynav-link-content portfolio
+          li.fancynav-item
+            a(href=`${CWD}pages/contact.html`).fancynav-link
+              span.fancynav-link-content contact
+      else
+        ul.fancynavbar-nav
+          each url, title in menu
+            li.fancynav-item(data-one-page)
+              a(href=url).fancynav-link
+                span.fancynav-link-content=title
+
+  //-===============================================
+  //-    End of Fancynav
+  //-===============================================
+  = '\n\n'

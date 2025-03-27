@@ -1,0 +1,32 @@
+mixin Signup
+  .col-sm-8.col-md-6.col-lg-10.col-xl-8(data-zanim-xs!={
+    delay: 0.5,
+    animation: 'slide-right'
+  } data-zanim-trigger='scroll')
+    h3.display-4.fs-7
+      | Perfect for Startups,
+      br
+      | freelancers &amp; companies.
+    h6.text-danger.mt-3 Specially crafted for the people who care about design.
+
+
+    form.mt-5
+      .row.gy-4.align-items-center.mb-4
+        .col-12
+          input.form-control.bg-light(type='text', placeholder='Your Name')
+        .col-12
+          input.form-control.bg-light(type='email', placeholder='Email Address')
+        .col-6
+          input.form-control.bg-light(type='password', placeholder='Password')
+        .col-6
+          input.form-control.bg-light(type='password', placeholder='Confirmation')
+
+      .row.mb-4.align-items-center   
+        .col-auto.d-grid
+          input.btn.btn-dark(type='submit', name='submit', value='Create an Account')
+
+        .col-sm
+          p.fs-10.text-body.mb-0.font-secondary.mt-2.mt-lg-0
+            | By signing up, you agree to the 
+            a(href='#!').text-black terms and conditions.
+

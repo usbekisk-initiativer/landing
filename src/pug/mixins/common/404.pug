@@ -1,0 +1,23 @@
+mixin 404
+  +Section('container-fluid').py-0
+    .row
+      .col-lg-6.px-0.order-lg-2
+        .sticky-top.vh-lg-100.py-9
+          +Background({
+            image: `${CWD}assets/img/404.jpg`,
+            attrs: {'data-zanim-trigger': 'scroll', 'data-zanim-lg': {animation: 'zoom-out-slide-left', delay: 0.4}}
+          })
+
+      .col-lg-6.py-6
+        .row.h-100.flex-center
+          +LeftContent
+    
+mixin LeftContent 
+ .col-lg-8.col-xl-5.bg-body.py-6.py-lg-8(data-zanim-timeline!={delay: 0.2} data-zanim-trigger='scroll')
+    h3(data-zanim-xs!={delay: 0.2}) Coming Soon
+    .overflow-hidden.mt-3
+      h2( data-zanim-xs!={delay: 0.3}) We are working on this page
+      .overflow-hidden  
+        p(data-zanim-xs!={delay: 0.4} ) we are continuously working to bring all the pages form the Bootstrap 4 version of Sparrow here in the Bootstrap 5. Stay tuned!
+      .overflow-hidden.mt-3
+        a.btn.btn-outline-dark(data-zanim-xs!={delay: 0.5} href=`${CWD}index.html`)  Get Started

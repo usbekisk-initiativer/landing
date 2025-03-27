@@ -1,0 +1,35 @@
+extends ../../layouts/LayoutComponent
+
+append variables
+  - var pageTitle = 'Progressbar';
+  - var activePage = 'progressbar';
+
+prepend scripts
+  //script(src=`https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser-polyfill.min.js`)
+  script(src=`${CWD}vendors/progressbar/progressbar.min.js`)
+
+block component 
+  p Two types of progress visualizers are available in Sparrow: 
+    code .progress-circle
+    |  and 
+    code .progress-line
+    |  .
+    br
+    | For more Details see 
+     
+    a(href='https://kimmobrunfeldt.github.io/progressbar.js/' target='_blank').font-secondary ProgressBar Documentation
+      span.d-inline-block.ms-1 &xrarr;
+  
+  +ComponentCard({
+    prismTitle: 'HTML',
+    prismTitleClass: 'mt-5'
+  })
+    .progress-circle.mb-4(data-progress-circle!= {progress: 88, subText: `<span class="text-body pt-2">More Power behind<br/>every pixel</span>`})
+    .progress-line.me-4(data-progress-line!={progress: 93, subText: "Google Page Speed"})
+
+  +ComponentCardLib({
+    title: 'Javascript',
+    titleClass: 'mt-5'
+  })
+    script(src="vendors/progressbar/progressbar.min.js")
+

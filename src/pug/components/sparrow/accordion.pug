@@ -1,0 +1,12 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/sparrow/Accordion
+
+append variables
+  - var pageTitle = 'Accordion';
+  - var activePage = 'accordion';
+block component 
+  +BootstrapComponentLink({
+    link: `https://getbootstrap.com/docs/${bootstrapVersion}/components/accordion/`,
+    name: pageTitle,
+  })
+  +AccordionDemo

@@ -1,0 +1,39 @@
+//---------------------------------------
+  |  Arrow Down
+//---------------------------------------
+mixin DownArrow(delay, offset, borderColor)
+  a.indicator.indicator-down(data-zanim-timeline!={delay: delay} data-zanim-trigger='scroll' href='#target-down'  data-offset=offset)
+    span.indicator-arrow.indicator-arrow-one(class=borderColor? `border-${borderColor}` : false data-zanim-xs!={
+      from: {opacity: 0, y: 15},
+      to: {opacity: 1, y: -5, scale: 1},
+      ease: "Back.easeOut",
+      duration: 0.4,
+      delay: 0.25
+    })
+    span.indicator-arrow.indicator-arrow-two(class=borderColor? `border-${borderColor}` : false data-zanim-xs!={
+      from: {opacity: 0, y: 15},
+      to: {opacity: 1, y: -5, scale: 1},
+      ease: "Back.easeOut",
+      duration: 0.4,
+      delay: 0.5
+    })
+
+//---------------------------------------
+  |  Language Modal
+//---------------------------------------
+mixin LanguageModal
+  #languageModal.modal.fade.fade-in(tabindex='-1' role='dialog' aria-hidden='true')
+    .modal-dialog.modal-dialog-centered.modal-xs.mx-auto(role='document')
+      .modal-content.bg-black
+        .modal-body.text-center.p-0
+          button.btn-close.text-white.position-absolute.top-0.end-0.times-icon.mt-2.me-2.p-0(type='button' data-bs-dismiss='modal' aria-label='Close')
+
+          ul.list-unstyled.my-0.py-4.font-secondary
+            li
+              a(href=`${CWD}homes/default.html` class=`${attrsHtml.dir === 'ltr' ? 'text-white fw-bold' : 'text-body-tertiary' }`).pt-1.d-block English
+            li
+              a(href='#!').pt-1.d-block.text-body-tertiary Français
+            li
+              a(href=`${CWD}pages/rtl.html` class=`${attrsHtml.dir === 'rtl' ? 'text-white fw-bold' : 'text-body-tertiary' }`).pt-1.d-block عربى
+            li
+              a(href='#!').pt-1.d-block.text-body-tertiary Deutsche

@@ -1,0 +1,166 @@
+mixin EventHeader
+  +Section({
+    image: `${CWD}assets/img/headers/header-event.jpg`,
+    youtube: {
+      videoId: '67Mlgq6-dGA',
+      startSeconds: 134,
+      endSeconds: 380,      
+    },
+    attrs: {"data-zanim-md": {delay: 0.0, animation: "zoom-out"}, "data-zanim-trigger": "scroll"}
+  }).py-0
+    .row.min-vh-100.align-items-end.py-8
+
+    a.absolute-horizontal-centered.overflow-hidden.bottom-0.p-4(href="#arrow-down"  data-zanim-timeline!={} data-zanim-trigger="scroll")
+      span.fas.fa-chevron-down.text-white.fs-7(data-zanim-xs!={
+        delay: 1,
+        animation: "slide-down"
+      })
+
+  #arrow-down
+
+mixin EventFeatures
+  +Section.text-uppercase#EventFeatures
+    .row
+      .col-6.text-center(data-parallax data-rellax-percentage=0.5, data-rellax-speed=-1.5)
+        img(src=`${CWD}assets/img/wedding-1.jpg` alt='').img-fluid.mb-4.rounded.w-100
+        h2.fw-light.mb-0.fs-9.fs-md-7(data-zanim-timeline!={} data-zanim-trigger="scroll")
+          span.overflow-hidden.d-block
+            span.d-inline-block.py-2(data-zanim-xs!={delay: 0.1}) the aesthetic of
+          span.overflow-hidden.d-block
+            span.d-inline-block.py-2.fw-bolder(data-zanim-xs!={delay: 0.2}) sparrow events
+          span.overflow-hidden.d-block
+            span.d-inline-block.py-2(data-zanim-xs!={delay: 0.3}) is one of
+          span.overflow-hidden.d-block
+            span.d-inline-block.py-2.fw-bolder(data-zanim-xs!={delay: 0.4}) "glamour elegance"
+      .col-6
+        h2.fw-light.fs-9.fs-md-7.overflow-hidden(data-zanim-timeline!={} data-zanim-trigger="scroll")
+          span.d-block.py-2(data-zanim-xs!={delay: 0.1, animation: "slide-right"}) Chic
+          span.d-block.py-2.fw-bolder(data-zanim-xs!={delay: 0.2, animation: "slide-right"}) Timeless
+          span.d-block.py-2(data-zanim-xs!={delay: 0.3, animation: "slide-right"}) Exclusive
+          span.d-block.py-2(data-zanim-xs!={delay: 0.4, animation: "slide-right"}) Unforgettable
+        img(src=`${CWD}assets/img/wedding-10.jpg` alt='').img-fluid.mt-4.rounded.w-100
+
+mixin EventAbout
+  +Section('container-fluid')#EventAbout
+    .row.align-items-center
+      .col-lg-4.px-0.align-self-stretch.py-11.position-relative
+        +Background({
+          image: `${CWD}assets/img/wedding-3.jpg`,
+          className: 'rounded-lg-right',
+          attrs: {'data-zanim-md': {delay: 0.1, animation: 'zoom-out'}, 'data-zanim-trigger': 'scroll'}
+        })
+      .col-10.col-lg-6.col-xl-5.mb-6.mb-lg-0.px-0.mx-auto.mt-6.mt-lg-0
+        .position-relative.border
+          .py-3.position-absolute.start-0.top-0.mt-6.d-none.d-sm-block
+            span.fa-stack.fa-stack-size.fs-5.fs-sm-3.fa-2x
+              i.fas.fa-square.fa-stack-2x.text-white(data-fa-transform="left-8")
+              i.fas.fa-birthday-cake.fa-stack-1x.text-body-tertiary.text-opacity-10(data-fa-transform="left-16")
+          .py-6.px-5.ps-sm-8.pe-sm-7
+            p.text-body-secondary.fst-italic.lead Think it's too difficult or too expensive? - Think again! Here at Sparrow Weddings, we've delighted hundreds of couples by creating ceremonies full of magical memories that last a lifetime. We're waiting to hear from you!
+            h4.mb-3.mt-5 You will get:
+            ul.font-secondary.style-check.ps-0
+              li Full Wedding Plan
+              li Wedding Week in France
+              li Wedding Proposal Planning
+              li Intimate Ceremony Planning
+              li Personal travel assistant
+            a(href='#!').btn.btn-outline-dark.mt-5 get a quote
+            
+
+mixin EventProjects
+  +Section('container-fluid').pt-2#EventProjects
+    .row.align-items-center
+      .col-12.text-center.overflow-hidden
+        .swiper.theme-slider.px-2.mb-2(data-swiper!={
+          autoplay: false,
+          spaceBetween: 25,
+          loop: true,
+          loopedSlides: 5,
+          slidesPerView: 1,
+          breakpoints: {
+            576: {
+              slidesPerView: 2,
+            },
+            992: {
+              slidesPerView: 3
+            },
+          }
+          
+        })
+          .swiper-wrapper
+            .swiper-slide
+              .hoverbox
+                img(src=`${CWD}assets/img/wedding-5.jpg` alt='').rounded.w-100
+                a(href='#!').hoverbox-content.hoverbox-content-gradient.p-3.justify-content-center
+                  .hoverbox-bg.d-flex.align-items-end.h-100.pb-4
+                    h2.fw-light.text-white
+                      span.d-inline-block wedding paris
+            .swiper-slide
+              .hoverbox
+                img(src=`${CWD}assets/img/wedding-12.jpg` alt='').rounded.w-100
+                a(href='#!').hoverbox-content.hoverbox-content-gradient.p-3.justify-content-center
+                  .hoverbox-bg.d-flex.align-items-end.h-100.pb-4
+                    h2.fw-light.text-white
+                      span.d-inline-block wedding amsterdam
+            .swiper-slide
+              .hoverbox
+                img(src=`${CWD}assets/img/wedding-6.jpg` alt='').rounded.w-100
+                a(href='#!').hoverbox-content.hoverbox-content-gradient.p-3.justify-content-center
+                  .hoverbox-bg.d-flex.align-items-end.h-100.pb-4
+                    h2.fw-light.text-white
+                      span.d-inline-block wedding puerto rico
+            .swiper-slide
+              .hoverbox
+                img(src=`${CWD}assets/img/wedding-7.jpg` alt='').rounded.w-100
+                a(href='#!').hoverbox-content.hoverbox-content-gradient.p-3.justify-content-center
+                  .hoverbox-bg.d-flex.align-items-end.h-100.pb-4
+                    h2.fw-light.text-white
+                      span.d-inline-block christian wedding
+            .swiper-slide
+              .hoverbox
+                img(src=`${CWD}assets/img/wedding-9.jpg` alt='').rounded.w-100
+                a(href='#!').hoverbox-content.hoverbox-content-gradient.p-3.justify-content-center
+                  .hoverbox-bg.d-flex.align-items-end.h-100.pb-4
+                    h2.fw-light.text-white
+                      span.d-inline-block beautiful bride
+            .swiper-slide
+              .hoverbox
+                img(src=`${CWD}assets/img/wedding-4.jpg` alt='').rounded.w-100
+                a(href='#!').hoverbox-content.hoverbox-content-gradient.p-3.justify-content-center
+                  .hoverbox-bg.d-flex.align-items-end.h-100.pb-4
+                    h2.fw-light.text-white
+                      span.d-inline-block wedding interior
+            .swiper-slide
+              .hoverbox
+                img(src=`${CWD}assets/img/wedding-8.jpg` alt='').rounded.w-100
+                a(href='#!').hoverbox-content.hoverbox-content-gradient.p-3.justify-content-center
+                  .hoverbox-bg.d-flex.align-items-end.h-100.pb-4
+                    h2.fw-light.text-white
+                      span.d-inline-block catering menu
+            .swiper-slide
+              .hoverbox
+                img(src=`${CWD}assets/img/wedding-11.jpg` alt='').rounded.w-100
+                a(href='#!').hoverbox-content.hoverbox-content-gradient.p-3.justify-content-center
+                  .hoverbox-bg.d-flex.align-items-end.h-100.pb-4
+                    h2.fw-light.text-white
+                      span.d-inline-block wedding smile
+            .swiper-slide
+              .hoverbox
+                img(src=`${CWD}assets/img/wedding-2.jpg` alt='').rounded.w-100
+                a(href='#!').hoverbox-content.hoverbox-content-gradient.p-3.justify-content-center
+                  .hoverbox-bg.d-flex.align-items-end.h-100.pb-4
+                    h2.fw-light.text-white
+                      span.d-inline-block flower house
+          .swiper-nav
+            .swiper-button-next.me-4 
+            .swiper-button-prev.ms-4
+    
+        a(href='#!').btn.btn-outline-dark.mt-6 more stories here
+        .mt-8
+        a(href='#!').text-facebook
+          span.fab.fa-facebook-square.fs-7.mx-2
+        a(href='#!').text-twitter
+          span.fab.fa-twitter-square.fs-7.mx-2
+        a(href='#!').text-google-plus
+          span.fab.fa-google-plus-square.fs-7.mx-2
+        a(href='#!').font-secondary.text-uppercase.d-block.fw-bold.mt-3.text-black.ls-2 follow us @sparrowevents

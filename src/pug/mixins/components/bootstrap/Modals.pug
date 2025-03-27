@@ -1,0 +1,65 @@
+mixin ModalExampleDemo
+  = '\n'
+  h4 Demo
+  p Toggle a working modal demo by clicking the button below. It will slide down and fade in from the top of the page.
+
+  button.btn.btn-primary.btn-sm(type='button', data-bs-toggle='modal', data-bs-target='#exampleModal') Launch demo modal
+  // Modal
+  #exampleModal.modal.fade(tabindex='-1',aria-labelledby='exampleModalLabel', aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h5#exampleModalLabel.modal-title Modal Title
+          button.btn-close(type='button', data-bs-dismiss='modal', aria-label='Close')
+        .modal-body
+          p Woohoo, you're reading this text in a modal!
+        .modal-footer
+          button.btn.btn-secondary.btn-sm(type='button', data-bs-dismiss='modal') Close
+          button.btn.btn-primary.btn-sm(type='button') Save changes
+
+mixin ModalExampleFadeIn
+  h5.mt-5 HTML
+  pre
+    code.lang-html.
+      #{'<button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Launch demo modal</button>'}
+      #{'<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">\n\t <div class="modal-dialog" role="document">\n\t\t <div class="modal-content"> \n\t\t\t<div class="modal-header"> \n\t\t\t\t<h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>\n\t\t\t\t<button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="btn-close"><span class="fw-light" aria-hidden="true">&times;</span></button>\n\t\t\t</div> \n\t\t\t<div class="modal-body"> \n\t\t\t\t<p>Woohoo, you&apos;re reading this text in a modal!</p> \n\t\t\t</div>\n\t\t\t<div class="modal-footer">\n\t\t\t\t<button class="btn btn-secondary btn-sm" type="button" data-bs-dismiss="modal">Close</button>\n\t\t\t\t<button class="btn btn-primary btn-sm" type="button">Save changes</button>\n\t\t\t</div> \n\t\t</div> \n\t</div>\n</div>'}
+  
+  h4.mt-5 Change Effect
+  p Add 
+    code .fade-in 
+    | class to 
+    code .modal 
+    | element to change the slide down effect. It will fade in from the page.
+  
+  button.btn.btn-primary.btn-sm(type='button', data-bs-toggle='modal', data-bs-target='#exampleFadeInModal') Launch fade in modal
+  #exampleFadeInModal.modal.fade.fade-in(tabindex='-1', role='dialog', aria-labelledby='exampleFadeInModalLabel', aria-hidden='true')
+    .modal-dialog.modal-dialog-centered(role='document')
+      .modal-content
+        .modal-header
+          h5#exampleFadeInModalLabel.modal-title Modal Title
+          button.btn-close(type='button', data-bs-dismiss='modal', aria-label='Close')
+        .modal-body
+          p Woohoo, you're reading this text in a modal!
+        .modal-footer
+          button.btn.btn-secondary.btn-sm(type='button', data-bs-dismiss='modal') Close
+          button.btn.btn-primary.btn-sm.btn-sm(type='button') Save changes
+  h5.mt-5 HTML
+  pre
+    code.lang-html.
+      #{'<button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleFadeInModal">Launch demo modal</button>'}
+      #{'<div class="modal fade fade-in" id="exampleFadeInModal" tabindex="-1" role="dialog" aria-labelledby="exampleFadeInModalLabel" aria-hidden="true">\n\t <div class="modal-dialog modal-dialog-centered" role="document">\n\t\t <div class="modal-content"> \n\t\t\t<div class="modal-header"> \n\t\t\t\t<h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>\n\t\t\t\t<button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="btn-close"><span class="fw-light" aria-hidden="true">&times;</span></button>\n\t\t\t</div> \n\t\t\t<div class="modal-body"> \n\t\t\t\t<p>Woohoo, you&apos;re reading this text in a modal!</p> \n\t\t\t</div>\n\t\t\t<div class="modal-footer">\n\t\t\t\t<button class="btn btn-secondary btn-sm" type="button" data-bs-dismiss="modal">Close</button>\n\t\t\t\t<button class="btn btn-primary btn-sm" type="button">Save changes</button>\n\t\t\t</div> \n\t\t</div> \n\t</div>\n</div>'}
+
+mixin modalSize 
+  h5.mt-5 Modal Size
+  p Modals have four optional sizes, available via modifier classes to be placed on a 
+    code .modal-dialog
+    |. These sizes kick in at certain breakpoints to avoid horizontal scrollbars on narrower viewports. The sizes are:
+  
+  .mt-3
+    code .modal-xl
+    |, 
+    code .modal-lg
+    |,  
+    code .modal-sm
+    |,  
+    code .modal-xs

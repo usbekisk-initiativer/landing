@@ -1,0 +1,228 @@
+mixin CafeMenu(title, des)
+  h5.text-uppercase.fs-9.fw-bold.mt-4.mb-0!=title
+  p=des
+
+mixin CafeHeader
+  +Section({
+    image: `${CWD}assets/img/headers/header-cafe.jpg`,
+    className: "overlay overlay-1",
+    attrs: {"data-zanim-xs": {delay: 0.4, animation: "zoom-out"}, "data-zanim-trigger": "scroll"}
+  }, "container overflow-hidden").py-0#cafeHeader
+    div(data-zanim-timeline!={delay: 0.6} data-zanim-trigger="scroll")
+      .row.min-vh-100.flex-center.py-8.text-center
+        .col-lg-8
+          .overflow-hidden
+            h1.text-white.fs-6.fs-sm-5.fs-lg-4.px-2.px-lg-0.text-smallcaps.display-4(data-parallax data-rellax-speed=5)
+              span.overflow-hidden.d-block
+                span.d-inline-block(data-zanim-xs!={delay: 0.1}) Laugh Dream Clap
+              span.overflow-hidden.d-block
+                span.d-inline-block(data-zanim-xs!={delay: 0.2}) Share Forgive
+              span.overflow-hidden.d-block
+                span.d-inline-block(data-zanim-xs!={delay: 0.3}) Celebrate Love
+          .overflow-hidden(data-parallax data-rellax-speed=3)
+            h5.fs-9.fs-sm-8.mt-3.mt-md-5.text-white(data-zanim-xs!={delay: 0.4}) welcome to your cafe sparrow.
+    +DownArrow(2)
+  #target-down
+
+mixin CafeAbout
+  +Section(false, "container").text-center.pb-0#cafeAbout
+    .row.justify-content-center
+      .col-lg-9.overflow-hidden
+        p.fs-7.font-secondary.fw-normal.text-dark good food,
+          span.text-decoration-underline.fw-bolder.ms-1 good coff&eacute;e
+          |  and good service in a consistent fashion. we take pride in the food we serve you, in the coffee we brew and in the way we welcome you and look after you.
+    .row.mt-6
+      .col-6.col-lg-3
+        img(src=`${CWD}assets/img/cafe-01.jpg` alt="" data-zanim-xs!={
+          animation: "zoom-in",
+          delay: 0.1,
+        } data-zanim-trigger="scroll").rounded.img-fluid
+      .col-6.col-lg-3
+        img(src=`${CWD}assets/img/cafe-02.jpg` alt="" data-zanim-xs!={
+          animation: "zoom-in",
+          delay: 0.2,
+        } data-zanim-trigger="scroll").rounded.img-fluid
+      .col-6.col-lg-3.mt-4.mt-lg-0
+        img(src=`${CWD}assets/img/cafe-03.jpg` alt="" data-zanim-xs!={
+          animation: "zoom-in",
+          delay: 0.3,
+        } data-zanim-trigger="scroll").rounded.img-fluid
+      .col-6.col-lg-3.mt-4.mt-lg-0
+        img(src=`${CWD}assets/img/cafe-04.jpg` alt="" data-zanim-xs!={
+          animation: "zoom-in",
+          delay: 0.4,
+        } data-zanim-trigger="scroll").rounded.img-fluid
+
+    .row.justify-content-center.mt-6
+      .col-lg-9.overflow-hidden
+        p.lead From thrift furniture and vintage dinnerware, to found objects and unfinished concrete walls, our café is filled with things that tell many a great story. With new meaning and purpose, these represent what we always want My sparrow Café to be – a place where we bring out the sparrowness in each other.
+
+    .row.mt-6.g-0
+      .col-6.col-sm-4.px-2
+        img(src=`${CWD}assets/img/cafe-06.jpg` alt="" data-zanim-xs!={
+          animation: "zoom-in",
+          delay: 0.1
+        } data-zanim-trigger="scroll").rounded.img-fluid
+      .col-6.col-sm-4.px-2
+        img(src=`${CWD}assets/img/cafe-05.jpg` alt="" data-zanim-xs!={
+          animation: "zoom-in",
+          delay: 0.2
+        } data-zanim-trigger="scroll").rounded.img-fluid
+      .col-sm-4.mt-3.mt-sm-0.px-2
+        img(src=`${CWD}assets/img/cafe-07.jpg` alt="" data-zanim-xs!={
+          animation: "zoom-in",
+          delay: 0.3
+        } data-zanim-trigger="scroll").rounded.img-fluid
+
+    .row.justify-content-center.mt-6
+      .col-lg-9.overflow-hidden
+        p.fs-7.font-secondary.fw-normal.text-dark(data-zanim-xs!={delay: 0.1} data-zanim-trigger="scroll") our ever-evolving space is a reflection of
+          span.text-decoration-underline.fw-bolder.ms-1 design philosophy
+          |  - redemption in reinvention.
+
+
+mixin CafeMenu1
+  section#CafeMenu1
+    .border-bottom.border-top.pt-1
+    .position-absolute.w-25.all-0(data-zanim-sm!={delay: 0.1} data-zanim-trigger="scroll")
+      .h-100.w-100.shadow-lg.d-none.d-sm-block( data-parallax data-rellax-percentage=0.5, data-rellax-speed=3)
+        +Background({image: `${CWD}assets/img/cafe-08.jpg`, className: "rounded-right"})
+
+    .container
+      .row.justify-content-end.text-center.pt-8
+        .col-sm-8
+          h2.px-lg-4.text-decoration-underline our food
+          p.font-secondary.px-lg-4 We work with an array of different roasters, talk to your
+            br.d-none.d-md-block
+            | barista to find out what's brewing today. Items with 
+            span.fa.fa-star.text-danger
+            |  are best selling.
+
+          .row.text-center.font-secondary.mt-7
+            .col-sm-8.col-lg-6.px-sm-5
+              h4.py-2.border.mb-5 coff&eacute;e
+              +CafeMenu("filter - 3", "classic drip, always fresh.")
+              +CafeMenu("<span class='fas fa-star text-danger'></span> espresso - 2.5", "the classic. we serve singles.")
+              +CafeMenu("flat 'water' white - 4", "one shot, thin milk. no meth.")
+              +CafeMenu("latte - 4", "one shot, milk, served in glass.")
+              +CafeMenu("piccolo - 3", "like a latte but mini size.")
+              +CafeMenu("long black - 3", "hot water, two shots on top.")
+
+            .col-sm-8.col-lg-6.px-sm-5.mt-6.mt-lg-0
+              h4.py-2.border.mb-5 t&eacute;a
+              +CafeMenu("lung jing - 4", "vert, chine.")
+              +CafeMenu("chung hao - 4", "vert, pollen de jasmin, chine.")
+              +CafeMenu("le parfum - 4", "vert, fruits rouges, rhubarbe.")
+              +CafeMenu("<span class='fas fa-star text-danger'></span> yunnan imperial - 5", "noir, chine.")
+              +CafeMenu("earl grey - 4", "noir, chine.")
+              +CafeMenu("le secret - 4", "rouge, vanille jasmin, afrique.")
+
+
+mixin CafeBanner
+  +Section('container-fluid').py-0#cafeBanner
+    .row.align-items-center
+      .col-lg-6.py-5.py-lg-11.d-flex.justify-content-center.text-center.text-lg-start
+        h1.fs-5.fs-sm-4.fw-light.display-4
+          | life is
+          br.d-none.d-lg-block
+          | short, eat
+          br.d-none.d-lg-block
+          span.fw-black.text-decoration-underline dessert
+          |  first!
+
+
+      .col-lg-6.ms-auto.px-0
+        div(data-parallax data-rellax-percentage=0.5, data-rellax-speed=3)
+          .py-11.shadow-lg(data-zanim-xs!={delay: 0.1, animation: "zoom-out"} data-zanim-lg!={delay: 0.1} data-zanim-trigger="scroll")
+            +Background({
+              image: `${CWD}assets/img/cafe-09.jpg`,
+              youtube: {
+                videoId: "Kra1eWAiKvE",
+                startSeconds: 0,
+                endSeconds: 57,
+              },
+              className: 'rounded-left'
+            })
+
+mixin CafeMenu2
+  section.border-bottom#CafeMenu2
+    .position-absolute.w-25.all-0(data-zanim-sm!={delay: 0.1} data-zanim-trigger="scroll")
+      .h-100.w-100.shadow-lg.d-none.d-sm-block( data-parallax data-rellax-percentage=0.5, data-rellax-speed=3)
+        +Background({image: `${CWD}assets/img/cafe-10.jpg`, className: "rounded-right"})
+    .container
+      .row.justify-content-end.text-center
+        .col-lg-8
+          .row.text-center.font-secondary.justify-content-end
+            .col-sm-8.col-lg-6.px-sm-5
+              h4.py-2.border.mb-5 soft drinks
+              +CafeMenu("the apple juice of m. biberon - 4", "the best apple juice in the region, simply!")
+              +CafeMenu("iced tea au thé rouge - 4", "iced rooibos tea, elderberry and passion fruit by charitea.")
+              +CafeMenu("nectar of fishing white - 4", "sweet and fruity flavor that smells like summer.")
+              +CafeMenu("holy sparkling water 70cl - 3.5", "micro filtered and macrobulled on site. because it's good when it stings!")
+              +CafeMenu("<span class='fas fa-star text-danger'></span> peel lemon limonade green - 4", "excellent soft! lemonaid reserves in addition 5cents / bottle to their asso.")
+
+            .col-sm-8.col-lg-6.px-sm-5.mt-6.mt-lg-0
+              h4.py-2.border.mb-5 b&eacute;ers &amp; coctails
+              +CafeMenu("half ale / brooklyn brewery - 6", "beer of yesteryear intended to quench the thirst of the workers, lightly.")
+              +CafeMenu("<span class='fas fa-star text-danger'></span> lager / brooklyn brewery - 6", "the classic brooklyn! developed according to a recre pre-prohibition.")
+              +CafeMenu("holy bloody mary - 10", "a classic done right! vodka, tomato juice, fresh horseradish, worcestershire, tabasco.. it hurts so good.")
+              +CafeMenu("the dolin blanc fever - 8", "a few rocks, a generous splash of dolin vermouth blanc and the best tonic on the market by fever tree.")
+              +CafeMenu("le cidre de m. biberon 75cl - 8", "semi-dry and delicious, perfect for sharing ... or not.")
+
+mixin CafeBigImage
+  +Section('container-fluid px-0').py-0#cafeBigImage
+    img(src=`${CWD}assets/img/cafe-11.jpg` alt='').img-fluid
+
+
+mixin CafeContact
+  +Section#cafeContact
+    .row.justify-content-center.mb-lg-6(data-zanim-timeline!={} data-zanim-trigger="scroll")
+      .col-md-10.col-lg-7.col-xl-6.text-center
+        h2.text-decoration-underline.mb-4.fs-6.fs-sm-5 this way to sparrow
+        p.mb-4 If you want to give your event a touch of sparrow, connect directly with us today and let's co-create something delightful for you.
+    .row
+      .col-lg-6.order-1.order-lg-0.pe-lg-4
+        form(method="post")
+          input(type="hidden" name="to" value="username@domain.extension").form-control
+          input(type="text" placeholder="Your Name" required).form-control
+          input(type="text" placeholder="Phone Number" required).form-control.mt-3
+          textarea(rows="9" placeholder="Your Message" required).form-control.mt-3
+          .d-grid
+            button.btn.btn-dark.mt-4(type="submit")
+              span.text-uppercase Send
+              span.fas.fa-paper-plane.text-white.ms-1
+          
+
+      .col-lg-6.ps-lg-4
+        .googlemap.rounded(data-gmap data-latlng='40.7118833,-74.013225' data-pov!={
+          heading: 75,
+          pitch: 0
+        } data-scrollwheel='false' data-icon=`${CWD}assets/img/map-marker.png`  data-zoom='17' data-theme='Default' style="height: 21.88rem;")
+          .marker-content.py-3
+            h5 Eiffel Tower
+            p
+              | Gustave Eiffel's iconic, wrought-iron 1889 tower,
+              br
+              |  with steps and elevators to observation decks.
+
+
+        .row.align-items-center.mb-8.mb-lg-3.text-center.text-lg-start.mt-4
+          .col-lg
+            p.mb-0
+              span.text-black.fw-black Address:
+              span  Via Cerva 911 - Milano, Italy
+            p.mb-0
+              span.text-black.fw-black E-mail:
+              span.fst-italic
+                a(href="mailto:info@sparrow.com").text-body  information@sparrow.com
+            p.mb-0
+              span.text-black.fw-black Phone:
+              span
+                a(href="tel:+13234324534").text-body  +13234324534
+          .col-lg-auto.mt-3.mt-lg-0
+            a(href='#!').btn.btn-outline-dark.btn-sm.border-secondary-subtle.me-2
+              span.fab.fa-twitter
+            a(href='#!').btn.btn-outline-dark.btn-sm.border-secondary-subtle.me-2
+              span.fab.fa-facebook-f
+            a(href='#!').btn.btn-outline-dark.btn-sm.border-secondary-subtle
+              span.fab.fa-google-plus-g

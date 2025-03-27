@@ -1,0 +1,61 @@
+mixin Contact
+  +Section('container-fluid').py-0#page-contact
+    .row
+      .col-lg-6.bg-body.pt-8.pb-4
+        .row.h-100.flex-center
+          .col-lg-8(data-zanim-lg!={animation: 'slide-left', delay: 0.6}  data-zanim-trigger='scroll')
+            h1.text-decoration-underline.d-inline-block.mb-4.mb-lg-6 contact
+            p.fw-bold.mb-0 Address:
+              span.ms-2.fw-normal Via Cerva 19 - Milano, Italy
+            p.fw-bold.mb-0 Phone:
+              span.ms-2.fw-normal
+                a(href='tel:+13234324534').text-body +13234324534
+            p.fw-bold.mb-4 E-mail:
+              span.ms-2.fw-normal.fst-italic
+                a(href='mailto:info@sparrow.com').text-body info@sparrow.com
+
+
+            .mt-3
+              a(href='#!').btn.btn-dark.btn-sm.me-2
+                span(data-fa-transform='grow-6').fab.fa-twitter
+              a(href='#!').btn.btn-dark.btn-sm.me-2
+                span(data-fa-transform='grow-6').fab.fa-facebook-f
+              a(href='#!').btn.btn-dark.btn-sm.me-2
+                span(data-fa-transform='grow-6').fab.fa-google-plus-g
+              a(href='#!').btn.btn-dark.btn-sm
+                span(data-fa-transform='grow-6').fab.fa-linkedin-in
+
+
+            h3.mt-7 Give us a shout
+            form.mt-4(method='POST')
+              input(type='hidden' name='to' value='username@domain.extension').form-control
+              input(type='text' placeholder='Your Name' aria-label='Text input with dropdown button').form-control.mt-3
+              input(type='text' placeholder='Phone Number' aria-label='Text input with dropdown button').form-control.mt-3
+              textarea(rows='11' placeholder='Your Message' required).form-control.mt-3
+
+              .d-grid
+                button.btn.btn-block.btn-dark.mt-4(type='submit')
+                  | Send
+                  span.fa.fa-paper-plane.ms-1
+
+      .col-lg-6.px-0
+        .sticky-top.ovrflow-hidden-y
+          .googlemap.min-vh-100.d-none.d-lg-block(data-gmap data-latlng='48.8588723,2.2932638' data-pov!={
+            heading: 120,
+            pitch: 0
+          } data-scrollwheel='false' data-icon='assets/images/map-marker.png'  data-zoom='1' data-theme='streetview' data-zanim-lg!={
+            animation: 'zoom-out-slide-left',
+            delay: 0.4
+          }  data-zanim-trigger='scroll')
+
+          //Mobile Fallback
+          .googlemap.min-vh-50.d-lg-none(data-gmap data-latlng='48.8588723,2.2932638' data-pov!={
+            heading: 75,
+            pitch: 0
+          } data-scrollwheel='false' data-icon=`${CWD}assets/img/map-marker.png`  data-zoom='17' data-theme='Default')
+            .marker-content.py-3
+              h5 Eiffel Tower
+              p
+                | Gustave Eiffel's iconic, wrought-iron 1889 tower,
+                br
+                |  with steps and elevators to observation decks.

@@ -1,0 +1,18 @@
+
+extends ../layouts/LayoutTheme
+include ../mixins/pages/Shop
+
+prepend styles
+  link(href=`${CWD}vendors/swiper/swiper-bundle.min.css`, rel='stylesheet')
+
+prepend scripts
+  script(src=`${CWD}vendors/swiper/swiper-bundle.min.js`)
+
+block beforeMainContent
+  +FancyNav({item: ['fancynavbar-icon-cart','fas fa-cart-arrow-down', `${CWD}pages/cart.html`]})(data-onscroll-fade-in=true)
+
+
+append mainContent  
+  +ShopHeader 
+  +ShopItems
+

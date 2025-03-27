@@ -1,0 +1,31 @@
+extends ../layouts/LayoutTheme
+include ../mixins/homes/Studio
+
+prepend styles
+  link(href=`${CWD}vendors/swiper/swiper-bundle.min.css`, rel='stylesheet')
+
+prepend scripts
+  script(src=`${CWD}vendors/swiper/swiper-bundle.min.js`)
+  script(src=`${CWD}vendors/bigpicture/BigPicture.js`)  
+  script(src=`${CWD}vendors/rellax/rellax.min.js`) 
+  script(src=`${CWD}vendors/countup/countUp.umd.js`) 
+  script(src!=`https://maps.googleapis.com/maps/api/js?key=${APIGmap}&callback=initMap` async)
+
+ 
+append mainContent
+
+  +StudioHeader
+
+  +StudioFeatures
+
+  +StudioBanner
+
+  +StudioFeatures1
+
+  +StudioFunfact
+
+  +StudioPartners
+
+  +StudioContact
+
+  +StudioFooter

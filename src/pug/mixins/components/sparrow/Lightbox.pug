@@ -1,0 +1,65 @@
+mixin LightboxImageDemo     
+  .row
+    .col-6.col-sm-4.mb-4
+      a(href='#!' data-caption='caption' data-bigpicture!={
+          imgSrc:`${CWD}assets/img/gallery/02-f.jpg`
+        })
+        img.img-thumbnail(src=`${CWD}assets/img/gallery/02.jpg` alt='' )
+    .col-6.col-sm-4.mb-4
+      
+      a.btn.btn-primary.btn-sm(href='#!' data-bigpicture!={
+        imgSrc:`${CWD}assets/img/gallery/02-f.jpg`
+      } data-caption='caption') LightBox
+
+mixin LightboxGalleryDemo
+
+  .row.mt-5#image_gallery 
+    .col-sm-4.col-lg-3.mb-4
+      a(href='#!' data-caption='caption' data-bigpicture!={
+        gallery: '#image_gallery',
+      } data-bp= `${CWD}assets/img/gallery/01-f.jpg` )
+        img.rounded.img-fluid(src=`${CWD}assets/img/gallery/01.jpg` alt='')  
+    .col-sm-4.col-lg-3.mb-4
+      a(href='#!'  data-caption='caption' data-bigpicture!={
+        gallery: '#image_gallery'
+      }  data-bp=`${CWD}assets/img/gallery/02-f.jpg`)
+        img.rounded.img-fluid(src=`${CWD}assets/img/gallery/02.jpg` alt='' )  
+    .col-sm-4.col-lg-3.mb-4
+      a(href='#!' data-caption='caption' data-bigpicture!={
+        gallery: '#image_gallery',
+      } data-bp=`${CWD}assets/img/gallery/03-f.jpg`)
+        img.rounded.img-fluid(src=`${CWD}assets/img/gallery/03.jpg` alt='')   
+    .col-sm-4.col-lg-3.mb-4
+      a(href='#!' data-caption='caption' data-bigpicture!={
+        gallery: '#image_gallery',
+      } data-bp=`${CWD}assets/img/gallery/04-f.jpg`)
+        img.rounded.img-fluid(src=`${CWD}assets/img/gallery/04.jpg` alt='' )   
+    .col-sm-4.col-lg-3.mb-4
+      a(href='#!' data-caption='caption' data-bigpicture!={
+        gallery: '#image_gallery',
+      } data-bp=`${CWD}assets/img/gallery/05-f.jpg`)
+        img.rounded.img-fluid(src=`${CWD}assets/img/gallery/05.jpg` alt='' )   
+    .col-sm-4.col-lg-3.mb-4
+      a(href='#!' data-caption='caption' data-bigpicture!={
+        gallery: '#image_gallery',
+      } data-bp=`${CWD}assets/img/gallery/06-f.jpg`)
+        img.rounded.img-fluid(src=`${CWD}assets/img/gallery/06.jpg` alt='' )   
+   
+    
+      
+    
+mixin FancyboxVideoDemo
+  .row.gx-2
+    .col-auto
+      button.btn.btn-primary.btn-sm(data-bigpicture!={
+        ytSrc: 'FCPdIvXo2rU',
+      }) YouTube video
+    .col-auto
+      button.btn.btn-primary.btn-sm(data-bigpicture!={
+        vimeoSrc: '58558497',
+      }) Vimeo video
+
+
+
+
+        

@@ -1,0 +1,22 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/bootstrap/Modals
+
+
+append variables
+  - var pageTitle = 'Modals';
+  - var activePage = 'modals';
+
+block component 
+
+  +BootstrapComponentLink({
+    link: `https://getbootstrap.com/docs/${bootstrapVersion}/components/modal/`,
+    name: pageTitle,
+  })
+
+  +ModalExampleDemo
+  +ModalExampleFadeIn
+  +modalSize
+
+ 
+  
+  

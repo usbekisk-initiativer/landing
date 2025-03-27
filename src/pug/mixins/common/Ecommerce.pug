@@ -1,0 +1,82 @@
+//---------------------------------------
+  |  Ecommerce
+//---------------------------------------
+mixin EcommerceHover({img1,img2, name, priceNow,pricePrev,badgeTitle, badgeClass, timeline})
+
+  a(href=`${CWD}pages/product-single.html`).row.g-0
+    .col-12.overflow-hidden.rounded.position-relative(data-zanim-timeline!={delay: timeline} data-zanim-trigger="scroll")
+      if badgeTitle
+        .badge.badge-rotate(class=badgeClass data-zanim-xs!={delay: 0.8, animation: "slide-down"})!=badgeTitle
+      .hoverbox
+        .row
+          .col
+            img(src=`${CWD}assets/img/ecommerce/${img1}.jpg` alt='' data-zanim-xs!={delay: 0.1, animation: "zoom-in"}).w-100
+        .hoverbox-content.hoverbox-background
+          .hoverbox-bg.d-flex.flex-center.h-100.w-100
+            img(src=`${CWD}assets/img/ecommerce/${img2}.jpg` alt='').w-100
+
+    .col-6.mt-2
+      h5.fs-9!=name
+    .col-6.mt-2.text-end
+      h6.fw-normal.mb-0.d-inline-block &#36;#{priceNow}
+      if pricePrev
+        h6.fw-normal.text-body-secondary
+          span.d-inline-block
+            del &#36;#{pricePrev}
+
+mixin EcommerceStatic({img, name, priceNow,pricePrev,badgeTitle, badgeClass, timeline})
+
+  a(href=`${CWD}pages/product-single.html`).row.g-0
+    .col-12.overflow-hidden.rounded.position-relative(data-zanim-timeline!={delay: timeline} data-zanim-trigger="scroll")
+      if(badgeClass)
+        .badge.badge-rotate(class=badgeClass data-zanim-xs!={delay: 0.8, animation: "slide-down"})=badgeTitle
+      .row
+        .col
+          img(src=`${CWD}assets/img/ecommerce/${img}.jpg` alt='' data-zanim-xs!={delay: 0.1, animation: "zoom-in"}).w-100
+
+    .col-6.mt-2
+      h5.fs-9!=name
+    .col-6.mt-2.text-end
+      h6.fw-normal.mb-0.d-inline-block &#36;#{priceNow}
+      if pricePrev
+        h6.fw-normal.text-body-secondary
+          span.d-inline-block
+            del &#36;#{pricePrev}
+
+mixin EcommerceSlider({images, name, pricePrev, priceNow, badgeTitle, badgeClass, timeline})
+
+  .row.g-0
+    .col-12.overflow-hidden.rounded(data-zanim-timeline!={delay: timeline} data-zanim-trigger="scroll")
+      .row(data-zanim-xs!={delay: 0.1, animation: "zoom-in"})
+        .col
+          .swiper.theme-slider.swiper-theme(data-swiper!={  
+            loop: true,
+            effect: 'fade',
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+              type: 'bullets',
+            },
+          }  data-zanim-lg!={animation: "zoom-out", delay: 0}  data-zanim-trigger='scroll')
+            .swiper-wrapper
+              each image in images
+                .swiper-slide 
+                  if(badgeTitle)
+                    .badge.badge-rotate(class=badgeClass data-zanim-xs!={delay: 0.8, animation: "slide-down"})!=badgeTitle
+                  a(href=`${CWD}pages/product-single.html`)
+                    img(src=`${CWD}assets/img/ecommerce/${image}.jpg` alt='').h-100.w-100
+              
+            .swiper-pagination
+            .swiper-nav
+              .swiper-button-next.me-md-3
+              .swiper-button-prev.ms-md-3 
+
+
+    a(href='#!').col-6.mt-2
+      h5.fs-9!=name
+    a(href='#!').col-6.mt-2.text-end
+      h6.fw-normal.mb-0.d-inline-block &#36;#{priceNow}
+      if pricePrev
+        h6.fw-normal.text-body-secondary
+          span.d-inline-block
+            del &#36;#{pricePrev}

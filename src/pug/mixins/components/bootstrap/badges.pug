@@ -1,0 +1,35 @@
+mixin ContextualVariationsExample
+  h4(data-anchor) Contextual variations
+  each value in colors  
+    if value==='light'
+      .badge(class=`bg-${value} text-dark`)  #{(value.charAt(0).toUpperCase() + value.slice(1))}
+    else 
+      .badge(class=`bg-${value}`)  #{(value.charAt(0).toUpperCase() + value.slice(1))}
+
+
+mixin PillBadgesExample
+  h4.mt-5(data-anchor=true) Pill badges
+  each value in colors
+    
+    if value==='light'
+      .badge.rounded-pill(class=`bg-${value} text-dark`) #{(value.charAt(0).toUpperCase() + value.slice(1))}
+    else 
+      .badge.rounded-pill(class=`bg-${value}`) #{(value.charAt(0).toUpperCase() + value.slice(1))}
+
+mixin RotatedBadgesDemo
+  h4.mt-5(data-anchor=true) Rotated badges
+  p To make this badge stick to the top of an element, use 
+    code overflow-hidden 
+    |  and  
+    code position-relative
+    |  class in a parent wrapper. 
+  .row.mt-3
+    .col-4
+      .position-relative.overflow-hidden.rounded(data-zanim-timeline!={delay: timeline} data-zanim-trigger="scroll")
+        .badge.badge-rotate.bg-danger(data-zanim-xs!={delay: 0.8, animation: "slide-down"})
+          span.fas.fa-star
+          |  Best selling
+        img(src=`${CWD}assets/img/ecommerce/9.jpg` alt="" data-zanim-xs!={
+          delay: 0.1,
+          animation: "zoom-in"
+        }).w-100

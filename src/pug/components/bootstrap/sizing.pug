@@ -1,0 +1,14 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/bootstrap/Sizing
+
+append variables
+  - var pageTitle = 'Sizing';
+  - var activePage = 'sizing';
+
+block component 
+
+  +BootstrapComponentLink({
+    link: `https://getbootstrap.com/docs/${bootstrapVersion}/utilities/sizing/`,
+    name: pageTitle,
+  })
+  +SizingDemo

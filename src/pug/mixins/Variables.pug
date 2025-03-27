@@ -1,0 +1,327 @@
+append variables
+  - var title = 'Sparrow | Look like an expert right from the start';
+  - var theme = `${name}-${version}`;
+  - var bootstrapVersion = '5.3';
+  - var attrsMain = { id: 'top', class: 'main' };
+  - var attrsLayout = { class: 'container', 'data-layout': 'container' }
+  - var themeColors = ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'];
+  - var colors = ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark','white','black'];
+  - var grays = [ 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100];
+  - var colorsAll = colors.concat(grays);
+
+  - var footer = true;
+  - var pathName = (locals.filename || locals.history[0]).split('\\').join('/').split('src/pug/').pop().split('.pug').shift();
+  - var pageTree = pathName.split('/');
+  - var CWD = pageTree.slice(1).map(() => '../').join('');
+  
+  -
+    var sitemap = 
+      {
+        home: [
+          {
+            title: 'default',
+            isActive: true,
+          },
+          {
+            title: 'bicycle',
+            isActive: true,
+          },
+          {
+            title: 'bigcartel',
+            isActive: true,
+          },
+          {
+            title: 'cafe',
+            isActive: true,
+          },
+          {
+            title: 'digital',
+            isActive: true,
+          },
+          {
+            title: 'ecommerce',
+            isActive: true,
+          },
+          {
+            title: 'event',
+            isActive: true,
+          },
+          {
+            title: 'interior',
+            isActive: true,
+          },
+          {
+            title: 'landing',
+            isActive: true,
+          },
+          {
+            title: 'promotion',
+            isActive: true,
+          },
+          {
+            title: 'software',
+            isActive: true,
+          },
+          {
+            title: 'studio',
+            isActive: true,
+          },
+      ],
+
+      pages: [
+        {
+          title: '404',
+          isActive: true,
+        },
+        {
+          title: 'about',
+          isActive: true,
+        },
+        {
+          title: 'blog',
+          isActive: true,
+        },
+        {
+          title: 'blog-single',
+          isActive: true,
+        },
+        {
+          title: 'cart',
+          isActive: true,
+        },
+        {
+          title: 'casestudy',
+          isActive: true,
+        },
+        {
+          title: 'coming-soon',
+          isActive: true,
+        },
+        {
+          title: 'contact',
+          isActive: true,
+        },
+        {
+          title: 'one-page',
+          isActive: true,
+        },
+        {
+          title: 'portfolio',
+          isActive: true,
+        },
+        {
+          title: 'profile',
+          isActive: true,
+        },
+        {
+          title: 'RTL',
+          isActive: true,
+        },
+        {
+          title: 'services',
+          isActive: true,
+        },
+        {
+          title: 'shop',
+          isActive: true,
+        },
+        {
+          title: 'signin',
+          isActive: true,
+        },
+        {
+          title: 'signup',
+          isActive: true,
+        },
+        {
+          title: 'product-single',
+          isActive: true,
+        },
+        {
+          title: 'split-static',
+          isActive: true,
+        },
+        {
+          title: 'split-youtube',
+          isActive: true,
+        },
+        {
+          title: 'starter',
+          isActive: true,
+        },
+      ],
+
+      components: {
+        bootstrap: [
+          {
+            title: 'badges',
+            isActive: true
+          },
+          {
+            title: 'buttons',
+            isActive: true
+          },
+          {
+            title: 'cards',
+            isActive: true
+          },
+          {
+            title: 'forms',
+            isActive: true
+          },
+          {
+            title: 'modals',
+            isActive: true
+          },
+          {
+            title: 'navbar',
+            isActive: true
+          },
+          {
+            title: 'scrollspy',
+            isActive: true
+          },
+          {
+            title: 'sizing',
+            isActive: true
+          },
+          {
+            title: 'tables',
+            isActive: true
+          },
+          {
+            title: 'tabs',
+            isActive: true
+          },
+          {
+            title: 'tooltips',
+            isActive: true
+          },
+        ],
+        sparrow: [
+          {
+            title: 'accordion',
+            isActive: true
+          },
+          {
+            title: 'anchor',
+            isActive: true
+          },
+          {
+            title: 'backgrounds',
+            isActive: true
+          },
+          {
+            title: 'borders',
+            isActive: true
+          },
+          {
+            title: 'carousel',
+            isActive: true
+          },
+          {
+            title: 'colors',
+            isActive: true
+          },
+          {
+            title: 'cookie-notice',
+            isActive: true
+          },
+          {
+            title: 'countdown',
+            isActive: true
+          },
+          {
+            title: 'countup',
+            isActive: true
+          },
+          {
+            title: 'fancynav',
+            isActive: true
+          },
+          {
+            title: 'filter',
+            isActive: true
+          },
+
+          {
+            title: 'googlemap',
+            isActive: true
+          },
+          {
+            title: 'icons',
+            isActive: true
+          },
+          {
+            title: 'inline-player',
+            isActive: true
+          },
+          {
+            title: 'lightbox',
+            isActive: true
+          },
+          {
+            title: 'masonry',
+            isActive: true
+          },
+          {
+            title: 'parallax',
+            isActive: true
+          },
+          {
+            title: 'progressbar',
+            isActive: true
+          },
+          {
+            title: 'spacing',
+            isActive: true
+          },
+          {
+            title: 'typed-text',
+            isActive: true
+          },
+          {
+            title: 'typography',
+            isActive: true
+          },
+          {
+            title: 'zanimation',
+            isActive: true
+          },
+        ],
+      },
+
+      documentation: [
+        {
+          title: 'getting-started',
+          isActive: true,
+        },
+        {
+          title: 'file-structure',
+          isActive: true,
+        },
+        {
+          title: 'customization',
+          isActive: true,
+        },
+        {
+          title: 'gulp',
+          isActive: true,
+        },
+        {
+          title: 'RTL',
+          isActive: true,
+        },
+        {
+          title: 'plugins',
+          isActive: true,
+        },
+        {
+          title: 'changelog',
+          isActive: true,
+        },
+      ]
+
+    };
+    
+

@@ -1,0 +1,24 @@
+extends ../layouts/LayoutTheme
+include ../mixins/homes/Cafe
+
+append variables
+  - var attrsHtml = Object.assign({ lang: `${ dir === 'rtl' ? 'ar' : 'en-US'}`, dir: dir || 'ltr', class: 'has-sidemenu has-sidemenu-left' });
+
+  
+prepend scripts
+  script(src=`${CWD}vendors/rellax/rellax.min.js`) 
+  script(src!=`https://maps.googleapis.com/maps/api/js?key=${APIGmap}&callback=initMap` async)
+
+
+block beforeMainContent
+  +FancyNav({navClass: 'fancynavbar-left'})(data-onscroll-fade-in = 'true')
+
+append mainContent 
+  +CafeHeader
+  +CafeAbout
+  +CafeMenu1
+  
+  +CafeBanner
+  +CafeMenu2
+  +CafeBigImage
+  +CafeContact

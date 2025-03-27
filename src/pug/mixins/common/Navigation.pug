@@ -1,0 +1,31 @@
+mixin NavLinkBs(item, path)
+  -var value = item.title
+  -var status = item.isActive
+  
+  a.dropdown-item(href=`${CWD}${path}${value.toLowerCase()}.html` ) 
+    +NavLinkTitle(value)   
+    
+mixin Navigation
+  nav.navbar.navbar-expand-lg.navbar-dark.fixed-top.navbar-sparrow
+    .container
+      a.navbar-brand(href=`${CWD}index.html`)
+        img(src=`${CWD}assets/img/logo-sparrow-digital.png` alt='sparrow' height=35)
+      button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarNavDropdown1', aria-controls='navbarNavDropdown1', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarNavDropdown1.collapse.navbar-collapse
+        ul.navbar-nav.ms-auto
+          li.nav-item.dropdown
+            a#navbarDropdownMenuLink1.nav-link.dropdown-toggle(href='#', data-bs-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Home
+
+            ul.dropdown-menu.end-0.ms-auto(aria-labelledby='navbarDropdownMenuLink1')
+              each item in sitemap.home
+                li
+                  +NavLinkBs(item, 'homes/')      
+
+          li.nav-item
+            a.nav-link(href='#digitalFeatures1') Services
+          li.nav-item
+            a.nav-link(href=`${CWD}components/sparrow/accordion.html`) Components       
+          li.nav-item
+            a.nav-link(href=`${CWD}documentation/getting-started.html`) Documentation
+

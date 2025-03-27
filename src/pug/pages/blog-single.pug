@@ -1,0 +1,12 @@
+extends ../layouts/LayoutTheme
+include ../mixins/pages/Blog
+include ../mixins/pages/BlogSingle
+
+prepend scripts
+  script(src=`${CWD}vendors/bigpicture/BigPicture.js`) 
+
+
+append mainContent
+  +BlogSingleHeader
+  +BlogSingleBody
+

@@ -1,0 +1,309 @@
+mixin DigitalHeader
+  +Section({
+    image: `${CWD}assets/img/headers/header-digital.jpg`,
+    className: "overlay digital-header overlay-1",
+    attrs: {"data-zanim-xs": {delay: 0, animation: "zoom-out"}, "data-zanim-trigger": "scroll"}
+  }).py-0.overflow-hidden#digitalHeader
+
+    .row.min-vh-100.py-8.flex-center.text-center
+      .col-lg-8.col-xl-7(data-zanim-timeline!={} data-zanim-trigger="scroll")
+        h1.fs-6.fs-sm-5.fs-md-4.text-white.display-4(data-parallax data-rellax-speed=4)
+          span.overflow-hidden
+            span.d-inline-block(data-zanim-xs!={delay: 0.1}) we have built 
+          span.overflow-hidden
+            span.d-inline-block.text-uppercase.py-1(data-zanim-xs!={delay: 0.2}) 3250+ websites 
+          span.overflow-hidden
+            span.d-inline-block.text-decoration-underline.mb-1(data-zanim-xs!={delay: 0.3}) that get results
+        .overflow-hidden(data-parallax data-rellax-speed=3)
+          h3.mt-3.mt-sm-4.mt-md-5.mb-4.text-white.text-opacity-85.fw-normal(data-zanim-xs!={delay: 0.4})
+            | award-winning digital 
+            br.d-md-none
+            | marketing  
+            //- br.d-none.d-sm-block
+            | agency in Singapore
+        div(data-parallax data-rellax-speed=2)
+          div(data-zanim-xs!={delay: 0.5})
+            a(href='#!').btn.btn-danger.rounded-pill request a free quote
+    +DownArrow(1, 60)
+  #target-down
+
+mixin DigitalFeatures
+  +Section(false, "container-fluid").py-0#digitalFeatures
+    .row.align-items-center.py-6.py-md-8.py-lg-0
+      mixin DigitalMedia(icon, title, des, delay)
+        .d-flex.align-items-start.font-secondary.overflow-hidden(data-zanim-timeline!={delay: delay} data-zanim-trigger="scroll")
+          img(src=`${CWD}assets/img/icons/${icon}.svg` alt="icon" width=50 data-zanim-xs!={
+            delay: 0.2,
+            animation: "slide-right"
+          }).me-3
+          .flex-1
+            .overflow-hidden
+              h4(data-zanim-xs!={delay: 0.1, animation: "slide-right"})=title
+            .overflow-hidden
+              p.mb-0(data-zanim-xs!={delay: 0.2, animation: "slide-right"})=des
+      .col-lg-4.px-lg-5
+        +DigitalMedia("icon-startup", "organic search optimization", "If you’re not in the first page of organic search results, your potential customers won’t even know that you exist. Let us fix that for you.", 0.1)
+      .col-lg-4.px-lg-5.border-start-lg.border-end-lg.py-4.py-md-7
+        +DigitalMedia("icon-target", "conversion rate optimization", "Turn your visitors into customers with our team of experts. We'll analyze your website and develop a suitable conversion strategy.", 0.2)
+      .col-lg-4.px-lg-5
+        +DigitalMedia("icon-teamwork", "advanced website analytics", "We help you measure what's working and what isn't, and improve the performance of your website to meet your business objectives.", 0.3)
+
+mixin DigitalAbout
+  +Section.border-top.border-bottom.bg-light#digitalAbout
+    .row.align-items-center
+      .col-md-4
+        img(src=`${CWD}assets/img/illustration/digital-01.svg` alt="").img-fluid
+
+      .col-md-7.ms-auto
+        h3.mb-3 appear on the first page of google!
+        p.font-secondary We offer professional SEO services that help websites rise in rank on Google and other search engines — even when it comes to
+          span.fw-bolder  highly competitive keywords.
+          |  A sound search engine marketing plan that includes SEO is essential to increasing your website’s visibility.
+
+        .row.mt-4
+          .col-lg-4
+            .d-flex.align-items-center.mt-3
+              span.fas.fa-puzzle-piece.me-3.fs-7.text-warning
+              .flex-1
+                h5.mb-0.fw-bold.text-body-highlight Connect with target customers
+
+          .col-lg-4
+            .d-flex.align-items-center.mt-3
+              span.far.fa-clock.me-3.fs-7.text-success
+              .flex-1
+                h5.mb-0.fw-bold.text-body-highlight Time-efficient and cost-effective
+
+          .col-lg-4
+            .d-flex.align-items-center.mt-3
+              span.far.fa-grin-tears.me-3.fs-7.text-info
+              .flex-1
+                h5.mb-0.fw-bold.text-body-highlight Rely on an experienced team
+
+
+        a(href='#!').btn.btn-outline-danger.mt-6 &xrarr; learn more about us
+
+mixin DigitalFeatures1
+  +Section.text-center.font-secondary#digitalFeatures1
+    .row.justify-content-center
+      .col-lg-9
+        h2 complete digital marketing solution
+        p.lead.mb-0 Search engine optimization (SEO) and social media marketing (SMM) experts
+
+
+    .row.mt-6
+      mixin DigitalMediaCard(img, title, delay)
+        .col-sm-6.col-lg-3.mb-4
+          .h-100.border.justify-content-between.d-flex.flex-column.rounded
+            img.my-4(src=`${CWD}assets/img/illustration/${img}` alt="" data-zanim-xs!={
+              delay: delay,
+              animation: "zoom-in"
+            } data-zanim-trigger="scroll").img-fluid
+            h5.py-3.mb-0.bg-light=title
+      +DigitalMediaCard("digital-02.svg", "Social media marketing", 0.1)
+      +DigitalMediaCard("digital-03.svg", "Organic Long-Term SEO", 0.2)
+      +DigitalMediaCard("digital-04.svg", "Advanced Web Analytics", 0.3)
+      +DigitalMediaCard("digital-05.svg", "Pay Per Click Management", 0.4)
+
+    .row.mt-7.text-start
+      mixin DigitalMedia2(icon, title, des)
+        .d-flex.align-items-start.font-secondary
+          span.me-3.fs-6(class=icon data-zanim-xs!={delay: 0.2, animation: "slide-right"})
+          .flex-1.overflow-hidden
+            h6.ls.text-uppercase(data-zanim-xs!={delay: 0.2, animation: "slide-right"})=title
+            p(data-zanim-xs!={delay: 0.3, animation: "slide-right"})=des
+
+      .col-sm-6.col-lg-4.pe-sm-5(data-zanim-timeline!={delay: 0.0} data-zanim-trigger="scroll")
+        +DigitalMedia2("far fa-share-square", "Local Search Strategy", "Maximize your presence on search engine results pages on a local scale.")
+      .col-sm-6.col-lg-4.pe-sm-5.mt-4.mt-sm-0(data-zanim-timeline!={delay: 0.1} data-zanim-trigger="scroll")
+        +DigitalMedia2("far fa-map", "Maps Listing Optimization", "Google Maps Optimization is the centerpiece of an effective local marketing strategy.")
+      .col-sm-6.col-lg-4.pe-sm-5.mt-4.mt-lg-0(data-zanim-timeline!={delay: 0.2} data-zanim-trigger="scroll")
+        +DigitalMedia2("far fa-check-square", "Link Building & Content", "Link building is and will continue to be a tremendously important component of Search Engine Optimization (SEO).")
+      .col-sm-6.col-lg-4.pe-sm-5.mt-4(data-zanim-timeline!={delay: 0.3} data-zanim-trigger="scroll")
+        +DigitalMedia2("far fa-chart-bar", "Paid Search Advertising", "Paid listings on Google AdWords and Bing Ads can help you reach new customers and grow your business.")
+      .col-sm-6.col-lg-4.pe-sm-5.mt-4(data-zanim-timeline!={delay: 0.4} data-zanim-trigger="scroll")
+        +DigitalMedia2("far fa-object-ungroup", "Custom Website Design", "Our team specializes in affordable web design and e-commerce solutions.")
+      .col-sm-6.col-lg-4.pe-sm-5.mt-4(data-zanim-timeline!={delay: 0.5} data-zanim-trigger="scroll")
+        +DigitalMedia2("far fa-envelope-open", "Creative Email Newsletters", "Email templates designed and written specifically for your customers' needs and interests.")
+
+      .col-12.text-center.mt-6
+        a(href='#!').btn.btn-danger
+          span.fas.fa-paper-plane.me-3(data-fa-transform="grow-8")
+          | Request a free quote
+
+mixin DigitalWeDo
+  +Section("container-fluid px-lg-0").py-0.overflow-hidden#digitalWeDo
+    .row.align-items-center
+      mixin DigitalCard(title, sub, des, btn, badge)
+        .font-secondary
+          if(badge)
+            .border.text-danger.border-danger.fw-bold.px-1.fs-10.rounded.d-inline-block.mb-2 NEW
+          h3.mb-2.fw-normal!=title
+          h6.ls.text-uppercase.fw-bold.mb-4=sub
+          p.mb-0=des
+          if btn
+            a.btn.btn-link.text-danger.fw-bold.ps-0.mt-4(href='#!') #{btn} &xrarr;
+      .col-lg-6.align-self-stretch.py-11
+        +Background({image: `${CWD}assets/img/digital-strategy.jpg`})
+
+      .col-lg-6.px-sm-6.px-md-8.px-lg-6.px-xl-8.py-6.py-md-8.align-self-stretch.bg-light.position-relative
+        .swiper.theme-slider.position-static(data-swiper!={
+          autoplay: true,
+          loop: true,
+          autoplay: {
+            delay: 3000,
+          }, 
+          effect: 'slide',
+        })
+          .swiper-wrapper
+            .swiper-slide
+              +DigitalCard("Web <span class='fw-black'>Craft</span>", "Stories that get your brand the love it deserves", "A surefire way to your target audience’s hearts is through compelling and engaging storytelling. Adding our personal touch of awe-inspiration, we aim to make them fall in love with your brand. These elements come together to form the basis for our multi-platform websites and applications that also work well on, yes, Internet Explorer.", false, true)
+              
+            .swiper-slide  
+              +DigitalCard("We <span class='fw-black'>Strategise</span>", "Campaigns that exceed your KPIs", "Let’s face it — nobody wants to head into the battlefield unprepared. That’s where we come in. With Sparrow, you are on one big team. We tailor-cut to your needs by crafting strategies that will engage your audience and build a loyal following. Expand your digital empire with us.", "Learn more")
+            .swiper-slide  
+              +DigitalCard("Web <span class='fw-black'>Build</span>", "Multi-platform and responsive websites", "Sparrow firmly believes in doing things 'User First', and the key to that is keeping responsive web design in mind. We also acknowledge that your target audience’s User Experience is King in the Realm of the Web and ought to be treated like royalty.", "Hire us")
+          .swiper-nav
+            .swiper-button-next.me-md-5
+            .swiper-button-prev.ms-md-5
+
+mixin DigitalPartners
+  +Section.text-center.font-secondary#digitalPartners
+    .row.justify-content-center
+      .col-lg-7
+        h3.mb-2 proud to be working with
+        p Since 2009, we have forged close relationships with over 100 brands allowing us to gain a wide experience marketing vastly different product types and services from various industries, locally, regionally and globally.
+
+    .row.justify-content-center.mt-6
+      .col-6.col-md-4.col-lg-3.d-flex.flex-center
+        .bg-light.p-4.p-sm-6.h-100.rounded
+          img(src=`${CWD}assets/img/logo/23.png` alt="" data-zanim-xs!={
+            delay: 0.1,
+            animation: "zoom-in"
+          }, data-zanim-trigger="scroll").logo-grid
+      .col-6.col-md-4.col-lg-3.d-flex.flex-center
+        .bg-light.p-4.p-sm-6.h-100.rounded
+          img(src=`${CWD}assets/img/logo/22.png` alt="" data-zanim-xs!={
+            delay: 0.2,
+            animation: "zoom-in"
+          }, data-zanim-trigger="scroll").logo-grid
+      .col-6.col-md-4.col-lg-3.d-flex.flex-center.mt-4.mt-md-0
+        .bg-light.p-4.p-sm-6.h-100.rounded
+          img(src=`${CWD}assets/img/logo/24.png` alt="" data-zanim-xs!={
+            delay: 0.3,
+            animation: "zoom-in"
+          }, data-zanim-trigger="scroll").logo-grid
+      .col-6.col-md-4.col-lg-3.d-flex.flex-center.mt-4.mt-lg-0
+        .bg-light.p-4.p-sm-6.h-100.rounded
+          img(src=`${CWD}assets/img/logo/26.png` alt="" data-zanim-xs!={
+            delay: 0.4,
+            animation: "zoom-in"
+          }, data-zanim-trigger="scroll").logo-grid
+      .col-6.col-md-4.col-lg-3.d-flex.flex-center.mt-4
+        .bg-light.p-4.p-sm-6.h-100.rounded
+          img(src=`${CWD}assets/img/logo/13.png` alt="" data-zanim-xs!={
+            delay: 0.5,
+            animation: "zoom-in"
+          }, data-zanim-trigger="scroll").logo-grid
+      .col-6.col-md-4.col-lg-3.d-flex.flex-center.mt-4
+        .bg-light.p-4.p-sm-6.h-100.rounded
+          img(src=`${CWD}assets/img/logo/04.png` alt="" data-zanim-xs!={
+            delay: 0.6,
+            animation: "zoom-in"
+          }, data-zanim-trigger="scroll").logo-grid
+      .col-6.col-md-4.col-lg-3.d-flex.flex-center.mt-4
+        .bg-light.p-4.p-sm-6.h-100.rounded
+          img(src=`${CWD}assets/img/logo/27.png` alt="" data-zanim-xs!={
+            delay: 0.7,
+            animation: "zoom-in"
+          }, data-zanim-trigger="scroll").logo-grid
+      .col-6.col-md-4.col-lg-3.d-flex.flex-center.mt-4
+        .bg-light.p-4.p-sm-6.h-100.rounded
+          img(src=`${CWD}assets/img/logo/14.png` alt="" data-zanim-xs!={
+            delay: 0.8,
+            animation: "zoom-in"
+          }, data-zanim-trigger="scroll").logo-grid
+
+    .row.mt-6.text-center
+      .col
+        a(href='#!').btn.btn-danger Let's work
+
+mixin DigitalContact
+  +Section.text-center.bg-black.font-secondary#digitalContact
+    .row.justify-content-center
+      .col-lg-7
+        h2.text-white speak to us!
+        p.text-body-tertiary The digital landscape is constantly evolving; just when you think you’ve gotten the hang of it, you realise that things are a-changing once again. And we are here to help.
+
+
+    form.text-start.mt-6
+      .row.justify-content-center
+        .col-lg-5
+          input(type="hidden" name="to" value="username@domain.extension")
+          .mb-4
+            label.text-light.text-opacity-75.fw-bold.ls.fs-10 Your Name
+            input.fs-9.form-control.border-secondary.bg-transparent(type="text" required)
+           
+          .mb-4
+            label.text-light.text-opacity-75.fw-bold.ls.fs-10 Your Email
+            input.fs-9.form-control.border-secondary.bg-transparent(type="email" required)
+          .mb-4
+            label.text-light.text-opacity-75.fw-bold.ls.fs-10 Your Phone
+            input.fs-9.form-control.border-secondary.bg-transparent(type="text" required)
+          .mb-4
+            label.text-light.text-opacity-75.fw-bold.ls.fs-10 How did you find us?
+            select.form-select.fs-9.border-secondary.bg-transparent
+              option(selected='') Select one
+              option(value='1') One
+              option(value='2') Two
+              option(value='3') Three
+
+
+        .col-lg-5
+          .mb-4
+            label.text-light.text-opacity-75.fw-bold.ls.fs-10 Your organization
+            input.fs-9.form-control.border-secondary.bg-transparent(type="text" required)
+          .mb-4
+            label.text-light.text-opacity-75.fw-bold.ls.fs-10 Your Message
+            textarea#exampleFormControlTextarea1.fs-9.form-control.border-secondary.bg-transparent(rows=11 required)
+        
+        .col-lg-10.text-center
+          .my-2
+          input(type="submit" value="send").btn.btn-danger
+
+mixin DigitalSocials
+  +Section.font-secondary#digitalSocials
+    .row
+      .col-lg-3.pe-lg-5
+        h3.mb-3 we are sparrow
+        p A digital agency that delivers awe-inspiring experiences. Our passion is all about making your brand shine.
+
+      .col-md-6.col-lg-4.pe-lg-6.ms-lg-auto.mt-6.mt-lg-0
+        h4.mb-3 Clogs
+        p.mb-0 Design Inspiration for Summer. Describe the moment you discovered you could be creative. Transform your Ideas from Good to Great
+
+        h4.mb-3.mt-4 Socials
+
+        a(href='#!').btn.btn-dark.btn-sm.me-2
+          span.fab.fa-twitter
+        a(href='#!').btn.btn-dark.btn-sm.me-2
+          span.fab.fa-facebook-f
+        a(href='#!').btn.btn-dark.btn-sm.me-2
+          span.fab.fa-google-plus-g
+        a(href='#!').btn.btn-dark.btn-sm
+          span.fab.fa-linkedin-in
+
+      .col-md-6.col-lg-4.mt-6.mt-lg-0
+        h4.mb-3 Get in touch
+        p.mb-0
+          span.text-black Tel:
+          a(href="tel:+6562934373").text-body +65 6293 4373
+        p.mb-0
+          span.text-black Drop us an email at:
+          a(href="mailto:info@sparrow.com").text-body info@sparrow.com
+        h4.mb-3.mt-4 Find us
+        address
+          | Sparrow Interactive Pte. Ltd.
+          br
+          | 50 Ubi Avenue 3, #04-05 Frontier ePark@Ubi
+          br
+          | Singapore 408866

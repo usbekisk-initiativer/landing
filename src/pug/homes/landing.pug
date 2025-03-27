@@ -1,0 +1,22 @@
+extends ../layouts/LayoutTheme
+include ../mixins/homes/Landing
+
+prepend scripts
+  script(src=`${CWD}vendors/bigpicture/BigPicture.js`)  
+  script(src=`${CWD}vendors/rellax/rellax.min.js`) 
+
+append mainContent
+  
+  +LandingHeader
+
+  +LandingSignup
+
+  +LandingFeatures
+
+  +LandingBanner
+
+  +LandingFeatures1
+
+  +LandingDownload
+
+  +LandingPremium

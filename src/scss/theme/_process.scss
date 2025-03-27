@@ -1,0 +1,24 @@
+/*-----------------------------------------------
+|   Process
+-----------------------------------------------*/
+.process-item {
+  position: relative;
+  display: inline-block;
+  .process-item-number {
+    position: absolute;
+    color: rgba(var(--#{$prefix}tertiary-color-rgb), 0.25);
+    left: 0;
+    top: 0;
+    transform: translate(-127%, -21%);
+    font-family: $font-family-secondary;
+    font-weight: $font-weight-black;
+    background-color: white;
+    font-size: map_get($font-sizes, 5);
+
+    @include media-breakpoint-up(sm) {
+      font-size: map_get($font-sizes, 3);
+    }
+  }
+
+
+}

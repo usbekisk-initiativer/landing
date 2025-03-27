@@ -1,0 +1,221 @@
+mixin BlogHeader  
+  +Section({
+    image: `${CWD}assets/img/blog-header.jpg`
+  }).py-9.py-lg-10#page-blog(data-zanim-xs!={
+    delay: 0.4,
+    animation: 'zoom-out'
+  } data-zanim-trigger='scroll')
+    .row.align-items-center
+      .col
+        .overflow-hidden
+          h1.text-white.text-decoration-underline(data-zanim-xs!={delay: 0.6} data-zanim-trigger='scroll') sparrow blog
+        .overflow-hidden
+          h6.mb-0.text-white.ls-2.text-uppercase(data-zanim-xs!={delay: 0.8} data-zanim-trigger='scroll') Stories to write home about
+
+mixin BlogItems
+  +Section
+    .row
+      .col-lg-8
+        .mb-6.mb-xl-8
+          a(href='#!').font-secondary.text-body-tertiary May 15, 2021
+          a(href='blog-single.html').text-black
+            h3 What selfies mean for avatars in VR and the way we perceive ourselves
+          a(href='blog-single.html').btn.btn-link.ps-0 read more
+            span.d-inline-block.ms-1 &xrarr;
+          br
+          a(href='#!')
+            span.far.fa-heart.text-body-tertiary.mt-3
+            span.text-body-secondary.font-secondary.ps-1 #{Math.floor(10 + Math.random() * (50 + 1 - 10))}
+          a(href='#!')
+            span.far.fa-comment.text-body-tertiary.mt-3.ms-4
+            span.text-body-secondary.font-secondary.ps-1 #{Math.floor(10 + Math.random() * (50 + 1 - 10))}
+        .mb-6.mb-xl-8
+          a(href='#!').font-secondary.text-body-tertiary April 17, 2021
+          a(href='blog-single.html').text-black
+            h3 Amazon is eating the software (which is eating the world around us)
+          h4.fw-normal.text-body.mt-3 What selfies mean for avatars in VR and the way we perceive ourselves
+          p.mt-4 The first thing you do is visit the Eiffel Tower, which has been tempting you the whole time, peeking through the city’s legendary architecture. As you walk up to it, you see the familiar yet astonishing structure, defying you with its scale. There it is — you’ve seen it in pictures countless times, but this is different.
+          a(href='blog-single.html').btn.btn-link.ps-0 read more
+            span.d-inline-block.ms-1 &xrarr;
+          br
+          a(href='#!')
+            span.fas.fa-heart.text-danger.mt-3
+            span.text-body-secondary.font-secondary.ps-1 #{Math.floor(10 + Math.random() * (50 + 1 - 10))}
+          a(href='#!')
+            span.far.fa-comment.text-body-tertiary.mt-3.ms-4
+            span.text-body-secondary.font-secondary.ps-1 #{Math.floor(10 + Math.random() * (50 + 1 - 10))}
+        .mb-6.mb-xl-8
+          img(src=`${CWD}assets/img/blog-single-01.jpg` alt='').d-block.w-100.mb-4.rounded
+          a(href='#!').font-secondary.text-body-tertiary March 13, 2021
+          a(href='blog-single.html').text-black
+            h3 Identity Transfer And The Rise Of Virtual Surrealism
+          h4.fw-normal.text-body.mt-3 What selfies mean for avatars in VR and the way we perceive ourselves
+          p.mt-4 The first thing you do is visit the Eiffel Tower, which has been tempting you the whole time, peeking through the city’s legendary architecture. As you walk up to it, you see the familiar yet astonishing structure, defying you with its scale. There it is — you’ve seen it in pictures countless times, but this is different.
+          a(href='blog-single.html').btn.btn-link.ps-0 read more
+            span.d-inline-block.ms-1 &xrarr;
+          br
+          a(href='#!')
+            span.fas.fa-heart.text-danger.mt-3
+            span.text-body-secondary.font-secondary.ps-1 #{Math.floor(10 + Math.random() * (50 + 1 - 10))}
+          a(href='#!')
+            span.far.fa-comment.text-body-tertiary.mt-3.ms-4
+            span.text-body-secondary.font-secondary.ps-1 #{Math.floor(10 + Math.random() * (50 + 1 - 10))}
+        .mb-6.mb-xl-8.position-relative.overflow-hidden
+          .swiper.theme-slider.swiper-theme.mb-4.swiper-vertical(data-zanim-lg!={animation: 'zoom-out-slide-right', delay: 0.4}  data-zanim-trigger='scroll' data-swiper!={
+            autoplay: {
+              delay: 5000,
+              disableOnInteraction: false,
+            },
+            loop: true,
+            effect: 'fade',
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+              type: 'bullets',
+            },
+          })
+            .swiper-wrapper
+              .swiper-slide
+                img(src=`${CWD}assets/img/bicycle-03.jpg` alt='').fit-cover.rounded.w-100
+              .swiper-slide  
+                img(src=`${CWD}assets/img/bicycle-04.jpg` alt='').fit-cover.rounded.w-100
+              .swiper-slide  
+                img(src=`${CWD}assets/img/bicycle-05.jpg` alt='').fit-cover.rounded.w-100
+            .swiper-pagination
+
+          a(href='#!').font-secondary.text-body-tertiary February 05, 2021
+          a(href='blog-single.html').text-black
+            h3 XC, DH, trail—our mountain bikes cover every facet of riding.
+          h4.fw-normal.text-body.mt-3 What selfies mean for avatars in VR and the way we perceive ourselves
+          a(href='blog-single.html').btn.btn-link.ps-0 read more
+            span.d-inline-block.ms-1 &xrarr;
+          br
+          a(href='#!')
+            span.far.fa-heart.text-body-tertiary.mt-3
+            span.text-body-secondary.font-secondary.ps-1 #{Math.floor(10 + Math.random() * (50 + 1 - 10))}
+          a(href='#!')
+            span.far.fa-comment.text-body-tertiary.mt-3.ms-4
+            span.text-body-secondary.font-secondary.ps-1 #{Math.floor(10 + Math.random() * (50 + 1 - 10))}
+        .mb-6.mb-lg-8
+          +Section(false, 'container').text-end.py-0.mb-4
+            .row.align-items-end.justify-content-center
+              .col-12.px-0
+                .position-relative.min-vh-50.h-100
+                  +Background({image: `${CWD}assets/img/workout-5.jpg`, className: 'rounded'})
+                  a(href='#!' data-bigpicture!={ ytSrc: 'rxGuNJ-nEYg'}).position-absolute.bottom-0.end-0.mb-3.me-4
+                    svg(width=60 height=60 xmlns='http://www.w3.org/2000/svg', viewbox='0 0 274.19 274.19' data-zanim-svg!={
+                      duration: 2,
+                      ease: "CubicBezier",
+                      trigger: "scroll"
+                    })
+                      defs
+                        style.
+                          .play-path {
+                            fill: none;
+                            stroke: #ffffff;
+                            stroke-linecap: round;
+                            stroke-linejoin: round;
+                            stroke-width: 12px;
+                          }
+                      g
+                        path.play-path(d='M208.31,29.4A129.12,129.12,0,1,1,137.1,8m-1.48,170.53L199.94,137,104.07,79.46v113')
+                
+          a(href='#!').font-secondary.text-body-tertiary January 07, 2021
+          a(href='blog-single.html').text-black
+            h3 Make the most of your sport with sparrow
+          h4.fw-normal.text-body.mt-3 connect with thousands of more active people in sparrow community, share your progress, stay motivated, get inspired.
+          a(href='blog-single.html').btn.btn-link.ps-0 read more
+            span.d-inline-block.ms-1 &xrarr;
+          br
+          a(href='#!')
+            span.far.fa-heart.text-body-tertiary.mt-3
+            span.text-body-secondary.font-secondary.ps-1 #{Math.floor(10 + Math.random() * (50 + 1 - 10))}
+          a(href='#!')
+            span.far.fa-comment.text-body-tertiary.mt-3.ms-4
+            span.text-body-secondary.font-secondary.ps-1 #{Math.floor(10 + Math.random() * (50 + 1 - 10))}
+
+        nav(aria-label='Blog Pagination')
+          ul.pagination.justify-content-center
+            li.page-item.d-none.d-lg-block
+              a.page-link(href='#!') First
+            li.page-item
+              a.page-link(href='#!', aria-label='Previous')
+                span(aria-hidden='true').fa.fa-caret-left
+                span.sr-only Previous
+            li.page-item
+              a.page-link(href='#!') 10
+            li.page-item.active
+              a.page-link(href='#!') 11
+            li.page-item
+              a.page-link(href='#!') ...
+            li.page-item
+              a.page-link(href='#!') 25
+            li.page-item
+              a.page-link(href='#!') 26
+            li.page-item
+              a.page-link(href='#!', aria-label='Next')
+                span(aria-hidden='true').fa.fa-caret-right
+                span.sr-only Next
+            li.page-item.d-none.d-lg-block
+              a.page-link(href='#!') Last
+
+      +BlogAside
+      
+mixin BlogAside
+  .col-lg-4.mt-6.mt-lg-0.ps-xl-7
+    .row.px-2
+      .col
+        form.input-iconic
+          .input-icon
+            button(type='submit')
+              span.fas.fa-search.text-body-tertiary
+          input.form-control(type='search', placeholder='Search...')
+        h4.mt-5 Popular
+        a(href='blog-single.html').mt-3.d-inline-block
+          img(src=`${CWD}assets/img/blog-1.jpg` alt='').rounded.w-100.fit-cover
+          h5.mt-3 How to take the shame out of self-promotion
+        a(href='blog-single.html').mt-4.d-inline-block
+          img(src=`${CWD}assets/img/blog-3.jpg` alt='').rounded.w-100.fit-cover
+          h5.mt-3 Magic. My Macbook has been stolen.
+
+        .mt-6
+          h4 Tags
+          ul.nav.mt-3
+            li
+              a(href='#!').btn.btn-xs.btn-outline-secondary.m-1 Creativity
+            li
+              a(href='#!').btn.btn-xs.btn-outline-secondary.m-1 Ideas
+            li
+              a(href='#!').btn.btn-xs.btn-outline-secondary.m-1 Travel
+            li
+              a(href='#!').btn.btn-xs.btn-outline-secondary.m-1 Art
+            li
+              a(href='#!').btn.btn-xs.btn-outline-secondary.m-1 Psychology
+            li
+              a(href='#!').btn.btn-xs.btn-outline-secondary.m-1 Life
+            li
+              a(href='#!').btn.btn-xs.btn-outline-secondary.m-1 Music
+            li
+              a(href='#!').btn.btn-xs.btn-outline-secondary.m-1 Books
+            li
+              a(href='#!').btn.btn-xs.btn-outline-secondary.m-1 Movie
+
+        .mt-6
+          h4 Categories
+          ul.bullet-inside.ps-0.font-secondary
+            li
+              a(href='#!').text-body-secondary Design
+            li
+              a(href='#!').text-body-secondary Programming
+            li
+              a(href='#!').text-body-secondary Writing
+            li
+              a(href='#!').text-body-secondary Games
+            li
+              a(href='#!').text-body-secondary Typography
+            li
+              a(href='#!').text-body-secondary Cricket
+            li
+              a(href='#!').text-body-secondary Soccer
+            li
+              a(href='#!').text-body-secondary Photography

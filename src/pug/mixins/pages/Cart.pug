@@ -1,0 +1,84 @@
+mixin PageCart 
+  +Section#page-cart.mt-5.mt-lg-0(data-zanim-trigger='scroll'  data-zanim-lg!={
+      animation: 'slide-left',
+      delay: 0.4
+    })
+    .row.mb-4
+      .col
+        a(href=`${CWD}pages/shop.html`).btn.btn-link.px-0.text-secondary
+          span.fas.fa-chevron-left(data-fa-transform='down-1')
+          span.ps-2 back to shopping
+        h3.text-uppercase.ls your cart
+    .row.border-bottom
+      .col-7
+        .row
+          .col-auto
+            a(href='#!')
+              span.fas.fa-times.fs-9.fs-md-8.fs-lg-7.invisible
+          .col
+            h6.fs-10.ls.text-uppercase item
+      .col-5
+        .row
+          .col-6.text-center
+            h6.fs-10.ls.text-uppercase qty.
+          .col-6.text-end
+            h6.fs-10.ls.text-uppercase Price
+
+    +Cart('1','Sparrow Sweater-white & brown', '$500.00')
+
+    +Cart('2','Sparrow over coat-female', '$250.00')
+
+    +Cart('3','Sparrow Charcoal Tops-black', '$400.00')
+
+    +Cart('4','Sparrow handbag-brown', '$300.00')
+
+    .row.justify-content-end.text-end.mt-4
+      .col-md-8.col-lg-6
+        .row.justify-content-end.mt-2
+          .col-6
+            h4.fw-normal.text-body Sub-total:
+          .col-4
+            h4.fw-normal $1450.00
+        .row.justify-content-end.mt-2
+          .col-6
+            h4.fw-normal.text-body Delivery Charge:
+          .col-4
+            h4.fw-normal.text-end $50.00
+      .col-12.px-0
+        hr.mb-0
+        hr.mt-1
+      .col-md-8.col-lg-6
+        .row.justify-content-end.mt-2
+          .col-6
+            h4.fw-bold Total:
+          .col-4
+            h4.fw-bold $1500.00
+        .row.justify-content-end.mt-4
+          .col-10.col-sm-8.d-grid
+            a(href='#!').btn.btn-lg.btn-danger Place order &xrarr;
+
+mixin Cart(image, item, price)
+  .row.align-items-center.py-3.border-bottom
+    .col-sm-7
+      .row.align-items-center
+        .col-auto
+          a(href='#!')
+            span.fas.fa-times.text-body-tertiary.text-opacity-10.fs-9.fs-md-8.fs-lg-7
+        .col
+          .row.g-0.align-items-center
+            .col-auto
+              img(src=`${CWD}assets/img/ecommerce/${image}.jpg` alt='' width=50).me-3
+            .col-8.mt-2
+              a(href='#!').text-black
+                h5.fw-bold.mb-0=item
+    .col-sm-5.mt-4.mt-sm-0
+      .row.align-items-center.justify-content-end
+        .col-3.col-sm-6.text-end.text-sm-center
+          .form-group.mb-0
+            select.form-select.font-secondary
+              option 1
+              option 2
+              option 3
+              option 4
+        .col-3.col-sm-6.text-end
+          h6.fs-9.fw-normal.mb-0=price

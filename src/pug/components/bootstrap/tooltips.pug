@@ -1,0 +1,18 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/bootstrap/Tooltips
+include ../../mixins/common/card
+
+
+append variables
+  - var pageTitle = 'Tooltips';
+  - var activePage = 'tooltips';
+
+block component 
+ 
+  +BootstrapComponentLink({
+    link: `https://getbootstrap.com/docs/${bootstrapVersion}/components/tooltips`,
+    name: pageTitle,
+  })
+
+  +ComponentCard().mb-3
+    +TooltipExampleDemo

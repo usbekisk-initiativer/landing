@@ -1,0 +1,108 @@
+mixin BlogSingleHeader
+  +Section({
+    image: `${CWD}assets/img/headers/header-single-blog.jpg`,
+    className: 'overlay',
+    attrs: {'data-zanim-xs': {delay: 0.4, animation: 'zoom-out'}, 'data-zanim-trigger': 'scroll'}
+  }).py-0
+    .row.align-items-end.min-vh-100
+      .col-lg-8.mb-6
+        h2.text-white.display-4.fs-6.fs-md-5(data-zanim-xs!={delay: 0.6} data-zanim-trigger='scroll') Identity transfer and the rise of virtual surrealism
+
+mixin BlogSingleBody
+  +Section
+    .row
+      .col-lg-8
+        .row
+          .col-12
+            .row
+              .col
+                a(href='#!').font-secondary.text-body-tertiary May 15, 2021
+              .col.ms-auto.font-secondary.text-end
+                a(href='#!').me-3.text-body-tertiary
+                  span.fas.fa-heart.me-1.text-danger
+                  | 14
+                a(href='#!').text-body-tertiary
+                  span.far.fa-comment.me-1
+                  | 12
+            h3.mt-4 What selfies mean for avatars in VR and the way we perceive ourselves
+            p.mt-4 You just landed in Paris, the euro trip you’ve always dreamed of! After fighting with the street signs and foreign language, you finally exchange keys and smiles with your Airbnb host and drop off your bags.
+            img(src=`${CWD}assets/img/blog-single-01.jpg` alt='').d-block.mt-5.w-100
+            p.mt-4 The first thing you do is visit the Eiffel Tower, which has been tempting you the whole time, peeking through the city’s legendary architecture. As you walk up to it, you see the familiar yet astonishing structure, defying you with its scale. There it is — you’ve seen it in pictures countless times, but this is different.
+            p.mt-4 You’re there. There are no screens between you and The Tower. You can touch it, step on it, and most importantly, prove that you were there. You can’t wait to tell all your friends how marvelous it is. So, you reach inside your pocket and take out your most trusted travel companion: the camera phone.
+
+            p.ps-4.my-6.border-start.border-dark-subtle.border-2.fst-italic.fw-normal.lead When shopping around for other companies that would allow Richard to keep his pride, he comes across the forward-thinking Flutterbug, who wants Richard to lead engineering on a fantastical new technology that seems poised to change the world. That technology, of course, allows you to look in a camera that puts a fake mustache on your face.
+
+            p.mt-4 But, it’s important to recognize that Identity Transfer is appealing to many because it washes away the mundanity of their reality and places them as the protagonist of a newly found, unbounded environment, ripe for creativity.
+
+            p.mt-4 No longer are you beholden by the unremarkable reality that surrounds you. Instead, you can now virtually inhabit any environment and bring along the things that make you
+              i you
+              | .
+            .my-6
+              .row.g-2#blogGallery
+                .col-5
+                  a(href='#!' data-bp=`${CWD}assets/img/single-blog-01.jpg` data-bigpicture!={gallery: '#blogGallery' } data-caption='Image caption')
+                    img(src=`${CWD}assets/img/single-blog-01.jpg` alt='').rounded.w-100.h-100.fit-cover
+                .col-7
+                  a(href='#!' data-bp=`${CWD}assets/img/single-blog-02.jpg` data-bigpicture!={gallery: '#blogGallery'} data-caption='Image caption')
+                    img(src=`${CWD}assets/img/single-blog-02.jpg` alt='').rounded.w-100.h-100.fit-cover
+                .col-6
+                  a(href='#!' data-bp=`${CWD}assets/img/single-blog-03.jpg` data-bigpicture!={gallery: '#blogGallery'} data-caption='Image caption')
+                    img(src=`${CWD}assets/img/single-blog-03.jpg` alt='').rounded.w-100.h-100.fit-cover
+                .col-6
+                  a(href='#!' data-bp=`${CWD}assets/img/single-blog-04.jpg` data-bigpicture!={gallery: '#blogGallery'} data-caption='Image caption')
+                    img(src=`${CWD}assets/img/single-blog-04.jpg` alt='').rounded.w-100.h-100.fit-cover
+
+            p.mt-4 In The Chemical Brothers’ music video ‘Wide Open', Dom &amp; Nic explore a surprisingly captivating motion capture technique where the main character slowly reveals a body made of a synthetic, see-through material that is then anthropomorphized through the masterful dance of Sonoya Mizuno.
+
+            p.mt-4 Thanks to Gabriel Valdivia. Original post:
+              a(href='https://artplusmarketing.com/identity-transfer-and-the-rise-of-virtual-surrealism-bac751e6342c' target='_blank') Identity Transfer And The Rise Of Virtual Surrealism
+
+
+            .row.mt-5.fs-8.align-items-center
+              .col-auto
+                h6.mb-0 Share on
+              .col
+                a(href='#!').text-facebook
+                  span.fab.fa-facebook
+                a(href='#!').text-twitter
+                  span.fab.fa-twitter.ms-2
+                a(href='#!').text-google-plus
+                  span.fab.fa-google-plus-square.ms-2
+
+            .mt-6
+              a(href='#!').btn.btn-xs.btn-outline-secondary.m-1 Creativity
+              a(href='#!').btn.btn-xs.btn-outline-secondary.m-1 Ideas
+              a(href='#!').btn.btn-xs.btn-outline-secondary.m-1 Travel
+              a(href='#!').btn.btn-xs.btn-outline-secondary.m-1 Art
+              a(href='#!').btn.btn-xs.btn-outline-secondary.m-1 Life
+              a(href='#!').btn.btn-xs.btn-outline-secondary.m-1 Music
+
+
+
+          .col-12.mt-6
+            .bg-light.p-5.rounded
+              .row.g-0.justify-content-center.text-center.text-sm-start
+                .col-6.col-sm-4.col-md-3.col-lg-4.col-xl-3.align-self-center.pe-sm-3.pb-3.pb-sm-0
+                  img(src=`${CWD}assets/img/author.jpg` alt='').rounded-circle.img-fluid
+                .col-sm
+                  h5 Sophia Olivia
+                  p.font-secondary Managing director at little Themewagon, author, media junkie, sports fan. I spend most of my time thinking about the impact technology is having on our society.
+                  a(href='#!').font-secondary.fs-10.fw-black.text-black Follow @ twitter
+
+
+          .col-12.mt-8
+            h3.mb-4 More from Web design
+          .col-lg-4
+            a(href='#!')
+              img(src=`${CWD}assets/img/blog-1.jpg` alt='').rounded.img-fluid
+              h5.mt-3 How to make the shame out of self-promotion totally insane!
+          .col-lg-4.mt-4.mt-lg-0
+            a(href='#!')
+              img(src=`${CWD}assets/img/blog-2.jpg` alt='').rounded.img-fluid
+              h5.mt-3 Magic. My Macbook has been stolen.
+          .col-lg-4.mt-4.mt-lg-0
+            a(href='#!')
+              img(src=`${CWD}assets/img/blog-3.jpg` alt='').rounded.img-fluid
+              h5.mt-3 How to make the shame out of self-promotion totally insane!
+
+      +BlogAside

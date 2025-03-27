@@ -1,0 +1,30 @@
+/* -------------------------------------------------------------------------- */
+/*                                  BigPicture                                 */
+/* -------------------------------------------------------------------------- */
+
+[data-bp][data-bigpicture]{
+  cursor: zoom-in;
+}
+[data-bigpicture]{
+  cursor: pointer;
+}
+[data-bigpicture]>img{
+  cursor: zoom-in;
+}
+
+#bp_container{
+  z-index: 11000 !important;
+  img{
+    border-radius: 5px;
+  }
+  svg{
+    height: 3rem ;
+  }
+} 
+//- hide caption remove button
+.bp-xc{
+  display: none;
+}
+#bp_container>.bp-x:focus, #bp_container>.bp-x:hover {
+  background: none !important;
+}

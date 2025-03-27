@@ -1,0 +1,249 @@
+mixin BicycleHeader
+  +Section({
+    image: `${CWD}assets/img/headers/header-bicycle.jpg`,
+    className: 'overlay overlay-2',
+    youtube: {
+      videoId : 'x4LRLFGrliw',
+      startSeconds : 24,
+      endSeconds : 245  
+    }
+  }).py-0#bicycleHeader(data-zanim-lg!={delay: 0.6, animation: "zoom-out"} data-zanim-trigger='scroll')
+    .row.min-vh-100.align-items-center.py-8
+      .col-lg-7(data-zanim-timeline!={delay: 0.6} data-zanim-trigger='scroll')
+        h1.fs-6.fs-sm-5.fs-xl-4.display-4.text-white.fst-italic.overflow-hidden.text-decoration-underline(data-zanim-xs!={delay: 0.1}) redefine your limit
+        .overflow-hidden
+          p.text-white.mb-4.font-secondary.fst-italic.fs-7(data-zanim-xs!={delay: 0.2}) introducing the all new escape series
+        div(data-zanim-xs!={delay: 0.3})
+          a(href='#!').btn.btn-outline-light.mt-4 Learn more
+
+mixin BicycleAbout
+  +Section.text-center#bicycleAbout
+    .row.justify-content-center
+      .col-lg-7
+        p.lead
+          span.text-dark.fw-semibold Quality and precision
+          |  are what decorates each Sparrow bicycle. Confirmed by more than
+          span.text-dark.fw-semibold  3 million people
+          |  who have been cruising the world for the past quarter of a century. And we keep on riding.
+        h6.mt-5  Damien Rice, Founder
+        img(src=`${CWD}assets/img/signature.png` alt='' width=220)
+        br
+        a(href='#!').btn.btn-outline-danger.mt-6 About us
+
+mixin BicycleCta
+  +Section('container-fluid').text-center.py-0.overflow-hidden#bicycleCta
+    .row
+      .col.px-4
+        .position-relative.overflow-hidden.rounded
+          +Background({
+            image: `${CWD}assets/img/bicycle-11.jpg`,
+            className: "overlay",
+            attrs: {'data-parallax':'', 'data-rellax-percentage': '0.5', 'data-rellax-speed':'-3'}
+          })
+          .position-relative.py-8.py-md-11(data-zanim-timeline!={} data-zanim-trigger='scroll')
+            h2.fs-5.text-white.px-4.px-sm-0.display-4.mb-4(data-zanim-xs!={delay: 0.1}) train insane or remain the same
+            div(data-zanim-xs!={delay: 0.2})
+              a(href='#!').btn.btn-outline-light.border-2.mt-3 the fear schredder
+
+mixin BicycleFeatures
+  +Section('container-fluid').text-center.pt-4.pb-0#bicycleFeatures&attributes(attributes)= attrs
+    .row.m-0
+      .col-md-6
+        .position-relative.overflow-hidden.rounded
+          +Background({image: `${CWD}assets/img/bicycle-02.jpg`})
+          .position-relative.py-8.py-md-11
+            div(data-zanim-timeline!={} data-zanim-trigger='scroll')
+              .overflow-hidden
+                h6.text-white.ls.text-uppercase(data-zanim-xs!={delay: 0.0}) lighter, faster, and better handling
+              .overflow-hidden
+                h2.fs-7.fs-sm-6.text-white(data-zanim-xs!={delay: 0.1}) the new tarmac
+              div(data-zanim-xs!={delay: 0.2})
+                a(href='#!').btn.btn-dark.mt-4 meet the new tarmac
+      .col-md-6.mt-4.mt-md-0
+        .position-relative.overflow-hidden.rounded
+          +Background({image: `${CWD}assets/img/bicycle-01.jpg`})
+          .position-relative.py-8.py-md-11
+            div(data-zanim-timeline!={delay: 0.1} data-zanim-trigger='scroll')
+              .overflow-hidden
+                h6.text-white.ls.text-uppercase(data-zanim-xs!={delay: 0.0}) real fit. real fast.
+              .overflow-hidden
+                h2.fs-7.fs-sm-6.text-white(data-zanim-xs!={delay: 0.1}) the all-new sirrus
+              div(data-zanim-xs!={delay: 0.2})
+                a(href='#!').btn.btn-dark.mt-4 meet the new sirrus
+
+mixin BicycleFeatures1
+  +Section('container-fluid').py-4#bicycleFeatures1
+    .row.m-0
+      .col-sm-6.col-lg-3
+        a(href='#!').d-block
+          img(src=`${CWD}assets/img/bicycle-03.jpg` alt='' data-zanim-xs!={
+            delay: 0,
+            animation: 'zoom-in'
+          } data-zanim-trigger='scroll').w-100.rounded
+          h6.d-inline-block.ls.text-uppercase.fw-normal.mb-0.mt-3.text-body-secondary Mountain
+          h4 mountain
+          p.text-body.d-inline-block XC, DH, trail—our mountain bikes cover every facet of riding.
+      .col-sm-6.col-lg-3.mt-4.mt-sm-0
+        a(href='#!').d-block
+          img(src=`${CWD}assets/img/bicycle-04.jpg` alt='' data-zanim-xs!={
+            delay: 0.1,
+            animation: 'zoom-in'
+          } data-zanim-trigger='scroll').w-100.rounded
+          h6.d-inline-block.ls.text-uppercase.fw-normal.mb-0.mt-3.text-body-secondary Road
+          h4 road
+          p.text-body.d-inline-block Whether you're a veteran racer or first-time rider, we have the perfect Road …
+      .col-sm-6.col-lg-3.mt-4.mt-lg-0
+        a(href='#!').d-block
+          img(src=`${CWD}assets/img/bicycle-05.jpg` alt='' data-zanim-xs!={
+            delay: 0.2,
+            animation: 'zoom-in'
+          } data-zanim-trigger='scroll').w-100.rounded
+          h6.d-inline-block.ls.text-uppercase.fw-normal.mb-0.mt-3.text-body-secondary fitness
+          h4 fitness &amp; hybrid
+          p.text-body.d-inline-block Get in-shape or around town with our Fitness &amp; Urban bikes.
+      .col-sm-6.col-lg-3.mt-4.mt-lg-0
+        a(href='#!').d-block
+          img(src=`${CWD}assets/img/bicycle-06.jpg` alt='' data-zanim-xs!={
+            delay: 0.3,
+            animation: 'zoom-in'
+          } data-zanim-trigger='scroll').w-100.rounded
+          h6.d-inline-block.ls.text-uppercase.fw-normal.mb-0.mt-3.text-body-secondary Turbo
+          h4 e-bikes
+          p.text-body.d-inline-block Our E-Bikes are far from typical. They feel just like a Specialized bike shou…
+
+mixin BicycleProducts
+  +Section.bg-11#bicycleProducts.overflow-hidden
+    .row.text-center
+
+      mixin BicycleShopCard(thumb, des, price, badge)
+        a(href='#!')
+          img(src=`${CWD}assets/img/bicycle-${thumb}.jpg` alt='').rounded.w-100
+          .px-3.px-xl-5
+            h4.mt-3.fs-9.fw-bold!=des
+            p.font-secondary.d-inline-block.text-body $#{price}.00
+              if(badge)
+                span.badge.bg-danger.ms-1=badge
+                
+      .col-12.mb-4.mb-md-6
+        h2.text-center
+          span.text-decoration-underline featured products
+      .col-12
+        .swiper.theme-slider.h-100(data-swiper!={
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+          },     
+          loop: true,
+          spaceBetween: 30,
+         
+          breakpoints: {
+            576: {
+              slidesPerView: 2,
+            },
+            768: {
+              slidesPerView: 3,
+            },
+            992: {
+              slidesPerView: 4,
+            },
+          },
+        }  data-zanim-lg!={animation: "zoom-out", delay: 0}  data-zanim-trigger='scroll')
+          .swiper-wrapper
+            .swiper-slide.border.border-light-subtle
+              +BicycleShopCard("07", "Deflect&trade; H2O Road Jacket", "350")
+            .swiper-slide.border.border-light-subtle
+              +BicycleShopCard("08", "SPECIALIZED Man's Element 2.0 Hybrid Jacket", "200")
+            .swiper-slide.border.border-light-subtle
+              +BicycleShopCard("09", "Best Sellers Women's Therminal&trade; Cycling Tights", "160")
+            .swiper-slide.border.border-light-subtle
+              +BicycleShopCard("10", "Element Cycling Bib Tights", "470", "37% OFF")
+            .swiper-slide.border.border-light-subtle
+              +BicycleShopCard("07", "Women's Therminal&trade; Cycling Tights", "130")
+            .swiper-slide.border.border-light-subtle
+              +BicycleShopCard("08", "S-Works 6 XC Mountain Bike Shoes", "400", "SALE")
+            .swiper-slide.border.border-light-subtle
+              +BicycleShopCard("09", "Ambush", "180")
+            .swiper-slide.border.border-light-subtle
+              +BicycleShopCard("10", "S-Works Women's Prevail II", "225")
+           
+          .swiper-nav
+            .swiper-button-next
+            .swiper-button-prev
+      
+
+mixin BicycleSignUp
+  +Section.bg-dark.py-6.font-secondary#bicycleSignUp
+    .row
+      .col-lg-6.col-xl-5.pe-lg-8
+        h4.text-white.text-opacity-85.mb-4 join sparrow
+        
+        a(href='#!').d-inline-block
+          span.fa-stack.fa-stack-size.me-2.text-dark.border.rounded-circle.bg-body.fs-8
+            i.fab.fa-facebook-f.fa-stack-1x
+
+        a(href='#!').d-inline-block
+          span.fa-stack.fa-stack-size.me-2.text-dark.border.rounded-circle.bg-body.fs-8
+            i.fab.fa-instagram.fa-stack-1x
+
+        a(href='#!').d-inline-block
+          span.fa-stack.fa-stack-size.text-dark.border.rounded-circle.bg-body.fs-8
+            i.fab.fa-youtube.fa-stack-1x
+            
+
+        p.text-body-tertiary.mt-4 Sign up to get the latest News to your inbox.
+        .input-group.mb-3
+          input.form-control(type='text' placeholder="Email" aria-label="Recipient's username" aria-describedby='button-addon2')
+          button#button-addon2.btn.border.border-light.text-light.px-4(type='button') Sign up
+
+      .col.mt-6.mt-lg-0
+        .row
+          .col-6.col-sm-4
+            h4.text-white.text-opacity-85.mb-4 features
+
+            ul.list-unstyled
+              li.py-1
+                a(href='#!').text-body-tertiary News
+              li.py-1
+                a(href='#!').text-body-tertiary Events
+              li.py-1
+                a(href='#!').text-body-tertiary Technology
+              li.py-1
+                a(href='#!').text-body-tertiary Team &amp; Riders
+              li.py-1
+                a(href='#!').text-body-tertiary Wallpapers
+              li.py-1
+                a(href='#!').text-body-tertiary Find a Retailer
+
+          .col-6.col-sm-4
+            h4.text-white.text-opacity-85.mb-4 support
+
+            ul.list-unstyled
+              li.py-1
+                a(href='#!').text-body-tertiary Owner's manuals
+              li.py-1
+                a(href='#!').text-body-tertiary Bike Registration
+              li.py-1
+                a(href='#!').text-body-tertiary Newsletter
+              li.py-1
+                a(href='#!').text-body-tertiary Customer Support
+              li.py-1
+                a(href='#!').text-body-tertiary Recall Information
+              li.py-1
+                a(href='#!').text-body-tertiary Bike Archive
+
+          .col-6.col-sm-4.mt-6.mt-sm-0
+            h4.text-white.text-opacity-85.mb-4 company
+
+            ul.list-unstyled
+              li.py-1
+                a(href='#!').text-body-tertiary About Bicycles
+              li.py-1
+                a(href='#!').text-body-tertiary Advocacy
+              li.py-1
+                a(href='#!').text-body-tertiary Privacy
+              li.py-1
+                a(href='#!').text-body-tertiary Terms &amp; Conditions
+              li.py-1
+                a(href='#!').text-body-tertiary Job Openings
+              li.py-1
+                a(href='#!').text-body-tertiary Global Website

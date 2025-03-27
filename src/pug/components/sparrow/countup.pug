@@ -1,0 +1,21 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/sparrow/Accordion
+
+prepend scripts
+  script(src=`${CWD}vendors/countup/countUp.umd.js`) 
+
+append variables
+  - var pageTitle = 'Count up';
+  - var activePage = 'countup';
+
+block component 
+  p Sparrow's count up will start counting after an element with 
+    code data-countup
+    |  attribute become visible in the viewport. The following example will count from 0 up to 399:
+  
+  +ComponentCard({
+    prismTitle: 'HTML',
+    prismTitleClass: 'mt-5',
+    prismClass: 'mt-2'
+  })
+    span.font-secondary.display-4.fw-bold(data-countup!={endValue: 399}) 0

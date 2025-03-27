@@ -1,0 +1,188 @@
+mixin LandingHeader
+  +Section("container-fluid").py-0#LandingHeader
+    .row(data-zanim-timeline!={} data-zanim-trigger="scroll")
+      .col-lg-6.px-0.position-relative
+        .h-100.py-9(data-zanim-lg!={
+          animation: "slide-right",
+          from: {opacity: 0},
+          delay: 0.4
+        }  data-zanim-trigger="scroll")
+          +Background({
+            image: `${CWD}assets/img/workout-6.jpg`,
+            attrs: {"data-zanim-trigger": "scroll", "data-zanim-lg": {animation: "slide-right", delay: 0.0}}
+          })
+
+      .col-lg-6
+        .row.flex-center.py-6.py-md-8
+          .col-11.col-sm-10
+            .overflow-hidden
+              h2.fw-light.text-uppercase.fs-6.fs-lg-5(data-zanim-lg!={delay: 0.4}) Turn insight
+                br
+                | into
+                span.fw-black  action
+
+            .overflow-hidden
+              p.lead.font-secondary.mt-4.text-body-tertiary(data-zanim-lg!={delay: 0.5})
+                | If you're active, sparrow is made
+                br
+                | for you. Your mobile health
+                br
+                | trainer and specialist.
+
+            .overflow-hidden
+              .mt-3.mt-lg-5(data-zanim-xs!={delay: 0.6})
+                a(href='#!').btn.btn-danger create account
+                h6.fw-normal.mt-2.text-body-tertiary Have an account?
+                  a(href='#!').text-body-highlight.fw-bold.ms-1 Sign in
+                    span.d-inline-block.ms-1 &xrarr;
+mixin LandingSignup
+  +Section.text-center.bg-light#LandingSignup
+    .row.align-items-center.justify-content-center
+      .col-md-8(data-zanim-timeline!={} data-zanim-trigger="scroll")
+        .overflow-hidden
+          h4.fw-bold.mb-3(data-zanim-xs!={delay: 0.2}) Personal tracker in your pocket
+        .overflow-hidden
+          p.lead.font-secondary.text-body-tertiary(data-zanim-xs!={delay: 0.3}) Sparrow is a fitness app that makes fitness fun. Our desktop experience goes deeper with training plans, route planning and analysis game to the limit.
+
+
+mixin LandingBanner
+  +Section('container-fluid').py-0.overflow-hidden#LandingBanner
+    .row
+      .col.px-3(data-zanim-timeline!={} data-zanim-trigger="scroll")
+        .position-relative.overflow-hidden.rounded
+          +Background({image: `${CWD}assets/img/workout-5.jpg`, className: "overlay parallax rounded", attrs: {"data-rellax-percentage": 0.5}})
+          .position-relative.py-11.px-3.px-lg-9
+            h1.text-white.fs-7.fs-sm-5.fs-md-4.parallax.display-4(data-rellax-percentage=0.5, data-rellax-speed=2)
+              span.d-block.overflow-hidden
+                span.d-inline-block(data-zanim-xs!={delay: 0.1}) make the most of
+              span.d-block.overflow-hidden
+                span.d-inline-block(data-zanim-xs!={delay: 0.2}) your sport with
+              span.d-block.overflow-hidden
+                span.d-inline-block(data-zanim-xs!={delay: 0.3}) sparrow
+
+mixin LandingFeatures
+  +Section('container-fluid').py-3#LandingFeatures
+    .row(data-zanim-timeline!={} data-zanim-trigger="scroll")
+      .col-lg-6.col-xl-3.mt-3.mt-xl-0.pe-lg-2(data-zanim-xs!={delay: 0.1, animation: "zoom-in"})
+        .hoverbox.min-vh-50.h-100.py-6
+          +Background({image: `${CWD}assets/img/workout-1.jpg`, className: 'rounded'})
+          .hoverbox-content.d-flex.bg-black.justify-content-center.rounded
+            .align-self-center.px-4.px-lg-6.text-center
+              span.fa.fa-signal.text-white.fs-7.mb-2
+              h4.mb-1.text-white track &amp; analyze
+              p.px-3.font-secondary.text-body-tertiary Track your daily workout and analyze data to get a better fitness
+
+      .col-lg-6.col-xl-3.mt-3.mt-xl-0.px-xl-2.ps-lg-2(data-zanim-xs!={delay: 0.2, animation: "zoom-in"})
+        .position-relative.min-vh-50.h-100
+          +Background({image: `${CWD}assets/img/workout-2.jpg`, className: 'rounded'})
+          a(href='#!' data-bigPicture!={ytSrc:'XtyLfJa3clI'}).position-absolute.bottom-0.end-0.mb-3.me-4
+            svg(width=45 height=45 xmlns='http://www.w3.org/2000/svg', viewbox='0 0 274.19 274.19' data-zanim-svg!={
+              duration: 2,
+              ease: "CubicBezier",
+              trigger: "scroll"
+            })
+              defs
+                style.
+                  .play-path {
+                    fill: none;
+                    stroke: #ffffff;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    stroke-width: 12px;
+                  }
+              g
+                path.play-path(d='M208.31,29.4A129.12,129.12,0,1,1,137.1,8m-1.48,170.53L199.94,137,104.07,79.46v113')
+
+
+      .col-lg-6.col-xl-3.mt-3.mt-xl-0.px-xl-2.pe-lg-2(data-zanim-xs!={delay: 0.3, animation: "zoom-in"})
+        .position-relative.min-vh-50.h-100.py-6.d-flex.justify-content-center
+          +Background({image: `${CWD}assets/img/workout-8.jpg`, className: "overlay overlay-0 rounded"})
+          .position-relative.px-4.px-xl-5.text-center.align-self-center.w-100
+            span.far.fa-compass.text-white.text-opacity-85.fs-5.mb-4
+            h4.mb-2.text-white Explore &amp; compete
+            p.font-secondary.text-body-tertiary plan your next goal with sparrow segments, routes, maps, clubs, challenges and race courses.
+            a(href='#!').btn.btn-link.text-danger.fw-bold checkout pro &xrarr;
+
+
+      .col-lg-6.col-xl-3.mt-3.mt-xl-0.ps-lg-2(data-zanim-xs!={delay: 0.4, animation: "zoom-in"})
+        .position-relative.min-vh-50.h-100.py-6
+          +Background({
+            image: `${CWD}assets/img/workout-3.jpg`,
+            youtube: {
+              videoId: "wcWmiJw0UIc",
+              startSeconds: 00,
+              endSeconds: 60,
+            },
+            className: 'rounded',
+          })
+
+
+mixin LandingFeatures1
+  +Section.overflow-hidden.bg-light#landing-features-1
+    .row.align-items-center
+      .col-md-7
+        .row.bg-body.rounded.py-7.py-xl-9.px-5.px-md-0.font-secondary
+          .col-md-9.col-lg-6.offset-md-1.offset-lg-2(data-zanim-timeline!={} data-zanim-trigger="scroll")
+            .overflow-hidden
+              h4(data-zanim-xs!={delay: 0.1}).mb-sm-1.mb-md-2 start, tap, go
+            .overflow-hidden
+              p(data-zanim-xs!={delay: 0.2}).mb-4.mb-lg-6 get the app, sign in and start your workout through planning and achieving without any more thing to do.
+            .overflow-hidden
+              h4(data-zanim-xs!={delay: 0.4}).mb-sm-1.mb-md-2 connect and share
+            .overflow-hidden
+              p(data-zanim-xs!={delay: 0.5}).mb-4.mb-lg-6 connect with thousands of more active people in sparrow community, share your progress, stay motivated, get inspired.
+            .overflow-hidden
+              h4(data-zanim-xs!={delay: 0.7}).mb-sm-1.mb-md-2 fitness advice
+            .overflow-hidden
+              p(data-zanim-xs!={delay: 0.8}).mb-0 know the best plan for your fitness from the physical experts in sparrow tips section anytime you want and build the best of you.
+      .position-md-absolute.end-0.top-0.w-md-50(data-parallax data-rellax-speed=5 data-rellax-percentage=0.5)
+        img.shadow-lg.rounded.img-fluid(src=`${CWD}assets/img/workout-4.jpg` alt="")
+
+mixin LandingDownload
+  +Section.py-8#LandingDownload
+    .row.flex-center
+      .col-md-7.text-center.text-md-start
+        h2.fw-light Start your
+          span.fw-black  30 days free
+          |  trial today!
+        h4.fw-normal.text-body-tertiary only internet access needed, no credit card, no risk
+      .col-md-5.text-center.mt-4.mt-md-0
+        a(href='#!').btn.btn-outline-dark.mx-2.mt-2.mt-xl-0
+          span.fab.fa-apple.me-3(data-fa-transform="grow-8")
+          | app store
+        a(href='#!').btn.btn-outline-dark.mx-2.mt-2.mt-xl-0
+          span.fab.fa-google-play.me-3(data-fa-transform="grow-8")
+          | play store
+
+mixin LandingPremium
+  +Section({
+    image: `${CWD}assets/img/workout-7.jpg`,
+    className: "overlay overlay-0"
+  }).py-8#LandingPremium
+    .row.flex-center
+      .col-lg-6
+        h1.fw-black.text-white.mb-0 sparrow
+          span.fw-light  premium
+      .col-lg-6.mt-4.mt-lg-0
+        .row.text-nowrap
+          .col-sm-auto
+            ul.ps-0.bullet-inside.font-secondary.mb-0.text-white.text-opacity-85
+              li Best features
+              li Expert tips
+              li Health stats
+              li Sparrow segments
+          .col
+            ul.ps-0.bullet-inside.font-secondary.mb-0.text-white.text-opacity-85
+              li Full scale analysis
+              li Access to private coaches
+              li Filterd leaderboards
+              li Live support
+
+    .row
+      .col-12.overflow-hidden.text-center.border-top.border-bottom.border-secondary.border-opacity-50.py-4.mt-5
+        a(href='#!').font-secondary.text-uppercase.text-warning.fw-black.fs-8
+          div(data-zanim-xs!={
+            delay: 0.1,
+            from: {opacity: 0, "letter-spacing": "0.8em"},
+            to: {"letter-spacing": "0.2em", opacity: 1}
+          } data-zanim-trigger="scroll") Go Premium

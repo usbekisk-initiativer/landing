@@ -1,0 +1,17 @@
+extends ../layouts/LayoutTheme
+include ../mixins/homes/Bigcartel
+
+prepend styles
+  link(href=`${CWD}vendors/plyr/plyr.css`, rel='stylesheet')
+
+prepend scripts
+  script(src=`${CWD}vendors/plyr/plyr.polyfilled.min.js`)
+  script(src=`${CWD}vendors/bigpicture/BigPicture.js`) 
+
+
+append mainContent 
+  +BigcartelHeader
+
+  +BigcartelAbout
+
+  +BigcartelPartners

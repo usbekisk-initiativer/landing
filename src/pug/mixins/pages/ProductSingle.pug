@@ -1,0 +1,118 @@
+mixin SingleProductDemo
+  +Section.py-6#page-single-product
+    .row
+      .col-lg-8.pe-lg-6
+        .row
+          .col-12
+            nav(aria-label="breadcrumb")
+              //-nav(style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb")
+              ol.breadcrumb.font-secondary.py-2.my-1
+                li.breadcrumb-item
+                  a(href=`${CWD}index.html`) Home
+                li.breadcrumb-item
+                  a(href=`${CWD}pages/shop.html`) Shop
+                li.breadcrumb-item.active(aria-current='page') Shirts
+
+
+            h1.fs-6.mb-2 sparrow shirt - the beginning
+            .stars.d-inline-block
+              span.fas.fa-star
+              span.fas.fa-star
+              span.fas.fa-star
+              span.fa-layers.fa-fw
+                i.fas.fa-star-half
+                i.far.fa-star-half(data-fa-transform='flip-h')
+              span.far.fa-star
+            a(href='#!').d-inline-block.ms-2.text-body-secondary.font-secondary 125 customer review
+          .col-12.mt-4
+            img(src=`${CWD}assets/img/single-shop-1.jpg` alt='').rounded.img-fluid
+          .col-6.mt-4
+            img(src=`${CWD}assets/img/single-shop-2.jpg` alt='').rounded.img-fluid
+          .col-6.mt-4
+            img(src=`${CWD}assets/img/single-shop-3.jpg` alt='').rounded.img-fluid
+      .col-lg-4
+        .sticky-top.py-6.py-lg-8
+          .badge.border.text-danger.border-danger.font-secondary
+            span.fas.fa-star.me-1
+            | Best Seller
+          h2.fw-normal $11.00&nbsp;
+            del.text-body-tertiary.fw-light.fs-7 $22.00
+          h6.mt-4 Product details
+          p.text-body-secondary Blue solid chambray shirt, has a spread collar, three-quarter sleeves, button closure, 1 pocket, curved hem.
+          h6.mt-4 Material &amp; Care
+          p Lyocell
+            br
+            | Machine-wash
+          h6.mt-4 Select size
+          .d-flex.align-items-center.mb-4.me-3
+            .d-sm-flex.align-items-center.me-3
+              label.me-2.mb-0 Sizes
+              select.form-select.font-secondary
+                option xs
+                option s
+                option m
+                option l
+                option xl
+
+            .d-sm-flex.align-items-center.ms-3
+              label.me-2.mb-0 Quantity
+              select.form-select.font-secondary
+                option 1
+                option 2
+                option 3
+                option 4
+          
+          .d-grid
+            a(href=`${CWD}pages/cart.html`).btn.btn-dark add to cart
+
+          a(href='#!').fs-10.text-body-highlight.d-block.mt-4 size guide
+          a(href='#!').fs-10.text-body-highlight.d-block delivery &amp; returns
+
+
+mixin TopProducts
+  +Section.bg-light
+    .row
+      .col-12.text-center
+        h2.fs-7.fs-lg-6 sparrow top products
+      .col-sm-6.col-md-4.col-lg-3.mt-6
+        +EcommerceHover({
+          img1: '1',
+          img2: '2',
+          name: 'Tops &amp; Tees',
+          pricePrev: false,
+          priceNow: '354.00',
+          badgeTitle: false,
+          timeline: 0.0
+        })
+      .col-sm-6.col-md-4.col-lg-3.mt-6
+        +EcommerceStatic({
+          img: '15',
+          name: `Women's Rib Knit Jersey Long-Sleeve`,
+          priceNow: '546.00',
+          badgeClass: 'bg-success',
+          timeline:  0.1,
+          badgeTitle: 'Now trending'
+        })
+        
+      .col-sm-6.col-md-4.col-lg-3.mt-6
+        +EcommerceHover( {
+          img1: '3',
+          img2: '4',
+          name: 'Wear to Work',
+          pricePrev: '454.00',
+          priceNow: '234.00',
+          badgeTitle: 'Best selling',
+          badgeClass: 'bg-warning',
+          timeline: 0.2
+        })
+      .col-sm-6.col-md-4.col-lg-3.mt-6
+        +EcommerceHover({
+          img1: '5',
+          img2: '6',
+          name: 'Sunny Vacation',
+          pricePrev: '765.00',
+          priceNow: '566.00',
+          badgeTitle: false,
+          timeline: 0.3
+          
+        })

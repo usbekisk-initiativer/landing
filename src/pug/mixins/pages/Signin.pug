@@ -1,0 +1,31 @@
+mixin Signin
+  .col-sm-8.col-md-6.col-lg-10.col-xl-8(data-zanim-xs!={
+    delay: 0.5,
+    animation: 'slide-right'
+  } data-zanim-trigger='scroll')
+    h3.display-4.fs-7
+      | Perfect for Startups,
+      br
+      | freelancers &amp; companies.
+    h6.text-danger.mt-3 Specially crafted for the people who care about design.
+
+    form.mt-5
+      .mb-3
+        input.form-control.bg-light(type='email', placeholder='Email')
+      .mb-0
+        input.form-control.bg-light(type='password', placeholder='Password')
+      .mb-3.d-grid
+        button.btn.btn-dark.mt-3(type='submit', name='submit') sign in
+      .mb-3.w-100.position-relative.text-center.mt-4
+        hr.text-body-secondary.text-opacity-25
+        .absolute-centered.px-3.font-secondary.fs-10.text-body-tertiary or sign-in with
+      .mb-0
+        .row.gx-2
+          .col-6.d-grid
+            a.btn.btn-outline-danger.btn-sm.mt-2(href='#!')
+              span.fab.fa-google-plus-g.me-2(data-fa-transform='grow-8')
+              |  google
+          .col-6.d-grid
+            a.btn.btn-outline-primary.btn-sm.mt-2(href='#!')
+              span.fab.fa-facebook.me-2(data-fa-transform='grow-8')
+              |  facebook

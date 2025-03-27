@@ -1,0 +1,327 @@
+mixin StudioHeader
+  .p-0.min-vh-100#StudioHeader(data-zanim-lg!={
+    delay: 0.6,
+    animation: "zoom-out"
+  } data-zanim-trigger='scroll')
+    
+    .swiper.theme-slider.swiper-theme.swiper-theme(data-swiper!={
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+          },
+        loop: true,
+        effect: 'fade',
+        breakpoints: {
+          768: {
+            autoplay: false,
+          }, 
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          type: 'bullets',
+        },
+    })
+        .swiper-wrapper
+          .swiper-slide
+            +StudioSlider1
+          .swiper-slide
+            +StudioSlider2
+          .swiper-slide
+            +StudioSlider3
+        .swiper-pagination.d-md-none
+        .swiper-nav
+          .swiper-button-next.me-md-3
+          
+
+mixin StudioSlider1
+  +Section({
+    image: `${CWD}assets/img/headers/studio-music.jpg`,
+    youtube: {
+      videoId: "wwLvEgEkERI",
+      startSeconds: 11,
+      endSeconds: 53,
+    },
+    className: "overlay"
+  }).py-0(data-zanim-timeline!={} data-zanim-trigger='scroll')
+    .row.min-vh-100.align-items-center.py-8
+      .col-lg-8
+        .overflow-hidden
+          h1.fs-5.fs-md-4.display-4.text-white(data-zanim-xs!={delay: 0.8}) setting your music apart, since 1956
+        .overflow-hidden
+          p.text-white.fst-italic.mt-5(data-zanim-xs!={delay: 0.9}) San Diego's Leading Music, Production &amp; Multimedia Recording Studio
+
+mixin StudioSlider2  
+  +Section({image: `${CWD}assets/img/headers/studio-recording.jpg`}).py-0(data-zanim-timeline!={} data-zanim-trigger='scroll')
+    .row.min-vh-100.align-items-center.py-8
+      .col-lg-8
+        .overflow-hidden
+          h1.fs-5.fs-md-4.display-4.text-white(data-zanim-xs!={delay: 0.0}) recording studios
+        .overflow-hidden
+          .row(data-zanim-xs!={delay: 0.1})
+            .col-lg-8
+              p.text-white.text-opacity-85.font-secondary.mt-4 Traditional analog with a digital heart, Studio A and Studio B represent the finest recording rooms in San Diego.
+        div(data-zanim-xs!={delay: 0.2})
+          a(href='#!').btn.btn-outline-light.border-white.btn-sm.mt-5 Learn more
+
+mixin StudioSlider3
+  +Section({
+    image: `${CWD}assets/img/headers/studio-services.jpg`,
+    className: "overlay overlay-0"
+  }).py-0(data-zanim-timeline!={} data-zanim-trigger='scroll')
+    .row.min-vh-100.align-items-center.py-8
+      .col-lg-8
+        .overflow-hidden
+          h1.fs-5.fs-md-4.display-4.text-white(data-zanim-xs!={delay: 0.0}) studio services
+        .overflow-hidden
+          .row(data-zanim-xs!={delay: 0.1})
+            .col-lg-8
+              p.text-white.text-opacity-85.font-secondary.mt-4 Voice-Over, Post-Production, Video Production
+                br
+                | and full fledged Live Streaming services.
+        div(data-zanim-xs!={delay: 0.2})
+          a(href='#!').btn.btn-outline-light.border-white.btn-sm.mt-5.outline-none  Learn more
+
+mixin StudioFeatures
+  +Section#StudioFeatures
+    .row
+      mixin BlogItem(img, title, des, btn)
+        img(src=`${CWD}assets/img/studio-${img}.jpg` alt='' data-zanim-xs!={
+          delay: 0.1,
+          animation: 'zoom-in'
+        } data-zanim-trigger='scroll').rounded.img-fluid
+        .overflow-hidden(data-zanim-timeline!={} data-zanim-trigger='scroll')
+          h4.mt-4.mb-2(data-zanim-xs!={delay: 0.2, animation: 'slide-right'})!=title
+          p(data-zanim-xs!={delay: 0.3, animation: 'slide-right'})!=des
+          div(data-zanim-xs!={delay: 0.4, animation: 'slide-right'})
+            a(href='#!').btn.btn-link.ps-0.text-black.fw-bold.outline-none=btn
+
+      .col-md-6.col-lg
+        +BlogItem("01", "studio services", "For six decades, Sparrow studios have been creating a connection between an artist’s music &amp; their fans through spectacular sonic integrity.", "See the Studios")
+      .col-md-6.col-lg.mt-6.mt-md-0
+        +BlogItem("02", "the experience", "Record release parties. Exclusive brand events. Unforgettable unplugged performances. We’ve done it all—and we’d love to do it again.", "Build an Experience")
+      .col-md-6.col-lg.mt-6.mt-lg-0
+        +BlogItem("03", "notable events", "Located within the world-famous Sparrow records tower, Sparrow studios offers a premier venue for legendary events no one will forget.", "Learn more")
+        
+
+mixin StudioBanner
+  +Section({
+    image: `${CWD}assets/img/studio-06.jpg`,
+    className: "overlay overlay-2 ",
+    attrs: {'data-parallax':'', 'data-rellax-percentage': '0.5', 'data-rellax-speed':'-3'}
+  }).py-8.py-lg-11.text-center.overflow-hidden#StudioBanner
+    .row
+      .col.overflow-hidden
+        h1.fs-5.fs-md-4.text-white.display-4(data-zanim-xs!={delay: 0.1} data-zanim-trigger='scroll') high-end quality production
+
+mixin StudioFeatures1
+  +Section#StudioFeatures1
+    .row.justify-content-center.text-center
+      .col-lg-9.col-xl-8
+        h2.text-decoration-underline.mb-3.fs-6.fs-sm-5 make your mark
+        p.lead.text-body-tertiary.fst-italic When we say that hosting your event at sparrow studios is an unforgettable moment for your company, brand or product, we mean it.
+    .row.pt-6
+      .col-md-6.col-lg.pe-md-6
+        img(src=`${CWD}assets/img/icons/icon-teamwork.svg` alt='' height="70")
+        h3.mt-4.mb-2 partnership
+        p.text-justify We will collaborate with you in producing media-facing content, copy, interviews, trade show appearances and advertising. We facilitate exclusive access to our studios and unique experiences throughout the year to showcase your product to your current and potential clients in premier spaces.
+
+        h4.mt-4 opportunities
+        ul.bullet-inside.ps-0.font-secondary
+          li Strategy Pairing
+          li Academy Awards
+          li Contesting
+          li Licensing
+          li High-def Audio
+      .col-md-6.col-lg.mt-6.mt-md-0.pe-md-6
+        img(src=`${CWD}assets/img/icons/icon-startup.svg` alt='' height="70")
+        h3.mt-4.mb-2 content opportunities
+        p.text-justify A unique opportunity to pair your brand with ours. Branded content opportunities with Sparrow studios offer your fans legendary experiences thorough candid performances, one-of-a-kind content &amp; town hall events. Sparrow studios is a fully equipped video facility; we offer video capabilities, live streaming &amp; webcasting for all our events.
+
+        h4.mt-4 opportunities
+        ul.bullet-inside.ps-0.font-secondary
+          li Sponsored Content
+          li Interviews
+          li Artist Performances
+          li Showcases
+          li 1 Mic 1 Take
+          li Top of the Tower
+          li Town Halls
+
+      .col-md-6.col-lg.mt-6.mt-lg-0.pe-md-6
+        img(src=`${CWD}assets/img/icons/icon-target.svg` alt='' height="70")
+        h3.mt-4.mb-2 experiential
+        p.text-justify Events at Sparrow studios offer a truly unique, exclusive space with legendary appeal. Providing premiere event spaces and amenities for hosting formal parties, VIP red carpet events or artist showcases within the setting of the mid-century architecture of Sparrow studios. To hold an event here is to become a part of our legacy.
+
+        h4.mt-4 opportunities
+        ul.bullet-inside.ps-0.font-secondary
+          li Product Launches
+          li Press Events
+          li Seminars &amp; Demos
+          li Event Viewing Parties
+          li Record Release Events
+          li High-def Audio
+
+
+mixin StudioFunfact
+  +Section({
+    image: `${CWD}assets/img/studio-05.jpg`,
+    className: "overlay overlay-1 parallax",
+    attrs: {'data-parallax':'', 'data-rellax-percentage': '0.5', 'data-rellax-speed':'-3'}
+  }).py-8.py-lg-11.text-center.overflow-hidden#Studio-Funfact
+    .row
+      mixin FunFact(number, des)
+        .text-white
+          span.font-secondary.fw-bold.display-4(data-countup!={endValue:number})=number
+          p.fst-italic!=des
+      .col-lg-3.col-sm-6
+        +FunFact("3108", "Recordings done &amp; Counting")
+      .col-lg-3.col-sm-6.mt-3.mt-sm-0
+        +FunFact("516", "Events Covered")
+      .col-lg-3.col-sm-6.mt-3.mt-lg-0
+        +FunFact("28", "Partnerships")
+      .col-lg-3.col-sm-6.mt-3.mt-lg-0
+        +FunFact("427", "Canvas Printed")
+
+mixin StudioPartners
+  +Section#StudioPartners
+    .row
+      .col-12
+        h1.mb-7.text-decoration-underline our partners
+      .col-lg-6.pe-lg-6
+        .d-flex.align-items-center.mb-4
+          img.me-3(src=`${CWD}assets/img/logo/23.png` alt='' height=70)
+          .flex-1
+            h4 walt disney
+        p Walter Elias Disney was an American entrepreneur, animator, voice actor and film producer. A pioneer of the American animation industry, he introduced several developments in the production of cartoons.
+        a(href='#!').btn.btn-link.ps-0.text-black.fw-bold Learn more
+
+      .col-lg-6.pt-6.pt-lg-0.pe-lg-6
+        .d-flex.align-items-center.mb-4
+          img.me-3(src=`${CWD}assets/img/logo/22.png` alt='' height=70)
+          .flex-1
+            h4 campo retro
+        p The term retro has been in use since the 1960s to describe on the one hand new artifacts that self-consciously refer to particular modes, motifs, techniques, and materials of the past.
+        a(href='#!').btn.btn-link.ps-0.text-black.fw-bold Oficial site
+
+    .row.mt-8
+      .col-12
+        h3.mb-6 our events partners
+    .row.align-items-center
+      .col-lg-4.col-sm-6
+        .d-flex.align-items-center
+          img.me-3(src=`${CWD}assets/img/logo/02.png` alt='' width=80)
+          .flex-1
+            h4.mb-0 vintage collection
+            a(href='#!').text-body vintage.com
+      .col-lg-4.col-sm-6.mt-4.mt-sm-0
+        .d-flex.align-items-center
+          img.me-3(src=`${CWD}assets/img/logo/13.png` alt='' width=80)
+          .flex-1
+            h4.mb-0 best product
+            a(href='#!').text-body best.com
+      .col-lg-4.col-sm-6.mt-4.mt-lg-0
+        .d-flex.align-items-center
+          img.me-3(src=`${CWD}assets/img/logo/05.png` alt='' width=80)
+          .flex-1
+            h4.mb-0 ultimate originality
+            a(href='#!').text-body ultimate.com
+      .col-lg-4.col-sm-6.mt-4
+        .d-flex.align-items-center
+          img.me-3(src=`${CWD}assets/img/logo/11.png` alt='' width=80)
+          .flex-1
+            h4.mb-0 authentic
+            a(href='#!').text-body authentic.com
+      .col-lg-4.col-sm-6.mt-4
+        .d-flex.align-items-center
+          img.me-3(src=`${CWD}assets/img/logo/26.png` alt='' width=80)
+          .flex-1
+            h4.mb-0 the brag
+            a(href='#!').text-body barg.com
+      .col-lg-4.col-sm-6.mt-4
+        .d-flex.align-items-center
+          img.me-3(src=`${CWD}assets/img/logo/16.jpg` alt='' width=80)
+          .flex-1
+            h4.mb-0 spirit animal
+            a(href='#!').text-body spiritanimal.com
+
+mixin StudioContact
+  +Section('').py-0.bg-light#StudioContact
+    .position-lg-absolute.w-lg-50.end-0.h-100
+      .googlemap.z-index-1(data-gmap data-latlng='48.8583701,2.2922873,17' data-scrollwheel='false' data-icon=`${CWD}assets/img/map-marker.png`  data-zoom='17' data-theme='Default' class="min-vh-50 h-100")
+        .marker-content.py-3
+          h5 Sparrow recordings
+          p
+            | 1750 North Vine Street
+            br
+            |  Hollywood, CA 90028, USA
+    .container
+      .row
+        .col-lg-6.py-8.pe-lg-7
+          h2.mb-6.text-decoration-underline.fs-6.fs-lg-5 let's get started
+          .accordion#accordionStudio
+            .accordion-item
+              h2.accordion-header(id=`heading1`)
+                button.accordion-button.fw-black(type='button' class=(index > 0 && 'collapsed') data-bs-toggle='collapse' data-bs-target=`#collapse1` aria-expanded='true' aria-controls=`collapse1`) Address
+              .accordion-collapse.collapse.show( id=`collapse1` aria-labelledby=`heading1`)
+                .accordion-body
+                  p
+                    | 1750 North Vine Street
+                    br
+                    | Hollywood, CA 90028, USA
+                  p.fw-bold.mb-0 Phone:
+                    span.fw-normal.ms-2
+                      a(href="tel:+13234324534").text-body +13234324534
+                  p.fw-bold.mb-4 E-mail:
+                    span.fw-normal.ms-2.fst-italic
+                      a(href="mailto:info@sparrow.com").text-body info@sparrow.com
+            .accordion-item
+              h2.accordion-header(id=`heading2`)
+                button.accordion-button.fw-black(type='button' class=(index > 0 && 'collapsed') data-bs-toggle='collapse' data-bs-target=`#collapse2` aria-expanded='true' aria-controls=`collapse2`) Booking and inquiries
+
+              .accordion-collapse.collapse( id=`collapse2` aria-labelledby=`heading2`)
+                .accordion-body
+                  p
+                    strong Paula Salvatore
+                    br
+                    | Studio Manager
+                  p.fw-bold.mb-0 Phone:
+                    span.fw-normal.ms-2
+                      a(href="tel:+8364823364").text-body +8364823364
+                  p.fw-bold.mb-4 E-mail:
+                    span.fw-normal.ms-2.fst-italic
+                    a(href="mailto:vp@sparrow.com").text-body vp@sparrow.com
+
+            .accordion-item
+              h2.accordion-header(id=`heading3`)
+                button.accordion-button.fw-black(type='button' class=(index > 0 && 'collapsed') data-bs-toggle='collapse' data-bs-target=`#collapse3` aria-expanded='true' aria-controls=`collapse3`) Technical inquiries
+                
+              .accordion-collapse.collapse( id=`collapse3` aria-labelledby=`heading3`)
+                .accordion-body
+                  p
+                    strong Arthur Kelm
+                    br
+                    | Technical Director
+                  p.fw-bold.mb-0 Phone:
+                    span.fw-normal.ms-2
+                      a(href="tel:+3864824245").text-body +3864824245
+                  p.fw-bold.mb-4 E-mail:
+                    span.fw-normal.ms-2.fst-italic
+                    a(href="mailto:tech@sparrow.com").text-body tech@sparrow.com
+
+
+mixin StudioFooter
+  +Section.bg-black.text-center.py-6#StudioFooter
+    .row.justify-content-center
+      .col-lg-8
+        - var date = new Date().getFullYear();
+        img(src=`${CWD}assets/img/logo/24.png` alt='' width=120)
+        p.text-body-tertiary.mt-3 Copyright &copy; #{date} - #{date} sparrow photography ltd. all rights reserved. reg no. 2011332041. Proudly powered, optimized, built and managed by   
+          a(href="https://themewagon.com").text-white.text-opacity-85 ThemeWagon
+          | , connect with us on 
+          a(href='#!').text-white.text-opacity-85 twitter
+          | . Use of this site constitutes acceptance of our website  
+          a(href='#!').text-white.text-opacity-85  terms of use
+          |  and 
+          a(href='#!').text-white.text-opacity-85 privacy policy 
+          | .

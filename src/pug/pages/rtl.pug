@@ -1,0 +1,32 @@
+extends ../layouts/LayoutTheme
+include ../mixins/homes/Default.pug
+
+
+prepend variables            
+  - var dir = 'rtl'
+  
+block styles
+  link(href=`${CWD}assets/css/theme-rtl${ENV === 'PROD'? '.min': ''}.css`, rel='stylesheet' id="style-rtl")
+  link(href=`${CWD}vendors/swiper/swiper-bundle.min.css`, rel='stylesheet')
+  
+
+prepend scripts
+  script(src=`${CWD}vendors/swiper/swiper-bundle.min.js`)
+  script(src=`${CWD}vendors/bigpicture/BigPicture.js`)
+  script(src=`${CWD}vendors/progressbar/progressbar.min.js`)
+
+append mainContent 
+  +DefaultHeader
+  +DefaultWhyUs
+  +DefaultVideo
+  +DefaultServices
+  +DefaultProcess
+  +DefaultCta1
+  +DefaultProgressbar
+
+  +DefaultCta2
+  +DefaultPricingPlan
+  +DefaultCta3
+  +DefaultMembers
+  +DefaultGallery
+  +DefaultCta4

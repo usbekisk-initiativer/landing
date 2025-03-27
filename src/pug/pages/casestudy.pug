@@ -1,0 +1,12 @@
+extends ../layouts/LayoutTheme
+include ../mixins/pages/Casestudy
+
+prepend scripts
+  script(src=`${CWD}vendors/swiper/swiper-bundle.min.js`)
+
+prepend styles
+  link(href=`${CWD}vendors/swiper/swiper-bundle.min.css`, rel='stylesheet')
+
+
+append mainContent 
+  +Casestudy

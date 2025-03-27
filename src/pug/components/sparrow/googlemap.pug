@@ -1,0 +1,60 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/sparrow/Googlemap
+
+prepend scripts
+  script(src!=`https://maps.googleapis.com/maps/api/js?key=${APIGmap}&callback=initMap` async)
+
+append variables
+  - var pageTitle = 'Google Map';
+  - var activePage = 'googlemap';
+
+block component 
+
+  +ComponentCard({
+    title: 'Example',
+    anchor: true,
+    prismTitle: 'Html',
+    prismTitleClass: 'mt-5'
+  }).mb-3
+    .googlemap.min-vh-50(data-gmap data-latlng='48.8583701,2.2922873,17' data-scrollwheel='false', data-icon=`${CWD}assets/img/map-marker.png`, data-zoom='17' data-theme='Default')
+      .marker-content
+        h5 Eiffel Tower
+        p.mb-0
+          | Gustave Eiffel's iconic, wrought-iron 1889 tower,
+          br
+          |  with steps and elevators to observation decks.
+
+  h5.mt-5 JavaScript
+  +ComponentCardLib
+    script(src!="https:maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async)
+  a(href='https://developers.google.com/maps/documentation/javascript/get-api-key' target='_blank').font-secondary Get your API key
+    span.d-inline-block.ms-1 &xrarr;
+
+  +MapColorSchemesDemo
+
+          
+
+  +ComponentCard({
+    title: 'Example',
+    titleClass: 'mt-5',
+    anchor: true,
+    description:"With <code> AssassianCreed </code> scheme",
+    descriptionClass:'mt-2 mb-0'
+  })
+    .googlemap.min-vh-50.mt-3( data-gmap data-latlng='48.8583701,2.2922873,17' data-scrollwheel='false' data-icon=`${CWD}assets/img/map-marker.png` data-zoom='17' data-theme='AssassianCreed')
+      .marker-content
+        h5 Eiffel Tower
+        p.mb-0
+          | Gustave Eiffel's iconic, wrought-iron 1889 tower,
+          br
+          |  with steps and elevators to observation decks.
+
+  +ComponentCard({
+    title: 'Example of street view',
+    anchor: true,
+    titleClass: 'mt-5'
+  }).mb-4
+    .googlemap.min-vh-50(data-gmap data-latlng='48.8588723,2.2932638' data-pov!={
+      heading: 120,
+      pitch: 0
+    } data-scrollwheel='false' data-icon=`${CWD}assets/img/map-marker.png`  data-zoom='1' data-theme='streetview')

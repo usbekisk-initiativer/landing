@@ -1,0 +1,23 @@
+extends layouts/LayoutTheme
+include ./mixins/homes/Showcase.pug
+
+prepend styles
+  link(href=`${CWD}vendors/swiper/swiper-bundle.min.css`, rel='stylesheet')
+
+prepend scripts
+  script(src=`${CWD}vendors/isotope-layout/isotope.pkgd.min.js`) 
+  script(src=`${CWD}vendors/isotope-packery/packery-mode.pkgd.min.js`) 
+  script(src=`${CWD}vendors/rellax/rellax.min.js`) 
+
+block beforeMainContent
+  +FancyNav
+
+append variables
+  -
+    var showcaseItems = {
+      homes: ['default', 'bigcartel', 'cafe', 'bicycle', 'digital', 'ecommerce', 'event', 'interior', 'landing', 'promotion', 'software', 'studio'],
+      pages: ['404', 'about', 'blog', 'cart', 'casestudy', 'coming-soon', 'contact', 'split-static', 'split-youtube', 'portfolio', 'profile', 'rtl', 'services', 'shop', 'signin', 'signup', 'blog-single', 'product-single'],
+    };
+
+append mainContent
+  +Showcase

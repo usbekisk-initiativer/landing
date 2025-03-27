@@ -1,0 +1,177 @@
+mixin ShopHeader
+  +Section({image: `${CWD}assets/img/shop-header.jpg`}).py-0#page-shop(data-zanim-xs!={
+    delay: 0.4,
+    animation: 'zoom-out'
+  } data-zanim-trigger='scroll')
+    .row
+      .col-9.pt-11.pb-5
+        .d-flex
+          span.fas.fa-gift.text-white.fs-3
+          .flex-1.ps-3
+            .overflow-hidden
+              h2.fs-5.text-white.display-4.font-base(data-zanim-xs!={delay: 0.6} data-zanim-trigger='scroll')
+                span.fst-italic spotlight products
+            .overflow-hidden
+              h6.mb-0.text-white.ls-2.text-uppercase(data-zanim-xs!={delay: 0.8} data-zanim-trigger='scroll') A wide selection of items for you to choose
+
+mixin ShopItems
+  +Section
+    .row
+      .col-lg-6
+        .py-9.h-100.position-relative.overflow-hidden 
+          +Background({
+            image: `${CWD}assets/img/necklace-01.jpg`,
+            youtube: {
+              videoId : '3pq5qQamsEo',
+              startSeconds : 40,
+              endSeconds : 270  
+            },
+            className: 'rounded '
+          })
+          
+      .col-lg-6.ps-lg-4.ps-xl-6.mt-4.mt-lg-0
+        h6.mb-1.text-body-tertiary
+          del US $398.00 / piece
+        .font-secondary.fs-8.mb-2
+          span.text-warning.fw-black US $378.10
+          span.fs-9 / piece
+            span.badge.bg-danger.ms-2 -5%
+        a(href=`${CWD}pages/product-single.html`).text-black
+          h3.mb-0 Queen Brilliance Real 18K
+        p.lead.font-secondary Yellow Gold AMAZING 1 Carat ct F Color Lab Grown Moissanite Diamond Pendant &amp; Necklace
+        ul.list-unstyled.mt-4
+          li
+            h6.fs-9.text-body-highlight.mb-1
+              span.fw-bold Brand Name:
+              span.fw-normal.ps-1 Queen Brilliance
+          li
+            h6.fs-9.text-body-highlight.mb-1
+              span.fw-bold Fine or Fashion:
+              span.fw-normal.ps-1 Fine
+          li
+            h6.fs-9.text-body-highlight.mb-1
+              span.fw-bold Material:
+              span.fw-normal.ps-1 Yellow Gold
+          li
+            h6.fs-9.text-body-highlight.mb-1
+              span.fw-bold Main Stone:
+              span.fw-normal.ps-1 Diamond
+          li
+            h6.fs-9.text-body-highlight.mb-1
+              span.fw-bold Item Type:
+              span.fw-normal.ps-1 Pendants
+          li
+            h6.fs-9.text-body-highlight.mb-1
+              span.fw-bold Metal Stamp:
+              span.fw-normal.ps-1 18k
+        a(href='cart.html').btn.btn-dark.btn-sm.px-7.mt-4 add to cart
+
+    .row
+      .col-lg-6.mt-8
+        img(src=`${CWD}assets/img/shop-1.jpg` alt='').h-lg-100.w-100.rounded.fit-cover
+      .col-lg-6.ps-lg-4.ps-xl-6.mt-4.mt-lg-8
+        .badge.border.border-warning.text-warning.mb-2.font-secondary
+          span.fas.fa-star.me-1
+          | Best Seller
+        h6.mb-1.text-body-tertiary
+          del US $17.28.00 / piece
+        .font-secondary.fs-8.mb-2
+          span.text-warning.fw-black US $8.81
+          span.fs-9 / piece
+            span.badge.badge-danger.ms-2 -49%
+        a(href=`${CWD}pages/product-single.html`).text-black
+          h3.mb-0 Rainbow White Mystic Crystal Zircon
+        p.lead.font-secondary Sterling Silver Woman Ring Size 6 7 8 9 10 F617 Fashion Wholesale Jewelry Free Shipping
+        ul.list-unstyled.mt-4
+          li
+            h6.fs-9.text-body-highlight.mb-1
+              span.fw-bold Material:
+              span.fw-normal.ps-1 Crystal
+          li
+            h6.fs-9.text-body-highlight.mb-1
+              span.fw-bold Main Stone:
+              span.fw-normal.ps-1 Without
+          li
+            h6.fs-9.text-body-highlight.mb-1
+              span.fw-bold Item Type:
+              span.fw-normal.ps-1 Rings
+          li
+            h6.fs-9.text-body-highlight.mb-1
+              span.fw-bold Bracelets or Bangles Type:
+              span.fw-normal.ps-1 Chain &amp; Link Bracelets
+          li
+            h6.fs-9.text-body-highlight.mb-1
+              span.fw-bold Surface Width:
+              span.fw-normal.ps-1 6mm
+
+          li
+            h6.fs-9.text-body-highlight.mb-1
+              span.fw-bold Occasion:
+              span.fw-normal.ps-1 Party, Wedding, Activity
+          li
+            h6.fs-9.text-body-highlight.mb-1
+              span.fw-bold Gender:
+              span.fw-normal.ps-1 Children's,Men's,Unisex,Women's
+        a(href=`${CWD}pages/cart.html`).btn.btn-dark.btn-sm.px-7.mt-4 add to cart
+
+    .row
+      .col-lg-6.mt-8
+        .swiper.theme-slider.swiper-theme.h-100(data-swiper!={
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+          },
+          loop: true,
+          effect: 'fade',
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            type: 'bullets',
+          },
+        } data-zanim-lg!={animation: "zoom-out", delay: 0}  data-zanim-trigger='scroll')
+          .swiper-wrapper
+            .swiper-slide.overflow-hidden.rounded
+              img.w-100.h-100.fit-cover(src=`${CWD}assets/img/watch-02.jpg` alt='')
+            .swiper-slide.overflow-hidden.rounded
+              img.w-100.h-100.fit-cover(src=`${CWD}assets/img/watch-01.jpg` alt='')
+            .swiper-slide.overflow-hidden.rounded 
+              img.w-100.h-100.fit-cover(src=`${CWD}assets/img/watch-03.jpg` alt='')
+          .swiper-pagination
+          .swiper-nav
+            .swiper-button-next.me-md-3
+            .swiper-button-prev.ms-md-3 
+
+      .col-lg-6.ps-lg-4.ps-xl-6.mt-4.mt-lg-8
+        .font-secondary.fs-8.mb-2
+          span.text-warning.fw-black US $21.59
+          span.fs-9 / piece
+
+        a(href=`${CWD}pages/product-single.html`).text-black
+          h3.mb-0 New Sparrow Mens Watches
+        p.lead.font-secondary High quality Colored Geneva Silicone Rubber Jelly Gel Quartz Analog Sports Wrist Watch
+        ul.list-unstyled.mt-4
+          li
+            h6.fs-9.text-body-highlight.mb-1
+              span.fw-bold Dial Diameter:
+              span.fw-normal.ps-1 45.5mm
+          li
+            h6.fs-9.text-body-highlight.mb-1
+              span.fw-bold Clasp Type:
+              span.fw-normal.ps-1 Buckle
+          li
+            h6.fs-9.text-body-highlight.mb-1
+              span.fw-bold Water Resistance Depth:
+              span.fw-normal.ps-1 3Bar
+          li
+            h6.fs-9.text-body-highlight.mb-1
+              span.fw-bold Boxes &amp; Cases Material:
+              span.fw-normal.ps-1 Paper
+          li
+            h6.fs-9.text-body-highlight.mb-1
+              span.fw-bold Band Width:
+              span.fw-normal.ps-1 24mm
+          li
+            h6.fs-9.text-body-highlight.mb-1
+              span.fw-bold Type:
+              span.fw-normal.ps-1 Children's,Men's,Unisex,Women's
+        a(href=`${CWD}pages/cart.html`).btn.btn-dark.btn-sm.px-7.mt-4 add to cart

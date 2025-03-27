@@ -1,0 +1,421 @@
+/*-----------------------------------------------
+|   Fancynav
+-----------------------------------------------*/
+@use 'sass:math';
+$fancynavHalfWidth : math.div($fancynav-width, 2);
+
+
+// Fancynavbar addon style for fancynavbar-top and responsive
+@mixin fancynav-top-addon {
+  display: flex;
+  align-items: center;
+  order: 0;
+  position: absolute;
+  right: $fancynav-width;
+  top: 0.281rem;
+}
+
+// Fancynavbar addon item style for fancynavbar-top and responsive
+@mixin fancynav-top-addon-item {
+  margin-top: 0;
+  padding: map_get($spacers, 2);
+  font-size: map_get($font-sizes, 9);
+}
+
+// Fancynavbar togglebar style for fancynav-top and responsive
+@mixin fancynav-top-togglebar {
+  align-items: center;
+  height: $fancynav-height;
+}
+
+// Fancynavbar toggler style for fancynavbar-top and responsive
+@mixin fancynav-top-toggler {
+  transform: translateY(4%);
+  order: 1;
+}
+
+// Fancynavbar collapse style for fancynavbar-top and responsive
+@mixin fancynav-top-collapse {
+  top: $fancynav-height;
+  right: 0;
+  height: calc(100vh - #{$fancynav-height});
+}
+
+.fancynavbar {
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+  width: 100%;
+  font-family: $font-family-secondary;
+}
+
+/*-----------------------------------------------
+|   Fancy Navbar
+-----------------------------------------------*/
+.fancynavbar-togglerbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--#{$prefix}fancynav-togglerbar-bg);
+  
+  @include fancynav-top-togglebar;
+}
+
+
+/*-----------------------------------------------
+|   Fancy Navbar Brand
+-----------------------------------------------*/
+.fancynavbar-brand {
+  color: $white;
+  padding: map_get($spacers, 2) map_get($spacers, 3);
+}
+.fancynavbar-brand-img {
+  opacity: 1 !important;
+}
+
+/*-----------------------------------------------
+|   Fancy Navbar Toggler
+-----------------------------------------------*/
+.fancynavbar-toggler {
+  cursor: pointer;
+  width: $fancynav-width;
+  height: $fancynav-width;
+  opacity: 1 !important;
+  transform: translateY(4%);
+  // order: 1;
+}
+.fancynavbar-toggler-icon {
+  path {
+    fill: none;
+    stroke: var(--#{$prefix}fancynav-link-color);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2px;
+  }
+}
+
+/*-----------------------------------------------
+|   Fancy Navbar Addon
+-----------------------------------------------*/
+.fancynavbar-addon {
+  order: 1;
+  padding-left: 0;
+  @include fancynav-top-addon;
+}
+
+.fancynavbar-addon-height {
+  min-height: 2.438rem;
+}
+
+.fancynavbar-addon-item {
+  display: block;
+  color: var(--#{$prefix}fancynav-link-color);
+ 
+  transition: $transition-base; 
+  margin-top: 0; // new added
+  padding: map_get($spacers, 2);
+  font-size: map_get($font-sizes, 9); 
+  
+  @include hover-focus {
+    color: rgba(var(--#{$prefix}fancynav-link-color-rgb), 0.75);
+  }
+}
+
+/*-----------------------------------------------
+|   Fancy Navbar Collapse
+-----------------------------------------------*/
+.fancynavbar-collapse {
+  height: calc(100vh - #{$fancynav-height});
+  align-items: center;
+  display: flex;
+  overflow: auto;
+  position: absolute;
+  text-align: left;
+  width: 100vw;
+  right: 0;
+  transform: translateX(100%);
+  top: $fancynav-height;
+  
+  padding: 0;
+  z-index: -1;
+  backdrop-filter: blur(20px);
+  background-color: var(--#{$prefix}fancynav-collapse-bg);
+  opacity: 0.92;
+}
+
+.fancynavbar-left .fancynavbar-collapse {
+  left: calc(50% +  #{$fancynavHalfWidth});
+  right: auto;
+}
+
+/*-----------------------------------------------
+|   Fancy Navbar Nav
+-----------------------------------------------*/
+.fancynavbar-nav {
+  height: auto;
+  width: 100%;
+  list-style-type: none;
+  list-style-image: none;
+  padding-left: map_get($spacers, 3);
+  padding-right: map_get($spacers, 3);
+  margin: auto 0;
+}
+
+/*-----------------------------------------------
+|   Fancy Navbar Link
+-----------------------------------------------*/
+.fancynav-link {
+  position: relative;
+  display: block;
+
+  font-size: map_get($font-sizes, 7);
+  @include media-breakpoint-up(sm) {
+    font-size: map_get($font-sizes, 6);
+  }
+  @include media-breakpoint-up(xl) {
+    font-size: map_get($font-sizes, 6);
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-right: map_get($spacers, 5);
+    padding-left: map_get($spacers, 5);
+  }
+
+  &:before {
+    //@include media-breakpoint-up($fancynav-breakpoint-up) { content: ''; }
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 2px;
+    transition: all 0.5s;
+    background-color: rgba(var(--#{$prefix}fancynav-link-color-rgb), 0.5);
+    z-index: 0;
+  }
+
+  &.fancy-dropdown-toggle .fancynav-link-content {
+    padding-right: map_get($spacers, 5);
+
+    &:after {
+      position: absolute;
+      left: calc(100% -  #{$fancynavHalfWidth});
+      top: 0;
+      transform: translateY(-50%);
+      content: url("data:image/svg+xml;charset=utf-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12.33 7.03'%3e%3cdefs%3e%3cstyle%3e.cls-1%7bfill:#{rgba($fancynav-link-color, 0.85)};%7d%3c/style%3e%3c/defs%3e%3ctitle%3eAsset 9sparrow%3c/title%3e%3cg id='Layer_2' data-name='Layer 2'%3e%3cg id='Capa_1' data-name='Capa 1'%3e%3cpath class='cls-1' d='M6.17,7a.86.86,0,0,1-.61-.25L.25,1.47A.86.86,0,1,1,1.47.25L6.17,4.95,10.86.25a.86.86,0,0,1,1.22,1.22l-5.3,5.3A.86.86,0,0,1,6.17,7Z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e ");
+      text-align: center;
+      color: $white;
+      width: 15px;
+      height: 10px;
+      background-color: transparent;
+      z-index: 99;
+    }
+  }
+
+}
+
+
+/*-----------------------------------------------
+|   Fancy Navbar Link Content
+-----------------------------------------------*/
+.fancynav-link-content {
+  color: rgba(var(--#{$prefix}fancynav-link-color-rgb), 0.85) !important;
+  background-color: var(--#{$prefix}fancynav-collapse-bg);
+  display: inline-block;
+  padding-left: map_get($spacers, 3);
+  padding-right: map_get($spacers, 3);
+  position: relative;
+  z-index: 1;
+}
+
+/*-----------------------------------------------
+|   Fancy Navbar Item
+-----------------------------------------------*/
+.fancynav-item {
+  overflow: hidden;
+  transition: height 0.4s cubic-bezier(0.77, 0, 0.18, 1);
+  height: 41px;
+  @include media-breakpoint-up(sm) {
+    height: 54px;
+  }
+ 
+
+  @include hover-focus {
+    .fancynav-link-content {
+      text-decoration: none;
+      color: var(--#{$prefix}fancynav-link-color);
+    }
+    .fancynav-link:before {
+      width: 100%;
+    }
+  }
+  &.show{
+    .fancynav-link{
+      &:before {
+        width: 100%;
+      }
+      .fancynav-link-content:after {
+        content: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16.5 9.41'%3e%3cdefs%3e%3cstyle%3e.cls-1%7bfill:#{rgba($fancynav-link-color, 0.85)};%7d%3c/style%3e%3c/defs%3e%3ctitle%3eAsset 6sparrow%3c/title%3e%3cg id='Layer_2' data-name='Layer 2'%3e%3cg id='Capa_1' data-name='Capa 1'%3e%3cpath class='cls-1' d='M8.25,0a1.15,1.15,0,0,1,.82.34l7.09,7.09a1.16,1.16,0,0,1-1.63,1.63L8.25,2.79,2,9.07A1.16,1.16,0,1,1,.34,7.43L7.43.34A1.15,1.15,0,0,1,8.25,0Z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e ");
+      }
+    }
+  }
+}
+
+/*-----------------------------------------------
+|   Fancy Dropdown
+-----------------------------------------------*/
+.fancy-dropdown-menu {
+  transition: height 0.2s cubic-bezier(0.77, 0, 0.18, 1);
+  margin-left: map_get($spacers, 2);
+  margin-right: map_get($spacers, 2);
+  padding-right: map_get($spacers, 4);
+  padding-left: map_get($spacers, 4);
+
+}
+
+/*-----------------------------------------------
+|   Fancy Dropdown Item
+-----------------------------------------------*/
+.fancy-dropdown-title {
+  color: var(--#{$prefix}fancynav-link-color);
+  text-decoration: none !important;
+  text-transform: uppercase;
+}
+
+.fancy-dropdown-item {
+  color: rgba(var(--#{$prefix}fancynav-link-color-rgb), 0.6);
+  font-weight: 700;
+  display: block;
+  transition: $transition-base;
+
+  @include hover-focus {
+    color: var(--#{$prefix}fancynav-link-color);
+    text-decoration: none;
+  }
+}
+
+
+// ------------ Loop ------------- 
+
+@each $item, $value in $grid-breakpoints{
+  @include media-breakpoint-up($item) {
+
+    .fancynavbar.fancynavbar-expand-#{$item}{
+
+      @include media-breakpoint-up(#{$item}) {
+        &:not(.fancynavbar-top) {
+          right: 0;
+          height: 100vh;
+          width: $fancynav-width;
+        }
+        &.fancynavbar-left {
+          left: 0;
+          right: auto;
+        }
+      }
+      
+      .fancynavbar-togglerbar {   
+        @include media-breakpoint-up(#{$item}) {
+          height: 100%;
+          text-align: center;
+          flex-direction: column;
+          background-color: var(--#{$prefix}fancynav-togglerbar-bg);
+          padding-top: map_get($spacers, 2);
+          padding-bottom: map_get($spacers, 2);
+        }
+      }
+
+      .fancynavbar-addon {
+        display: block;
+        position: static;
+      }
+
+      .fancynavbar-addon-item {
+        margin-top: map_get($spacers, 2);
+        font-size: map_get($font-sizes, 8);
+        padding: 0;
+        &.fancynavbar-icon-cart {
+          margin-top: map_get($spacers, 3);
+        }
+      }
+
+      .fancynavbar-collapse {
+        padding-left: $fancynav-width;
+        padding-right: $fancynav-width;
+        width: calc(50vw -  #{$fancynavHalfWidth});
+        height: 100vh;
+        right: calc(50% +  #{$fancynavHalfWidth});
+        top: 0;
+        
+      }
+      .fancynavbar-left .fancynavbar-collapse {
+        left: calc(50% +  #{$fancynavHalfWidth});
+      }
+
+      .fancynavbar-nav {
+        padding-left: 0;
+        padding-right: 0;       
+      }
+
+      .fancy-dropdown-menu {
+        padding-right: map_get($spacers, 6);
+        padding-left: map_get($spacers, 6); 
+      }
+
+      
+      /*-----------------------------------------------
+      |   Adjusting the page Layout
+      -----------------------------------------------*/
+      .has-sidemenu:not(.has-fancynav-top) & {
+        +.main {
+          //padding-right: $fancynav-width ;
+          width: calc(100% - (4.375rem - 0.0625rem));
+          +.footer {
+            width: calc(100% -  #{$fancynav-width});
+          }
+        }
+        
+      }
+      .has-sidemenu-left & {
+        +.main{
+          margin-left: $fancynav-width;
+          +.footer {
+            margin-left: $fancynav-width;       
+          }
+        }   
+      }
+
+      /*-----------------------------------------------
+      |   Fancynav Top
+      -----------------------------------------------*/
+      &.fancynavbar-top {
+        .fancynavbar-collapse {
+          width: 50vw;
+          @include fancynav-top-collapse;
+          top: $fancynav-height;
+          right: 0;
+          height: calc(100vh - #{$fancynav-height});
+        
+        }
+        .fancynavbar-togglerbar {
+          @include fancynav-top-togglebar;
+          flex-direction: row;
+          padding: 0;
+        }
+        .fancynavbar-toggler {
+          @include fancynav-top-toggler;
+        }
+        .fancynavbar-addon {
+          @include fancynav-top-addon;
+        }
+        .fancynavbar-addon-item {
+          @include fancynav-top-addon-item;
+        }  
+      }
+      
+    }
+
+  } 
+  //- up end
+}

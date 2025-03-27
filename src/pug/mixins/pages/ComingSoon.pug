@@ -1,0 +1,39 @@
+mixin ComingSoon
+  +Section('container-fluid').py-0#page-coming-soon
+    .row
+      .col-lg-6.px-0.order-lg-2.min-vh-50.min-vh-lg-100
+        .position-relative.h-100(data-zanim-lg!={animation: 'slide-left', delay: 0.4}  data-zanim-trigger='scroll')
+          +Background({
+            image: `${CWD}assets/img/headers/header-coming-soon.png`,
+            video: {
+              mp4: `${CWD}assets/video/shoes`
+            },
+            attrs: {'data-zanim-trigger': 'scroll', }
+          })
+        
+      .col-lg-6.bg-body.py-6.py-lg-8
+        .row.h-100.flex-center.text-center
+          .col-md-10.col-xl-8(data-zanim-timeline!={delay: 0.4} data-zanim-trigger='scroll')
+            img(src=`${CWD}assets/img/logo/04.jpg` alt='' width=300 data-zanim-xs!={delay: 0.1, animation: 'zoom-in'})
+
+            .overflow-hidden
+              - const year = new Date().getFullYear();
+              h2.my-4(data-countdown!={
+                  date: '31',
+                  month: 'dec',
+                  year: year ,               
+                } data-countdown-fallback='Getting ready' data-zanim-xs!={delay: 0.2})
+             
+            .overflow-hidden
+              p.lead( data-zanim-xs!={delay: 0.3}) We're launching at your town — hit the form below
+                br.d-none.d-sm-block.d-lg-none
+                | and we'll let you know when we're live in your inbox.
+
+            div( data-zanim-xs!={delay: 0.4})
+            
+              .input-group.mb-2.mt-6
+                input.form-control.bg-light(type='text' placeholder="Email" aria-label="Recipient's username" aria-describedby='button-addon3')
+                button#button-addon3.btn.btn-dark.btn-outline-dark.text-light.px-2.px-sm-3.px-lg-4(type='button') notify me
+
+              small.font-secondary By signing up, you agree to the 
+                a(href='#!') Terms of Service

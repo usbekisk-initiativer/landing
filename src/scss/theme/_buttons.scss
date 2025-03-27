@@ -1,0 +1,26 @@
+/*-----------------------------------------------
+|   Button
+-----------------------------------------------*/
+.btn {
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: $font-size-sm;
+}
+
+.btn-link{font-weight: $font-weight-bold;}
+
+.btn.btn-outline-light.border-2 { border-color: rgba($white, 0.5); }
+
+.btn-outline-light:hover, .btn-light, .btn-light:hover { color: var(--#{$prefix}dark) }
+.btn-xs{ padding: .2rem .8rem; }
+
+.btn-success, .btn-info{
+  color: $white;
+}
+.btn-light{
+  color: $black;
+}
+
+.btn-sm, .btn-group-sm > .btn {
+  line-height: 1.5;
+}

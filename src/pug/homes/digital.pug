@@ -1,0 +1,32 @@
+extends ../layouts/LayoutTheme
+include ../mixins/common/Navigation
+include ../mixins/homes/Digital
+
+prepend styles
+  link(href=`${CWD}vendors/swiper/swiper-bundle.min.css`, rel='stylesheet')
+
+prepend scripts
+  script(src=`${CWD}vendors/swiper/swiper-bundle.min.js`)
+
+append variables
+  - var attrsHtml = Object.assign({ lang: `${ dir === 'rtl' ? 'ar' : 'en-US'}`, dir: dir || 'ltr', class: 'bootstrap-nav' });
+
+block beforeMainContent 
+  +Navigation
+
+append mainContent
+  +DigitalHeader
+
+  +DigitalFeatures
+
+  +DigitalAbout
+
+  +DigitalFeatures1
+
+  +DigitalWeDo
+
+  +DigitalPartners
+
+  +DigitalContact
+
+  +DigitalSocials

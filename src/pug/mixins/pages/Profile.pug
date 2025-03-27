@@ -1,0 +1,44 @@
+mixin Profile
+  +Section('container-fluid').py-0#page-profile
+    .row
+      .col-xl-7.px-0
+        .sticky-top.overflow-hidden.min-vh-50.min-vh-xl-100
+          +Background({
+            image: `${CWD}assets/img/team/0.jpg`,
+            attrs: {'data-zanim-trigger': 'scroll', 'data-zanim-lg': {animation: 'zoom-out-slide-right', delay: 0.4}}
+          })
+
+      .col-xl-5.bg-body.py-6
+        .row.h-100.flex-center
+          .col-lg-8
+            +ProfileContent
+
+mixin ProfileContent
+  .row.justify-content-center(data-zanim-timeline!={} data-zanim-trigger='scroll')
+    .col-md-10.col-lg-12
+      .overflow-hidden
+        h4(data-zanim-xs!={delay: 0.1}) Captain Jack
+      .overflow-hidden
+        h6.text-body.fw-normal.text-uppercase.ls.mb-4(data-zanim-xs!={delay: 0.2}) President, Sparrow Ltd.
+    .col-md-7.col-lg-12
+      .overflow-hidden
+        p.mb-0.pe-sm-5.pe-lg-0(data-zanim-xs!={delay: 0.3}) As President of sparrow, Jack leads sparrow’s strategy, product offerings and client services teams. A true visionary, Jack builds upon the agency’s strong foundation and core offerings to drive growth and champion the agency as an emerging digital performance powerhouse. He has extensive experience building strategic relationships with large complex brands and believes in maximizing the benefits of partner relationships to create new opportunities for sparrow’s clients in the marketplace.  For the last 14 years of his 23 year career in marketing and advertising, Jack has held key roles within the sparrow Network, including overseeing the Global Media Partnerships team and working hand-in-hand with Facebook, Apple, Microsoft and Google.  Jack launched zanimation, Sparrow Network media trading desk in the web market, which established customized responsive animation offerings for Fortune 500 clients.
+
+    .col-md-3.col-lg-12.mt-6.mt-md-0.mt-lg-6
+      .overflow-hidden
+        h6.text-uppercase.ls(data-zanim-xs!={delay: 0.4}) Contacts
+      .overflow-hidden
+        div(data-zanim-xs!={delay: 0.5})
+          a(href='#!').text-body jack@sparrow.com
+
+      .overflow-hidden
+        div(data-zanim-xs!={delay: 0.6})
+          h6.text-uppercase.ls.mt-4 Follow Me
+
+          .mt-3.fs-10
+            a(href='#!').btn.btn-outline-light.btn-xs.border.me-2
+              span.fab.fa-twitter.text-body-secondary
+            a(href='#!').btn.btn-outline-light.btn-xs.border.me-2
+              span.fab.fa-google-plus-g.text-body-secondary
+            a(href='#!').btn.btn-outline-light.btn-xs.border
+              span.fab.fa-linkedin-in.text-body-secondary

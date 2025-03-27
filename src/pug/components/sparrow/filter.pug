@@ -1,0 +1,24 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/sparrow/Masonry
+
+append variables
+  - var pageTitle = 'Filter';
+  - var activePage = 'filter';
+
+prepend scripts
+  script(src=`${CWD}vendors/isotope-layout/isotope.pkgd.min.js`) 
+  script(src=`${CWD}vendors/isotope-packery/packery-mode.pkgd.min.js`) 
+
+block component 
+  +SparrowComponentLink({
+    name: 'Isotope Filter',
+    link: 'https://isotope.metafizzy.co/filtering.html'
+  })
+  +Masonry(true)
+  +ComponentCardLib({
+    title: 'javascript',
+    titleClass: 'mt-5'
+  })
+    script(src=`vendors/isotope-layout/isotope.pkgd.min.js`) 
+    script(src=`vendors/isotope-packery/packery-mode.pkgd.min.js`) 
+

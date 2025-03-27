@@ -1,0 +1,16 @@
+extends ../layouts/LayoutTheme
+include ../mixins/homes/Interior.pug
+
+prepend styles
+  link(href=`${CWD}vendors/swiper/swiper-bundle.min.css`, rel='stylesheet')
+
+prepend scripts
+  script(src=`${CWD}vendors/swiper/swiper-bundle.min.js`)
+  script(src=`${CWD}vendors/bigpicture/BigPicture.js`) 
+  script(src=`${CWD}vendors/isotope-layout/isotope.pkgd.min.js`) 
+  script(src=`${CWD}vendors/isotope-packery/packery-mode.pkgd.min.js`) 
+
+append mainContent
+  +interiorHeader
+  +InteriorProjects
+  +InteriorSubscribe

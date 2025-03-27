@@ -1,0 +1,101 @@
+//---------------------------------------
+  |  Cookie Notice
+//---------------------------------------
+mixin CookieNoticeStructure
+    
+  h4 Structure
+  p Sparrow's Cookie Notice uses Bootstrap's "Toast" feature to show the notice content. 
+    code .notice 
+    | and 
+    code .notice-right 
+    | classes are responsible for positioning and showing the notice as a popup. See 
+    a(href=`https://getbootstrap.com/docs/${bootstrapVersion}/components/toasts/#placement` target="_blank") Toasts documentation on Bootstrap.
+
+  +ComponentCardLib
+    .toast.bg-dark.text-white.shadow-none.notice(role='alert', data-options!={ autoShow: true, autoShowDelay: 5000, useCookie: true, cookieExpireTime: 7200000 } data-autohide="false", aria-live='assertive', aria-atomic='true' style="max-width: 530px;")
+      .toast-body.p-4
+        // Your notice content 
+
+mixin CookieNoticeOptions
+  
+  h5.mt-5 Options
+  p You can pass options via 
+    code data-options 
+    | through 
+    code .notice 
+    | element to control it's behavior.
+
+  .table-responsive
+    table.table.table-bordered.border
+      thead.font-secondary.fs-10
+        tr
+          th.bg-body-secondary data-options
+          th.bg-body-secondary object
+      tbody
+        tr  
+          td Example
+          td 
+            pre.language-css.
+              data-options={
+                "autoShow": true, 
+                "autoShowDelay": 5000, 
+                "showOnce": true,
+                "cookieExpireTime": 7200000
+              }
+  .table-responsive
+    table.table.table-bordered.border.mb-0
+      thead.font-secondary.fs-10
+        tr
+          th.bg-body-secondary Option
+          th.bg-body-secondary Type
+          th.bg-body-secondary Defaults
+          th.bg-body-secondary Description
+      tbody
+        tr  
+          td autoShow
+          td 
+            code Boolean
+          td 
+            code false
+          td Set 
+            code true 
+            | to make the Notice show automatically after the page is loaded.
+        tr
+          td autoShowDelay
+          td
+            code Number 
+          td  
+            code 0
+          td How much time 
+            i (ms)  
+            | should wait after the page is loaded before showing the Notice. Works only when the autoShow is set true
+        tr
+          td showOnce
+          td
+            code Boolean
+          td
+            code false
+          td The Notice will show only once - for the first time when a user view the website and remain hidden according to the 
+            code cookieExpireTime 
+            | number.
+        tr
+          td cookieExpireTime
+          td 
+            code Number 
+          td 
+            code 7200000
+          td After how many time 
+            i (ms)  
+            | the cookie will expired. Count down starts after the user hits the “Close” or “OK, I UNDERSTAND”  button on the cookie notice.
+
+mixin CookieNotice
+  .toast.hide.notice.shadow-none.text-white.bg-dark.mt-6.m-sm-3#cookie-notice.rounded(role='alert', data-options!={ autoShow: true, autoShowDelay: 5000, showOnce: true, cookieExpireTime: 7200000 , autohide: false} )
+    .toast-body.p-4
+      button.btn-close.text-white.text-shadow-none.position-absolute.top-0.end-0.p-2.me-1.fs-8(type='button', data-bs-dismiss='toast', aria-label='Close')
+        span(aria-hidden='true') ×
+      .d-flex.align-items-start
+        img(src=`${CWD}assets/img/icons/cookie-notice.png`, width=50 alt="").me-3
+        .flex-1
+          p.fs-9.ls.font-secondary Our site uses cookies. By continuing to use our site, you agree to our 
+            a(href=`${CWD}components/sparrow/cookie-notice.html`).text-white.text-decoration-underline Cookie Policy.
+          button.btn.btn-outline-light.btn-sm.text-uppercase.border-dark-subtle(type='button', data-bs-dismiss='toast', aria-label='Close') Ok, I understand

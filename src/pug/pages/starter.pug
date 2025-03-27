@@ -1,0 +1,11 @@
+extends ../layouts/LayoutTheme
+
+block beforeMainContent
+  +FancyNav
+
+append mainContent  
+  +Section.text-center.py-0
+    .row.min-vh-100.flex-center
+      .col
+        h1.text-dark.display-4.mb-4 Let's go
+        a(href=`${CWD}documentation/getting-started.html`).btn.btn-primary Getting started

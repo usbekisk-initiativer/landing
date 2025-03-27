@@ -1,0 +1,20 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/sparrow/Masonry
+
+block append variables
+  - var pageTitle = 'Masonry';
+  - var activePage = 'masonry';
+
+prepend scripts
+  script(src=`${CWD}vendors/isotope-layout/isotope.pkgd.min.js`) 
+  script(src=`${CWD}vendors/isotope-packery/packery-mode.pkgd.min.js`) 
+
+block component 
+  +SparrowComponentLink({
+    name: 'Isotope Masonry',
+    link: 'https://isotope.metafizzy.co/layout-modes/masonry.html',
+  })
+  +Masonry
+
+
+

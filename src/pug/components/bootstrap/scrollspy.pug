@@ -1,0 +1,14 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/bootstrap/Scrollspy
+
+append variables
+  - var pageTitle = 'Scrollspy';
+  - var activePage = 'scrollspy';
+  - var attrsBody = { 'data-bs-spy': 'scroll', 'data-bs-target': '#v-pills', 'data-bs-offset': 100,  tabindex: 0, };
+
+block component 
+  +BootstrapComponentLink({
+    link: `https://getbootstrap.com/docs/${bootstrapVersion}/components/scrollspy/`,
+    name: pageTitle,
+  })
+  +ScrollspyDemo

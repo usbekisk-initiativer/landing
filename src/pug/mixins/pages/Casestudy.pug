@@ -1,0 +1,175 @@
+mixin Casestudy 
+  +Section('container-fluid px-lg-0').py-0#page-casestudy
+    .row
+      .col-lg-6.px-0
+        .swiper.theme-slider.swiper-theme.sticky-top.vh-50.vh-lg-100(data-zanim-lg!={animation: 'zoom-out-slide-right', delay: 0.4}  data-zanim-trigger='scroll' data-swiper!={
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+          },
+          loop: true,
+          effect: 'fade',
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            type: 'bullets',
+          },
+        })
+          .swiper-wrapper
+            .swiper-slide.min-vh-lg-100
+              img(src=`${CWD}assets/img/portfolio-01.jpg` alt='').fit-cover.vh-lg-100.w-100
+            .swiper-slide.min-vh-lg-100  
+              img(src=`${CWD}assets/img/portfolio-02.jpg` alt='').fit-cover.vh-lg-100.w-100
+            .swiper-slide.min-vh-lg-100  
+              img(src=`${CWD}assets/img/portfolio-03.jpg` alt='').fit-cover.vh-lg-100.w-100
+          .swiper-pagination
+          .swiper-nav
+            .swiper-button-next.me-3
+            .swiper-button-prev.ms-3
+
+      .col-lg-6.py-6.py-lg-4.py-xl-6
+        .row.h-100.justify-content-center
+          .col-lg-10
+            div(data-zanim-timeline!={delay: 0.4} data-zanim-trigger='scroll')
+              .overflow-hidden
+                div(data-zanim-xs!={delay: 0.1})
+                  a(href=`${CWD}pages/portfolio.html`).btn.btn-link.ps-0.text-black.shadow-none
+                    span.fas.fa-chevron-left(data-fa-transform='down-1')
+                    span.ps-2.fw-bold portfolio showcase
+
+              .overflow-hidden
+                h2(data-zanim-xs!={delay: 0.2}) Next gen web interface design
+
+              .row.mt-4
+                .col-xl-9
+                  .overflow-hidden
+                    p.lead.font-secondary.fw-normal.text-body-secondary(data-zanim-xs!={delay: 0.3}) Good typography will be key; small screens don’t have much room, and depend on clarity and 'glance-ability' to quickly convey critical information in the most effective manner.
+
+            .row
+              .col-12.col-xl-8.pe-xl-6(data-zanim-timeline!={delay: 0.5} data-zanim-trigger='scroll')
+
+                .overflow-hidden
+                  h5.mt-6(data-zanim-xs!={delay: 0.1}) Problem
+                .overflow-hidden
+                  p(data-zanim-xs!={delay: 0.2}) Web design tools haven't evolved at the rate web design trends have been shifting. Are we seriously still spending hours learning to hand-code new design trends that will die out before we master them?
+
+                .overflow-hidden
+                  h5.mt-4(data-zanim-xs!={delay: 0.1}) Approach
+                .overflow-hidden
+                  p(data-zanim-xs!={delay: 0.2}) Web design is an ever trending field and after two long decades of waiting, we finally have the tools we hoped for to bring our designs to life on multiple devices. This next generation of web design tool should versatile and enable web designers to bring out the stroke of genius we've been suppressing for far too long.
+
+                .overflow-hidden
+                  h5.mt-4(data-zanim-xs!={delay: 0.1}) Solution
+                .overflow-hidden
+                  p(data-zanim-xs!={delay: 0.2}) Sparrow is one of a kind template that makes it easy for web designers and developers to create complex layouts. Sparrow provides a fully modular css class based workflow from start to finish fully loaded with reusable elements and bootstrap 4 support.
+
+              .col(data-zanim-timeline!={delay: 0.6} data-zanim-trigger='scroll')
+                .overflow-hidden
+                  h6.mt-6.text-uppercase.ls(data-zanim-xs!={delay: 0.1}) Client
+                .overflow-hidden
+                  p.font-secondary.text-body-secondary(data-zanim-xs!={delay: 0.2}) Internal Brief
+
+                .overflow-hidden
+                  h6.mt-4.text-uppercase.ls(data-zanim-xs!={delay: 0.1}) Project link
+                .overflow-hidden
+                  div(data-zanim-xs!={delay: 0.2})
+                    a(href='https://themewagon.com/').text-body-secondary.font-secondary themewagon.com
+
+                .overflow-hidden
+                  h6.mt-4.text-uppercase.ls(data-zanim-xs!={delay: 0.1}) Category
+                .overflow-hidden
+                  ul.list-unstyled.font-secondary.text-body-secondary(data-zanim-xs!={delay: 0.2})
+                    li Design for Manufacture
+                    li Industrial Design
+                    li Insight and Research
+                    li New Product
+                    li Development
+                    li Prototyping
+                    li Research
+
+            .row.my-6
+              .col-sm-6
+                img(src=`${CWD}assets/img/portfolio-06.jpg` alt='' data-zanim-xs!={
+                  delay: 0.1,
+                  animation: 'zoom-in'
+                } data-zanim-trigger='scroll').rounded.img-fluid
+              .col-sm-6.mt-4.mt-sm-0
+                img(src=`${CWD}assets/img/portfolio-09.jpg` alt='' data-zanim-xs!={
+                  delay: 0.2,
+                  animation: 'zoom-in'
+                } data-zanim-trigger='scroll').rounded.img-fluid
+
+              .col.mt-4
+                .position-relative.pt-8.pt-lg-11.pb-4.px-4.rounded.text-end.overflow-hidden
+                  +Background({
+                    image: `${CWD}assets/img/portfolio-04.jpg`,
+                    attrs: {'data-zanim-trigger': 'scroll', 'data-zanim-xs': {delay: 0.3, animation: 'zoom-in'}}
+                  })
+                  a(href='https://www.youtube.com/watch?v=AK2U977acCE' data-start='6' data-end='168').video-modal
+                    svg(width=60 height=60 xmlns='http://www.w3.org/2000/svg', viewbox='0 0 274.19 274.19' data-zanim-svg!={
+                      duration: 2,
+                      ease: 'CubicBezier',
+                      trigger: 'scroll'
+                    })
+                      defs
+                        style.
+                          .play-path {
+                            fill: none;
+                            stroke: #ffffff;
+                            stroke-linecap: round;
+                            stroke-linejoin: round;
+                            stroke-width: 12px;
+                          }
+                      g
+                        path.play-path(d='M208.31,29.4A129.12,129.12,0,1,1,137.1,8m-1.48,170.53L199.94,137,104.07,79.46v113')
+
+            .overflow-hidden
+              h5.mt-4(data-zanim-xs!={delay: 0.1} data-zanim-trigger='scroll') The Process
+            .overflow-hidden
+              p(data-zanim-xs!={delay: 0.2} data-zanim-trigger='scroll') Typographic hierarchy in design is generally how we convey what information is most important and portray it in a highly 'glance-able' way. Meaning, with the quickest flick of an eye towards the automotive display console, a driver should instantly see the next turn direction, the song title, the station name, etc.
+
+              p(data-zanim-xs!={delay: 0.3} data-zanim-trigger='scroll') Since these displays can utilize only a small number of bitmap fonts at fixed sizes, there’s little leeway to create that visual hierarchy with dynamic content. The functionality questions are compounded by the introduction of smartphone apps tied to those automotive systems and other devices.
+
+            .overflow-hidden
+              h5.mt-4(data-zanim-xs!={delay: 0.1} data-zanim-trigger='scroll') The Result
+            .overflow-hidden
+              p(data-zanim-xs!={delay: 0.2} data-zanim-trigger='scroll') Once we’ve overcome that barrier, not only can we design more usable interfaces, but we can also design more consistently-branded ones. That’s a considerable win both for users and brands.
+
+
+          .col-12.bg-body-secondary.py-7.my-6.text-center
+            .row.justify-content-center
+              .col-lg-10
+                .overflow-hidden
+                  p.text-body-highlight.fs-7.font-secondary.fw-light(data-zanim-xs!={
+                    delay: 0.1,
+                    from: {scale: 1.1, opacity: 1},
+                    to: {scale: 1, opacity: 1}
+                  } data-zanim-trigger='scroll') &ldquo;The first thing I noticed was just how smart and sleek this theme is. I’d definitely use it out and about!&rdquo;
+
+                .overflow-hidden
+                  h5.fs-9.text-body.fw-bold.mt-4(data-zanim-xs!={delay: 0.5} data-zanim-trigger='scroll')
+                    span.text-black &mdash; Rich Piana,
+                    |  Themewagon.com, Inc.
+
+          .col-sm-5
+            a(href='#!').text-black
+              img(src=`${CWD}assets/img/portfolio-07.jpg` alt='' data-zanim-xs!={
+                delay: 0.1,
+                animation: 'zoom-in'
+              } data-zanim-trigger='scroll').rounded.img-fluid
+              .overflow-hidden
+                h4.mt-3(data-zanim-xs!={delay: 0.2} data-zanim-trigger='scroll') Redefining web design through experience
+          .col-sm-5.mt-4.mt-sm-0
+            a(href='#!').text-black
+              img(src=`${CWD}assets/img/portfolio-08.jpg` alt='' data-zanim-xs!={
+                delay: 0.1,
+                animation: 'zoom-in'
+              } data-zanim-trigger='scroll').rounded.img-fluid
+              .overflow-hidden
+                h4.mt-3(data-zanim-xs!={delay: 0.2} data-zanim-trigger='scroll') New sparrow animated HTML5 template
+          .col-12.mt-6.pt-6.border-top
+            .row.justify-content-center
+              .col-lg-10.text-center
+                h2 Talk to us about your project
+                p.px-lg-6.px-md-5 Work with the highly talented group of artists, engineers, and imagineers.
+                a(href='#!').btn.btn-outline-dark.rounded-pill.mt-4 Hire Us

@@ -1,0 +1,49 @@
+
+mixin ComponentCard(config)
+  - var config = Object.assign({ anchor: false,bodyClass:'bg-light' }, config);
+  - var previewId = `dom-${uuid()}`;
+  - var codeId = `dom-${uuid()}`;
+  div&attributes(attributes)
+    if config.title
+      h4(class=config.titleClass && config.titleClass)=config.title
+    if config.subTitle
+      h6.text-body-highlight(class=config.subTitleClass && config.subTitleClass)=config.subTitle
+    if config.description
+      p(class=config.descriptionClass && config.descriptionClass)!=config.description
+    block 
+    if config.prismTitle 
+      h5.mb-0(class=config.prismTitleClass && config.prismTitleClass)=config.prismTitle
+    pre.scrollbar.rounded-1(class=config.prismClass ? config.prismClass : 'mt-2' style="max-height:420px")
+      code.language-html
+        +escape
+          block
+
+mixin ComponentCardLib(config)
+  - var config = Object.assign({ anchor: false,lang:'html' }, config);  
+  if config.title
+    h5(class=config.titleClass && config.titleClass)=config.title
+  if config.description
+    p(class=config.descriptionClass && config.descriptionClass)!=config.description
+  pre.scrollbar.mt-2&attributes(attributes)
+    code(class=`language-${config.lang}`)
+      +escape
+        block
+
+
+mixin SparrowComponentLink(config={})
+  p&attributes(attributes) For more details see 
+    a(href=`${config.link}` target="_blank").font-secondary  #{config.name} documentation
+      span.d-inline-block.me-1 &xrarr;
+
+mixin BootstrapComponentLink(config={})
+  p For detail documentation, 
+    a(href=`${config.link}` target="_blank").font-secondary  View #{config.name} on Bootstrap
+      span.d-inline-block.ms-1 &xrarr;
+
+mixin SectionIntro(config={})
+  if config.title
+    h4(class=config.titleClass && config.titleClass)&attributes(attributes)=config.title
+  if config.description
+    p(class=config.descriptionClass && config.descriptionClass)!=config.description
+  block
+

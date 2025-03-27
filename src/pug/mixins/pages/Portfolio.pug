@@ -1,0 +1,140 @@
+mixin Portfolio 
+  +Section.mt-5.mt-lg-0.py-lg-7#page-portfolio
+    .row.mb-5.mb-lg-7
+      .col-lg-6
+        h1.text-decoration-underline.d-inline.fs-5.fs-md-4 portfolio
+        p.mt-3 The following layout is made using isotope, a Javascript plugin which allows you to create multi-column, dynamic grid layouts. The first script out there that allows you a complete gap-free layout.
+
+    +Sortable
+
+mixin Sortable
+
+  ul.nav.font-secondary.mb-2(data-filter-nav)&attributes(attributes)
+    li.nav-item
+      a.nav-link.isotope-nav.active(href ='#!' data-filter='*') all
+    li.nav-item
+      a.nav-link.isotope-nav(href ='#!' data-filter='.photography') photography
+    li.nav-item 
+      a.nav-link.isotope-nav(href ='#!' data-filter='.studio') studio
+    li.nav-item 
+      a.nav-link.isotope-nav(href ='#!' data-filter='.interior') interior
+    li.nav-item 
+      a.nav-link.isotope-nav(href ='#!' data-filter='.illustration') illustration
+     
+  .row.g-3.mt-2#portfolio-gallery(data-zanim-timeline!={} data-zanim-trigger='scroll' data-isotope!={
+    layoutMode: 'packery',   
+  })
+  
+    .col-6.col-md-3.isotope-item.interior
+      .hoverbox.rounded.overflow-hidden(data-zanim-xs!={animation: 'zoom-in'})
+        img(src=`${CWD}assets/img/gallery/03.jpg` alt='').w-100
+        .hoverbox-content.bg-dark.d-flex.flex-center.text-center
+          .px-4
+            h5.text-white Next gen web interface design
+            a(href=`${CWD}pages/casestudy.html`).btn.btn-outline-light.btn-xs.mt-3 learn more
+
+    .col-6.col-md-3.isotope-item.photography
+      a(href='#!' data-bp=`${CWD}assets/img/gallery/07-f.jpg` data-bigpicture!={ gallery: '#portfolio-gallery'} data-caption='my caption')
+        img(src=`${CWD}assets/img/gallery/07.jpg` alt='' data-zanim-xs!={
+          animation: 'zoom-in',
+          delay: 0.1
+        }).rounded.w-100.fit-cover
+
+    .col-6.col-md-3.isotope-item.photography
+      a(href='#!' data-bp=`${CWD}assets/img/gallery/09-f.jpg` data-bigpicture!={ gallery: '#portfolio-gallery'} data-caption='my caption')
+        img(src=`${CWD}assets/img/gallery/09.jpg` alt='' data-zanim-xs!={
+          animation: 'zoom-in',
+          delay: 0.7
+        }).rounded.w-100.fit-cover
+  
+
+    .col-6.col-md-3.isotope-item.studio
+      a(href='#!' data-bp=`${CWD}assets/img/gallery/04-f.jpg` data-bigpicture!={ gallery: '#portfolio-gallery'} data-caption='my caption')
+        img(src=`${CWD}assets/img/gallery/04.jpg` alt='' data-zanim-xs!={
+          animation: 'zoom-in',
+          delay: 0.4
+        }).rounded.w-100.fit-cover
+    
+    .col-6.col-md-3.isotope-item.interior
+      .hoverbox.rounded.overflow-hidden(data-zanim-xs!={
+        animation: 'zoom-in',
+        delay: 0.2
+      })
+        img(src=`${CWD}assets/img/gallery/05.jpg` alt='').w-100.fit-cover
+        .hoverbox-content.bg-dark.d-flex.flex-center.text-center
+          .px-4
+            h5.text-white Next gen web interface design
+            a(href=`${CWD}pages/casestudy.html`).btn.btn-outline-light.btn-xs.mt-3 learn more
+
+    .col-6.col-md-3.isotope-item.studio.illustration
+      a(href='#!' data-bp=`${CWD}assets/img/gallery/06-f.jpg` data-bigpicture!={ gallery: '#portfolio-gallery'} data-caption='my caption')
+        img(src=`${CWD}assets/img/gallery/06.jpg` alt='' data-zanim-xs!={
+          animation: 'zoom-in',
+          delay: 0.3
+        }).rounded.w-100.fit-cover
+
+    .col-6.col-md-3.isotope-item.photography
+      a(href='#!' data-bp=`${CWD}assets/img/gallery/10-f.jpg` data-bigpicture!={ gallery: '#portfolio-gallery'} data-caption='my caption')
+        img(src=`${CWD}assets/img/gallery/10.jpg` alt='' data-zanim-xs!={
+          animation: 'zoom-in',
+          delay: 0.5
+        }).rounded.w-100.fit-cover
+
+    .col-6.col-md-3.isotope-item.illustration
+      .position-relative
+        //- +background({image: `${CWD}assets/img/gallery/01.jpg` , className: 'rounded'})
+        img(src=`${CWD}assets/img/gallery/01.jpg` alt='' data-zanim-xs!={
+          animation: 'zoom-in',
+          delay: 0.6
+        }).rounded.w-100.fit-cover
+        a(href='#!' data-bigpicture!={ytSrc: 'HbAzApdYtdw' } data-options!={ start: 1, end: 64 }).d-flex.align-items-end.justify-content-end.h-100.pb-3.pe-3.position-absolute.bottom-0.end-0
+          svg(width=50 height=50 xmlns='http://www.w3.org/2000/svg', viewbox='0 0 274.19 274.19' data-zanim-svg!={
+            duration: 2,
+            ease: 'CubicBezier',
+            trigger: 'scroll'
+          })
+            defs
+              style.
+                .play-path {
+                  fill: none;
+                  stroke: #ffffff;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  stroke-width: 12px;
+                }
+            g
+              path.play-path(d='M208.31,29.4A129.12,129.12,0,1,1,137.1,8m-1.48,170.53L199.94,137,104.07,79.46v113')
+
+    .col-12.col-sm-6.isotope-item.illustration
+      .swiper.theme-slider(data-swiper!={
+        autoplay: true,
+        loop: true,
+        autoplay: {
+          delay: 3000,
+        }, 
+        effect: 'fade',
+    
+      })
+        .swiper-wrapper
+          .swiper-slide
+            img(src=`${CWD}assets/img/gallery/11.jpg` alt='').w-100.fit-cover.rounded
+          .swiper-slide  
+            img(src=`${CWD}assets/img/gallery/12.jpg` alt='').w-100.fit-cover.rounded     
+        .swiper-nav
+          .swiper-button-next
+          .swiper-button-prev 
+
+                
+    .col-6.col-md-3.isotope-item.interior
+      a(href='#!' data-bp=`${CWD}assets/img/gallery/02-f.jpg` data-bigpicture!={ gallery: '#portfolio-gallery'} data-caption='my caption')
+        img(src=`${CWD}assets/img/gallery/02.jpg` alt='' data-zanim-xs!={
+          animation: 'zoom-in',
+          delay: 0.3
+        }).rounded.w-100.fit-cover
+
+    .col-6.col-md-3.isotope-item.photography
+      a(href=`${CWD}pages/casestudy.html`)
+        img(src=`${CWD}assets/img/gallery/08.jpg` alt='' data-zanim-xs!={
+          animation: 'zoom-in',
+          delay: 0.4
+        }).rounded.w-100.fit-cover

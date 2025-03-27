@@ -1,0 +1,20 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/components/bootstrap/Tables
+
+append variables
+  - var pageTitle = 'Tables';
+  - var activePage = 'tables';
+
+block component 
+  
+  +BootstrapComponentLink({
+    link: `https://getbootstrap.com/docs/${bootstrapVersion}/content/tables/`,
+    name: pageTitle,
+  })
+  
+  +BasicTableExample 
+  +DarkTableExample
+  +BorderedTableExample
+  +BorderedDarkTableExample
+  +StripedTableExample
+  +StripedDarkTableExample

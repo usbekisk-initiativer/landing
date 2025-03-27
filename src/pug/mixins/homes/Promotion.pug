@@ -1,0 +1,150 @@
+mixin PromotionHeader
+  +Section({
+    image: `${CWD}assets/img/headers/header-promotion.jpg`,
+    youtube: {videoId: 'abiaOTuBemk', startSeconds: 10, endSeconds: 50, loop: true},
+    className: "overlay overlay-2",
+    attrs: {'data-zanim-xs': {delay: 0.4, animation: 'zoom-out'}, 'data-zanim-trigger': 'scroll'}
+  }).py-0#promotionHeader
+    .row.min-vh-50.align-items-center.py-9
+      .col-lg-6(data-zanim-timeline!={delay: 0.4} data-zanim-trigger='scroll')
+        .overflow-hidden
+          h1.fs-5.fs-md-4.text-white.display-4(data-zanim-xs!={delay: 0.1}) Get it done
+            br
+            | with sparrow
+        .overflow-hidden
+          h4.fw-normal.mb-4.text-white.text-opacity-85.mt-5(data-zanim-xs!={delay: 0.2}) Grow your business with full responsive website.
+        .overflow-hidden
+          .input-group.pe-lg-7(data-zanim-xs!={delay: 0.3})
+            input.form-control.bg-transparent.text-white.border-light-subtle(type='text' placeholder="What type of website do you need?" aria-label="Recipient's username" aria-describedby='button-addon-interior')
+            button#button-addon-interior.btn.btn-light.px-3.fw-normal.bg-body-secondary(type='button') get started
+
+
+
+mixin PromotionPartners
+  +Section.py-4#promotionPartners
+    .row.align-items-center
+      .col-sm-auto.pe-6
+        h6.mt-4.mt-md-0 TRUSTED BY 5M+
+          br.d-none.d-sm-block
+          | BUSINESSES
+      .col-sm.ms-auto.mt-sm-0
+        .row(data-zanim-timeline!={} data-zanim-trigger='scroll')
+          .col-auto.col-md-4.col-lg-auto.my-3(data-zanim-xs!={animation: 'slide-left', delay: 0.1})
+            img(src=`${CWD}assets/img/logo/04.jpg` alt='').logo
+          .col-auto.col-md-4.col-lg-auto.my-3(data-zanim-xs!={animation: 'slide-left', delay: 0.2})
+            img(src=`${CWD}assets/img/logo/22.png` alt='').logo
+          .col-auto.col-md-4.col-lg-auto.my-3(data-zanim-xs!={animation: 'slide-left', delay: 0.3})
+            img(src=`${CWD}assets/img/logo/23.png` alt='').logo
+          .col-auto.col-md-4.col-lg-auto.my-3(data-zanim-xs!={animation: 'slide-left', delay: 0.4})
+            img(src=`${CWD}assets/img/logo/24.png` alt='').logo
+          .col-auto.col-md-4.col-lg-auto.my-3(data-zanim-xs!={animation: 'slide-left', delay: 0.5})
+            img(src=`${CWD}assets/img/logo/26.png` alt='').logo
+          .col-auto.col-md-4.col-lg-auto.my-3(data-zanim-xs!={animation: 'slide-left', delay: 0.6})
+            img(src=`${CWD}assets/img/logo/28.png` alt='').logo
+
+
+mixin PromotionVideo
+  +Section.bg-light#promotionVideo
+    .row.align-items-center
+      .col-lg-6.pe-sm-8(data-zanim-timeline!={} data-zanim-trigger='scroll')
+        .overflow-hidden
+          h2(data-zanim-xs!={delay: 0.1}) Your sparrow developers are ahead of the curve.
+        .overflow-hidden
+          h5.mt-4(data-zanim-xs!={delay: 0.2}) Patric Cournoyer
+        .overflow-hidden
+          h6.text-body(data-zanim-xs!={delay: 0.3}) CEO &amp; Founder, Sparrow inc.
+
+        .mt-4(data-zanim-xs!={delay: 0.4})
+          a(href='#!').btn.btn-outline-dark see more stories
+      .col-lg-6.mt-6.mt-lg-0
+        .ratio.ratio-16x9
+          +Background({
+            image: `${CWD}assets/img/promotion-01.jpg`,
+            className: 'rounded'
+          })
+          .d-flex.align-items-center.justify-content-center
+            a(href='#!' data-bigPicture!={ytSrc:'dStITCgn73w'}).text-white
+              span.fa-layers.fa-fw.fs-5
+                i.fas.fa-circle
+                i.text-dark.fas.fa-play(data-fa-transform='shrink-12 right-0.5')
+
+
+mixin PromotionFooter
+  +Section#promotionFooter
+    .row
+      .col-12
+        h4 Browse top services
+        hr
+      .col-12.mt-4.font-secondary
+        .row
+          .col-6.col-lg
+            ul.list-unstyled
+              li
+                a(href='#!').py-1.d-inline-block.text-body Android Developers
+              li
+                a(href='#!').py-1.d-inline-block.text-body AngularJS Developers
+              li
+                a(href='#!').py-1.d-inline-block.text-body Bookkeepers
+              li
+                a(href='#!').py-1.d-inline-block.text-body C# Developers
+              li
+                a(href='#!').py-1.d-inline-block.text-body Content Writers
+              li
+                a(href='#!').py-1.d-inline-block.text-body Copywriters
+              li
+                a(href='#!').py-1.d-inline-block.text-body Customer Service Representatives
+              li
+                a(href='#!').py-1.d-inline-block.text-body Data Entry Specialists
+          .col-6.col-lg
+            ul.list-unstyled
+              li
+                a(href='#!').py-1.d-inline-block.text-body Email Marketing Consultants
+              li
+                a(href='#!').py-1.d-inline-block.text-body Excel Experts
+              li
+                a(href='#!').py-1.d-inline-block.text-body Facebook Marketers
+              li
+                a(href='#!').py-1.d-inline-block.text-body Graphic Designers
+              li
+                a(href='#!').py-1.d-inline-block.text-body iOS Developers
+              li
+                a(href='#!').py-1.d-inline-block.text-body JavaScript Developers
+              li
+                a(href='#!').py-1.d-inline-block.text-body jQuery Developers
+              li
+                a(href='#!').py-1.d-inline-block.text-body Mobile App Developers
+          .col-6.col-lg
+            ul.list-unstyled
+              li
+                a(href='#!').py-1.d-inline-block.text-body Objective-C Developers
+              li
+                a(href='#!').py-1.d-inline-block.text-body PHP Developers
+              li
+                a(href='#!').py-1.d-inline-block.text-body Python Developers
+              li
+                a(href='#!').py-1.d-inline-block.text-body Sales Consultants
+              li
+                a(href='#!').py-1.d-inline-block.text-body SEO Experts
+              li
+                a(href='#!').py-1.d-inline-block.text-body Social Media Consultants
+              li
+                a(href='#!').py-1.d-inline-block.text-body Swift Developers
+              li
+                a(href='#!').py-1.d-inline-block.text-body Technical Writers
+          .col-6.col-lg
+            ul.list-unstyled
+              li
+                a(href='#!').py-1.d-inline-block.text-body UI Designers
+              li
+                a(href='#!').py-1.d-inline-block.text-body UX Designers
+              li
+                a(href='#!').py-1.d-inline-block.text-body Virtual Assistants
+              li
+                a(href='#!').py-1.d-inline-block.text-body Web Designers
+              li
+                a(href='#!').py-1.d-inline-block.text-body Wordpress Developers
+              li
+                a(href='#!').py-1.d-inline-block.text-body Writers
+              li
+                a(href='#!').py-1.d-inline-block See All Skills
+                  span.ms-1.fs-8.d-inline-block &raquo;

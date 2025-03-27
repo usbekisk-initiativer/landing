@@ -1,0 +1,8 @@
+extends ../layouts/LayoutTheme
+include ../mixins/pages/SplitYoutube
+
+prepend scripts
+  script(src=`${CWD}vendors/bigpicture/BigPicture.js`)
+
+append mainContent 
+  +SplitYoutube

@@ -1,0 +1,135 @@
+mixin FancynavComponent
+  p Throughout the theme, we have used the side navigation panel. The structure is following: 
+  +ComponentCardLib.mt-4
+    +FancyNav
+  h3.mt-6 Available Options
+  hr
+
+  h4.mt-4(data-anchor=true) Responsive behavior
+  p Sparrow use  
+    code .fancynavbar-expand{-sm|-md|-lg|-xl} 
+    | classes to decide when the navbar vertical will expand or not.
+
+  +ComponentCardLib()
+    nav.fancynavbar.fancynavbar-expand-sm
+    nav.fancynavbar.fancynavbar-expand-md
+    nav.fancynavbar.fancynavbar-expand-lg
+    nav.fancynavbar.fancynavbar-expand-xl
+
+  //- Fancynav Colors
+  h4.mt-5#fancynav-colors Fancynavbar Colors:
+  p You can customize 
+    code Fancynav 
+    | with both 
+    code SCSS 
+    | and 
+    code CSS 
+    | variables according to your requirements.
+
+  h5.mt-4 Customize with SCSS variables:
+  p To customize the 
+    code fancynavbar, 
+    | using SCSS variables, add the following variables in 
+    code _user-variables.scss 
+    | and update according to your requirement.
+
+  +ComponentCardLib({
+    lang:'css'
+  })
+    | $fancynav-togglerbar-bg: #ffffff;
+    | $fancynav-collapse-bg: #ffffff;
+    | $fancynav-link-color: #000000;
+  |  See more on customization with SCSS 
+  a(href=`${CWD}documentation/customization.html`) here
+  | .
+  
+  h5.mt-4 Customize with CSS variables:
+  p To customize the 
+    code fancynavbar, 
+    | using CSS variables, add the following variables in 
+    code user.scss 
+    | and update according to your requirement.
+
+  +ComponentCardLib({
+    lang:'css'
+  })
+    | --sparrow-fancynav-togglerbar-bg: #ffffff;
+    | --sparrow-fancynav-collapse-bg: #ffffff;
+    | --sparrow-fancynav-link-color: #000000;
+  |  See more on customization with CSS 
+  a(href=`${CWD}documentation/customization.html`) here
+  | .
+
+  //-  Fancynav Position
+  h4.mt-5#fancynav-position Fancynavbar Position: 
+  p By default, we position the 
+    code fancynavbar
+    |  on the right side of the window. But you can move the 
+    code fancynavbar 
+    | to the left or top if you like.
+
+  h5.mt-4 Position Left:
+  p To move the 
+    code fancynavbar 
+    | to the left side of the window, use 
+    code .has-sidemenu-left 
+    | with the 
+    code &lt;html&gt; 
+    | tag and class 
+    code fancynavbar-left 
+    | with the 
+    code .fancynavbar
+    | . This will behave in reverse for the RTL layout. You can see the left navigation layout in action on the 
+    a(href=`${CWD}homes/cafe.html` target='_blank') cafe page 
+    | .
+  +ComponentCardLib
+    html.has-sidemenu.has-sidemenu-left(dir="ltr" lang="en-US" )
+      // Your content goes here
+
+  +ComponentCardLib
+    nav.fancynavbar.fancynavbar-expand-lg.fancynavbar-left ...
+
+  h5.mt-4 Position Top:
+  p To move the 
+    code fancynavbar 
+    | to the top side of the window, use 
+    code .has-fancynav-top 
+    | with the 
+    code &lt;html&gt; 
+    | tag and class 
+    code fancynavbar-top 
+    | with the 
+    code .fancynavbar. 
+    | You can also see the top navigation layout in action on the 
+    a(href=`${CWD}homes/ecommerce.html` target='_blank') ecommerce page
+    | .
+
+  +ComponentCardLib
+    html.has-sidemenu.has-fancynav-top(dir="ltr" lang="en-US" )
+      // Your content goes here
+
+  +ComponentCardLib
+    nav.fancynavbar.fancynavbar-expand-lg.fancynavbar-top ...
+
+
+  h4.mt-5 On scroll fade in
+  p To make the background fade in on scroll on mobile/tab devices, like you see in the 
+    a(href=`${CWD}homes/event.html` target='_blank') event page
+    | , use 
+    code data-onscroll-fade-in="true"
+    |  eg:
+  +ComponentCardLib
+    div.fancynavbar-togglerbar.bg-primary(data-onscroll-fade-in="true")
+  
+  h4.mt-5 Exclusive
+  p
+    | If you want to allow one dropdown to be opened at a time, use 
+    code data-exclusive="true"
+    |  with 
+    code .fancynavbar
+    |  eg:
+  +ComponentCardLib
+    div.fancynavbar.fancynavbar-expand-lg(data-exclusive="true")
+
+
+

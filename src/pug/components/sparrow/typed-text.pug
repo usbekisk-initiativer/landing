@@ -1,0 +1,26 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/common/card
+
+append variables
+  - var pageTitle = 'Typed Text';
+  - var activePage = 'typed-text';
+
+prepend scripts
+  script(src=`${CWD}vendors/typed.js/typed.umd.js`)
+  
+
+block component   
+
+  +SparrowComponentLink({
+    name: 'Typed.js',
+    link: 'https://mattboldt.com/demos/typed-js/',
+  })
+
+  .mb-5
+    +ComponentCard
+      h3.fw-light.overflow-hidden A smarter way to tell about 
+        span.fw-bold.ms-1(data-typed-text!=["new features.", "product updates.", "a new idea.", "an announcment."])
+
+  h5 JavaScript
+  +ComponentCardLib
+    script(src="vendors/typed.js/typed.umd.js")

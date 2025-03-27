@@ -1,0 +1,76 @@
+mixin ThemeColorsDemo
+  .row
+    .col-12
+      h3 Theme colors
+    each val in colors
+      .col-md-6.mb-4
+        .row.flex-center.g-0
+          .col-auto
+            .component-example
+              .border.rounded-circle(class=`bg-${val}`)
+          .col
+            code .bg-#{val}
+            br
+            code .text-#{val}
+    .col-md-6.mb-4
+        .row.flex-center.g-0
+          .col-auto
+            .component-example
+              .border.rounded-circle.bg-body-secondary
+          .col
+            code .bg-body-secondary
+    .col-md-6.mb-4
+        .row.flex-center.g-0
+          .col-auto
+            .component-example
+              .border.rounded-circle.bg-body-tertiary
+          .col
+            code .bg-body-tertiary
+    .col-md-6.mb-4
+        .row.flex-center.g-0
+          .col-auto
+            .component-example
+              .border.rounded-circle.bg-body
+          .col
+            code .bg-body
+        
+
+mixin ThemeSubtleColorsDemo
+  .row
+    .col-12
+      h3 Theme subtle colors
+    each val in themeColors
+      .col-md-6.mb-4
+        .row.flex-center.g-0
+          .col-auto
+            .component-example
+              .border.rounded-circle(class=`bg-${val}-subtle`)
+          .col
+            code .bg-#{val}-subtle
+
+mixin GrayShadesDemo
+  .row
+    .col-12
+      h3  Gray shades
+    each val in grays
+      .col-md-6.mb-4
+        .row.flex-center.g-0
+          .col-auto
+            .component-example
+              .border.rounded-circle(class=`bg-gray-${val}`)
+          .col
+            code .bg-gray-#{val}
+            br
+            code .text-gray-#{val}
+mixin BgGradientDemo
+  .row
+    .col-12
+      h3 Gradient colors
+    each val in themeColors
+      .col-md-6.mb-4
+        .row.flex-center.g-0
+          .col-auto
+            .component-example
+              .border.rounded-circle(class=`bg-${val} bg-gradient`)
+          .col
+            code .bg-#{val}.bg-gradient

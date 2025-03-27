@@ -1,0 +1,22 @@
+extends ../layouts/LayoutDocumentation
+include ../mixins/documentation/Plugins
+append variables
+  - var pageTitle = 'Plugins';
+  - var activePage = 'plugins';
+  - var pageDes = 'Giving your sparrow power ups';
+
+append mainContent
+  h3(data-anchor) Adding new plugins
+  p Adding a new plugin to your Sparrow is simple. You Here are two ways you can do that.
+  h5(data-anchor).mt-4 Simple approach(without npm)
+  +SimpleApproach
+
+  h5.mt-4(data-anchor) Using npm
+  +NpmApproach
+
+  hr.text-9.mt-6
+  h3.mt-6(data-anchor) Built-in plugins
+  
+  +Plugins
+
+
