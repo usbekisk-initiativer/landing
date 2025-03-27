@@ -13,36 +13,20 @@ const { v4: uuid } = require('uuid');
 const { name, version, paths, baseDir, isProd } = require('./utils.js');
 const cursor = ansi(process.stdout);
 
-// Helper function to find file with case-insensitive matching
-const findFile = (dir, filename) => {
-  try {
-    const files = fs.readdirSync(dir);
-    const match = files.find(file => file.toLowerCase() === filename.toLowerCase());
-    return match ? path.join(dir, match) : null;
-  } catch (error) {
-    return null;
-  }
-};
-
-// Helper function to resolve include paths
-const resolveIncludePath = (filename, sourceFile) => {
-  const sourceDir = path.dirname(sourceFile);
-  const resolvedPath = findFile(sourceDir, filename);
-  if (resolvedPath) {
-    return resolvedPath;
-  }
-  
-  // Try relative to pug base directory
-  const basePath = path.join(paths.pug.base, filename);
-  const resolvedBasePath = findFile(path.dirname(basePath), path.basename(basePath));
-  return resolvedBasePath || filename;
-};
-
 const options = {
   pretty: !isProd,
   basedir: paths.pug.base,
-  filename: (filename, sourceFile) => {
-    return resolveIncludePath(filename, sourceFile);
+  resolveFilename: (filename, sourceFile) => {
+    const dir = path.dirname(filename);
+    const basename = path.basename(filename);
+    
+    try {
+      const files = fs.readdirSync(dir);
+      const match = files.find(file => file.toLowerCase() === basename.toLowerCase());
+      return match ? path.join(dir, match) : filename;
+    } catch (error) {
+      return filename;
+    }
   }
 };
 
