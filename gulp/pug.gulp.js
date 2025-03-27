@@ -15,6 +15,20 @@ const cursor = ansi(process.stdout);
 
 const options = {
   pretty: !isProd,
+  basedir: paths.pug.base,
+  resolveFilename: (filename, sourceFile, options) => {
+    const dir = path.dirname(filename);
+    const basename = path.basename(filename);
+    
+    const files = fs.readdirSync(dir);
+    const match = files.find(file => file.toLowerCase() === basename.toLowerCase());
+    
+    if (match) {
+      return path.join(dir, match);
+    }
+    
+    return filename;
+  }
 };
 
 const locals = {
