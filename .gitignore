@@ -1,5 +1,32 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build output
+build/
+public/
+
+# Environment variables
 .env
-node_modules
-build
-dist
+.env.local
+.env.*.local
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
 .DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+temp/
+tmp/
