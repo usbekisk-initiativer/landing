@@ -1,22 +1,8 @@
-"use strict";
-
-var _excluded = ["endValue"];
-function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
-function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 /* -------------------------------------------------------------------------- */
 /*                                    Utils                                   */
 /* -------------------------------------------------------------------------- */
 
-var docReady = function docReady(fn) {
+const docReady = fn => {
   // see if DOM is already available
 
   if (document.readyState === 'loading') {
@@ -25,25 +11,17 @@ var docReady = function docReady(fn) {
     setTimeout(fn, 1);
   }
 };
-var isRTL = function isRTL() {
-  return document.querySelector('html').getAttribute('dir') === 'rtl';
-};
-var resize = function resize(fn) {
-  return window.addEventListener('resize', fn);
-};
-/*eslint consistent-return: */
-var isIterableArray = function isIterableArray(array) {
-  return Array.isArray(array) && !!array.length;
-};
-var camelize = function camelize(str) {
+const isRTL = () => document.querySelector('html').getAttribute('dir') === 'rtl';
+const resize = fn => window.addEventListener('resize', fn);
+/* eslint consistent-return: */
+const isIterableArray = array => Array.isArray(array) && !!array.length;
+const camelize = str => {
   if (str) {
-    var text = str.replace(/[-_\s.]+(.)?/g, function (_, c) {
-      return c ? c.toUpperCase() : '';
-    });
-    return "".concat(text.substr(0, 1).toLowerCase()).concat(text.substr(1));
+    const text = str.replace(/[-_\s.]+(.)?/g, (_, c) => c ? c.toUpperCase() : '');
+    return `${text.substr(0, 1).toLowerCase()}${text.substr(1)}`;
   }
 };
-var getData = function getData(el, data) {
+const getData = (el, data) => {
   try {
     return JSON.parse(el.dataset[camelize(data)]);
   } catch (e) {
@@ -53,78 +31,65 @@ var getData = function getData(el, data) {
 
 /* ----------------------------- Colors function ---------------------------- */
 
-var hexToRgb = function hexToRgb(hexValue) {
-  var hex;
+const hexToRgb = hexValue => {
+  let hex;
   hexValue.indexOf('#') === 0 ? hex = hexValue.substring(1) : hex = hexValue;
   // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
-  var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex.replace(shorthandRegex, function (m, r, g, b) {
-    return r + r + g + g + b + b;
-  }));
+  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b));
   return result ? [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)] : null;
 };
-var rgbaColor = function rgbaColor() {
-  var color = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '#fff';
-  var alpha = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0.5;
-  return "rgba(".concat(hexToRgb(color), ", ").concat(alpha, ")");
-};
+const rgbaColor = (color = '#fff', alpha = 0.5) => `rgba(${hexToRgb(color)}, ${alpha})`;
 
 /* --------------------------------- Colors --------------------------------- */
 
-var getColor = function getColor(name) {
-  var dom = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document.documentElement;
-  return getComputedStyle(dom).getPropertyValue("--sparrow-".concat(name)).trim();
-};
-var getColors = function getColors(dom) {
-  return {
-    primary: getColor('primary', dom),
-    secondary: getColor('secondary', dom),
-    success: getColor('success', dom),
-    info: getColor('info', dom),
-    warning: getColor('warning', dom),
-    danger: getColor('danger', dom),
-    light: getColor('light', dom),
-    dark: getColor('dark', dom)
-  };
-};
-var getGrays = function getGrays(dom) {
-  return {
-    white: getColor('white', dom),
-    100: getColor('100', dom),
-    200: getColor('200', dom),
-    300: getColor('300', dom),
-    400: getColor('400', dom),
-    500: getColor('500', dom),
-    600: getColor('600', dom),
-    700: getColor('700', dom),
-    800: getColor('800', dom),
-    900: getColor('900', dom),
-    1000: getColor('1000', dom),
-    1100: getColor('1100', dom),
-    black: getColor('black', dom)
-  };
-};
-var hasClass = function hasClass(el, className) {
+const getColor = (name, dom = document.documentElement) => getComputedStyle(dom).getPropertyValue(`--sparrow-${name}`).trim();
+const getColors = dom => ({
+  primary: getColor('primary', dom),
+  secondary: getColor('secondary', dom),
+  success: getColor('success', dom),
+  info: getColor('info', dom),
+  warning: getColor('warning', dom),
+  danger: getColor('danger', dom),
+  light: getColor('light', dom),
+  dark: getColor('dark', dom)
+});
+const getGrays = dom => ({
+  white: getColor('white', dom),
+  100: getColor('100', dom),
+  200: getColor('200', dom),
+  300: getColor('300', dom),
+  400: getColor('400', dom),
+  500: getColor('500', dom),
+  600: getColor('600', dom),
+  700: getColor('700', dom),
+  800: getColor('800', dom),
+  900: getColor('900', dom),
+  1000: getColor('1000', dom),
+  1100: getColor('1100', dom),
+  black: getColor('black', dom)
+});
+const hasClass = (el, className) => {
   !el && false;
   return el.classList.value.includes(className);
 };
-var addClass = function addClass(el, className) {
+const addClass = (el, className) => {
   el.classList.add(className);
 };
-var getOffset = function getOffset(el) {
-  var rect = el.getBoundingClientRect();
-  var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+const getOffset = el => {
+  const rect = el.getBoundingClientRect();
+  const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   return {
     top: rect.top + scrollTop,
     left: rect.left + scrollLeft
   };
 };
-var isScrolledIntoView = function isScrolledIntoView(el) {
-  var top = el.offsetTop;
-  var left = el.offsetLeft;
-  var width = el.offsetWidth;
-  var height = el.offsetHeight;
+const isScrolledIntoView = el => {
+  let top = el.offsetTop;
+  let left = el.offsetLeft;
+  const width = el.offsetWidth;
+  const height = el.offsetHeight;
   while (el.offsetParent) {
     // eslint-disable-next-line no-param-reassign
     el = el.offsetParent;
@@ -136,8 +101,8 @@ var isScrolledIntoView = function isScrolledIntoView(el) {
     partial: top < window.pageYOffset + window.innerHeight && left < window.pageXOffset + window.innerWidth && top + height > window.pageYOffset && left + width > window.pageXOffset
   };
 };
-var isElementIntoView = function isElementIntoView(el) {
-  var position = el.getBoundingClientRect();
+const isElementIntoView = el => {
+  const position = el.getBoundingClientRect();
   // checking whether fully visible
   if (position.top >= 0 && position.bottom <= window.innerHeight) {
     return true;
@@ -148,25 +113,23 @@ var isElementIntoView = function isElementIntoView(el) {
     return true;
   }
 };
-var breakpoints = {
+const breakpoints = {
   xs: 0,
   sm: 576,
   md: 768,
   lg: 992,
   xl: 1200
 };
-var getBreakpoint = function getBreakpoint(el) {
-  var classes = el && el.classList.value;
-  var breakpoint;
+const getBreakpoint = el => {
+  const classes = el && el.classList.value;
+  let breakpoint;
   if (classes) {
-    breakpoint = breakpoints[classes.split(' ').filter(function (cls) {
-      return cls.includes('navbar-expand-');
-    }).pop().split('-').pop()];
+    breakpoint = breakpoints[classes.split(' ').filter(cls => cls.includes('navbar-expand-')).pop().split('-').pop()];
   }
   return breakpoint;
 };
-var getCurrentScreenBreakpoint = function getCurrentScreenBreakpoint() {
-  var currentBreakpoint = '';
+const getCurrentScreenBreakpoint = () => {
+  let currentBreakpoint = '';
   if (window.innerWidth >= breakpoints.xl) {
     currentBreakpoint = 'xl';
   } else if (window.innerWidth >= breakpoints.lg) {
@@ -176,25 +139,25 @@ var getCurrentScreenBreakpoint = function getCurrentScreenBreakpoint() {
   } else {
     currentBreakpoint = 'sm';
   }
-  var breakpointStartVal = breakpoints[currentBreakpoint];
+  const breakpointStartVal = breakpoints[currentBreakpoint];
   return {
-    currentBreakpoint: currentBreakpoint,
-    breakpointStartVal: breakpointStartVal
+    currentBreakpoint,
+    breakpointStartVal
   };
 };
 
 /* --------------------------------- Cookie --------------------------------- */
 
-var setCookie = function setCookie(name, value, expire) {
-  var expires = new Date();
+const setCookie = (name, value, expire) => {
+  const expires = new Date();
   expires.setTime(expires.getTime() + expire);
-  document.cookie = "".concat(name, "=").concat(value, ";expires=").concat(expires.toUTCString());
+  document.cookie = `${name}=${value};expires=${expires.toUTCString()}`;
 };
-var getCookie = function getCookie(name) {
-  var keyValue = document.cookie.match("(^|;) ?".concat(name, "=([^;]*)(;|$)"));
+const getCookie = name => {
+  const keyValue = document.cookie.match(`(^|;) ?${name}=([^;]*)(;|$)`);
   return keyValue ? keyValue[2] : keyValue;
 };
-var settings = {
+const settings = {
   tinymce: {
     theme: 'oxide'
   },
@@ -205,44 +168,34 @@ var settings = {
 
 /* -------------------------- Chart Initialization -------------------------- */
 
-var newChart = function newChart(chart, config) {
-  var ctx = chart.getContext('2d');
+const newChart = (chart, config) => {
+  const ctx = chart.getContext('2d');
   return new window.Chart(ctx, config);
 };
 
 /* ---------------------------------- Store --------------------------------- */
 
-var getItemFromStore = function getItemFromStore(key, defaultValue) {
-  var store = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : localStorage;
+const getItemFromStore = (key, defaultValue, store = localStorage) => {
   try {
     return JSON.parse(store.getItem(key)) || defaultValue;
-  } catch (_unused) {
+  } catch {
     return store.getItem(key) || defaultValue;
   }
 };
-var setItemToStore = function setItemToStore(key, payload) {
-  var store = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : localStorage;
-  return store.setItem(key, payload);
-};
-var getStoreSpace = function getStoreSpace() {
-  var store = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : localStorage;
-  return parseFloat((escape(encodeURIComponent(JSON.stringify(store))).length / (1024 * 1024)).toFixed(2));
-};
+const setItemToStore = (key, payload, store = localStorage) => store.setItem(key, payload);
+const getStoreSpace = (store = localStorage) => parseFloat((escape(encodeURIComponent(JSON.stringify(store))).length / (1024 * 1024)).toFixed(2));
 
 /* get Dates between */
 
-var getDates = function getDates(startDate, endDate) {
-  var interval = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1000 * 60 * 60 * 24;
-  var duration = endDate - startDate;
-  var steps = duration / interval;
+const getDates = (startDate, endDate, interval = 1000 * 60 * 60 * 24) => {
+  const duration = endDate - startDate;
+  const steps = duration / interval;
   return Array.from({
     length: steps + 1
-  }, function (v, i) {
-    return new Date(startDate.valueOf() + interval * i);
-  });
+  }, (v, i) => new Date(startDate.valueOf() + interval * i));
 };
-var getPastDates = function getPastDates(duration) {
-  var days;
+const getPastDates = duration => {
+  let days;
   switch (duration) {
     case 'week':
       days = 7;
@@ -256,56 +209,55 @@ var getPastDates = function getPastDates(duration) {
     default:
       days = duration;
   }
-  var date = new Date();
-  var endDate = date;
-  var startDate = new Date(new Date().setDate(date.getDate() - (days - 1)));
+  const date = new Date();
+  const endDate = date;
+  const startDate = new Date(new Date().setDate(date.getDate() - (days - 1)));
   return getDates(startDate, endDate);
 };
 
 /* Get Random Number */
-var getRandomNumber = function getRandomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min) + min);
-};
-var utils = {
-  docReady: docReady,
-  resize: resize,
-  isIterableArray: isIterableArray,
-  camelize: camelize,
-  getData: getData,
-  hasClass: hasClass,
-  addClass: addClass,
-  hexToRgb: hexToRgb,
-  rgbaColor: rgbaColor,
-  getColor: getColor,
-  getColors: getColors,
-  getGrays: getGrays,
-  getOffset: getOffset,
-  isScrolledIntoView: isScrolledIntoView,
-  getBreakpoint: getBreakpoint,
-  setCookie: setCookie,
-  getCookie: getCookie,
-  newChart: newChart,
-  settings: settings,
-  getItemFromStore: getItemFromStore,
-  setItemToStore: setItemToStore,
-  getStoreSpace: getStoreSpace,
-  getDates: getDates,
-  getPastDates: getPastDates,
-  getRandomNumber: getRandomNumber,
-  getCurrentScreenBreakpoint: getCurrentScreenBreakpoint,
-  breakpoints: breakpoints,
-  isElementIntoView: isElementIntoView,
-  isRTL: isRTL
+const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min) + min);
+const utils = {
+  docReady,
+  resize,
+  isIterableArray,
+  camelize,
+  getData,
+  hasClass,
+  addClass,
+  hexToRgb,
+  rgbaColor,
+  getColor,
+  getColors,
+  getGrays,
+  getOffset,
+  isScrolledIntoView,
+  getBreakpoint,
+  setCookie,
+  getCookie,
+  newChart,
+  settings,
+  getItemFromStore,
+  setItemToStore,
+  getStoreSpace,
+  getDates,
+  getPastDates,
+  getRandomNumber,
+  getCurrentScreenBreakpoint,
+  breakpoints,
+  isElementIntoView,
+  isRTL
 };
 
 /* -------------------------------------------------------------------------- */
 /*                                  Detector                                  */
 /* -------------------------------------------------------------------------- */
 
-var detectorInit = function detectorInit() {
-  var _window = window,
-    is = _window.is;
-  var html = document.querySelector('html');
+const detectorInit = () => {
+  const {
+    is
+  } = window;
+  const html = document.querySelector('html');
   is.opera() && addClass(html, 'opera');
   is.mobile() && addClass(html, 'mobile');
   is.firefox() && addClass(html, 'firefox');
@@ -324,89 +276,63 @@ var detectorInit = function detectorInit() {
 /*-----------------------------------------------
 |   DomNode
 -----------------------------------------------*/
-var DomNode = /*#__PURE__*/function () {
-  function DomNode(node) {
-    _classCallCheck(this, DomNode);
+class DomNode {
+  constructor(node) {
     this.node = node;
   }
-  return _createClass(DomNode, [{
-    key: "addClass",
-    value: function addClass(className) {
-      this.isValidNode() && this.node.classList.add(className);
-    }
-  }, {
-    key: "removeClass",
-    value: function removeClass(className) {
-      this.isValidNode() && this.node.classList.remove(className);
-    }
-  }, {
-    key: "toggleClass",
-    value: function toggleClass(className) {
-      this.isValidNode() && this.node.classList.toggle(className);
-    }
-  }, {
-    key: "hasClass",
-    value: function hasClass(className) {
-      this.isValidNode() && this.node.classList.contains(className);
-    }
-  }, {
-    key: "data",
-    value: function data(key) {
-      if (this.isValidNode()) {
-        try {
-          return JSON.parse(this.node.dataset[this.camelize(key)]);
-        } catch (e) {
-          return this.node.dataset[this.camelize(key)];
-        }
+  addClass(className) {
+    this.isValidNode() && this.node.classList.add(className);
+  }
+  removeClass(className) {
+    this.isValidNode() && this.node.classList.remove(className);
+  }
+  toggleClass(className) {
+    this.isValidNode() && this.node.classList.toggle(className);
+  }
+  hasClass(className) {
+    this.isValidNode() && this.node.classList.contains(className);
+  }
+  data(key) {
+    if (this.isValidNode()) {
+      try {
+        return JSON.parse(this.node.dataset[this.camelize(key)]);
+      } catch (e) {
+        return this.node.dataset[this.camelize(key)];
       }
-      return null;
     }
-  }, {
-    key: "attr",
-    value: function attr(name) {
-      return this.isValidNode() && this.node[name];
-    }
-  }, {
-    key: "setAttribute",
-    value: function setAttribute(name, value) {
-      this.isValidNode() && this.node.setAttribute(name, value);
-    }
-  }, {
-    key: "removeAttribute",
-    value: function removeAttribute(name) {
-      this.isValidNode() && this.node.removeAttribute(name);
-    }
-  }, {
-    key: "setProp",
-    value: function setProp(name, value) {
-      this.isValidNode() && (this.node[name] = value);
-    }
-  }, {
-    key: "on",
-    value: function on(event, cb) {
-      this.isValidNode() && this.node.addEventListener(event, cb);
-    }
-  }, {
-    key: "isValidNode",
-    value: function isValidNode() {
-      return !!this.node;
-    }
+    return null;
+  }
+  attr(name) {
+    return this.isValidNode() && this.node[name];
+  }
+  setAttribute(name, value) {
+    this.isValidNode() && this.node.setAttribute(name, value);
+  }
+  removeAttribute(name) {
+    this.isValidNode() && this.node.removeAttribute(name);
+  }
+  setProp(name, value) {
+    this.isValidNode() && (this.node[name] = value);
+  }
+  on(event, cb) {
+    this.isValidNode() && this.node.addEventListener(event, cb);
+  }
+  isValidNode() {
+    return !!this.node;
+  }
 
-    // eslint-disable-next-line class-methods-use-this
-  }, {
-    key: "camelize",
-    value: function camelize(str) {
-      var text = str.replace(/[-_\s.]+(.)?/g, function (_, c) {
-        return c ? c.toUpperCase() : '';
-      });
-      return "".concat(text.substr(0, 1).toLowerCase()).concat(text.substr(1));
-    }
-  }]);
-}();
+  // eslint-disable-next-line class-methods-use-this
+  camelize(str) {
+    const text = str.replace(/[-_\s.]+(.)?/g, (_, c) => c ? c.toUpperCase() : '');
+    return `${text.substr(0, 1).toLowerCase()}${text.substr(1)}`;
+  }
+}
+
 /* -------------------------------------------------------------------------- */
 /*                                  Anchor JS                                 */
 /* -------------------------------------------------------------------------- */
-var anchors = new window.AnchorJS();
+
+const anchors = new window.AnchorJS();
 anchors.options = {
   icon: '#'
 };
@@ -416,35 +342,35 @@ anchors.add('[data-anchor]');
 |                                 bg player
 --------------------------------------------------------------------------- */
 
-var bgPlayerInit = function bgPlayerInit() {
-  var Selector = {
+const bgPlayerInit = () => {
+  const Selector = {
     DATA_YOUTUBE_EMBED: '[data-youtube-embed]',
     YT_VIDEO: '.yt-video'
   };
-  var DATA_KEY = {
+  const DATA_KEY = {
     YOUTUBE_EMBED: 'youtube-embed'
   };
-  var ClassName = {
+  const ClassName = {
     LOADED: 'loaded'
   };
-  var Events = {
+  const Events = {
     SCROLL: 'scroll',
     LOADING: 'loading',
     DOM_CONTENT_LOADED: 'DOMContentLoaded'
   };
-  var youtubeEmbedElements = document.querySelectorAll(Selector.DATA_YOUTUBE_EMBED);
-  var loadVideo = function loadVideo() {
+  const youtubeEmbedElements = document.querySelectorAll(Selector.DATA_YOUTUBE_EMBED);
+  const loadVideo = () => {
     function setupPlayer() {
-      window.YT.ready(function () {
-        youtubeEmbedElements.forEach(function (youtubeEmbedElement) {
-          var userOptions = utils.getData(youtubeEmbedElement, DATA_KEY.YOUTUBE_EMBED);
-          var defaultOptions = {
+      window.YT.ready(() => {
+        youtubeEmbedElements.forEach(youtubeEmbedElement => {
+          const userOptions = utils.getData(youtubeEmbedElement, DATA_KEY.YOUTUBE_EMBED);
+          const defaultOptions = {
             videoId: 'hLpy-DRuiz0',
             startSeconds: 1,
             endSeconds: 50
           };
-          var options = window._.merge(defaultOptions, userOptions);
-          var youTubePlayer = function youTubePlayer() {
+          const options = window._.merge(defaultOptions, userOptions);
+          const youTubePlayer = () => {
             // eslint-disable-next-line
             new YT.Player(youtubeEmbedElement, {
               videoId: options.videoId,
@@ -457,17 +383,17 @@ var bgPlayerInit = function bgPlayerInit() {
                 loop: 1,
                 fs: 0,
                 enablejsapi: 0,
-                start: options === null || options === void 0 ? void 0 : options.startSeconds,
-                end: options === null || options === void 0 ? void 0 : options.endSeconds
+                start: options?.startSeconds,
+                end: options?.endSeconds
               },
               events: {
-                onReady: function onReady(e) {
+                onReady: e => {
                   e.target.mute();
                   e.target.playVideo();
                 },
-                onStateChange: function onStateChange(e) {
+                onStateChange: e => {
                   if (e.data === window.YT.PlayerState.PLAYING) {
-                    document.querySelectorAll(Selector.DATA_YOUTUBE_EMBED).forEach(function (embedElement) {
+                    document.querySelectorAll(Selector.DATA_YOUTUBE_EMBED).forEach(embedElement => {
                       embedElement.classList.add(ClassName.LOADED);
                     });
                   }
@@ -486,68 +412,62 @@ var bgPlayerInit = function bgPlayerInit() {
         });
       });
     }
-    var tag = document.createElement('script');
+    const tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/iframe_api';
-    var firstScriptTag = document.getElementsByTagName('script')[0];
+    const firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     tag.onload = setupPlayer;
   };
   if (document.readyState !== Events.LOADING) {
     loadVideo();
   } else {
-    document.addEventListener(Events.DOM_CONTENT_LOADED, function () {
-      return loadVideo();
-    });
+    document.addEventListener(Events.DOM_CONTENT_LOADED, () => loadVideo());
   }
 
   /* --------------------------------------------------------------------------
   |                                 Adjust BG Ratio
   --------------------------------------------------------------------------- */
 
-  var adjustBackgroundRatio = function adjustBackgroundRatio() {
-    var ytElements = document.querySelectorAll(Selector.YT_VIDEO);
-    ytElements.forEach(function (ytEl) {
-      var ytElement = ytEl;
-      var width = ytElement.parentElement.offsetWidth + 200;
-      var height = width * 9 / 16;
-      var minHeight = ytElement.parentElement.offsetHeight + 112;
-      var minWidth = minHeight * 16 / 9;
-      ytElement.style.width = "".concat(width, "px");
-      ytElement.style.height = "".concat(height, "px");
-      ytElement.style.minHeight = "".concat(minHeight, "px");
-      ytElement.style.minWidth = "".concat(minWidth, "px");
+  const adjustBackgroundRatio = () => {
+    const ytElements = document.querySelectorAll(Selector.YT_VIDEO);
+    ytElements.forEach(ytEl => {
+      const ytElement = ytEl;
+      const width = ytElement.parentElement.offsetWidth + 200;
+      const height = width * 9 / 16;
+      const minHeight = ytElement.parentElement.offsetHeight + 112;
+      const minWidth = minHeight * 16 / 9;
+      ytElement.style.width = `${width}px`;
+      ytElement.style.height = `${height}px`;
+      ytElement.style.minHeight = `${minHeight}px`;
+      ytElement.style.minWidth = `${minWidth}px`;
     });
   };
   adjustBackgroundRatio();
-  document.addEventListener(Events.SCROLL, function () {
-    return adjustBackgroundRatio();
-  });
+  document.addEventListener(Events.SCROLL, () => adjustBackgroundRatio());
 };
 
 /* --------------------------------------------------------------------------
 |                                 Sparrow Navbar
 /* -------------------------------------------------------------------------- */
 
-var bootstrapNavbarInit = function bootstrapNavbarInit() {
-  var navbar = document.querySelector('.navbar-sparrow');
+const bootstrapNavbarInit = () => {
+  const navbar = document.querySelector('.navbar-sparrow');
   if (navbar) {
-    var windowHeight = window.innerHeight;
-    var handleAlpha = function handleAlpha() {
-      var scrollTop = window.pageYOffset;
-      var alpha = scrollTop / windowHeight * 2;
+    const windowHeight = window.innerHeight;
+    const handleAlpha = () => {
+      const scrollTop = window.pageYOffset;
+      let alpha = scrollTop / windowHeight * 2;
       alpha >= 1 && (alpha = 1);
-      navbar.style.backgroundColor = "rgba(0, 0, 0, ".concat(alpha, ")");
+      navbar.style.backgroundColor = `rgba(0, 0, 0, ${alpha})`;
     };
     handleAlpha();
-    document.addEventListener('scroll', function () {
-      return handleAlpha();
-    });
+    document.addEventListener('scroll', () => handleAlpha());
 
     // Top navigation background toggle on mobile
-    navbar.addEventListener('show.bs.collapse', function (e) {
+    navbar.addEventListener('show.bs.collapse', e => {
       e.currentTarget.classList.toggle('bg-black');
     });
-    navbar.addEventListener('hide.bs.collapse', function (e) {
+    navbar.addEventListener('hide.bs.collapse', e => {
       e.currentTarget.classList.toggle('bg-black');
     });
   }
@@ -557,24 +477,24 @@ var bootstrapNavbarInit = function bootstrapNavbarInit() {
 |                                 Countdown
 --------------------------------------------------------------------------- */
 
-var countdownInit = function countdownInit() {
-  var countdownElements = document.querySelectorAll('[data-countdown]');
-  countdownElements.forEach(function (el) {
-    var countdownElement = el;
-    var userOptions = utils.getData(countdownElement, 'countdown');
-    var countDownDate = new Date("".concat(userOptions === null || userOptions === void 0 ? void 0 : userOptions.month, " ", "".concat(userOptions === null || userOptions === void 0 ? void 0 : userOptions.date, ","), " ").concat(userOptions.year)).getTime();
+const countdownInit = () => {
+  const countdownElements = document.querySelectorAll('[data-countdown]');
+  countdownElements.forEach(el => {
+    const countdownElement = el;
+    const userOptions = utils.getData(countdownElement, 'countdown');
+    const countDownDate = new Date(`${userOptions?.month} ${`${userOptions?.date},`} ${userOptions.year}`).getTime();
 
     // Update the count down every 1 second
-    var updateCountdown = setInterval(function () {
-      var currentTime = new Date().getTime();
-      var distance = countDownDate - currentTime;
+    const updateCountdown = setInterval(() => {
+      const currentTime = new Date().getTime();
+      const distance = countDownDate - currentTime;
 
       // Time calculations for days, hours, minutes and seconds
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor(distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
-      var minutes = Math.floor(distance % (1000 * 60 * 60) / (1000 * 60));
-      var seconds = Math.floor(distance % (1000 * 60) / 1000);
-      countdownElement.innerHTML = "".concat(days, " days ").concat("0".concat(hours).toString().slice(-2), ":").concat("0".concat(minutes).toString().slice(-2), ":").concat("0".concat(seconds).toString().slice(-2));
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+      const minutes = Math.floor(distance % (1000 * 60 * 60) / (1000 * 60));
+      const seconds = Math.floor(distance % (1000 * 60) / 1000);
+      countdownElement.innerHTML = `${days} days ${`0${hours}`.toString().slice(-2)}:${`0${minutes}`.toString().slice(-2)}:${`0${seconds}`.toString().slice(-2)}`;
 
       // If the count down is over, write some text
       if (distance < 0) {
@@ -589,20 +509,22 @@ var countdownInit = function countdownInit() {
 /*                                  Count Up                                  */
 /* -------------------------------------------------------------------------- */
 
-var countupInit = function countupInit() {
+const countupInit = () => {
   if (window.countUp) {
-    var countups = document.querySelectorAll('[data-countup]');
-    countups.forEach(function (node) {
-      var _utils$getData = utils.getData(node, 'countup'),
-        endValue = _utils$getData.endValue,
-        options = _objectWithoutProperties(_utils$getData, _excluded);
-      var playCountUpTriggerd = false;
-      var countUP = function countUP() {
+    const countups = document.querySelectorAll('[data-countup]');
+    countups.forEach(node => {
+      const {
+        endValue,
+        ...options
+      } = utils.getData(node, 'countup');
+      let playCountUpTriggerd = false;
+      const countUP = () => {
         if (utils.isElementIntoView(node) && !playCountUpTriggerd) {
-          var countUp = new window.countUp.CountUp(node, endValue, _objectSpread({
+          const countUp = new window.countUp.CountUp(node, endValue, {
             duration: 3,
-            useEasing: false
-          }, options));
+            useEasing: false,
+            ...options
+          });
           if (!countUp.error) {
             countUp.start();
           } else {
@@ -612,9 +534,7 @@ var countupInit = function countupInit() {
         }
       };
       countUP();
-      window.addEventListener('scroll', function () {
-        return countUP();
-      });
+      window.addEventListener('scroll', () => countUP());
     });
   }
 };
@@ -627,25 +547,25 @@ var countupInit = function countupInit() {
   gsap
 */
 
-var Selector = {
+const Selector = {
   DATA_ZANIM_SVG_TRIGGER: 'data-zanim-svg-trigger',
   DATA_ZANIM_REPEAT: '[zanim-repeat]',
   PATH: 'path',
   ZANIM_SVG: 'zanim-svg'
 };
-var Events = {
+const Events = {
   SCROLL: 'scroll'
 };
-var drawSvgInit = function drawSvgInit() {
-  var drawSvg = function drawSvg(el) {
-    var path = el.querySelector(Selector.PATH);
-    var defaultOptions = {
+const drawSvgInit = () => {
+  const drawSvg = el => {
+    const path = el.querySelector(Selector.PATH);
+    const defaultOptions = {
       delay: 0,
       duration: 2,
       ease: 'Expo.easeOut'
     };
-    var controller = Object.assign(defaultOptions, utils.getData(el, Selector.ZANIM_SVG));
-    var timeline = window.gsap.timeline();
+    const controller = Object.assign(defaultOptions, utils.getData(el, Selector.ZANIM_SVG));
+    const timeline = window.gsap.timeline();
     timeline.from(path, controller.duration, {
       drawSVG: 0,
       delay: controller.delay,
@@ -655,9 +575,9 @@ var drawSvgInit = function drawSvgInit() {
       visibility: 'visible'
     });
   };
-  var triggerSvg = function triggerSvg() {
-    var svgTriggerElement = document.querySelectorAll("[".concat(Selector.DATA_ZANIM_SVG_TRIGGER, "]"));
-    svgTriggerElement.forEach(function (el) {
+  const triggerSvg = () => {
+    const svgTriggerElement = document.querySelectorAll(`[${Selector.DATA_ZANIM_SVG_TRIGGER}]`);
+    svgTriggerElement.forEach(el => {
       if (utils.isElementIntoView(el) && el.hasAttribute(Selector.DATA_ZANIM_SVG_TRIGGER)) {
         drawSvg(el);
         if (!document.querySelector(Selector.DATA_ZANIM_REPEAT)) {
@@ -667,23 +587,21 @@ var drawSvgInit = function drawSvgInit() {
     });
   };
   triggerSvg();
-  window.addEventListener(Events.SCROLL, function () {
-    return triggerSvg();
-  });
+  window.addEventListener(Events.SCROLL, () => triggerSvg());
 };
 
 /*-----------------------------------------------
 |   Fancynav
 -----------------------------------------------*/
-var fancyNavInit = function fancyNavInit() {
-  var ClassName = {
+const fancyNavInit = () => {
+  const ClassName = {
     SHOW: 'show',
     PLAY: 'play',
     COLLAPSED: 'collapsed',
     FANCYNAVBAR_LEFT: 'fancynavbar-left',
     FANCYNAVBAR_TOP: 'fancynavbar-top'
   };
-  var Selector = {
+  const Selector = {
     FANCYNAVBAR: '.fancynavbar',
     FANCYNAVBAR_LEFT: '.fancynavbar-left',
     FANCYNAVBAR_TOGGLERBAR: '.fancynavbar-togglerbar',
@@ -702,33 +620,33 @@ var fancyNavInit = function fancyNavInit() {
     FANCY_DROPDOWN_ITEM: '.fancy-dropdown-item',
     DATA_ONE_PAGE: '[data-one-page]'
   };
-  var DATA_KEY = {
+  const DATA_KEY = {
     ZANIM_XS: 'data-zanim-xs',
     ZANIM_MD: 'data-zanim-md',
     ZANIM_LG: 'data-zanim-lg',
     EXCLUSIVE: 'data-exclusive'
   };
-  var Events = {
+  const Events = {
     CLICK: 'click',
     SCROLL: 'scroll',
     RESIZE: 'resize'
   };
-  var EASE = 'CubicBezier';
-  var fancynavbar = document.querySelector(Selector.FANCYNAVBAR);
-  var isFancynavbarLeft = fancynavbar === null || fancynavbar === void 0 ? void 0 : fancynavbar.classList.contains(ClassName.FANCYNAVBAR_LEFT);
-  var isFancynavbarTop = fancynavbar === null || fancynavbar === void 0 ? void 0 : fancynavbar.classList.contains(ClassName.FANCYNAVBAR_TOP);
+  const EASE = 'CubicBezier';
+  const fancynavbar = document.querySelector(Selector.FANCYNAVBAR);
+  const isFancynavbarLeft = fancynavbar?.classList.contains(ClassName.FANCYNAVBAR_LEFT);
+  const isFancynavbarTop = fancynavbar?.classList.contains(ClassName.FANCYNAVBAR_TOP);
 
   /*-----------------------------------------------
   |   RTL compatibility
   -----------------------------------------------*/
   if ((utils.isRTL() || isFancynavbarLeft) && !(utils.isRTL() && isFancynavbarLeft)) {
-    var fancyNavbarBrandImg = document.querySelector(Selector.FANCYNAVBAR_BRAND_IMG);
-    var fancyNavbarTogglerIcon = document.querySelector(Selector.FANCYNAVBAR_TOGGLER_ICON);
-    var fancyNavbarAddon = document.querySelector(Selector.FANCYNAVBAR_ADDON);
-    var reverseZanimData = function reverseZanimData(el) {
-      var attrObj = JSON.parse(el.getAttribute(DATA_KEY.ZANIM_LG));
+    const fancyNavbarBrandImg = document.querySelector(Selector.FANCYNAVBAR_BRAND_IMG);
+    const fancyNavbarTogglerIcon = document.querySelector(Selector.FANCYNAVBAR_TOGGLER_ICON);
+    const fancyNavbarAddon = document.querySelector(Selector.FANCYNAVBAR_ADDON);
+    const reverseZanimData = el => {
+      const attrObj = JSON.parse(el.getAttribute(DATA_KEY.ZANIM_LG));
       attrObj.from.x = -attrObj.from.x;
-      var attrStr = JSON.stringify(attrObj);
+      const attrStr = JSON.stringify(attrObj);
       el.setAttribute(DATA_KEY.ZANIM_LG, attrStr);
     };
     reverseZanimData(fancynavbar);
@@ -737,49 +655,51 @@ var fancyNavInit = function fancyNavInit() {
     reverseZanimData(fancyNavbarAddon);
   }
   if (isFancynavbarTop) {
-    var _fancyNavbarBrandImg = document.querySelector(Selector.FANCYNAVBAR_BRAND_IMG);
-    var _fancyNavbarTogglerIcon = document.querySelector(Selector.FANCYNAVBAR_TOGGLER_ICON);
-    var _fancyNavbarAddon = document.querySelector(Selector.FANCYNAVBAR_ADDON);
-    var setZanimData = function setZanimData(el, anim) {
-      var animStr = JSON.stringify(anim);
+    const fancyNavbarBrandImg = document.querySelector(Selector.FANCYNAVBAR_BRAND_IMG);
+    const fancyNavbarTogglerIcon = document.querySelector(Selector.FANCYNAVBAR_TOGGLER_ICON);
+    const fancyNavbarAddon = document.querySelector(Selector.FANCYNAVBAR_ADDON);
+    const setZanimData = (el, anim) => {
+      const animStr = JSON.stringify(anim);
       el.setAttribute(DATA_KEY.ZANIM_LG, animStr);
     };
-    var reverseZanimDataY = function reverseZanimDataY(el, val) {
-      var attrObj = JSON.parse(el.getAttribute(DATA_KEY.ZANIM_LG));
+    const reverseZanimDataY = (el, val) => {
+      const attrObj = JSON.parse(el.getAttribute(DATA_KEY.ZANIM_LG));
       attrObj.from.y = -val;
-      var attrStr = JSON.stringify(attrObj);
+      const attrStr = JSON.stringify(attrObj);
       el.setAttribute(DATA_KEY.ZANIM_LG, attrStr);
     };
-    var anim = JSON.parse(fancynavbar.getAttribute(DATA_KEY.ZANIM_XS));
-    var childAnim = _objectSpread(_objectSpread({}, anim), {}, {
+    const anim = JSON.parse(fancynavbar.getAttribute(DATA_KEY.ZANIM_XS));
+    const childAnim = {
+      ...anim,
       delay: 0.4
-    });
-    var addonAnim = _objectSpread(_objectSpread({}, anim), {}, {
+    };
+    const addonAnim = {
+      ...anim,
       delay: 0.5
-    });
+    };
     setZanimData(fancynavbar, anim);
-    setZanimData(_fancyNavbarBrandImg, childAnim);
-    reverseZanimDataY(_fancyNavbarBrandImg, 38);
-    setZanimData(_fancyNavbarTogglerIcon, childAnim);
-    setZanimData(_fancyNavbarAddon, addonAnim);
-    reverseZanimDataY(_fancyNavbarAddon, 30);
+    setZanimData(fancyNavbarBrandImg, childAnim);
+    reverseZanimDataY(fancyNavbarBrandImg, 38);
+    setZanimData(fancyNavbarTogglerIcon, childAnim);
+    setZanimData(fancyNavbarAddon, addonAnim);
+    reverseZanimDataY(fancyNavbarAddon, 30);
   }
   if (fancynavbar) {
-    var fancyNavbarCollapse = document.querySelector(Selector.FANCYNAVBAR_COLLAPSE);
-    var fancyNavbarToggler = document.querySelector(Selector.FANCYNAVBAR_TOGGLER);
-    var exclusive = document.querySelector("[".concat(DATA_KEY.EXCLUSIVE, "]"));
-    var x = '100%';
+    const fancyNavbarCollapse = document.querySelector(Selector.FANCYNAVBAR_COLLAPSE);
+    const fancyNavbarToggler = document.querySelector(Selector.FANCYNAVBAR_TOGGLER);
+    const exclusive = document.querySelector(`[${DATA_KEY.EXCLUSIVE}]`);
+    let x = '100%';
     (utils.isRTL() || isFancynavbarLeft) && !(utils.isRTL() && isFancynavbarLeft) && (x = '-100%');
 
     /*-----------------------------------------------
     |   Fancy Navbar Collapse Animation
     -----------------------------------------------*/
-    var fancyNavbarCollapseTimeline = window.gsap.timeline().pause();
-    var fancyNavItems = document.querySelectorAll("".concat(Selector.FANCYNAV_LINK, ", ").concat(Selector.FANCY_DROPDOWN_MENU));
-    //$fancyNavItems.css('opacity', 0);
+    const fancyNavbarCollapseTimeline = window.gsap.timeline().pause();
+    const fancyNavItems = document.querySelectorAll(`${Selector.FANCYNAV_LINK}, ${Selector.FANCY_DROPDOWN_MENU}`);
+    // $fancyNavItems.css('opacity', 0);
 
     fancyNavbarCollapseTimeline.fromTo(fancyNavbarCollapse, 0.6, {
-      x: x
+      x
     }, {
       x: '0%',
       ease: EASE
@@ -798,11 +718,11 @@ var fancyNavInit = function fancyNavInit() {
     /*-----------------------------------------------
     |   Fancy Navbar Toggler Icon Animation
     -----------------------------------------------*/
-    var fancyNavbarTogglerIconTimeline = window.gsap.timeline().pause();
-    var _fancyNavbarTogglerIcon2 = document.querySelector(Selector.FANCYNAVBAR_TOGGLER_ICON);
-    var fancyNavbarTogglerIconPathTop = _fancyNavbarTogglerIcon2.querySelector(Selector.PATH_TOP);
-    var fancyNavbarTogglerIconPathMiddle = _fancyNavbarTogglerIcon2.querySelector(Selector.PATH_MIDDLE);
-    var fancyNavbarTogglerIconPathBottom = _fancyNavbarTogglerIcon2.querySelector(Selector.PATH_BOTTOM);
+    const fancyNavbarTogglerIconTimeline = window.gsap.timeline().pause();
+    const fancyNavbarTogglerIcon = document.querySelector(Selector.FANCYNAVBAR_TOGGLER_ICON);
+    const fancyNavbarTogglerIconPathTop = fancyNavbarTogglerIcon.querySelector(Selector.PATH_TOP);
+    const fancyNavbarTogglerIconPathMiddle = fancyNavbarTogglerIcon.querySelector(Selector.PATH_MIDDLE);
+    const fancyNavbarTogglerIconPathBottom = fancyNavbarTogglerIcon.querySelector(Selector.PATH_BOTTOM);
     fancyNavbarTogglerIconTimeline.fromTo(fancyNavbarTogglerIconPathTop, 0.5, {
       'stroke-dashoffset': '0',
       'stroke-dasharray': '30px 88px'
@@ -830,41 +750,41 @@ var fancyNavInit = function fancyNavInit() {
     |   End of Fancy Navbar Toggler Icon Animation
     -----------------------------------------------*/
 
-    var animateMenu = function animateMenu() {
-      _fancyNavbarTogglerIcon2.classList.contains(ClassName.PLAY) ? fancyNavbarTogglerIconTimeline.reverse() : fancyNavbarTogglerIconTimeline.play();
-      _fancyNavbarTogglerIcon2.classList.toggle(ClassName.PLAY);
+    const animateMenu = () => {
+      fancyNavbarTogglerIcon.classList.contains(ClassName.PLAY) ? fancyNavbarTogglerIconTimeline.reverse() : fancyNavbarTogglerIconTimeline.play();
+      fancyNavbarTogglerIcon.classList.toggle(ClassName.PLAY);
       fancyNavbarToggler.classList.contains(ClassName.COLLAPSED) ? fancyNavbarCollapseTimeline.reverse() : fancyNavbarCollapseTimeline.play();
       fancyNavbarToggler.classList.toggle(ClassName.COLLAPSED);
     };
     fancyNavbarToggler.addEventListener(Events.CLICK, animateMenu);
-    document.querySelector('main').addEventListener(Events.CLICK, function () {
+    document.querySelector('main').addEventListener(Events.CLICK, () => {
       fancyNavbarToggler.classList.contains(ClassName.COLLAPSED) && animateMenu();
     });
 
     /*-----------------------------------------------
     |   Resize Fancy Dropdown
     -----------------------------------------------*/
-    var fancyDropdownMenus = document.querySelectorAll(Selector.FANCY_DROPDOWN_MENU);
+    const fancyDropdownMenus = document.querySelectorAll(Selector.FANCY_DROPDOWN_MENU);
     if (fancyDropdownMenus.length) {
-      fancyDropdownMenus.forEach(function (el) {
-        var fancyDropdownMenu = el;
-        var dpMenuPrevSiblingHeight = "".concat(fancyDropdownMenu.previousElementSibling.offsetHeight, "px");
+      fancyDropdownMenus.forEach(el => {
+        const fancyDropdownMenu = el;
+        const dpMenuPrevSiblingHeight = `${fancyDropdownMenu.previousElementSibling.offsetHeight}px`;
         fancyDropdownMenu.closest(Selector.FANCY_DROPDOWN).style.height = dpMenuPrevSiblingHeight;
       });
 
       /*-----------------------------------------------
       |   On Resize, Adjust the Menu Height
       -----------------------------------------------*/
-      window.resize(function () {
-        var fancyDropdownList = document.querySelectorAll(Selector.FANCY_DROPDOWN);
-        fancyDropdownList.forEach(function (el) {
-          var fancyDropdown = el;
-          var dropdownToggleHeight = el.querySelector(Selector.FANCY_DROPDOWN_TOGGLE).offsetHeight;
+      window.resize(() => {
+        const fancyDropdownList = document.querySelectorAll(Selector.FANCY_DROPDOWN);
+        fancyDropdownList.forEach(el => {
+          const fancyDropdown = el;
+          const dropdownToggleHeight = el.querySelector(Selector.FANCY_DROPDOWN_TOGGLE).offsetHeight;
           if (fancyDropdown.classList.contains(ClassName.SHOW)) {
-            var fancyDropdownMenuHeight = fancyDropdown.querySelector(Selector.FANCY_DROPDOWN_MENU).offsetHeight;
-            fancyDropdown.style.height = "".concat(dropdownToggleHeight + fancyDropdownMenuHeight, "px");
+            const fancyDropdownMenuHeight = fancyDropdown.querySelector(Selector.FANCY_DROPDOWN_MENU).offsetHeight;
+            fancyDropdown.style.height = `${dropdownToggleHeight + fancyDropdownMenuHeight}px`;
           } else {
-            fancyDropdown.style.height = "".concat(dropdownToggleHeight, "px");
+            fancyDropdown.style.height = `${dropdownToggleHeight}px`;
           }
         });
       });
@@ -872,20 +792,19 @@ var fancyNavInit = function fancyNavInit() {
     /*-----------------------------------------------
     |   End of Resize Fancy Dropdown
     -----------------------------------------------*/
-    var fancyNavLinks = document.querySelectorAll(Selector.FANCYNAV_LINK);
-    fancyNavLinks.forEach(function (fancyNavLink) {
-      fancyNavLink.addEventListener(Events.CLICK, function (e) {
-        var fancyLink = e.target;
+    const fancyNavLinks = document.querySelectorAll(Selector.FANCYNAV_LINK);
+    fancyNavLinks.forEach(fancyNavLink => {
+      fancyNavLink.addEventListener(Events.CLICK, e => {
+        const fancyLink = e.target;
         // if one-page
         if (fancyLink.closest(Selector.DATA_ONE_PAGE)) {
           animateMenu();
         } else {
-          var _targetFancyLinkParen;
-          var fancyDropdownMenuTl = window.gsap.timeline().pause();
-          var targetFancyLink = fancyLink.closest(Selector.FANCY_DROPDOWN_TOGGLE);
-          var targetNavSiblings = targetFancyLink === null || targetFancyLink === void 0 ? void 0 : targetFancyLink.nextElementSibling;
-          var siblingsList = targetNavSiblings === null || targetNavSiblings === void 0 ? void 0 : targetNavSiblings.querySelectorAll(Selector.FANCY_DROPDOWN_ITEM);
-          var listOfItems = Array.from(siblingsList);
+          const fancyDropdownMenuTl = window.gsap.timeline().pause();
+          const targetFancyLink = fancyLink.closest(Selector.FANCY_DROPDOWN_TOGGLE);
+          const targetNavSiblings = targetFancyLink?.nextElementSibling;
+          const siblingsList = targetNavSiblings?.querySelectorAll(Selector.FANCY_DROPDOWN_ITEM);
+          const listOfItems = Array.from(siblingsList);
           fancyDropdownMenuTl.staggerFromTo(listOfItems, 0.3, {
             y: 30,
             opacity: 0
@@ -894,14 +813,14 @@ var fancyNavInit = function fancyNavInit() {
             opacity: 1,
             ease: EASE
           }, 0.01).delay(0.1);
-          var targetFancyLinkParentLi = fancyLink === null || fancyLink === void 0 ? void 0 : fancyLink.closest(Selector.FANCY_DROPDOWN);
-          targetFancyLinkParentLi === null || targetFancyLinkParentLi === void 0 || (_targetFancyLinkParen = targetFancyLinkParentLi.classList) === null || _targetFancyLinkParen === void 0 || _targetFancyLinkParen.toggle(ClassName.SHOW);
+          const targetFancyLinkParentLi = fancyLink?.closest(Selector.FANCY_DROPDOWN);
+          targetFancyLinkParentLi?.classList?.toggle(ClassName.SHOW);
           if (fancyLink.closest(Selector.FANCY_DROPDOWN).classList.contains(ClassName.SHOW)) {
-            targetFancyLinkParentLi.style.height = "".concat(targetFancyLink.offsetHeight + targetFancyLink.nextElementSibling.offsetHeight, "px");
+            targetFancyLinkParentLi.style.height = `${targetFancyLink.offsetHeight + targetFancyLink.nextElementSibling.offsetHeight}px`;
             fancyDropdownMenuTl.play();
           } else {
             fancyDropdownMenuTl.reverse();
-            targetFancyLinkParentLi.style.height = "".concat(targetFancyLink.offsetHeight, "px");
+            targetFancyLinkParentLi.style.height = `${targetFancyLink.offsetHeight}px`;
           }
 
           /*-----------------------------------------------
@@ -909,70 +828,62 @@ var fancyNavInit = function fancyNavInit() {
           -----------------------------------------------*/
 
           if (exclusive) {
-            var currentDropdownEl = fancyLink.closest(Selector.FANCY_DROPDOWN);
-            var dropdownElements = document.querySelectorAll(Selector.FANCY_DROPDOWN);
-            dropdownElements.forEach(function (item) {
-              var dropdownElement = item;
+            const currentDropdownEl = fancyLink.closest(Selector.FANCY_DROPDOWN);
+            const dropdownElements = document.querySelectorAll(Selector.FANCY_DROPDOWN);
+            dropdownElements.forEach(item => {
+              const dropdownElement = item;
               if (dropdownElement !== currentDropdownEl) {
-                dropdownElement.style.height = "".concat(targetFancyLink.offsetHeight, "px");
+                dropdownElement.style.height = `${targetFancyLink.offsetHeight}px`;
                 dropdownElement.classList.remove(ClassName.SHOW);
               }
             });
           }
         }
       });
-    }); //------------- click event end ------------
+    }); // ------------- click event end ------------
 
     /*-----------------------------------------------
     |   Transparency on scroll on mobile
     -----------------------------------------------*/
-    var togglerbar = document.querySelector(Selector.FANCYNAVBAR_TOGGLERBAR);
-    var onscrollFadeIn = utils.getData(togglerbar, 'onscroll-fade-in');
-    var prevBgColor = window.getComputedStyle(togglerbar).backgroundColor;
-    var prevBgClass = togglerbar.classList.value.split(' ').filter(function (className) {
-      return className.indexOf('bg-') === 0;
-    })[0];
+    const togglerbar = document.querySelector(Selector.FANCYNAVBAR_TOGGLERBAR);
+    const onscrollFadeIn = utils.getData(togglerbar, 'onscroll-fade-in');
+    const prevBgColor = window.getComputedStyle(togglerbar).backgroundColor;
+    const prevBgClass = togglerbar.classList.value.split(' ').filter(className => className.indexOf('bg-') === 0)[0];
     if (onscrollFadeIn) {
-      var sideNavBgColor = window.getComputedStyle(togglerbar).backgroundColor;
+      let sideNavBgColor = window.getComputedStyle(togglerbar).backgroundColor;
       if (sideNavBgColor === 'transparent') sideNavBgColor = 'rgb(0, 0, 0)';
       if (sideNavBgColor.indexOf('a') === -1) {
         sideNavBgColor = sideNavBgColor.replace(')', ', 1)').replace('rgb', 'rgba');
       }
-      var backgroundColorAlpha = sideNavBgColor.split(', ')[3].split(')')[0];
+      let backgroundColorAlpha = sideNavBgColor.split(', ')[3].split(')')[0];
       if (window.pageYOffset === 0) backgroundColorAlpha = 0;
-      var fancynavBreakpoint = fancynavbar.classList.value.split(' ').filter(function (className) {
-        return className.indexOf('fancynavbar-expand') === 0;
-      })[0].split('fancynavbar-expand-')[1];
-      var ChangeFancyNavBG = function ChangeFancyNavBG() {
-        var windowHeight = window.innerHeight;
+      const fancynavBreakpoint = fancynavbar.classList.value.split(' ').filter(className => className.indexOf('fancynavbar-expand') === 0)[0].split('fancynavbar-expand-')[1];
+      const ChangeFancyNavBG = () => {
+        const windowHeight = window.innerHeight;
         if (window.innerWidth > utils.breakpoints[fancynavBreakpoint]) {
           prevBgClass && togglerbar.classList.add(prevBgClass);
-          togglerbar.style.backgroundColor = "".concat(prevBgColor.replace('rgba', 'rgb').split(',').slice(0, 3).join(), ")");
+          togglerbar.style.backgroundColor = `${prevBgColor.replace('rgba', 'rgb').split(',').slice(0, 3).join()})`;
         } else {
           togglerbar.classList.remove(prevBgClass);
-          var tempBgColor = sideNavBgColor.split(', ');
-          var bgColor = tempBgColor.join();
+          const tempBgColor = sideNavBgColor.split(', ');
+          let bgColor = tempBgColor.join();
           togglerbar.style.backgroundColor = bgColor;
-          var adjustFancyNavBG = function adjustFancyNavBG() {
+          const adjustFancyNavBG = () => {
             if (window.innerWidth < utils.breakpoints[fancynavBreakpoint]) {
-              var scrollTop = window.pageYOffset;
+              const scrollTop = window.pageYOffset;
               backgroundColorAlpha = scrollTop / windowHeight * 2;
               backgroundColorAlpha >= 1 && (backgroundColorAlpha = 1);
-              tempBgColor[3] = "".concat(backgroundColorAlpha, ")");
+              tempBgColor[3] = `${backgroundColorAlpha})`;
               bgColor = tempBgColor.join();
               togglerbar.style.backgroundColor = bgColor;
             }
           };
           // adjustFancyNavBG();
-          document.addEventListener(Events.SCROLL, function () {
-            return adjustFancyNavBG();
-          });
+          document.addEventListener(Events.SCROLL, () => adjustFancyNavBG());
         }
       };
       ChangeFancyNavBG();
-      window.addEventListener(Events.RESIZE, function () {
-        return ChangeFancyNavBG();
-      });
+      window.addEventListener(Events.RESIZE, () => ChangeFancyNavBG());
     }
   }
 };
@@ -982,11 +893,11 @@ var fancyNavInit = function fancyNavInit() {
 -----------------------------------------------*/
 
 function initMap() {
-  var themeController = document.body;
-  var $googlemaps = document.querySelectorAll('[data-gmap]');
+  const themeController = document.body;
+  const $googlemaps = document.querySelectorAll('[data-gmap]');
   if ($googlemaps.length && window.google) {
     // Visit https://snazzymaps.com/ for more themes
-    var mapStyles = {
+    const mapStyles = {
       Default: [{
         featureType: 'water',
         elementType: 'geometry',
@@ -1894,49 +1805,51 @@ function initMap() {
         }]
       }]
     };
-    $googlemaps.forEach(function (itm) {
-      var latLng = utils.getData(itm, 'latlng').split(',');
-      var markerPopup = itm.innerHTML;
-      var icon = utils.getData(itm, 'icon') ? utils.getData(itm, 'icon') : 'https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi.png';
-      var zoom = utils.getData(itm, 'zoom');
-      var mapElement = itm;
-      var mapStyle = utils.getData(itm, 'theme');
+    $googlemaps.forEach(itm => {
+      const latLng = utils.getData(itm, 'latlng').split(',');
+      const markerPopup = itm.innerHTML;
+      const icon = utils.getData(itm, 'icon') ? utils.getData(itm, 'icon') : 'https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi.png';
+      const zoom = utils.getData(itm, 'zoom');
+      const mapElement = itm;
+      const mapStyle = utils.getData(itm, 'theme');
       if (utils.getData(itm, 'theme') === 'streetview') {
-        var pov = utils.getData(itm, 'pov');
-        var _mapOptions = {
+        const pov = utils.getData(itm, 'pov');
+        const mapOptions = {
           position: {
             lat: Number(latLng[0]),
             lng: Number(latLng[1])
           },
-          pov: pov,
-          zoom: zoom,
+          pov,
+          zoom,
           gestureHandling: 'none',
           scrollwheel: false
         };
-        return new window.google.maps.StreetViewPanorama(mapElement, _mapOptions);
+        return new window.google.maps.StreetViewPanorama(mapElement, mapOptions);
       }
-      var mapOptions = {
-        zoom: zoom,
+      const mapOptions = {
+        zoom,
         scrollwheel: utils.getData(itm, 'scrollwheel'),
         center: new window.google.maps.LatLng(latLng[0], latLng[1]),
         styles: localStorage.getItem('theme') === 'dark' ? mapStyles.Cobalt : mapStyles[mapStyle]
       };
-      var map = new window.google.maps.Map(mapElement, mapOptions);
-      var infowindow = new window.google.maps.InfoWindow({
+      const map = new window.google.maps.Map(mapElement, mapOptions);
+      const infowindow = new window.google.maps.InfoWindow({
         content: markerPopup
       });
-      var marker = new window.google.maps.Marker({
+      const marker = new window.google.maps.Marker({
         position: new window.google.maps.LatLng(latLng[0], latLng[1]),
-        icon: icon,
-        map: map
+        icon,
+        map
       });
-      marker.addListener('click', function () {
+      marker.addListener('click', () => {
         infowindow.open(map, marker);
       });
-      themeController && themeController.addEventListener('clickControl', function (_ref) {
-        var _ref$detail = _ref.detail,
-          control = _ref$detail.control,
-          value = _ref$detail.value;
+      themeController && themeController.addEventListener('clickControl', ({
+        detail: {
+          control,
+          value
+        }
+      }) => {
         if (control === 'theme') {
           map.set('styles', value === 'dark' ? mapStyles.Cobalt : mapStyles[mapStyle]);
         }
@@ -1950,50 +1863,50 @@ function initMap() {
 |                     Isotope
 -----------------------------------------------*/
 
-var isotopeInit = function isotopeInit() {
-  var Selector = {
+const isotopeInit = () => {
+  const Selector = {
     ISOTOPE_ITEM: '.isotope-item',
     DATA_ISOTOPE: '[data-isotope]',
     DATA_FILTER: '[data-filter]',
     DATA_FILER_NAV: '[data-filter-NAV]'
   };
-  var DATA_KEY = {
+  const DATA_KEY = {
     ISOTOPE: 'isotope'
   };
-  var ClassName = {
+  const ClassName = {
     ACTIVE: 'active'
   };
   if (window.Isotope) {
-    var masonryItems = document.querySelectorAll(Selector.DATA_ISOTOPE);
-    masonryItems.length && masonryItems.forEach(function (masonryItem) {
-      window.imagesLoaded(masonryItem, function () {
-        masonryItem.querySelectorAll(Selector.ISOTOPE_ITEM).forEach(function (item) {
+    const masonryItems = document.querySelectorAll(Selector.DATA_ISOTOPE);
+    masonryItems.length && masonryItems.forEach(masonryItem => {
+      window.imagesLoaded(masonryItem, () => {
+        masonryItem.querySelectorAll(Selector.ISOTOPE_ITEM).forEach(item => {
           // eslint-disable-next-line
           item.style.visibility = "visible";
         });
-        var userOptions = utils.getData(masonryItem, DATA_KEY.ISOTOPE);
-        var defaultOptions = {
+        const userOptions = utils.getData(masonryItem, DATA_KEY.ISOTOPE);
+        const defaultOptions = {
           itemSelector: Selector.ISOTOPE_ITEM,
           layoutMode: 'packery'
         };
-        var options = window._.merge(defaultOptions, userOptions);
-        var isotope = new window.Isotope(masonryItem, options);
+        const options = window._.merge(defaultOptions, userOptions);
+        const isotope = new window.Isotope(masonryItem, options);
 
-        //--------- filter -----------------
-        var filterElement = document.querySelector(Selector.DATA_FILER_NAV);
-        filterElement === null || filterElement === void 0 || filterElement.addEventListener('click', function (e) {
+        // --------- filter -----------------
+        const filterElement = document.querySelector(Selector.DATA_FILER_NAV);
+        filterElement?.addEventListener('click', e => {
           if (e.target.classList.contains('isotope-nav')) {
-            var item = e.target.dataset.filter;
+            const item = e.target.dataset.filter;
             isotope.arrange({
               filter: item
             });
-            document.querySelectorAll(Selector.DATA_FILTER).forEach(function (el) {
+            document.querySelectorAll(Selector.DATA_FILTER).forEach(el => {
               el.classList.remove(ClassName.ACTIVE);
             });
             e.target.classList.add(ClassName.ACTIVE);
           }
         });
-        //---------- filter end ------------
+        // ---------- filter end ------------
 
         return isotope;
       });
@@ -2005,16 +1918,16 @@ var isotopeInit = function isotopeInit() {
 /*                                 bigPicture                                 */
 /* -------------------------------------------------------------------------- */
 
-var lightboxInit = function lightboxInit() {
+const lightboxInit = () => {
   if (window.BigPicture) {
-    var bpItems = document.querySelectorAll('[data-bigpicture]');
-    bpItems.forEach(function (bpItem) {
-      var userOptions = utils.getData(bpItem, 'bigpicture');
-      var defaultOptions = {
+    const bpItems = document.querySelectorAll('[data-bigpicture]');
+    bpItems.forEach(bpItem => {
+      const userOptions = utils.getData(bpItem, 'bigpicture');
+      const defaultOptions = {
         el: bpItem
       };
-      var options = window._.merge(defaultOptions, userOptions);
-      bpItem.addEventListener('click', function () {
+      const options = window._.merge(defaultOptions, userOptions);
+      bpItem.addEventListener('click', () => {
         window.BigPicture(options);
       });
     });
@@ -2024,62 +1937,67 @@ var lightboxInit = function lightboxInit() {
 /*-----------------------------------------------
 |   Cookie notice
 -----------------------------------------------*/
-var cookieNoticeInit = function cookieNoticeInit() {
-  var Selector = {
+const cookieNoticeInit = () => {
+  const Selector = {
     NOTICE: '.notice',
     DATA_TOGGLE_NOTICE: '[data-bs-toggle="notice"]'
   };
-  var Events = {
+  const Events = {
     CLICK: 'click',
     HIDDEN_BS_TOAST: 'hidden.bs.toast'
   };
-  var DataKeys = {
+  const DataKeys = {
     OPTIONS: 'options'
   };
-  var ClassNames = {
+  const ClassNames = {
     HIDE: 'hide'
   };
-  var notices = document.querySelectorAll(Selector.NOTICE);
-  var showNotice = true;
-  notices.forEach(function (item) {
-    var notice = new window.bootstrap.Toast(item);
-    var options = _objectSpread({
+  const notices = document.querySelectorAll(Selector.NOTICE);
+  let showNotice = true;
+  notices.forEach(item => {
+    const notice = new window.bootstrap.Toast(item);
+    const options = {
       autoShow: false,
       autoShowDelay: 0,
       showOnce: false,
       cookieExpireTime: 3600000,
-      autohide: false
-    }, utils.getData(item, DataKeys.OPTIONS));
-    var showOnce = options.showOnce,
-      autoShow = options.autoShow,
-      autoShowDelay = options.autoShowDelay;
+      autohide: false,
+      ...utils.getData(item, DataKeys.OPTIONS)
+    };
+    const {
+      showOnce,
+      autoShow,
+      autoShowDelay
+    } = options;
     if (showOnce) {
-      var hasNotice = utils.getCookie('notice');
+      const hasNotice = utils.getCookie('notice');
       showNotice = hasNotice === null;
     }
     if (autoShow && showNotice) {
-      setTimeout(function () {
+      setTimeout(() => {
         notice.show();
       }, autoShowDelay);
     }
-    item.addEventListener(Events.HIDDEN_BS_TOAST, function (e) {
-      var el = e.currentTarget;
-      var toastOptions = _objectSpread({
+    item.addEventListener(Events.HIDDEN_BS_TOAST, e => {
+      const el = e.currentTarget;
+      const toastOptions = {
         cookieExpireTime: 3600000,
         showOnce: false,
-        autohide: false
-      }, utils.getData(el, DataKeys.OPTIONS));
+        autohide: false,
+        ...utils.getData(el, DataKeys.OPTIONS)
+      };
       toastOptions.showOnce && utils.setCookie('notice', false, toastOptions.cookieExpireTime);
     });
   });
-  var btnNoticeToggle = document.querySelector(Selector.DATA_TOGGLE_NOTICE);
-  btnNoticeToggle && btnNoticeToggle.addEventListener(Events.CLICK, function (_ref2) {
-    var currentTarget = _ref2.currentTarget;
-    var id = currentTarget.getAttribute('href');
-    var notice = new window.bootstrap.Toast(document.querySelector(id));
+  const btnNoticeToggle = document.querySelector(Selector.DATA_TOGGLE_NOTICE);
+  btnNoticeToggle && btnNoticeToggle.addEventListener(Events.CLICK, ({
+    currentTarget
+  }) => {
+    const id = currentTarget.getAttribute('href');
+    const notice = new window.bootstrap.Toast(document.querySelector(id));
 
-    /*eslint-disable-next-line*/
-    var el = notice._element;
+    /* eslint-disable-next-line */
+    const el = notice._element;
     utils.hasClass(el, ClassNames.HIDE) ? notice.show() : notice.hide();
   });
 };
@@ -2088,17 +2006,17 @@ var cookieNoticeInit = function cookieNoticeInit() {
 |   Inline Player [plyr]
 -----------------------------------------------*/
 
-var plyrInit = function plyrInit() {
+const plyrInit = () => {
   if (window.Plyr) {
-    var plyrs = document.querySelectorAll('[data-plyr]');
-    plyrs.forEach(function (plyr) {
-      var userOptions = utils.getData(plyr, 'plyr');
-      var defaultOptions = {
+    const plyrs = document.querySelectorAll('[data-plyr]');
+    plyrs.forEach(plyr => {
+      const userOptions = utils.getData(plyr, 'plyr');
+      const defaultOptions = {
         captions: {
           active: true
         }
       };
-      var options = window._.merge(defaultOptions, userOptions);
+      const options = window._.merge(defaultOptions, userOptions);
       return new window.Plyr(plyr, options);
     });
   }
@@ -2108,24 +2026,22 @@ var plyrInit = function plyrInit() {
 /*                                   Popover                                  */
 /* -------------------------------------------------------------------------- */
 
-var popoverInit = function popoverInit() {
-  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-  popoverTriggerList.map(function (popoverTriggerEl) {
-    return new window.bootstrap.Popover(popoverTriggerEl);
-  });
+const popoverInit = () => {
+  const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+  popoverTriggerList.map(popoverTriggerEl => new window.bootstrap.Popover(popoverTriggerEl));
 };
 
 /* -------------------------------------------------------------------------- */
 /*                                  Preloader                                 */
 /* -------------------------------------------------------------------------- */
 
-var preloaderInit = function preloaderInit() {
-  var bodyElement = document.querySelector('body');
-  window.imagesLoaded(bodyElement, function () {
-    var preloader = document.querySelector('.preloader');
-    preloader === null || preloader === void 0 || preloader.classList.add('loaded');
-    setTimeout(function () {
-      preloader === null || preloader === void 0 || preloader.remove();
+const preloaderInit = () => {
+  const bodyElement = document.querySelector('body');
+  window.imagesLoaded(bodyElement, () => {
+    const preloader = document.querySelector('.preloader');
+    preloader?.classList.add('loaded');
+    setTimeout(() => {
+      preloader?.remove();
     }, 800);
   });
 };
@@ -2137,15 +2053,17 @@ var preloaderInit = function preloaderInit() {
 /*
   global ProgressBar
 */
-var progressBarInit = function progressBarInit() {
-  var Selector = {
+const progressBarInit = () => {
+  const Selector = {
     DATA_PROGRESS_CIRCLE: '[data-progress-circle]',
     DATA_PROGRESS_LINE: '[data-progress-line]'
   };
-  var Events = {
+  const Events = {
     SCROLL: 'scroll'
   };
-  var merge = window._.merge;
+  const {
+    merge
+  } = window._;
 
   // progressbar.js@1.0.0 version is used
   // Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
@@ -2153,47 +2071,50 @@ var progressBarInit = function progressBarInit() {
   /*-----------------------------------------------
   |   Progress Circle
   -----------------------------------------------*/
-  var progressCircle = document.querySelectorAll(Selector.DATA_PROGRESS_CIRCLE);
+  const progressCircle = document.querySelectorAll(Selector.DATA_PROGRESS_CIRCLE);
   if (progressCircle.length) {
-    progressCircle.forEach(function (item) {
-      var userOptions = utils.getData(item, 'progress-circle');
-      var getDefaultOptions = function getDefaultOptions() {
-        return {
-          strokeWidth: 2,
-          trailWidth: 2,
-          easing: 'easeInOut',
-          duration: 3000,
-          svgStyle: {
-            'stroke-linecap': 'round',
-            display: 'block',
-            width: '100%'
-          },
-          text: {
-            autoStyleContainer: false
-          },
-          from: {
-            color: '#aaa',
-            width: 2
-          },
-          to: {
-            color: '#333',
-            width: 2
-          },
-          // Set default step function for all animate calls
-          step: function step(state, circle) {
-            circle.path.setAttribute('stroke', state.color);
-            circle.path.setAttribute('stroke-width', state.width);
-            var percentage = Math.round(circle.value() * 100);
-            circle.setText("<span class='value'>".concat(percentage, "<b>%</b></span> <span>").concat(userOptions.subText || '', "</span>"));
-          }
-        };
-      };
-      var options = merge(getDefaultOptions(), userOptions);
-      var bar = new ProgressBar.Circle(item, options);
-      var linearGradient = "<defs>\n        <linearGradient id=\"gradient\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\" gradientUnits=\"userSpaceOnUse\">\n          <stop offset=\"0%\" stop-color='#1970e2' />\n          <stop offset=\"100%\" stop-color='#4695ff' />\n        </linearGradient>\n      </defs>";
+    progressCircle.forEach(item => {
+      const userOptions = utils.getData(item, 'progress-circle');
+      const getDefaultOptions = () => ({
+        strokeWidth: 2,
+        trailWidth: 2,
+        easing: 'easeInOut',
+        duration: 3000,
+        svgStyle: {
+          'stroke-linecap': 'round',
+          display: 'block',
+          width: '100%'
+        },
+        text: {
+          autoStyleContainer: false
+        },
+        from: {
+          color: '#aaa',
+          width: 2
+        },
+        to: {
+          color: '#333',
+          width: 2
+        },
+        // Set default step function for all animate calls
+        step: (state, circle) => {
+          circle.path.setAttribute('stroke', state.color);
+          circle.path.setAttribute('stroke-width', state.width);
+          const percentage = Math.round(circle.value() * 100);
+          circle.setText(`<span class='value'>${percentage}<b>%</b></span> <span>${userOptions.subText || ''}</span>`);
+        }
+      });
+      const options = merge(getDefaultOptions(), userOptions);
+      const bar = new ProgressBar.Circle(item, options);
+      const linearGradient = `<defs>
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color='#1970e2' />
+          <stop offset="100%" stop-color='#4695ff' />
+        </linearGradient>
+      </defs>`;
       bar.svg.insertAdjacentHTML('beforeEnd', linearGradient);
-      var playProgressTriggered = false;
-      var progressCircleAnimation = function progressCircleAnimation() {
+      let playProgressTriggered = false;
+      const progressCircleAnimation = () => {
         if (!playProgressTriggered) {
           if (utils.isElementIntoView(item)) {
             bar.animate(options.progress / 100);
@@ -2203,11 +2124,14 @@ var progressBarInit = function progressBarInit() {
         return playProgressTriggered;
       };
       progressCircleAnimation();
-      window.addEventListener(Events.SCROLL, function () {
+      window.addEventListener(Events.SCROLL, () => {
         progressCircleAnimation();
       });
-      document.body.addEventListener('clickControl', function (_ref3) {
-        var control = _ref3.detail.control;
+      document.body.addEventListener('clickControl', ({
+        detail: {
+          control
+        }
+      }) => {
         if (control === 'theme') {
           bar.trail.setAttribute('stroke', utils.getGrays()['200']);
           if (!bar.path.getAttribute('stroke').includes('url')) {
@@ -2221,38 +2145,36 @@ var progressBarInit = function progressBarInit() {
   /*-----------------------------------------------
   |   Progress Line
   -----------------------------------------------*/
-  var progressLine = document.querySelectorAll(Selector.DATA_PROGRESS_LINE);
+  const progressLine = document.querySelectorAll(Selector.DATA_PROGRESS_LINE);
   if (progressLine.length) {
-    progressLine.forEach(function (item) {
-      var userOptions = utils.getData(item, 'progress-line');
-      var getDefaultOptions = function getDefaultOptions() {
-        return {
-          strokeWidth: 1,
-          easing: 'easeInOut',
-          duration: 3000,
-          trailWidth: 1,
-          color: '#333',
-          svgStyle: {
-            width: '100%',
-            height: '0.25rem',
-            'stroke-linecap': 'round',
-            'border-radius': '0.125rem'
+    progressLine.forEach(item => {
+      const userOptions = utils.getData(item, 'progress-line');
+      const getDefaultOptions = () => ({
+        strokeWidth: 1,
+        easing: 'easeInOut',
+        duration: 3000,
+        trailWidth: 1,
+        color: '#333',
+        svgStyle: {
+          width: '100%',
+          height: '0.25rem',
+          'stroke-linecap': 'round',
+          'border-radius': '0.125rem'
+        },
+        text: {
+          style: {
+            transform: null
           },
-          text: {
-            style: {
-              transform: null
-            },
-            autoStyleContainer: false
-          },
-          step: function step(state, line) {
-            line.setText("<span class='value'>".concat(Math.round(line.value() * 100), "<b>%</b></span> <span>").concat(userOptions.subText, "</span>"));
-          }
-        };
-      };
-      var options = merge(getDefaultOptions(), userOptions);
-      var bar = new ProgressBar.Line(item, options);
-      var playProgressTriggered = false;
-      var progressLineAnimation = function progressLineAnimation() {
+          autoStyleContainer: false
+        },
+        step(state, line) {
+          line.setText(`<span class='value'>${Math.round(line.value() * 100)}<b>%</b></span> <span>${userOptions.subText}</span>`);
+        }
+      });
+      const options = merge(getDefaultOptions(), userOptions);
+      const bar = new ProgressBar.Line(item, options);
+      let playProgressTriggered = false;
+      const progressLineAnimation = () => {
         if (!playProgressTriggered) {
           if (utils.isElementIntoView(item)) {
             bar.animate(options.progress / 100);
@@ -2262,27 +2184,25 @@ var progressBarInit = function progressBarInit() {
         return playProgressTriggered;
       };
       progressLineAnimation();
-      window.addEventListener(Events.SCROLL, function () {
+      window.addEventListener(Events.SCROLL, () => {
         progressLineAnimation();
       });
     });
   }
-  //----------- progress line end --------------
+  // ----------- progress line end --------------
 };
 
 /* --------------------------------------------------------------------------
 |                                 Rellax js
 /* -------------------------------------------------------------------------- */
 
-var rellaxInit = function rellaxInit() {
-  return window.Rellax && new window.Rellax('[data-parallax]', {});
-};
+const rellaxInit = () => window.Rellax && new window.Rellax('[data-parallax]', {});
 
 /*-----------------------------------------------
 |                  Swiper
 -----------------------------------------------*/
-var swiperInit = function swiperInit() {
-  var Selector = {
+const swiperInit = () => {
+  const Selector = {
     DATA_SWIPER: '[data-swiper]',
     DATA_ZANIM_TIMELINE: '[data-zanim-timeline]',
     IMG: 'img',
@@ -2290,89 +2210,90 @@ var swiperInit = function swiperInit() {
     SWIPER_BUTTON_NEXT: '.swiper-button-next',
     SWIPER_BUTTON_PREV: '.swiper-button-prev'
   };
-  var DATA_KEY = {
+  const DATA_KEY = {
     SWIPER: 'swiper'
   };
-  var Events = {
+  const Events = {
     SLIDE_CHANGE: 'slideChange'
   };
-  var swipers = document.querySelectorAll(Selector.DATA_SWIPER);
-  swipers.forEach(function (swiper) {
-    var options = utils.getData(swiper, DATA_KEY.SWIPER);
-    var thumbsOptions = options.thumb;
-    var thumbsInit;
+  const swipers = document.querySelectorAll(Selector.DATA_SWIPER);
+  swipers.forEach(swiper => {
+    const options = utils.getData(swiper, DATA_KEY.SWIPER);
+    const thumbsOptions = options.thumb;
+    let thumbsInit;
     if (thumbsOptions) {
-      var thumbImages = swiper.querySelectorAll(Selector.IMG);
-      var slides = '';
-      thumbImages.forEach(function (img) {
-        slides += "\n          <div class='swiper-slide'>\n            <img class='img-fluid rounded mt-1' src=".concat(img.src, " alt=''/>\n          </div>\n        ");
+      const thumbImages = swiper.querySelectorAll(Selector.IMG);
+      let slides = '';
+      thumbImages.forEach(img => {
+        slides += `
+          <div class='swiper-slide'>
+            <img class='img-fluid rounded mt-1' src=${img.src} alt=''/>
+          </div>
+        `;
       });
-      var thumbs = document.createElement('div');
+      const thumbs = document.createElement('div');
       thumbs.setAttribute('class', 'swiper thumb');
-      thumbs.innerHTML = "<div class='swiper-wrapper'>".concat(slides, "</div>");
+      thumbs.innerHTML = `<div class='swiper-wrapper'>${slides}</div>`;
       if (thumbsOptions.parent) {
-        var parent = document.querySelector(thumbsOptions.parent);
+        const parent = document.querySelector(thumbsOptions.parent);
         parent.parentNode.appendChild(thumbs);
       } else {
         swiper.parentNode.appendChild(thumbs);
       }
       thumbsInit = new window.Swiper(thumbs, thumbsOptions);
     }
-    var swiperNav = swiper.querySelector(Selector.SWIPER_NAV);
-    var newSwiper = new window.Swiper(swiper, _objectSpread(_objectSpread({}, options), {}, {
+    const swiperNav = swiper.querySelector(Selector.SWIPER_NAV);
+    const newSwiper = new window.Swiper(swiper, {
+      ...options,
       navigation: {
-        nextEl: swiperNav === null || swiperNav === void 0 ? void 0 : swiperNav.querySelector(Selector.SWIPER_BUTTON_NEXT),
-        prevEl: swiperNav === null || swiperNav === void 0 ? void 0 : swiperNav.querySelector(Selector.SWIPER_BUTTON_PREV)
+        nextEl: swiperNav?.querySelector(Selector.SWIPER_BUTTON_NEXT),
+        prevEl: swiperNav?.querySelector(Selector.SWIPER_BUTTON_PREV)
       },
       thumbs: {
         swiper: thumbsInit
       }
-    }));
+    });
 
-    //- zanimation effect start
+    // - zanimation effect start
     if (swiper) {
-      newSwiper.on(Events.SLIDE_CHANGE, function () {
-        var timelineElements = swiper.querySelectorAll(Selector.DATA_ZANIM_TIMELINE);
-        timelineElements.forEach(function (el) {
-          window.zanimation(el, function (animation) {
-            setTimeout(function () {
+      newSwiper.on(Events.SLIDE_CHANGE, () => {
+        const timelineElements = swiper.querySelectorAll(Selector.DATA_ZANIM_TIMELINE);
+        timelineElements.forEach(el => {
+          window.zanimation(el, animation => {
+            setTimeout(() => {
               animation.play();
             }, 1200);
           });
         });
       });
     }
-    //- zanimation effect end
+    // - zanimation effect end
   });
 };
 
 /* -------------------------------------------------------------------------- */
 /*                                   Tooltip                                  */
 /* -------------------------------------------------------------------------- */
-var tooltipInit = function tooltipInit() {
-  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-  tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new window.bootstrap.Tooltip(tooltipTriggerEl, {
-      trigger: 'hover'
-    });
-  });
+const tooltipInit = () => {
+  const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  tooltipTriggerList.map(tooltipTriggerEl => new window.bootstrap.Tooltip(tooltipTriggerEl, {
+    trigger: 'hover'
+  }));
 };
 
 /* -------------------------------------------------------------------------- */
 /*                                 Typed Text                                 */
 /* -------------------------------------------------------------------------- */
 
-var typedTextInit = function typedTextInit() {
-  var typedTexts = document.querySelectorAll('[data-typed-text]');
+const typedTextInit = () => {
+  const typedTexts = document.querySelectorAll('[data-typed-text]');
   if (typedTexts.length && window.Typed) {
-    typedTexts.forEach(function (typedText) {
-      return new window.Typed(typedText, {
-        strings: utils.getData(typedText, 'typed-text'),
-        typeSpeed: 100,
-        loop: true,
-        backDelay: 1500
-      });
-    });
+    typedTexts.forEach(typedText => new window.Typed(typedText, {
+      strings: utils.getData(typedText, 'typed-text'),
+      typeSpeed: 100,
+      loop: true,
+      backDelay: 1500
+    }));
   }
 };
 
@@ -2388,16 +2309,16 @@ CustomEase.create('CubicBezier', '.77,0,.18,1');
 /*-----------------------------------------------
 |   Global Functions
 -----------------------------------------------*/
-var filterBlur = function filterBlur() {
-  var blur = 'blur(5px)';
-  var isIpadIphoneMacFirefox = (window.is.ios() || window.is.mac()) && window.is.firefox();
+const filterBlur = () => {
+  let blur = 'blur(5px)';
+  const isIpadIphoneMacFirefox = (window.is.ios() || window.is.mac()) && window.is.firefox();
   if (isIpadIphoneMacFirefox) {
     blur = 'blur(0px)';
   }
   return blur;
 };
-var zanimationEffects = {
-  "default": {
+const zanimationEffects = {
+  default: {
     from: {
       opacity: 0,
       y: 70
@@ -2528,41 +2449,41 @@ var zanimationEffects = {
   }
 };
 if (utils.isRTL()) {
-  Object.keys(zanimationEffects).forEach(function (key) {
+  Object.keys(zanimationEffects).forEach(key => {
     if (zanimationEffects[key].from.x) {
       zanimationEffects[key].from.x = -zanimationEffects[key].from.x;
     }
   });
 }
-var zanimation = function zanimation(el, callback) {
-  var Selector = {
+const zanimation = (el, callback) => {
+  const Selector = {
     DATA_ZANIM_TIMELINE: '[data-zanim-timeline]',
     DATA_KEYS: '[data-zanim-xs], [data-zanim-sm], [data-zanim-md], [data-zanim-lg], [data-zanim-xl]'
   };
-  var DATA_KEY = {
+  const DATA_KEY = {
     DATA_ZANIM_TRIGGER: 'data-zanim-trigger'
   };
 
   /*-----------------------------------------------
   |   Get Controller
   -----------------------------------------------*/
-  var controllerZanim;
-  var currentBreakpointName = utils.getCurrentScreenBreakpoint().currentBreakpoint;
-  var currentBreakpointVal = utils.getCurrentScreenBreakpoint().breakpointStartVal;
-  var getController = function getController(element) {
-    var options = {};
-    var controller = {};
-    if (element.hasAttribute("data-zanim-".concat(currentBreakpointName))) {
-      controllerZanim = "zanim-".concat(currentBreakpointName);
+  let controllerZanim;
+  const currentBreakpointName = utils.getCurrentScreenBreakpoint().currentBreakpoint;
+  const currentBreakpointVal = utils.getCurrentScreenBreakpoint().breakpointStartVal;
+  const getController = element => {
+    let options = {};
+    let controller = {};
+    if (element.hasAttribute(`data-zanim-${currentBreakpointName}`)) {
+      controllerZanim = `zanim-${currentBreakpointName}`;
     } else {
       /*-----------------------------------------------
       |   Set the mobile first Animation
       -----------------------------------------------*/
-      var animationBreakpoints = [];
-      var attributes = element.getAttributeNames();
-      attributes.forEach(function (attribute) {
+      let animationBreakpoints = [];
+      const attributes = element.getAttributeNames();
+      attributes.forEach(attribute => {
         if (attribute !== DATA_KEY.DATA_ZANIM_TRIGGER && attribute.startsWith('data-zanim-')) {
-          var breakPointName = attribute.split('data-zanim-')[1];
+          const breakPointName = attribute.split('data-zanim-')[1];
           if (utils.breakpoints[breakPointName] < currentBreakpointVal) {
             animationBreakpoints.push({
               name: breakPointName,
@@ -2573,20 +2494,18 @@ var zanimation = function zanimation(el, callback) {
       });
       controllerZanim = undefined;
       if (animationBreakpoints.length !== 0) {
-        animationBreakpoints = animationBreakpoints.sort(function (a, b) {
-          return a.size - b.size;
-        });
-        var activeBreakpoint = animationBreakpoints.pop();
-        controllerZanim = "zanim-".concat(activeBreakpoint.name);
+        animationBreakpoints = animationBreakpoints.sort((a, b) => a.size - b.size);
+        const activeBreakpoint = animationBreakpoints.pop();
+        controllerZanim = `zanim-${activeBreakpoint.name}`;
       }
     }
-    var userOptions = utils.getData(element, controllerZanim);
+    const userOptions = utils.getData(element, controllerZanim);
     controller = window._.merge(options, userOptions);
     if (!(controllerZanim === undefined)) {
       if (userOptions.animation) {
         options = zanimationEffects[userOptions.animation];
       } else {
-        options = zanimationEffects["default"];
+        options = zanimationEffects.default;
       }
     }
     if (controllerZanim === undefined) {
@@ -2621,13 +2540,13 @@ var zanimation = function zanimation(el, callback) {
   |   For Timeline
   -----------------------------------------------*/
 
-  var zanimTimeline = el.hasAttribute('data-zanim-timeline');
+  const zanimTimeline = el.hasAttribute('data-zanim-timeline');
   if (zanimTimeline) {
-    var timelineOption = utils.getData(el, 'zanim-timeline');
-    var timeline = gsap.timeline(timelineOption);
-    var timelineElements = el.querySelectorAll(Selector.DATA_KEYS);
-    timelineElements.forEach(function (timelineEl) {
-      var controller = getController(timelineEl);
+    const timelineOption = utils.getData(el, 'zanim-timeline');
+    const timeline = gsap.timeline(timelineOption);
+    const timelineElements = el.querySelectorAll(Selector.DATA_KEYS);
+    timelineElements.forEach(timelineEl => {
+      const controller = getController(timelineEl);
       timeline.fromTo(timelineEl, controller.duration, controller.from, controller.to, controller.delay).pause();
       window.imagesLoaded(timelineEl, callback(timeline));
     });
@@ -2635,7 +2554,7 @@ var zanimation = function zanimation(el, callback) {
     /*-----------------------------------------------
     |   For single elements outside timeline
     -----------------------------------------------*/
-    var controller = getController(el);
+    const controller = getController(el);
     callback(gsap.fromTo(el, controller.duration, controller.from, controller.to).delay(controller.delay).pause());
   }
   callback(gsap.timeline());
@@ -2645,28 +2564,26 @@ var zanimation = function zanimation(el, callback) {
 |    Zanimation Init
 -----------------------------------------------*/
 
-var zanimationInit = function zanimationInit() {
-  var Selector = {
+const zanimationInit = () => {
+  const Selector = {
     DATA_ZANIM_TRIGGER: '[data-zanim-trigger]',
     DATA_ZANIM_REPEAT: '[zanim-repeat]'
   };
-  var DATA_KEY = {
+  const DATA_KEY = {
     DATA_ZANIM_TRIGGER: 'data-zanim-trigger'
   };
-  var Events = {
+  const Events = {
     SCROLL: 'scroll'
   };
 
   /*-----------------------------------------------
   |   Triggering zanimation when the element enters in the view
   -----------------------------------------------*/
-  var triggerZanimation = function triggerZanimation() {
-    var triggerElement = document.querySelectorAll(Selector.DATA_ZANIM_TRIGGER);
-    triggerElement.forEach(function (el) {
+  const triggerZanimation = () => {
+    const triggerElement = document.querySelectorAll(Selector.DATA_ZANIM_TRIGGER);
+    triggerElement.forEach(el => {
       if (utils.isElementIntoView(el) && el.hasAttribute(DATA_KEY.DATA_ZANIM_TRIGGER)) {
-        zanimation(el, function (animation) {
-          return animation.play();
-        });
+        zanimation(el, animation => animation.play());
         if (!document.querySelector(Selector.DATA_ZANIM_REPEAT)) {
           el.removeAttribute(DATA_KEY.DATA_ZANIM_TRIGGER);
         }
@@ -2674,13 +2591,11 @@ var zanimationInit = function zanimationInit() {
     });
   };
   triggerZanimation();
-  window.addEventListener(Events.SCROLL, function () {
-    return triggerZanimation();
-  });
+  window.addEventListener(Events.SCROLL, () => triggerZanimation());
 };
-var gsapAnimation = {
-  zanimationInit: zanimationInit,
-  zanimation: zanimation
+const gsapAnimation = {
+  zanimationInit,
+  zanimation
 };
 
 /* -------------------------------------------------------------------------- */

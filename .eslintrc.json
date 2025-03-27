@@ -29,6 +29,7 @@
     }],
     "no-param-reassign": ["error", {
       "props": false
-    }]
+    }],
+    "import/named": "off"
   }
 } 
