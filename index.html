@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Uz-Dan Community</title>
+
+  <style>
+    /* 
+      We want the iframe to fill the entire screen so that visitors only see
+      the test backend site (https://uz-dan-test-wbackend.bexr.us).
+      No borders, no margins, full height & width.
+    */
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    iframe {
+      border: 0;
+      width: 100%;
+      height: 100vh;
+      display: block;
+    }
+  </style>
+
+  <!--
+    IMPORTANT: Why iframe?
+
+    Currently, we are in the middle of updating nameservers for uz-dan.dk. 
+    Instead of breaking the website for visitors during DNS changes,
+    we load our new backend-based site inside this iframe.
+    This way users always see the new site, even though DNS might not yet 
+    point directly to it.
+
+    Long-term: once DNS changes are stable, we should point uz-dan.dk directly 
+    to the backend host and remove this iframe.
+  -->
+
+  <!-- Prevent search engines from indexing this placeholder page -->
+  <meta name="robots" content="noindex,nofollow">
+</head>
+<body>
+  <!-- 
+    The real site is being served inside this iframe.
+    Replace the URL below if the test domain changes.
+  -->
+  <iframe
+    src="https://uz-dan-test-wbackend.bexr.us/"
+    allow="fullscreen; clipboard-read; clipboard-write"
+    loading="eager"
+  ></iframe>
+
+  <noscript>
+    JavaScript is required.  
+    Please open 
+    <a href="https://uz-dan-test-wbackend.bexr.us/">uz-dan-test-wbackend.bexr.us</a>.
+  </noscript>
+
+  <script>
+    /*
+      Fallback logic: If the iframe is blocked (due to server headers or browser issues),
+      we show a visible link so users can still reach the test site directly.
+    */
+    const failSafe = setTimeout(() => {
+      if (!document.querySelector('iframe')?.contentWindow?.location.href) {
+        const p = document.createElement('p');
+        p.innerHTML = 'Having trouble loading the site. <a href="https://uz-dan-test-wbackend.bexr.us/">Open it directly</a>.';
+        p.style.position = 'fixed';
+        p.style.bottom = '1rem';
+        p.style.left = '1rem';
+        p.style.background = 'white';
+        p.style.padding = '0.5rem 0.75rem';
+        p.style.borderRadius = '0.5rem';
+        p.style.boxShadow = '0 2px 10px rgba(0,0,0,.15)';
+        document.body.appendChild(p);
+      }
+    }, 3000);
+    window.addEventListener('load', () => clearTimeout(failSafe));
+  </script>
+</body>
+</html>
